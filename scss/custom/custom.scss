@@ -1,0 +1,16 @@
+@import "vinyl";
+
+body.poster {
+  margin: 0 auto;
+  padding: $spacer-y $spacer-x;
+  @include box-shadow($ppm $ppm 5 * $ppm black);
+
+  &.a0 {
+    width: 841 * $ppm;
+    height: 1189 * $ppm;
+  }
+  &.a4 {
+    width: 210 * $ppm;
+    height: 297 * $ppm;
+  }
+}
