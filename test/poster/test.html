@@ -2,13 +2,103 @@
 
 <html>
 <head>
-  <link rel="stylesheet" href="./vinyl.css"/>
-  <link rel="stylesheet" href="./custom.css"/>
+  <link rel="stylesheet" href="../assets/css/poster.css"/>
 </head>
 
-<body class="poster a0">
-  <!-- <div class="guides">
-  </div> -->
-  <p>test</p>
+<body>
+  <div class="guides">
+  </div>
+
+  <header>
+    <h1>
+      The main title of my incredible poster<br/>
+      <small>
+        <p>
+          Alexis Brenon<sup>1</sup>, Second Author<sup>2</sup><br/>
+          <a>{brenon.alexis,author.second}@gmail.com</a>
+        </p>
+        <small>
+          <p>
+            <sup>1</sup>My Institute<br/>
+            <sup>2</sup>Its Institute
+          </p>
+          <p>
+            Project acknowledgements
+          </p>
+        </small>
+      </small>
+    </h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Introduction</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu elit pharetra, ultricies tellus eu, ultricies nulla.</p>
+      <ul>
+        <li>Morbi blandit libero in eros posuere mattis<span class="ref" data-bibkey="test01"></span>.</li>
+        <li>Donec at eros vitae mauris maximus lacinia nec non nisi.</li>
+        <li>Ut semper nisl in turpis iaculis, aliquet egestas ex varius.</li>
+        <li>Sed a ligula laoreet, tristique leo nec, congue ipsum.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Explanation</h2>
+      <div class="content">
+        <section class="col-6 separator">
+          <p>Quisque ornare est non odio placerat, quis vestibulum lorem posuere.</p>
+          <ul class="list-pros-cons">
+            <li class="pros">Integer ac sem sodales<span class="ref" data-bibkey="test02"></span>, sollicitudin nulla tristique, eleifend<span class="ref" data-bibkey="test03"></span> mauris.</li>
+            <li class="cons">Quisque imperdiet libero non enim convallis, nec lacinia massa sodales.</li>
+          </ul>
+          <p>Quisque sagittis est bibendum molestie rhoncus.</p>
+        </section>
+        <section class="col-6">
+          <p>Sed blandit ipsum at enim malesuada, in malesuada nulla tincidunt.</p>
+          <ol>
+            <li>Morbi tempor erat semper nisl sollicitudin lobortis et ut risus.</li>
+            <li>Etiam suscipit libero nec nulla sodales, non dapibus erat mattis.</li>
+          </ol>
+          <p>Maecenas iaculis eros id congue auctor.</p>
+        </section>
+        <section>
+          <hr/>
+        </section>
+        <section class="col-8">
+          <p>Lorem ipsum dolor sit amet, consectetur<span class="ref" data-bibkey="test04"></span> adipiscing elit. Aenean elementum metus et consectetur gravida. Praesent a maximus leo.</p>
+          <figure style="width:75%;">
+            <img src="../../test.jpg"/>
+            <figcaption>The logo of the Vinyl framework.</figcaption>
+          </figure>
+        </section>
+        <section class="col-4">
+          <pre>#include &lt;stdio.h&gt;&#10;&#10;int main(void)&#10;{&#10;    printf("hello, world\n");&#10;    return 0;&#10;}</pre>
+        </section>
+      </div>
+    </section>
+
+    <section class="col-6">
+      <h2>Conclusion</h2>
+      <p>Donec vitae libero congue, fringilla est sed, finibus tortor. Pellentesque accumsan, risus vel pulvinar feugiat, urna est lacinia diam, sit amet fringilla diam risus quis magna.</p>
+      <p>Duis ut diam sit amet ligula pharetra<span class="ref" data-bibkey="test05"></span> sollicitudin in sed lacus. Morbi magna sapien, ullamcorper eu consequat vel, consectetur a mi.</p>
+    </section>
+
+    <section class="col-5 col-offset-1">
+      <h2>Conclusion</h2>
+      <p>Donec vitae libero congue, fringilla est sed, finibus tortor. Pellentesque accumsan, risus vel pulvinar feugiat, urna est lacinia diam, sit amet fringilla diam risus quis magna.</p>
+      <p>Duis ut diam sit amet ligula pharetra sollicitudin in sed lacus. Morbi magna sapien, ullamcorper eu consequat vel, consectetur a mi.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <ul id="bibliography" data-bibtex-file="./biblio.bib">
+    </ul>
+  </footer>
+
+  <!-- Javascript Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../assets/js/bibtex.js"></script>
+
 </body>
 </html>

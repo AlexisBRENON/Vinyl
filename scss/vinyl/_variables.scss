@@ -25,16 +25,16 @@ $brand-danger:          #d9534f !default;
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 
-$spacer:                     1rem !default;
+$spacer:                     0.75rem !default;
 $spacer-x:                   $spacer !default;
 $spacer-y:                   $spacer !default;
-$border-width:               .0625rem !default;
+$border-width:               .075rem !default;
 
 /* Settings for some of the most global styles. */
 
 $body-bg:               #fff !default;
 $body-color:            $gray-dark !default;
-$link-color:            $brand-primary !default;
+$link-color:            lighten($brand-primary, 20%) !default;
 $component-active-color:    $body-bg !default;
 $component-active-bg:       $brand-primary !default;
 
@@ -68,10 +68,11 @@ $font-family-monospace:   "Inconsolata", monospace !default;
 $font-family-icon:        "Font Awesome" !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-root:          30 * $pppt; // 30pt set as pixel number. It's used as the rem unit
+$font-size-root-pt:       12 !default; // Font size in pt. It's used as the rem unit
+$font-size-root:          $font-size-root-pt * $pppt; // convert pt size to pixel size
 $font-size-base:          1rem !default;
-$font-size-large:         1.25rem !default; // ~38pt
-$font-size-small:         0.85rem !default; // ~26pt
+$font-size-large:         125% !default;
+$font-size-small:         66% !default;
 
 $font-size-h1:            2.5rem !default;
 $font-size-h2:            2rem !default;
@@ -81,10 +82,10 @@ $font-size-h5:            1.25rem !default;
 $font-size-h6:            1rem !default;
 
 $headings-margin-bottom:     ($spacer-x / 2) !default;
-$headings-font-family:       inherit !default;
+$headings-font-family:       $font-family-base !default;
 $headings-font-weight:       500 !default;
 $headings-line-height:       1.1 !default;
-$headings-color:             inherit !default;
+$headings-color:             $body-color !default;
 
 $text-muted:                 $gray-light !default;
 

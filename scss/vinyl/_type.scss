@@ -46,8 +46,8 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
-  font-weight: normal;
+  font-size: $font-size-small;
+  font-weight: 300;
 }
 
 
@@ -59,6 +59,26 @@ small,
 .list-unstyled {
   padding-left: 0;
   list-style: none;
+}
+
+.list-pros-cons {
+  list-style: none;
+
+  & > li {
+    &:before {
+      font-family: $font-family-icon;
+      margin-right: 1ex;
+      font-size: 85%;
+    }
+    &.pros:before {
+      content: "\f055";
+      color: $brand-success;
+    }
+    &.cons:before {
+      content: "\f056";
+      color: $brand-danger;
+    }
+  }
 }
 
 // Inline turns list items into inline-block
@@ -96,18 +116,24 @@ small,
 // Figures
 //
 
-.figure {
+figure {
+  @extend .center-block;
+  @extend .text-center;
   // Ensures the caption's text aligns with the image.
   display: inline-block;
+  padding: $border-radius;
+  @include border-radius();
+  border: $border-width solid $hr-border-color;
 
   > img {
     @extend .img-responsive;
+    @extend .center-block;
     line-height: 1;
     margin-bottom: ($spacer-y / 2);
   }
 }
 
-.figure-caption {
-  font-size: 90%;
+figcaption {
+  @extend small;
   color: $gray-light;
 }

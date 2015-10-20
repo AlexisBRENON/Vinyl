@@ -1,0 +1,20 @@
+// Core variables and mixins
+@import "vinyl/variables";
+@import "vinyl/mixins";
+
+// // Reset and dependencies
+@import "vinyl/normalize";
+@import "vinyl/print";
+
+// Core CSS
+@import "vinyl/reboot";
+@import "vinyl/type";
+@import "vinyl/images";
+@import "vinyl/code";
+@import "vinyl/grid";
+@import "vinyl/tables";
+@import "vinyl/references";
+
+// Utility classes
+@import "vinyl/utilities";
+@import "vinyl/utilities-spacing";

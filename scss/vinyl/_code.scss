@@ -36,9 +36,12 @@ kbd {
 pre {
   display: block;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1ex;
+  padding: 1ex;
   font-size: 90%;
   color: $pre-color;
+  background-color: $pre-bg;
+  border: $border-width solid $pre-border-color;
 
   // Account for some code outputs that place code tags in pre tags
   code {

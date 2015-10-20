@@ -1,0 +1,104 @@
+@import "poster/variables";
+@import "poster/mixins";
+
+@import "vinyl";
+
+body {
+  position: relative;
+
+  width: 841 * $ppm;
+  height: 1189 * $ppm;
+  margin: 0 auto;
+  padding: $spacer-y $spacer-x;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  @include box-shadow($ppm $ppm 5 * $ppm black);
+}
+
+.guides {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  z-index: 10;
+  pointer-events: none;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 33.3%; bottom: 33.3%;
+    left: 0; right: 0;
+    border-top: 1px dotted green;
+    border-bottom: 1px dotted green;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 33.3%; right: 33.3%;
+    border-right: 1px dotted green;
+    border-left: 1px dotted green;
+  }
+}
+
+header {
+  h1 {
+    color: $brand-primary;
+    font-variant: small-caps;
+
+    small {
+      color: #777;
+      font-variant: normal;
+    }
+  }
+}
+
+main {
+  flex: 1;
+  @include make-row();
+  margin-left: 0;
+  margin-right: 0;
+  //align-items: center;
+
+  > section {
+    @include border-radius();
+    box-shadow: 0 0 1ex #333;
+    margin-bottom: $spacer-y;
+
+    h2 {
+      @include make-row();
+      @include border-top-radius();
+      padding-left: 0.5ex;
+      display:flex;
+      align-items: baseline;
+      background-color: $brand-primary;
+      color: $body-bg;
+
+      &:after {
+        content: "";
+        display: block;
+        margin: 0 0.5ex;
+        border-bottom: $border-width solid $body-bg;
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  section {
+    @include make-col();
+    @include make-col-span($grid-columns);
+
+    &.separator {
+      border-right: $hr-border-width solid $hr-border-color;
+    }
+
+    .content {
+      @include make-row();
+    }
+  }
+}
