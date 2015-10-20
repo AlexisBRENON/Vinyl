@@ -3,16 +3,14 @@
 // ==========================================================================
 
 @media print {
-  a,
-  a:visited {
-    text-decoration: underline;
+  .guides {
+      display: none;
+  }
+  
+  pre {
+    page-break-inside: avoid;
   }
 
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;

@@ -2,7 +2,7 @@
 // Basic Bootstrap table
 //
 
-.table {
+table {
   width: 100%;
   max-width: 100%;
   margin-bottom: $spacer;
@@ -33,7 +33,7 @@
 // Condensed table w/ half padding
 //
 
-.table-sm {
+table.small {
   th,
   td {
     padding: $table-sm-cell-padding;
