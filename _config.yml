@@ -1,0 +1,13 @@
+title: Vinyl examples
+url: alexisbrenon.github.io/vinyl
+author: Alexis BRENON
+linkedin: https://www.linkedin.com/profile/public-profile-settings?trk=prof-edit-edit-public_profile
+twitter: AlexisBRENON
+github: AlexisBRENON
+
+exclude: [README.md]
+
+sass:
+    sass_dir: _sass
+    style: :expanded
+
