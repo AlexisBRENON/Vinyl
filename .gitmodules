@@ -1,0 +1,3 @@
+[submodule "assets/js/bibtexParseJs"]
+	path = assets/js/bibtexParseJs
+	url = https://github.com/ORCID/bibtexParseJs.git
