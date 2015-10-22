@@ -60,7 +60,7 @@
         <section class="col-6">
           <p>Sed blandit ipsum at enim malesuada, in malesuada nulla tincidunt.</p>
           <ol>
-            <li>Morbi tempor erat semper nisl sollicitudin lobortis et ut risus.</li>
+            <li>Morbi tempor erat semper <a class="ref" href="vinyl-logo"></a> nisl sollicitudin lobortis et ut risus.</li>
             <li>Etiam suscipit libero nec nulla sodales, non dapibus erat mattis.</li>
           </ol>
           <p>Maecenas iaculis eros id congue auctor.</p>
@@ -70,7 +70,7 @@
         </section>
         <section class="col-8">
           <p>Lorem ipsum dolor sit amet, consectetur<a class="ref" data-bibkey="Sample2"></a> adipiscing elit. Aenean elementum metus et consectetur gravida. Praesent a maximus leo.</p>
-          <figure style="width:75%;">
+          <figure id="vinyl-logo" style="width:75%;">
             <img src="../../test.jpg"/>
             <figcaption>The logo of the Vinyl framework.</figcaption>
           </figure>
@@ -83,18 +83,18 @@
 
     <section class="col-6">
       <h2>Conclusion</h2>
-      <table class="table-striped">
+      <table id="Awesome-table" class="table-striped">
           <tr>
               <th></th><th>Col 1</th><th>Col 2</th><th>Col 3</th>
           </tr>
           <tr>
-              <th>Row 1</th><td>11</td><td>21</td><td class="table-danger">31</td>
+              <th>Row 1</th><td>11</td><td rowspan="2" class="text-muted">2122</td><td class="table-danger">31</td>
           </tr>
           <tr>
-              <th>Row 2</th><td>12</td><td class="text-muted">22</td><td>32</td>
+              <th>Row 2</th><td>12</td><td>32</td>
           </tr>
           <tr class="table-success">
-              <th>Row 3</th><td>13</td><td>23</td><td>33</td>
+              <th>Row 3</th><td colspan="3">333</td>
           </tr>
           <caption>An awesome table</caption>
       </table>
@@ -102,7 +102,7 @@
 
     <section class="col-5 col-offset-1">
       <h2>Perspectives</h2>
-      <p>Donec vitae libero congue, fringilla est sed, finibus tortor. Pellentesque accumsan, risus vel pulvinar feugiat, urna est lacinia diam, sit amet fringilla diam risus quis magna.</p>
+      <p>Donec vitae libero congue, fringilla est sed <a class="ref" href="Awesome-table"></a>, finibus tortor. Pellentesque accumsan, risus vel pulvinar feugiat, urna est lacinia diam, sit amet fringilla diam risus quis magna.</p>
       <p>Duis ut diam sit amet ligula pharetra sollicitudin in sed lacus. Morbi magna sapien, ullamcorper eu consequat vel, consectetur a mi.</p>
     </section>
 
