@@ -9,5 +9,4 @@ exclude: [README.md]
 
 sass:
     sass_dir: _sass
-    style: :expanded
-
+    style: expanded

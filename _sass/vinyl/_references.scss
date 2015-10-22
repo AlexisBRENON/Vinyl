@@ -4,7 +4,6 @@
 
 ul#bibliography {
   @extend .list-unstyled;
-  @extend small;
   margin: 0;
 
   .ref {

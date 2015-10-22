@@ -133,7 +133,7 @@ figure {
   }
 }
 
-figcaption {
-  @extend small;
+figcaption,
+caption {
   color: $gray-light;
 }
