@@ -24,7 +24,7 @@ define(
       parsedBibliography = bibParser.parse()
 
       # Walk through in text references and check if it exist in bib file or not
-      inTextRefs = $("span.ref[data-bibkey]")
+      inTextRefs = $("a.ref[data-bibkey]")
       foundEntries = []
       missingEntries = []
       if inTextRefs? and parsedBibliography?

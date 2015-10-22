@@ -4,7 +4,12 @@
 
 Vinyl is a HTML5/CSS3 framework based on [Bootstrap 4](http://v4-alpha.getbootstrap.com/) which allow you to create and write articles, thesis, poster, slides with an up-to-date, widely used and spread, technology.
 
-## Supported layouts
+## Features
+
+- [x] Bibliography management
+- [ ] Figure and table auto-numbering
+
+### Supported layouts
 
 - [ ] One column article
 - [ ] Two columns article

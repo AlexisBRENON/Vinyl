@@ -18,25 +18,30 @@ define(['jquery'], ($) ->
       return this
 
     createNumElements: () ->
+      alreadySeenKeys = []
       for entry, index in @entries
-        inTextRef = $("span.ref[data-bibkey='#{entry.citationKey}']")
+        if not (entry.citationKey in alreadySeenKeys)
+          alreadySeenKeys.push(entry.citationKey)
+          inTextRef = $("a.ref[data-bibkey='#{entry.citationKey}']")
 
-        entryId = document.createElement('span')
-        $(entryId).addClass('ref')
-        $(entryId).html("[" + (index + 1) + "]")
-        $(inTextRef).html($(entryId).html())
+          entryId = document.createElement('span')
+          $(entryId).addClass('ref')
+          $(entryId).html("[" + (index + 1) + "]")
+          $(inTextRef).html($(entryId).html())
+          $(inTextRef).attr('href', "##{entry.citationKey}")
 
-        entryAuthor = document.createElement('span')
-        $(entryAuthor).addClass('ref-author')
-        $(entryAuthor).html(entry.entryTags.author)
+          entryAuthor = document.createElement('span')
+          $(entryAuthor).addClass('ref-author')
+          $(entryAuthor).html(entry.entryTags.author)
 
-        entryTitle = document.createElement('span')
-        $(entryTitle).addClass('ref-title')
-        $(entryTitle).html(entry.entryTags.title)
+          entryTitle = document.createElement('span')
+          $(entryTitle).addClass('ref-title')
+          $(entryTitle).html(entry.entryTags.title)
 
-        element = document.createElement('li')
-        $(element).append(entryId, " ", entryAuthor, ": ", entryTitle)
-        @elements.push(element)
+          element = document.createElement('li')
+          $(element).attr('id', entry.citationKey)
+          $(element).append(entryId, " ", entryAuthor, ": ", entryTitle)
+          @elements.push(element)
 
   console.log("@@ Vinyl::Bibliography::Formatter @@ Initialization: DONE")
   return BibliographyFormatter
