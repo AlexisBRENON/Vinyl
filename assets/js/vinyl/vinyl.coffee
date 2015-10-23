@@ -2,16 +2,14 @@
 ---
 
 define(
-  "vinyl",
   [
-    'jquery',
-    'vinyl-bibliography',
-    'vinyl-autoNumbering',
+    './bibliography/bibliography',
+    './autoNumbering/autoNumbering',
   ],
-  ($, VinylBibliography, VinylAutoNumbering) ->
+  (VinylBibliography, VinylAutoNumbering) ->
     console.log("@@ Vinyl @@ Initialization...")
     run = () ->
-      VinylBibliography.createBibliography()
+      VinylBibliography.run()
       VinylAutoNumbering.run()
     console.log("@@ Vinyl @@ Initialization: DONE")
     return {

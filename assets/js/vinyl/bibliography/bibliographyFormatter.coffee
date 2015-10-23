@@ -1,7 +1,9 @@
 ---
 ---
 
-define(['jquery'], ($) ->
+define(['jquery',
+  'bibliography/styles/plain'
+  ], ($) ->
   console.log("@@ Vinyl::Bibliography::Formatter @@ Initialization...")
   class BibliographyFormatter
     constructor: (@format, @entries, @missingEntries) ->
@@ -9,38 +11,40 @@ define(['jquery'], ($) ->
 
     formatEntries: () ->
       # TODO sort @entries depending on format
-      switch @format
-        when "num" then @createNumElements()
-        when "apa" then @createApaElements()
-        else @createNumElements()
+      @createElements()
       if @missingEntries.length > 0
         alert("Bibkeys not found: ", @missingEntries)
       return this
 
-    createNumElements: () ->
+    createElements: () ->
       alreadySeenKeys = []
+      style = new (require("bibliography/styles/#{@format}"))()
       for entry, index in @entries
         if not (entry.citationKey in alreadySeenKeys)
           alreadySeenKeys.push(entry.citationKey)
-          inTextRef = $("a.ref[data-bibkey='#{entry.citationKey}']")
-
-          entryId = document.createElement('span')
-          $(entryId).addClass('ref')
-          $(entryId).html("[" + (index + 1) + "]")
-          $(inTextRef).html($(entryId).html())
-          $(inTextRef).attr('href', "##{entry.citationKey}")
-
-          entryAuthor = document.createElement('span')
-          $(entryAuthor).addClass('ref-author')
-          $(entryAuthor).html(entry.entryTags.author)
-
-          entryTitle = document.createElement('span')
-          $(entryTitle).addClass('ref-title')
-          $(entryTitle).html(entry.entryTags.title)
+          item = style.createItem(entry)
 
           element = document.createElement('li')
           $(element).attr('id', entry.citationKey)
-          $(element).append(entryId, " ", entryAuthor, ": ", entryTitle)
+          $(element).addClass("#{@format}-citation-item")
+          $(element).append item.elements[fieldName] for fieldName in item.fields
+
+          for inTextRef in $("span.cite[data-bibkey~='#{entry.citationKey}']")
+            $(inTextRef).addClass("#{@format}-cite") if not $(inTextRef).hasClass("#{@format}-cite")
+            beforeText = $(item.elements.id).children('.before').html()
+            afterText = $(item.elements.id).children('.after').html()
+            citationId = $(item.elements.id).children('.content').html()
+            citationLink = document.createElement('a')
+            $(citationLink).attr('href', "##{entry.citationKey}")
+            $(citationLink).html(citationId)
+
+            if $(inTextRef).html() == ""
+              $(inTextRef).append("#{beforeText}", citationLink, "#{afterText}")
+            else
+              $(inTextRef).html(
+                $(inTextRef).html().slice(0,-1*afterText.length) + "," + citationLink.outerHTML + afterText
+              )
+
           @elements.push(element)
 
   console.log("@@ Vinyl::Bibliography::Formatter @@ Initialization: DONE")

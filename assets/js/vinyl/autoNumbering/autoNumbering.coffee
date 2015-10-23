@@ -2,7 +2,6 @@
 ---
 
 define(
-  "vinyl-autoNumbering"
   [
     'jquery',
   ],

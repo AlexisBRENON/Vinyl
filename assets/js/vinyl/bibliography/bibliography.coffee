@@ -2,7 +2,6 @@
 ---
 
 define(
-  "vinyl-bibliography"
   [
     'jquery',
     'bibliography/bibliographyParser',
@@ -17,23 +16,24 @@ define(
 
       file = $(bibList).attr("data-bibliography-file")
       fileFormat = $(bibList).attr("data-bibliography-file-format")
-      format = $(bibList).attr("data-bibliography-format") or "num"
+      format = $(bibList).attr("data-bibliography-format") or "plain"
 
       # Parse the bib file to a json-like dictionnary
       bibParser = new BibliographyParser(file, fileFormat)
       parsedBibliography = bibParser.parse()
 
       # Walk through in text references and check if it exist in bib file or not
-      inTextRefs = $("a.ref[data-bibkey]")
+      inTextRefs = $("span.cite[data-bibkey]")
       foundEntries = []
       missingEntries = []
       if inTextRefs? and parsedBibliography?
         for ref, refIndex in inTextRefs
-          bibKey = $(ref).attr("data-bibkey")
-          if parsedBibliography[bibKey]?
-            foundEntries.push parsedBibliography[bibKey]
-          else
-            missingEntries.push bibKey
+          bibKeys = $(ref).attr("data-bibkey").split(' ')
+          for bibKey in bibKeys
+            if parsedBibliography[bibKey]?
+              foundEntries.push parsedBibliography[bibKey]
+            else
+              missingEntries.push bibKey
 
       # Format the entries
       bibFormatter = new BibliographyFormatter(format, foundEntries, missingEntries)
@@ -42,7 +42,7 @@ define(
 
     console.log("@@ Vinyl::Bibliography @@ Initialization: DONE")
     return {
-      createBibliography: createBibliography
+      run: createBibliography
     }
 )
 #

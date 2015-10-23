@@ -4,10 +4,8 @@
 require.config({
   baseUrl: '/assets/js/vinyl'
   paths: {
-    jquery: '/assets/js/libs/jquery/jquery.min',
-    bibtexParse: '/assets/js/libs/bibtexParseJs/bibtexParse',
-    'vinyl-bibliography': 'bibliography/bibliography'
-    'vinyl-autoNumbering': 'autoNumbering/autoNumbering'
+    jquery: '../libs/jquery/jquery.min',
+    bibtexParse: '../libs/bibtexParseJs/bibtexParse',
   }
   shim: {
     bibtexParse: {

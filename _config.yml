@@ -6,6 +6,7 @@ twitter: AlexisBRENON
 github: AlexisBRENON
 
 exclude: [README.md]
+keep_files: [assets/biblio, assets/img/, assets/js/libs]
 
 sass:
     sass_dir: _sass

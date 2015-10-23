@@ -15,6 +15,7 @@ define(['jquery', 'bibtexParse'], ($, bibtexParse) ->
           @parsedBibliography = bibtexParse.toJSON(data)
       })
       for entry in @parsedBibliography
+        entry.entryType = entry.entryType.toLowerCase()
         for key, value of entry.entryTags
           if key isnt key.toLowerCase()
             entry.entryTags[key.toLowerCase()] = value

@@ -5,20 +5,94 @@ define(
   ['jquery'],
   ($) ->
     class BibliographyStylePlain
-      schemas = {
+      constructor: () ->
+        @idIdx = 0
+
+      createItem: (entry) ->
+        schema = null
+        if not BibliographyStylePlain.schemas[entry.entryType]?
+          schema = BibliographyStylePlain.schemas.default
+        else
+          schema = BibliographyStylePlain.schemas[entry.entryType]
+        result = {
+          fields: [],
+          elements: {}
+        }
+
+        while typeof schema == 'string'
+          schema = BibliographyStylePlain.schemas[schema]
+
+        if schema?
+          result.fields.push('id')
+          result.elements.id = @getId()
+
+          for field in schema
+            if entry.entryTags[field.field]?
+              whole = document.createElement('span')
+              $(whole).addClass("citation-item-#{field.field}")
+
+              $(whole).append(field.beforeSpace) if field.beforeSpace?
+              if field.before?
+                before = document.createElement('span')
+                $(before).addClass("before")
+                $(before).html(field.before)
+                $(whole).append(before)
+
+              content = document.createElement('span')
+              $(content).addClass("content")
+              $(content).html(entry.entryTags[field.field])
+              $(whole).append(content)
+
+              if field.after?
+                after = document.createElement('span')
+                $(after).addClass("after")
+                $(after).html(field.after)
+                $(whole).append(after)
+              $(whole).append(field.afterSpace) if field.afterSpace?
+
+              result.fields.push(field.field)
+              result.elements[field.field] = whole
+        else
+          # TODO : output as error
+          console.log("Unrecognized entryType #{entry.entryType}.")
+
+
+        return result
+
+      getId: () ->
+        whole = document.createElement('span')
+        $(whole).addClass("citation-item-id")
+
+        before = document.createElement('span')
+        $(before).addClass("before")
+        $(before).html("[")
+        content = document.createElement('span')
+        $(content).addClass("content")
+        $(content).html(++@idIdx)
+        after = document.createElement('span')
+        $(after).addClass("after")
+        $(after).html(']')
+
+        $(whole).append(before, content, after, "&nbsp;")
+        return whole
+
+      @schemas = {
         default: 'article',
         article: [
           {
             field: 'author',
-            after: '. '
+            after: '.',
+            afterSpace: ' '
           },
           {
             field: 'title',
-            after: '.'
+            after: '.',
+            afterSpace: ' '
           },
           {
             field: 'journal',
-            after: ', '
+            after: ',',
+            afterSpace: ' '
           },
           {
             field: 'volume'
@@ -26,16 +100,16 @@ define(
           {
             before: '(',
             field: 'num',
-            after: ')'
+            after: '):'
           },
           {
-            before: ':',
             field: 'pages',
-            after: ', '
+            after: ',',
+            afterSpace: ' '
           },
           {
             field: 'month',
-            after: ' '
+            afterSpace: ' '
           },
           {
             field: 'year',
@@ -43,47 +117,6 @@ define(
           }
         ]
       }
-
-      constructor: () ->
-        @idIdx = 0
-    
-      getId: () -> "[#{++@idIdx}] "
-
-      createItem = (entry) ->
-        schema = @schemas[entry.entryType]
-        while typeof schema == 'string'
-          schema = @schemas[schema]
-
-        result = []
-        if schema?
-          tmp = document.createElement('span')
-          $(tmp).class("citation citation-plain citation-item-id")
-          $(tmp).html(@getId())
-          result.push(tmp)
-          for field in schema
-            whole = document.createElement('span')
-            $(whole).class("citation citation-plain citation-item-#{field.field}")
-             
-            if field.before?
-              before = document.createElement('span')
-              $(before).class("before")
-              $(before).html(field.before)
-              $(whole).append(before)
-
-            $(whole).append(entry[field.field])
-
-            if field.after?
-              after = document.createElement('span')
-              $(after).class("after")
-              $(after).html(field.after)
-              $(whole).append(after)
-
-            result.push(whole)
-        else
-          # TODO : output as error
-          console.log("Unrecognized entryType #{entry.entryType}.")
-
-        return result
 
     console.log("@@ Vinyl::Bibliography::Style::Plain @@ Initialization: DONE")
     return BibliographyStylePlain

@@ -5,14 +5,10 @@
 ul#bibliography {
   @extend .list-unstyled;
   margin: 0;
-
-  .ref {
-    margin-right: 1ex;
-  }
 }
 
-.ref {
-  font-family: $font-family-serif;
-  font-weight: bold;
-  color: $body-color;
+@import "references/plain";
+
+a.ref {
+  color: inherit;
 }

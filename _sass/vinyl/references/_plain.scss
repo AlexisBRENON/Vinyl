@@ -1,0 +1,21 @@
+.plain-cite {
+  font-family: $font-family-serif;
+  font-weight: bold;
+
+  * {
+    color: inherit;
+  }
+}
+
+.plain-citation-item {
+  .citation-item-id {
+    @extend .plain-cite;
+    color: inherit;
+  }
+
+  .citation-item-journal {
+    .content {
+      font-style: italic;
+    }
+  }
+}

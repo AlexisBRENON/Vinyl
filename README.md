@@ -7,13 +7,22 @@ Vinyl is a HTML5/CSS3 framework based on [Bootstrap 4](http://v4-alpha.getbootst
 ## Features
 
 - [x] Bibliography management
+ - [ ] plain
+ - [ ] apa(like)
+ - [ ] ieeetr
+ - [ ] acm
+ - [ ] unsrt
+ - [ ] alpha
 - [x] Figure and table auto-numbering
+ - [x] Arab
+ - [ ] Roman
+ - [ ] Lettering
 
 ### Supported layouts
 
 - [ ] One column article
 - [ ] Two columns article
-- [ ] A0 poster
+- [x] A0 poster
 - [ ] A4 poster
 - [ ] ImpressJS slides
 - [ ] RevealJS slides
