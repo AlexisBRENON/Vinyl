@@ -1,0 +1,22 @@
+header {
+  @extend .text-center;
+  h1 {
+    @extend .text-primary;
+    font-variant: small-caps;
+
+    p {
+      display: inline-block;
+      @extend .m-t-md;
+      line-height: 1;
+      width: 75%;
+      text-align: inherit;
+      font-variant: initial;
+    }
+  }
+
+  section.abstract {
+    width: 75%;
+    @extend .center-block;
+    @extend .m-t-lg;
+  }
+}

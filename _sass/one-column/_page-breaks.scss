@@ -1,0 +1,12 @@
+header {
+  page-break-inside: avoid;
+  page-break-after: right;
+  // On screen, give impression of page break after
+  margin-bottom: 100 * $ppm;
+}
+
+main {
+  page-break-after: right;
+  // On screen, give impression of page break after
+  margin-bottom: 100 * $ppm;
+}

@@ -1,0 +1,10 @@
+body {
+  position: relative;
+
+  width: 210 * $ppm;
+  //height: 297 * $ppm;
+  margin: 0 auto;
+  padding: $article-margin-top $article-margin-right $article-margin-bottom $article-margin-left;
+
+  @include box-shadow($ppm $ppm 5 * $ppm black);
+}

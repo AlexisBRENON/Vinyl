@@ -1,0 +1,20 @@
+/**
+ * Define specific variables for posters
+ */
+
+// Main text size
+$font-size-root-pt:             9;
+
+@import "../vinyl/variables";
+
+// Header font
+@import url(https://fonts.googleapis.com/css?family=Nunito:300,400,700);
+$headings-font-family:       $font-family-serif;
+$headings-font-weight:       bolder;
+// Set a serif font
+$font-family-base: $font-family-serif;
+
+$article-margin-left: 20 * $ppm;
+$article-margin-right: $article-margin-left;
+$article-margin-top: $article-margin-right;
+$article-margin-bottom: $article-margin-right;

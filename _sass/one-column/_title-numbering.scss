@@ -1,0 +1,46 @@
+header {
+  counter-reset: h2Counter;
+}
+
+main {
+  @for $i from 2 through 6 {
+    h#{$i} {
+      counter-reset: h#{$i+1}Counter;
+      margin-left: $i - 2em;
+      &:before {
+        display: inline-block;
+        width: 2em;
+        counter-increment: h#{$i}Counter
+      }
+    }
+  }
+
+  h2:before {
+    content: counter(h2Counter);
+  }
+  h3:before {
+    content: counter(h2Counter) "." counter(h3Counter);
+  }
+  h4:before {
+    content: counter(h4Counter);
+  }
+  h5:before {
+    content: counter(h5Counter, lower-alpha);
+  }
+  h6:before {
+    content: counter(h5Counter, lower-roman);
+  }
+}
+
+footer {
+  counter-reset: h2Counter;
+
+  h2 {
+    &:before {
+      content: counter(h2Counter, upper-latin);
+      display: inline-block;
+      width: 2em;
+      counter-increment: h2Counter;
+    }
+  }
+}
