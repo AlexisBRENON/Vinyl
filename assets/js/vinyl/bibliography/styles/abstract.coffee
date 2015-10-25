@@ -84,6 +84,8 @@ define(
 
         return result
 
+      sort: (entries) -> entries
+
       getId: () ->
         throw "#{this} :: getId() must be overrode"
 

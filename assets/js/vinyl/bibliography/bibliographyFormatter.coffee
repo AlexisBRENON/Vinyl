@@ -19,7 +19,7 @@ define(['jquery',
     createElements: () ->
       alreadySeenKeys = []
       style = new (require("bibliography/styles/#{@format}"))()
-      for entry, index in @entries
+      for entry in style.sort(@entries)
         if not (entry.citationKey in alreadySeenKeys)
           alreadySeenKeys.push(entry.citationKey)
           item = style.createItem(entry)

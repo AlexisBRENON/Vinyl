@@ -51,6 +51,17 @@ define(
           ]
         }
 
+      sort: (entries) ->
+        # Sort entries alphabetically on first author surname
+        entries.sort((e1, e2) ->
+          e1FirstAuthor = e1.entryTags.author.split(" and ")[0]
+          e2FirstAuthor = e2.entryTags.author.split(" and ")[0]
+          if e1FirstAuthor == e2FirstAuthor
+            return e1.entryTags.title > e2.entryTags.title
+          else
+            return e1FirstAuthor > e2FirstAuthor
+        )
+
       getId: () ->
         whole = document.createElement('span')
         $(whole).addClass("citation-item-id")
