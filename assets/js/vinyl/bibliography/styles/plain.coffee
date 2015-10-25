@@ -68,6 +68,8 @@ define(
         $(whole).append(before, content, after, "&nbsp;")
         return whole
 
+      formatAuthor: BibliographyStyleAbstract.formatAuthorFSurname
+
     console.log("@@ Vinyl::Bibliography::Style::Plain @@ Initialization: DONE")
     return BibliographyStylePlain
 )

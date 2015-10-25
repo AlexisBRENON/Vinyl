@@ -116,4 +116,23 @@ define(
       formatType:         (type) -> type
       formatVolume:       (volume) -> volume
       formatYear:         (year) -> year
+
+      @formatAuthorFSurname: (author) ->
+        result = ""
+        authors = author.split(" and ")
+        for uniqAuthor, idx in authors
+          if 0 < idx < authors.length - 1
+            result += ", "
+          else if 0 < idx == authors.length - 1
+            result += " and "
+          [last, first] = uniqAuthor.split(", ")
+          if first.search(/[- ]/) >= 0
+            # It's a composed name
+            names = first.split(/[- ]/)
+            for name in names
+              result += "#{name.charAt(0)}. "
+            result += last
+          else
+            result += "#{first.charAt(0)}. #{last}"
+        return result
 )
