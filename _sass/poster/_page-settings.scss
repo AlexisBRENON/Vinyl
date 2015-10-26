@@ -1,0 +1,70 @@
+body {
+  position: relative;
+
+  width: 841 * $ppm;
+  height: 1189 * $ppm;
+  margin: 0 auto;
+  padding: $spacer-y $spacer-x;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  @include box-shadow($ppm $ppm 5 * $ppm black);
+}
+
+.guides {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  z-index: 10;
+  pointer-events: none;
+  @media print {
+    display: none;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 33.3%; bottom: 33.3%;
+    left: 0; right: 0;
+    border-top: 1px dotted green;
+    border-bottom: 1px dotted green;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 33.3%; right: 33.3%;
+    border-right: 1px dotted green;
+    border-left: 1px dotted green;
+  }
+}
+
+main {
+  flex: 1;
+  @include make-row();
+  margin-left: 0;
+  margin-right: 0;
+
+  > section {
+    margin-bottom: $spacer-y;
+
+    h2 {
+      @include make-row();
+      padding-left: 0.5ex;
+    }
+  }
+
+  section {
+    @include make-col();
+    @include make-col-span($grid-columns);
+    
+    .content {
+      @include make-row();
+    }
+  }
+}

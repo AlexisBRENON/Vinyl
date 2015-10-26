@@ -1,0 +1,49 @@
+header {
+  h1 {
+    color: $brand-primary;
+    font-variant: small-caps;
+
+    small {
+      color: #777;
+      font-variant: normal;
+    }
+  }
+}
+
+main > section {
+  @include border-radius();
+  position: relative;
+
+  // Weird workaround to print the drop shodow...
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 0; left: 0;
+    @include border-radius();
+    box-shadow: 0 0 1ex $gray-dark;
+    -webkit-print-color-adjust:exact;
+    -webkit-filter:blur(0);
+  }
+
+  h2 {
+    @include border-top-radius();
+    display: flex;
+    align-items: baseline;
+    background-color: $brand-primary;
+    color: $body-bg;
+
+    &:after {
+      content: "";
+      display: block;
+      margin: 0 0.5ex;
+      border-bottom: $border-width solid $body-bg;
+      flex: 1 1 auto;
+    }
+  }
+}
+
+section.separator {
+  border-right: $hr-border-width solid $hr-border-color;
+}
