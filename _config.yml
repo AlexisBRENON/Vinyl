@@ -5,7 +5,7 @@ linkedin: https://www.linkedin.com/profile/public-profile-settings?trk=prof-edit
 twitter: AlexisBRENON
 github: AlexisBRENON
 
-exclude: [README.md]
+exclude: [README.md, examples]
 keep_files: [assets/biblio, assets/img/, assets/js/libs]
 
 sass:
