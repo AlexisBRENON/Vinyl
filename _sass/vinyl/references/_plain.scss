@@ -1,4 +1,4 @@
-.plain-cite {
+.plain-style-cite {
   font-family: $font-family-serif;
   font-weight: bold;
 
@@ -7,14 +7,20 @@
   }
 }
 
-.plain-citation-item {
+.plain-style-citation-item {
   .citation-item-id {
-    @extend .plain-cite;
+    @extend .plain-style-cite;
     color: inherit;
   }
 
-  .citation-item-journal {
+  .citation-item-journal, .citation-item-series {
     .content {
+      font-style: italic;
+    }
+  }
+
+  &.book-citation-item {
+    .citation-item-title {
       font-style: italic;
     }
   }

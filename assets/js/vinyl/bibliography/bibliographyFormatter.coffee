@@ -26,11 +26,12 @@ define(['jquery',
 
           element = document.createElement('li')
           $(element).attr('id', entry.citationKey)
-          $(element).addClass("#{@format}-citation-item")
+          $(element).addClass("#{@format}-style-citation-item")
+          $(element).addClass("#{entry.entryType}-citation-item")
           $(element).append item.elements[fieldName] for fieldName in item.fields
 
           for inTextRef in $("span.cite[data-bibkey~='#{entry.citationKey}']")
-            $(inTextRef).addClass("#{@format}-cite") if not $(inTextRef).hasClass("#{@format}-cite")
+            $(inTextRef).addClass("#{@format}-style-cite") if not $(inTextRef).hasClass("#{@format}-cite")
             beforeText = $(item.elements.id).children('.before').html()
             afterText = $(item.elements.id).children('.after').html()
             citationId = $(item.elements.id).children('.content').html()

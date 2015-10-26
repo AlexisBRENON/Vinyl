@@ -3,7 +3,7 @@
 
 define(
   [],
-  () -> 
+  () ->
     class BibliographyStyleAbstract
       constructor: () ->
         @schemas = {default: {}}
@@ -65,8 +65,11 @@ define(
               content = document.createElement('span')
               $(content).addClass("content")
               $(content).html(
-                @format(field.field, entry.entryTags[field.field])
-              ) 
+                @format(
+                  field.field,
+                  if field.function? then field.function(entry) else entry.entryTags[field.field]
+                )
+              )
               $(whole).append(content)
 
               if field.after?

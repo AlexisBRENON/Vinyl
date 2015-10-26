@@ -11,44 +11,86 @@ define(
         @idIdx = 0
         @schemas = {
           default: 'article',
-          article: [
-            {
-              field: 'author',
-              after: '.',
-              afterSpace: ' '
-            },
-            {
-              field: 'title',
-              after: '.',
-              afterSpace: ' '
-            },
-            {
-              field: 'journal',
-              after: ',',
-              afterSpace: ' '
-            },
-            {
-              field: 'volume'
-            },
-            {
-              before: '(',
-              field: 'num',
-              after: '):'
-            },
-            {
-              field: 'pages',
-              after: ',',
-              afterSpace: ' '
-            },
-            {
-              field: 'month',
-              afterSpace: ' '
-            },
-            {
-              field: 'year',
-              after: '.'
-            }
-          ]
+          article: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'journal',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'volume'
+          },{
+            before: '(',
+            field: 'num',
+            after: '):'
+          },{
+            field: 'pages',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'month',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.'
+          }],
+          proceedings: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'In ',
+            field: 'series',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'volume ',
+            field: 'volume',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'pages ',
+            field: 'pages',
+            after: ',',
+            afterSpace: ' ',
+          },{
+            field: 'address',
+            after: ','
+            afterSpace: ' ',
+          },{
+            field: 'month',
+            afterSpace: '&nbsp;',
+          },{
+            field: 'year',
+            after: '.'
+          }],
+          book: [{
+            field: 'author',
+            function: @bookAuthorAndEditor,
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            field: 'publisher',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.'
+          }]
         }
 
       sort: (entries) ->
@@ -80,6 +122,15 @@ define(
         return whole
 
       formatAuthor: BibliographyStyleAbstract.formatAuthorFSurname
+
+      bookAuthorAndEditor: (entry) ->
+        if not entry.entryTags.author?
+          "#{entry.entryTags.editor} and editor"
+        else if not entry.entryTags.editor?
+          "#{entry.entryTags.author} and editor"
+        else
+          entry.entryTags.author
+
 
     console.log("@@ Vinyl::Bibliography::Style::Plain @@ Initialization: DONE")
     return BibliographyStylePlain
