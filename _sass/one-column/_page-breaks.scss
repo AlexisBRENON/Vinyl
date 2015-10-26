@@ -1,12 +1,94 @@
-header {
-  page-break-inside: avoid;
+.pb-a {
+  position: relative;
+  page-break-after: always;
+}
+.pb-a-r {
+  @extend .pb-a;
   page-break-after: right;
-  // On screen, give impression of page break after
-  margin-bottom: 100 * $ppm;
+}
+.pb-a-l {
+  @extend .pb-a;
+  page-break-after: left;
+}
+.pb-b {
+  position: relative;
+  page-break-before: always;
+}
+.pb-b-r {
+  @extend .pb-b;
+  page-break-before: right;
+}
+.pb-b-l {
+  @extend .pb-b;
+  page-break-before: left;
+}
+@media screen {
+  .pb-a {
+    padding-bottom: 100 * $ppm;
+  }
+  .pb-a-r {
+    &:after {
+      content: "-- Right page --";
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+    }
+    padding-bottom: 100 * $ppm;
+  }
+  .pb-a-l {
+    &:after{
+      content: "-- Left page --";
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+    }
+    padding-bottom: 100 * $ppm;
+  }
+
+  .pb-b {
+    margin-top: 100 * $ppm;
+  }
+  .pb-b-r {
+    margin-top: 100 * $ppm;
+    &:before {
+      content: "-- Right page --";
+      text-align: center;
+      position: absolute;
+      bottom: 100%;
+      left: 0; right: 0;
+    }
+  }
+  .pb-b-l {
+    margin-top: 100 * $ppm;
+    &:before {
+      content: "-- Left page --";
+      text-align: center;
+      position: absolute;
+      bottom: 100%;
+      left: 0; right: 0;
+    }
+  }
+}
+
+header {
+  @extend .pb-a-r;
+  page-break-inside: avoid;
+}
+
+@for $i from 2 through 6 {
+  h#{$i} {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
 }
 
 main {
-  page-break-after: right;
-  // On screen, give impression of page break after
-  margin-bottom: 100 * $ppm;
+  @extend .pb-a-r;
+}
+
+p {
+  widows: 3;
+  orphans: 3;
 }
