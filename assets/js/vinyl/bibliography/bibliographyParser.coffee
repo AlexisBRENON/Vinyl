@@ -14,12 +14,16 @@ define(['jquery', 'bibtexParse'], ($, bibtexParse) ->
         success: (data) =>
           @parsedBibliography = bibtexParse.toJSON(data)
       })
+
+      # Lower case tag names
       for entry in @parsedBibliography
         entry.entryType = entry.entryType.toLowerCase()
         for key, value of entry.entryTags
           if key isnt key.toLowerCase()
             entry.entryTags[key.toLowerCase()] = value
             delete entry.entryTags[key]
+        # Split author field as list
+        entry.entryTags.author = entry.entryTags.author.split(" and ")
       return this
 
     parseBibJson: () ->

@@ -3,6 +3,7 @@
 
 define(['jquery',
   'bibliography/styles/plain'
+  'bibliography/styles/abbrv'
   ], ($) ->
   console.log("@@ Vinyl::Bibliography::Formatter @@ Initialization...")
   class BibliographyFormatter

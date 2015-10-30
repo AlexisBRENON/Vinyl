@@ -5,6 +5,7 @@ define(
   ['jquery',
     './abstract'],
   ($, BibliographyStyleAbstract) ->
+    console.log("@@ Vinyl::Bibliography::Style::Plain @@ Initialization...")
     class BibliographyStylePlain extends BibliographyStyleAbstract
       constructor: () ->
         super("BibliographyStylePlain")
@@ -96,8 +97,8 @@ define(
       sort: (entries) ->
         # Sort entries alphabetically on first author surname
         entries.sort((e1, e2) ->
-          e1FirstAuthor = e1.entryTags.author.split(" and ")[0]
-          e2FirstAuthor = e2.entryTags.author.split(" and ")[0]
+          e1FirstAuthor = e1.entryTags.author[0]
+          e2FirstAuthor = e2.entryTags.author[0]
           if e1FirstAuthor == e2FirstAuthor
             return e1.entryTags.title > e2.entryTags.title
           else
@@ -121,7 +122,7 @@ define(
         $(whole).append(before, content, after, "&nbsp;")
         return whole
 
-      formatAuthor: BibliographyStyleAbstract.formatAuthorFSurname
+      formatAuthor: BibliographyStyleAbstract.formatAuthorFirstnameSurname
 
       bookAuthorAndEditor: (entry) ->
         if not entry.entryTags.author?

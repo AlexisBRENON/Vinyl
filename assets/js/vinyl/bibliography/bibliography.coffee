@@ -16,7 +16,7 @@ define(
 
       file = $(bibList).attr("data-bibliography-file")
       fileFormat = $(bibList).attr("data-bibliography-file-format")
-      format = $(bibList).attr("data-bibliography-format") or "plain"
+      format = $(bibList).attr("data-bibliography-style") or "plain"
 
       # Parse the bib file to a json-like dictionnary
       bibParser = new BibliographyParser(file, fileFormat)

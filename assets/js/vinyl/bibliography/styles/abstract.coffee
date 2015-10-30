@@ -63,16 +63,15 @@ define(
                 $(whole).append(before)
 
               content = document.createElement('span')
-              $(content).addClass("content")
-              $(content).html(
-                @format(
-                  field.field,
-                  if field.function? then field.function(entry) else entry.entryTags[field.field]
-                )
+              contentText = @format(
+                field.field,
+                if field.function? then field.function(entry) else entry.entryTags[field.field]
               )
+              $(content).addClass("content")
+              $(content).html(contentText)
               $(whole).append(content)
 
-              if field.after?
+              if field.after? and not contentText.endsWith(field.after)
                 after = document.createElement('span')
                 $(after).addClass("after")
                 $(after).html(field.after)
@@ -122,15 +121,10 @@ define(
       formatVolume:       (volume) -> volume
       formatYear:         (year) -> year
 
-      @formatAuthorFSurname: (author) ->
-        result = ""
-        authors = author.split(" and ")
-        for uniqAuthor, idx in authors
-          if 0 < idx < authors.length - 1
-            result += ", "
-          else if 0 < idx == authors.length - 1
-            result += " and "
-          [last, first] = uniqAuthor.split(", ")
+      @formatAuthorFSurname: (authors) ->
+        abbrvAuthors = (((author) ->
+          result = ""
+          [last, first] = author.split(", ")
           if first.search(/[- ]/) >= 0
             # It's a composed name
             names = first.split(/[- ]/)
@@ -139,5 +133,24 @@ define(
             result += last
           else
             result += "#{first.charAt(0)}. #{last}"
+          return result)(author) for author in authors)
+
+        if abbrvAuthors.length == 1
+          result = abbrvAuthors[0]
+        else if abbrvAuthors.length == 2
+          result = abbrvAuthors.join(" and ")
+        else
+          result = abbrvAuthors.slice(0,-1).join(', ')
+          result += ", and #{abbrvAuthors[abbrvAuthors.length-1]}"
+        return result
+
+      @formatAuthorFirstnameSurname: (authors) ->
+        if authors.length == 1
+          result = authors[0]
+        else if authors.length == 2
+          result = authors.join(" and ")
+        else
+          result = authors.slice(0,-1).join(', ')
+          result += "and #{authors[authors.length-1]}"
         return result
 )
