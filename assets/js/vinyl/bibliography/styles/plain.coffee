@@ -97,10 +97,10 @@ define(
       sort: (entries) ->
         # Sort entries alphabetically on first author surname
         entries.sort((e1, e2) ->
-          e1FirstAuthor = e1.entryTags.author[0]
-          e2FirstAuthor = e2.entryTags.author[0]
+          e1FirstAuthor = e1.author[0].name
+          e2FirstAuthor = e2.author[0].name
           if e1FirstAuthor == e2FirstAuthor
-            return e1.entryTags.title > e2.entryTags.title
+            return e1.title > e2.title
           else
             return e1FirstAuthor > e2FirstAuthor
         )
@@ -125,10 +125,10 @@ define(
       formatAuthor: BibliographyStyleAbstract.formatAuthorFirstnameSurname
 
       bookAuthorAndEditor: (entry) ->
-        if not entry.entryTags.author?
-          "#{entry.entryTags.editor} and editor"
-        else if not entry.entryTags.editor?
-          "#{entry.entryTags.author} and editor"
+        if not entry.author?
+          "#{entry.editor} and editor"
+        else if not entry.editor?
+          "#{entry.author} and editor"
         else
           entry.entryTags.author
 

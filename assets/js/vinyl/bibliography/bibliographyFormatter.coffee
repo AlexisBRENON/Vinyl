@@ -21,23 +21,23 @@ define(['jquery',
       alreadySeenKeys = []
       style = new (require("bibliography/styles/#{@format}"))()
       for entry in style.sort(@entries)
-        if not (entry.citationKey in alreadySeenKeys)
-          alreadySeenKeys.push(entry.citationKey)
+        if not (entry.id in alreadySeenKeys)
+          alreadySeenKeys.push(entry.id)
           item = style.createItem(entry)
 
           element = document.createElement('li')
-          $(element).attr('id', entry.citationKey)
+          $(element).attr('id', entry.id)
           $(element).addClass("#{@format}-style-citation-item")
-          $(element).addClass("#{entry.entryType}-citation-item")
+          $(element).addClass("#{entry.type}-citation-item")
           $(element).append item.elements[fieldName] for fieldName in item.fields
 
-          for inTextRef in $("span.cite[data-bibkey~='#{entry.citationKey}']")
+          for inTextRef in $("span.cite[data-bibkey~='#{entry.id}']")
             $(inTextRef).addClass("#{@format}-style-cite") if not $(inTextRef).hasClass("#{@format}-cite")
             beforeText = $(item.elements.id).children('.before').html()
             afterText = $(item.elements.id).children('.after').html()
             citationId = $(item.elements.id).children('.content').html()
             citationLink = document.createElement('a')
-            $(citationLink).attr('href', "##{entry.citationKey}")
+            $(citationLink).attr('href', "##{entry.id}")
             $(citationLink).html(citationId)
 
             if $(inTextRef).html() == ""

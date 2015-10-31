@@ -4,10 +4,10 @@
 define(
   [
     'jquery',
-    'bibliography/bibliographyParser',
+    'bibliography/parser/parserFactory',
     'bibliography/bibliographyFormatter'
   ],
-  ($, BibliographyParser, BibliographyFormatter) ->
+  ($, ParserFactory, BibliographyFormatter) ->
     console.log("@@ Vinyl::Bibliography @@ Initialization...")
     createBibliography = () ->
       bibList = $("#bibliography")[0]
@@ -19,8 +19,8 @@ define(
       format = $(bibList).attr("data-bibliography-style") or "plain"
 
       # Parse the bib file to a json-like dictionnary
-      bibParser = new BibliographyParser(file, fileFormat)
-      parsedBibliography = bibParser.parse()
+      parser = ParserFactory.getInstance().buildParser(fileFormat)
+      parsedBibliography = parser.parse(file)
 
       # Walk through in text references and check if it exist in bib file or not
       inTextRefs = $("span.cite[data-bibkey]")
