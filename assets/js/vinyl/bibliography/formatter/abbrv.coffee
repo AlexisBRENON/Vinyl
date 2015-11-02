@@ -7,6 +7,8 @@ define(
   (BibliographyStyleAbstract, BibliographyStylePlain) ->
     console.log("@@ Vinyl::Bibliography::Style::Abbrv @@ Initialization...")
     class BibliographyStyleAbbrv extends BibliographyStylePlain
+      @formatterName = "abbrv"
+
       constructor: () ->
         super("BibliographyStyleAbbrv")
 

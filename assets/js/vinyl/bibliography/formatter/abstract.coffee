@@ -33,6 +33,54 @@ define(
           'year': @formatYear
         }
 
+      createItems: (entries) ->
+        items = []
+        alreadySeenKeys = []
+        for entry in @sort(entries)
+          if entry.id not in alreadySeenKeys
+            # Avoid duplicated entries
+            alreadySeenKeys.push(entry.id)
+
+            # Create the content of the item
+            item = @createItem(entry)
+            # Add the content to a li node with right attributes
+            element = document.createElement('li')
+            $(element).attr('id', entry.id)
+            $(element).addClass("#{this.constructor.formatterName}-style-citation-item")
+            $(element).addClass("#{entry.type}-citation-item")
+            $(element).html(item.html)
+
+            @updateReferences(entry, item.elements.id)
+
+            items.push(element)
+        return items
+
+      updateReferences: (entry, itemId) ->
+          # Update all references to this entry to display the id
+          for inTextRef in $("span.cite[data-bibkey~='#{entry.id}']")
+            # Style it according to the right style
+            $(inTextRef).addClass("#{this.constructor.formatterName}-style-cite")
+            # Get the id elements
+            beforeText = $(itemId).children('.before').html()
+            afterText = $(itemId).children('.after').html()
+            citationId = $(itemId).children('.content').html()
+            # Create the link to the reference
+            citationLink = document.createElement('a')
+            $(citationLink).attr('href', "##{entry.id}")
+            $(citationLink).html(citationId)
+
+            # Create the text for the in-text citation
+            if $(inTextRef).html() == ""
+              # No previous citation, just add one
+              $(inTextRef).append("#{beforeText}", citationLink, "#{afterText}")
+            else
+              # Remove the closing element, add the new id, and the closing element back
+              $(inTextRef).html(
+                $(inTextRef).html().slice(0,-1*afterText.length) + "," + citationLink.outerHTML + afterText
+              )
+
+          return null
+
       createItem: (entry) ->
         schema = null
         if not @schemas[entry.type]?
@@ -42,6 +90,7 @@ define(
         while typeof schema == 'string'
           schema = @schemas[schema]
         result = {
+          html: "",
           fields: [],
           elements: {}
         }
@@ -49,6 +98,7 @@ define(
         if schema?
           result.fields.push('id')
           result.elements.id = @getId()
+          result.html = $(result.elements.id).html()
 
           for field in schema
             if entry[field.field]?
@@ -80,6 +130,7 @@ define(
 
               result.fields.push(field.field)
               result.elements[field.field] = whole
+              result.html += $(whole).html()
         else
           # TODO : output as error
           console.log("Unrecognized entry type #{entry.type}.")
