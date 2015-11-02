@@ -4,8 +4,8 @@
 define(
   [
     'jquery',
-    'bibliography/parser/parserFactory',
-    'bibliography/formatter/formatterFactory'
+    './parser/parserFactory',
+    './formatter/formatterFactory'
   ],
   ($, ParserFactory, FormatterFactory) ->
     console.log("@@ Vinyl::Bibliography @@ Initialization...")

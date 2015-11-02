@@ -2,18 +2,17 @@
 ---
 
 require.config({
-  baseUrl: '/assets/js/vinyl'
   paths: {
-    jquery: '../libs/jquery/jquery.min',
-    bibtexParse: '../libs/bibtexParseJs/bibtexParse',
+    jquery: 'libs/jquery/jquery.min',
+    bibtexParse: 'libs/bibtexParseJs/bibtexParse',
   }
   shim: {
     bibtexParse: {
       exports: 'bibtexParse'
     }
   }
-});
+})
 
-require(['vinyl'], (vinyl) ->
+require(['vinyl/vinyl'], (vinyl) ->
   vinyl.run()
 )
