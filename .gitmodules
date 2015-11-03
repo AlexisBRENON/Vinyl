@@ -1,6 +1,3 @@
 [submodule "assets/js/bibtexParseJs"]
 	path = assets/js/libs/bibtexParseJs
 	url = https://github.com/ORCID/bibtexParseJs.git
-[submodule "assets/js/libs/impress.js"]
-	path = assets/js/libs/impress.js
-	url = https://github.com/impress/impress.js.git
