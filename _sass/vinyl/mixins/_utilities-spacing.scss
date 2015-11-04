@@ -1,0 +1,230 @@
+// Margin
+
+@mixin m-a($margin) {
+  margin: $margin;
+}
+@mixin m-t($margin) {
+  margin-top: $margin;
+}
+@mixin m-r($margin) {
+  margin-right: $margin;
+}
+@mixin m-b($margin) {
+  margin-bottom: $margin;
+}
+@mixin m-l($margin) {
+  margin-left: $margin;
+}
+@mixin m-x($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+@mixin m-y($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+@mixin m-a-0() {
+  @include m-a(0);
+}
+@mixin m-t-0() {
+  @include m-t(0);
+}
+@mixin m-r-0() {
+  @include m-r(0);
+}
+@mixin m-b-0() {
+  @include m-b(0);
+}
+@mixin m-l-0() {
+  @include m-l(0);
+}
+@mixin m-x-0() {
+  @include m-x(0);
+}
+@mixin m-y-0() {
+  @include m-y(0);
+}
+
+@mixin m-a-sm() {
+  @include m-a($spacer);
+}
+@mixin m-t-sm() {
+  @include m-t($spacer-y);
+}
+@mixin m-r-sm() {
+  @include m-r($spacer-x);
+}
+@mixin m-b-sm() {
+  @include m-b($spacer-y);
+}
+@mixin m-l-sm() {
+  @include m-l($spacer-x);
+}
+@mixin m-x-sm() {
+  @include m-x($spacer-x);
+}
+@mixin m-y-sm() {
+  @include m-y($spacer-y);
+}
+@mixin m-x-auto() {
+  @include m-x(auto)
+}
+
+@mixin m-a-md() {
+  @include m-a($spacer * 1.5);
+}
+@mixin m-t-md() {
+  @include m-t($spacer-y * 1.5);
+}
+@mixin m-r-md() {
+  @include m-r($spacer-y * 1.5);
+}
+@mixin m-b-md() {
+  @include m-b($spacer-y * 1.5);
+}
+@mixin m-l-md() {
+  @include m-l($spacer-y * 1.5);
+}
+@mixin m-x-md() {
+  @include m-x($spacer-x * 1.5);
+}
+@mixin m-y-md() {
+  @include m-y($spacer-y * 1.5);
+}
+
+@mixin m-a-lg() {
+  @include m-a($spacer * 3);
+}
+@mixin m-t-lg() {
+  @include m-t($spacer-y * 3);
+}
+@mixin m-r-lg() {
+  @include m-r($spacer-y * 3);
+}
+@mixin m-b-lg() {
+  @include m-b($spacer-y * 3);
+}
+@mixin m-l-lg() {
+  @include m-l($spacer-y * 3);
+}
+@mixin m-x-lg() {
+  @include m-x($spacer-x * 3);
+}
+@mixin m-y-lg() {
+  @include m-y($spacer-y * 3);
+}
+
+// Padding
+
+@mixin p-a($padding) {
+  padding: $padding;
+}
+@mixin p-t($padding) {
+  padding-top: $padding;
+}
+@mixin p-r($padding) {
+  padding-right: $padding;
+}
+@mixin p-b($padding) {
+  padding-bottom: $padding;
+}
+@mixin p-l($padding) {
+  padding-left: $padding;
+}
+@mixin p-x($margin) {
+  padding-left: $margin;
+  padding-right: $margin;
+}
+@mixin p-y($margin) {
+  padding-top: $margin;
+  padding-bottom: $margin;
+}
+
+@mixin p-a-0() {
+  @include p-a(0);
+}
+@mixin p-t-0() {
+  @include p-t(0);
+}
+@mixin p-r-0() {
+  @include p-r(0);
+}
+@mixin p-b-0() {
+  @include p-b(0);
+}
+@mixin p-l-0() {
+  @include p-l(0);
+}
+@mixin p-x-0() {
+  @include p-x(0);
+}
+@mixin p-y-0() {
+  @include p-y(0);
+}
+
+@mixin p-a-sm() {
+  @include p-a($spacer);
+}
+@mixin p-t-sm() {
+  @include p-t($spacer-y);
+}
+@mixin p-r-sm() {
+  @include p-r($spacer-x);
+}
+@mixin p-b-sm() {
+  @include p-b($spacer-y);
+}
+@mixin p-l-sm() {
+  @include p-l($spacer-x);
+}
+@mixin p-x-sm() {
+  @include p-x($spacer-x);
+}
+@mixin p-y-sm() {
+  @include p-y($spacer-y);
+}
+
+@mixin p-a-md() {
+  @include p-a($spacer * 1.5);
+}
+@mixin p-t-md() {
+  @include p-t($spacer-y * 1.5);
+}
+@mixin p-r-md() {
+  @include p-r($spacer-y * 1.5);
+}
+@mixin p-b-md() {
+  @include p-b($spacer-y * 1.5);
+}
+@mixin p-l-md() {
+  @include p-l($spacer-y * 1.5);
+}
+@mixin p-x-md() {
+  @include p-x($spacer-x * 1.5);
+}
+@mixin p-y-md() {
+  @include p-y($spacer-y * 1.5);
+}
+
+@mixin p-a-lg() {
+  @include p-a($spacer * 3);
+}
+@mixin p-t-lg() {
+  @include p-t($spacer-y * 3);
+}
+@mixin p-r-lg() {
+  @include p-r($spacer-y * 3);
+}
+@mixin p-b-lg() {
+  @include p-b($spacer-y * 3);
+}
+@mixin p-l-lg() {
+  @include p-l($spacer-y * 3);
+}
+@mixin p-x-lg() {
+  @include p-x($spacer-x * 3);
+}
+@mixin p-y-lg() {
+  @include m-y($spacer-y * 3);
+}
