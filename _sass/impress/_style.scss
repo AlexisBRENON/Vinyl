@@ -1,0 +1,46 @@
+body {
+  @include gradient-radial($gray-lighter, $gray-light);
+}
+
+.impress-enabled {
+  .step {
+    opacity: 0.1;
+    transition: opacity 1s;
+    &.active {
+      opacity: 1;
+    }
+  }
+
+}
+
+.slide {
+  @include gradient-radial(white, $gray-lightest);
+  @include border-radius();
+  box-shadow: 0 0 1ex $gray-dark;
+
+  &.section-slide {
+    @include gradient-radial(lighten($brand-primary, 20%), $brand-primary);
+    flex-direction: initial;
+
+    * {
+      color: $body-bg;
+    }
+
+    & > * {
+      @include make-col();
+      @include make-col-span($grid-columns);
+      @extend .text-center;
+      @extend .col-center;
+    }
+  }
+}
+
+#overview {
+  display: none;
+}
+.impress-on-overview {
+  .step {
+    opacity: 1;
+    cursor: pointer;
+  }
+}

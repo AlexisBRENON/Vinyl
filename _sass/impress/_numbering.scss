@@ -1,0 +1,11 @@
+#impress {
+  counter-reset: stepCounter;
+}
+
+.step {
+  span.step-number:after {
+    content: counter(stepCounter);
+  }
+  counter-increment: stepCounter;
+}
+
