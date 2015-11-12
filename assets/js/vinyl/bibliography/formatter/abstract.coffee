@@ -48,7 +48,7 @@ define(
             $(element).attr('id', entry.id)
             $(element).addClass("#{this.constructor.formatterName}-style-citation-item")
             $(element).addClass("#{entry.type}-citation-item")
-            $(element).html(item.html)
+            $(element).append(item.elements[field]) for field in item.fields
 
             @updateReferences(entry, item.elements.id)
 
@@ -76,7 +76,7 @@ define(
             else
               # Remove the closing element, add the new id, and the closing element back
               $(inTextRef).html(
-                $(inTextRef).html().slice(0,-1*afterText.length) + "," + citationLink.outerHTML + afterText
+                $(inTextRef).html().slice(0,-1*afterText.length) + ", " + citationLink.outerHTML + afterText
               )
 
           return null
@@ -97,7 +97,7 @@ define(
 
         if schema?
           result.fields.push('id')
-          result.elements.id = @getId()
+          result.elements.id = @getId(entry)
           result.html = $(result.elements.id).html()
 
           for field in schema
@@ -139,8 +139,8 @@ define(
 
       sort: (entries) -> entries
 
-      getId: () ->
-        throw "#{this} :: getId() must be overrode"
+      getId: (entry) ->
+        throw "#{this} :: getId(entry) must be overrode"
 
       format: (field, value) ->
         if @formatFunctions[field]?
@@ -183,6 +183,27 @@ define(
             result += author.lastname
           else
             result += "#{author.firstname.charAt(0)}. #{author.lastname}"
+          return result)(author) for author in authors)
+
+        if abbrvAuthors.length == 1
+          result = abbrvAuthors[0]
+        else if abbrvAuthors.length == 2
+          result = abbrvAuthors.join(" and ")
+        else
+          result = abbrvAuthors[0..-1].join(', ')
+          result += ", and #{abbrvAuthors[-1..][0]}"
+        return result
+      
+      @formatAuthorSurnameF: (authors) ->
+        abbrvAuthors = (((author) ->
+          result = author.lastname + ","
+          if author.firstname.search(/[- ]/) >= 0
+            # It's a composed name
+            names = author.firstname.split(/[- ]/)
+            for name in names
+              result += "&nbsp;#{name.charAt(0)}."
+          else
+            result += "&nbsp;#{author.firstname.charAt(0)}."
           return result)(author) for author in authors)
 
         if abbrvAuthors.length == 1
