@@ -8,7 +8,8 @@ ul#bibliography {
 }
 
 @import "references/plain";
+@import "references/apalike";
 
-a.ref {
+.cite a, a.ref {
   color: inherit;
 }

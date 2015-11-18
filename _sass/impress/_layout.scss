@@ -1,0 +1,61 @@
+.impress-enabled {
+  pointer-events: none;
+
+  #impress {
+    pointer-events: auto;
+  }
+}
+
+a[href*="#"] {
+  pointer-events: none; // Local anchors are not well supported
+}
+
+.step {
+  position: relative;
+  $width: 1280px;
+  $height: $width*9/16;
+  width: $width;
+  height: $height;
+
+  @include m-x-auto();
+  @include p-a-md();
+  @include make-row();
+}
+
+.slide {
+  width: 100%; // Take all available space in the step
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  header, footer {
+    @include p-y-sm();
+    @extend .col-stretch;
+  }
+
+  header {
+    @include border-top-radius();
+    @include p-x-lg();
+    @extend .text-center;
+    @extend .bg-primary;
+    * { color: $body-bg; }
+  }
+
+  main {
+    flex-grow: 1;
+    @include make-row();
+    @include make-col();
+    @include make-col-span($grid-columns);
+    @include p-y-sm();
+  }
+
+  footer {
+    @include border-bottom-radius();
+    @include p-x-sm();
+  }
+}
+section {
+  @include make-col();
+  @include make-col-span($grid-columns);
+}

@@ -5,7 +5,8 @@ define(
   [
     'require',
     './plain',
-    './abbrv'
+    './abbrv',
+    './apalike'
   ], (require) ->
     console.log("@@ Vinyl::Bibliography::FormatterFactory @@ Initialization...")
     class BibliographyFormatterFactory

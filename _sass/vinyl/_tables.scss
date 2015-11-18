@@ -6,6 +6,7 @@ table {
   width: 100%;
   max-width: 100%;
   margin-bottom: $spacer;
+  background-color: $body-bg;
 
   th,
   td {
@@ -21,10 +22,6 @@ table {
 
   tbody + tbody {
     border-top: 2px solid $table-border-color;
-  }
-
-  .table {
-    background-color: $body-bg;
   }
 }
 

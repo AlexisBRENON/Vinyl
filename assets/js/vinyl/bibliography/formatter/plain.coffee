@@ -107,7 +107,7 @@ define(
             return e1FirstAuthor > e2FirstAuthor
         )
 
-      getId: () ->
+      getId: (entry) ->
         whole = document.createElement('span')
         $(whole).addClass("citation-item-id")
 
