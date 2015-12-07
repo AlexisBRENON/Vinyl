@@ -4,9 +4,8 @@
 	<head>
 		<title>Vinyl - RevealJS example</title>
 		<meta charset="utf-8">
-    <link href="/assets/css/reveal.css" rel="stylesheet" />
-    <link href="../../assets/js/libs/revealjs/css/theme/black.css" rel="stylesheet" />
-    <!--<link href="../../assets/css/revealjs.css" rel="stylesheet" />-->
+    <link href="/assets/css/reveal/reveal.css" rel="stylesheet" />
+    <link href="/assets/css/reveal/themes/uga-light.css" rel="stylesheet" />
     
     <!-- HighlightJS coloration theme -->
     <link href="../../assets/js/libs/revealjs/lib/css/zenburn.css" rel="stylesheet" />
@@ -156,7 +155,10 @@
             community, or even better, with RevealJS community.
             </p>
           </section>
-          <section data-background="/assets/img/abstract.jpg">
+          <!-- TODO: fix has-dark-background  -->
+          <section 
+            class="has-dark-background"
+            data-background="/assets/img/abstract.jpg">
             <h3>Slide background</h3>
             <p><strong>An image worth a thousand words.</strong></p>
             <p>Instead of inserting a small image just near your text, you can set it as slide
@@ -165,6 +167,7 @@
             <p>It even works with, GIFs, videos, etc...</p>
           </section>
           <section
+            class="has-dark-background"
             data-background="linear-gradient(10deg, #274166, #3b6299)"
             data-background-transition="zoom">
             <h3>Slide background</h3>
@@ -184,7 +187,7 @@
           <section>
             <h3>Pretty code</h3>
             <!-- TODO -->
-            <pre><code data-trim class="python3" contenteditable>
+            <pre><code class="python3" data-trim contenteditable>
 #!/usr/bin/env python3
 
 print("What to say? It's so useful.")
@@ -210,9 +213,11 @@ print("You can even edit this code block, if necessary!")
           </section>
           <section>
             <h3>Maths and scientific notations</h3>
-            <p>You can display pretty math equations thanks to this plugin</p>
+            <p>You can easily paste your LaTeX equation and MathJax do the job.
+            <p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+            </p>
             <p>An obvious feature for a scientific presentation tool!</p>
-            <!-- TODO -->
           </section>
         </section>
         <section>
@@ -228,9 +233,14 @@ print("You can even edit this code block, if necessary!")
           </div>
           <div class="row">
             <div class="col-12">
-              <p>But also the bibliography on the next slides.</p>
+              <p class="text-center">But also the bibliography on the next slides.</p>
             </div>
           </div>
+        </section>
+        <section>
+          <h2>Bibliography</h2>
+          <ul id="bibliohgraphy">
+          </ul>
         </section>
       </div>
     </div>
