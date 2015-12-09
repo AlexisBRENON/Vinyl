@@ -23,20 +23,21 @@ require.config({
     impressjs: {
       exports: 'impress'
     },
-    revealjs: {
+    reveal: {
       deps: [
         'reveal.head',
-        'reveal.classList',
-# TODO : Markdown and Marked support with RequireJS
-#        'reveal.markdown',
-        'reveal.highlight',
-        'reveal.zoom',
-        'reveal.notes',
-        'reveal.math',
       ]
       exports: 'Reveal'
     },
-    'reveal.markdown': ['reveal.marked'],
+    'reveal.classList' : ['reveal'],
+    'reveal.zoom' : ['reveal'],
+    'reveal.notes' : ['reveal'],
+    'reveal.math' : ['reveal'],
+    'reveal.markdown': ['reveal', 'reveal.marked'],
+    'reveal.highlight': {
+      deps: ['reveal']
+      exports: 'hljs'
+    }
   }
 })
 
@@ -64,8 +65,13 @@ require(
   ], ($, require) ->
     if $('.reveal').length > 0
       require([
-        'revealjs'
-      ], (Reveal) ->
+        'reveal',
+        'reveal.highlight',
+        'reveal.classList',
+        'reveal.zoom',
+        'reveal.notes',
+        'reveal.math'
+      ], (Reveal, hljs) ->
         Reveal.initialize({
           width: 1280,
           height: 720,
@@ -75,26 +81,8 @@ require(
           history: true,
           transition: 'slide', # none/fade/slide/convex/concave/zoom
           slideNumber: true,
-          # Optional reveal.js plugins
-          dependencies: [{
-            src: '/assets/js/libs/revealjs/lib/js/classList.js',
-            condition: ->
-              return !document.body.classList
-          },{
-            src: '/assets/js/libs/revealjs/plugin/highlight/highlight.js',
-            callback: ->
-              hljs.initHighlightingOnLoad()
-          },{
-            src: '/assets/js/libs/revealjs/plugin/zoom-js/zoom.js',
-            async: true
-          },{
-            src: '/assets/js/libs/revealjs/plugin/notes/notes.js',
-            async: true
-          },{
-            src: '/assets/js/libs/revealjs/plugin/math/math.js',
-            asyn: true
-          }]
         })
+        hljs.initHighlighting()
       )
 )
 
