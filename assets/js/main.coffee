@@ -6,8 +6,15 @@ require.config({
     jquery: 'libs/jquery/jquery.min',
     bibtexParse: 'libs/bibtexParseJs/bibtexParse',
     impressjs: 'libs/impress.js/js/impress',
-    revealjs: 'libs/revealjs/js/reveal',
-    head: 'libs/revealjs/lib/js/head.min'
+    reveal: 'libs/revealjs/js/reveal',
+    'reveal.head': 'libs/revealjs/lib/js/head.min',
+    'reveal.classList': 'libs/revealjs/lib/js/classList',
+    'reveal.markdown': 'libs/revealjs/plugin/markdown/markdown',
+    'reveal.marked': 'libs/revealjs/plugin/markdown/marked',
+    'reveal.highlight': 'libs/revealjs/plugin/highlight/highlight',
+    'reveal.zoom': 'libs/revealjs/plugin/zoom-js/zoom',
+    'reveal.notes': 'libs/revealjs/plugin/notes/notes',
+    'reveal.math': 'libs/revealjs/plugin/math/math',
   }
   shim: {
     bibtexParse: {
@@ -17,10 +24,19 @@ require.config({
       exports: 'impress'
     },
     revealjs: {
+      deps: [
+        'reveal.head',
+        'reveal.classList',
+# TODO : Markdown and Marked support with RequireJS
+#        'reveal.markdown',
+        'reveal.highlight',
+        'reveal.zoom',
+        'reveal.notes',
+        'reveal.math',
+      ]
       exports: 'Reveal'
     },
-    head: {
-    }
+    'reveal.markdown': ['reveal.marked'],
   }
 })
 
@@ -44,8 +60,7 @@ require(
 require(
   [
     'jquery',
-    'require',
-    'head'
+    'require'
   ], ($, require) ->
     if $('.reveal').length > 0
       require([
@@ -66,16 +81,7 @@ require(
             condition: ->
               return !document.body.classList
           },{
-            src: '/assets/js/libs/revealjs/plugin/markdown/marked.js',
-            condition: ->
-              return !!document.querySelector('[data-markdown]')
-          },{
-            src: '/assets/js/libs/revealjs/plugin/markdown/markdown.js',
-            condition: ->
-              return !!document.querySelector('[data-markdown]')
-          },{
             src: '/assets/js/libs/revealjs/plugin/highlight/highlight.js',
-            async: true,
             callback: ->
               hljs.initHighlightingOnLoad()
           },{
