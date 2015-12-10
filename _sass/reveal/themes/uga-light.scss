@@ -34,10 +34,12 @@ $heading2Size: $font-size-h2;
 $heading3Size: $font-size-h3;
 $heading4Size: $font-size-h4;
 
-section.has-dark-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: $backgroundColor;
-	}
+section {
+  &.has-dark-background, &.invert-color {
+    &, h1, h2, h3, h4, h5, h6 {
+      color: $backgroundColor;
+    }
+  }
 }
 
 section.section-slide {
