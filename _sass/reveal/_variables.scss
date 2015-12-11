@@ -7,3 +7,8 @@ $font-size-root-pt:          18;
 @import "vinyl/variables";
 
 $grid-gutter-width:         3 * $spacer-x;
+
+// Override to match the Zenburn default code highliting theme
+$pre-bg:                    #3f3f3f;
+$pre-color:                 #dcdcdc;
+$pre-border-color:          darken($pre-bg, 10%);
