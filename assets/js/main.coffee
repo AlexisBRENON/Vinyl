@@ -81,6 +81,10 @@ require(
           history: true,
           transition: 'slide', # none/fade/slide/convex/concave/zoom
           slideNumber: true,
+
+          math: {
+            mathjax: '/assets/js/libs/MathJax/MathJax.js' 
+          }
         })
         hljs.initHighlighting()
       )
