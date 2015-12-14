@@ -18,11 +18,6 @@
   @include pull-left();
 }
 
-// Always hide an element with the `hidden` HTML attribute (from PureCSS).
-[hidden] {
-  display: none !important;
-}
-
 .invisible {
   visibility: hidden;
 }

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<title>Vinyl - RevealJS example</title>
+		<meta charset="utf-8">
+    <link href="/assets/css/reveal/reveal.css" rel="stylesheet" />
+    <link href="/assets/css/reveal/themes/uga-light.css" rel="stylesheet" />
+    
+    <!-- HighlightJS coloration theme -->
+    <link href="../../assets/js/libs/revealjs/lib/css/zenburn.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			  <section>
+          <h1>
+            Lorem ipsum dolor sit amet<br/>
+            <small>consectetur adipiscing elit</small>
+          </h1>
+					<p>
+            <small>
+              Mauris Ipsum Ante, Suscipit A Hendrerit Nec<br/>
+              <a>{firstname.surname}@domain.com</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>RevealJS based presentations</h2>
+          <p>
+          This is a <a href="http://lab.hakim.se/reveal-js">RevealJS</a> based presentation.
+          </p>
+          <p>I will present you some features, but feel free to look for the initial project to
+          see all possibilities</p>
+        </section>
+
+        <section>
+          <h2>Vinyl specifities</h2>
+          <p>Being part of Vinyl, presentation are a little bit pre-configured to work out
+          of the box. Let's see the default behaviour:</p>
+          <ul>
+            <li>Slides size is 1280*720 (16:9 ratio)</li>
+            <li>Slide content is centered (horizontally and vertically)</li>
+            <li>Slide numbering is displayed in bottom-right corner</li>
+            <li>If used with Jekyll, all plugins are active</li>
+          </ul>
+          <p><big>Come on, let's explore features...</big></p>
+        </section>
+
+        <section>
+          <section class="section-slide">
+            <h1>
+              Vertical Slides<br/>
+              <small>And <code>section-slide</code></small>
+            </h1>
+          </section>
+          <section>
+            <h2>Vertical slides</h2>
+            <p>You are here in a nested/vertical slide.</p>
+            <p>Look at the slide numbering in the bottom-right corner.</p>
+          </section>
+          <section>
+            <h2>Section slide</h2>
+            <p>The first slide of this slides column has the <code>section-slide</code> class. Look
+            how it has been stylished to denote a new part of the presentation.</p>
+            <p>The <code>section-slide</code> class can be applied to any slide, not only nested
+            slides.</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Views</h2>
+          <p>
+          Wow! How incredible are views. This is the default one.
+          </p>
+          <p>
+          Let's press <kbd>ESC</kbd> to enter the slide overwiew. So convenient during
+          questions time.</p>
+          <p>
+          Hold down <kbd>ALT</kbd> and click to zoom in and out. Not so useful, but impressing, isn't it?
+          </p>
+          <p>
+          Finally press <kbd>S</kbd> to see the <strong>speaker view</strong>. Very useful,
+          and very very impressive for a browser based presentation!
+          </p>
+          <p>
+          Want to know more ? Continue.
+          </p>
+          <aside  class="notes">
+            <h2>Views</h2>
+            <p>These are some notes for this slide.</p>
+            <p>You can even use HTLM (or markdown) to pretty display your notes, for example</p>
+            <ol>
+              <li>With</li>
+              <li>an</li>
+              <li>ordered list</li>
+            </ol>
+            <p><strong>Too many features! Will it never stop!?</strong></p>
+          </aside>
+        </section>
+
+        <section>
+          <section class="section-slide">
+            <h2>
+              Fragments<br/>
+              <small>The missing feature of ImpressJS</small>
+            </h2>
+          </section>
+          <section>
+            <h3>What is fragment?</h3>
+            <p>
+            Fragments
+            <span class="fragment">are</span>
+            <span class="fragment">pieces of slide</span>
+            <span class="fragment">which appear one at a time.</fragment>
+            </p>
+          </section>
+          <section>
+            <h3>Fragment styles</h3>
+						<p>There's different types of fragments, like:</p>
+            <p>
+              <span class="fragment">default</span>
+						  <span class="fragment fade-out">fade-out</span>
+            </p>
+            <p>
+            <span class="fragment grow">grow</span><span style="margin:auto 2em;">/</span><span class="fragment shrink">shrink</span>
+            </p>
+            <p>
+  						<span class="fragment highlight-primary">highlight-primary</span>
+              <span class="fragment highlight-success">highlight-success</span>
+              <span class="fragment highlight-warning">highlight-warning</span>
+              <span class="fragment highlight-danger">highlight-danger</span>
+            </p>
+            <p>
+              <span class="fragment current-visible">current-visible</span>
+  						<span class="fragment highlight-current-primary">highlight-current-primary</span>
+              <span class="fragment highlight-current-success">highlight-current-success</span>
+              <span class="fragment highlight-current-warning">highlight-current-warning</span>
+              <span class="fragment highlight-current-danger">highlight-current-danger</span>
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section class="section-slide">
+            <h2>
+              Let's style it<br/>
+              <small>Even if the default theme is <strong>sooooo</strong> great</small>
+            </h2>
+          </section>
+          <section>
+            <h3>SCSS/CSS</h3>
+            <p>You can of course trash all the hard and beautiful work made by your lovely developer
+            and create a full new CSS theme. Look at the
+            <code>_sass/reveal/theme/_default.scss</code> file to
+            get some inspiration.
+            </p>
+            <p>Of course if you do a very beautiful theme, feel free to share it, with Vinyl
+            community, or even better, with RevealJS community.
+            </p>
+          </section>
+          <section 
+            class="invert-color"
+            data-background="/assets/img/abstract.jpg">
+            <h3>Slide background</h3>
+            <p><strong>An image worth a thousand words.</strong></p>
+            <p>Instead of inserting a small image just near your text, you can set it as slide
+            background!</p>
+            <p>Set the <code>data-background</code> attribute to point to an image. Thats it!</p>
+            <p>It even works with, GIFs, videos, etc...</p>
+          </section>
+          <section
+            class="invert-color"
+            data-background="linear-gradient(10deg, #274166, #3b6299)"
+            data-background-transition="zoom">
+            <h3>Slide background</h3>
+            <p><strong>But colors are strong too!</strong></p>
+            <p>Sometimes it's hard to find a picture. Colors have many meanings use them!</p>
+            <p><em>Did you notice that it's a gradient instead of a plain color?</em></p>
+            <p>You can also change the background transition style. Here it's a zoom.</p>
+          </section>
+        </section>
+
+        <section>
+          <section class="section-slide">
+            <h2>Plugins</h2>
+            <p>As said, all plugins are activated in Vinyl.</p>
+            <p>You have to use a server (like Jekyll, or NodeJS) to use them</p>
+          </section>
+          <section>
+            <h3>Pretty code</h3>
+            <pre><code class="python3" data-trim contenteditable>
+#!/usr/bin/env python3
+
+print("What to say? It's so useful.")
+print("You can even edit this code block, if necessary!")
+            </code></pre>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+## Markdown support
+
+Write content using inline or external Markdown.
+
+```
+<section data-markdown>
+## Markdown support
+
+Write content using inline or external Markdown.
+Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+</section>
+```
+            </script>
+          </section>
+          <section>
+            <h3>Maths and scientific notations</h3>
+            <p>You can easily paste your LaTeX equation and MathJax do the job.
+            <p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+            </p>
+            <p>An obvious feature for a scientific presentation tool!</p>
+          </section>
+        </section>
+        <section>
+          <h2>Vinyl features</h2>
+          <div class="row">
+            <div class="col-6">
+              <p>Last but not least, you can use Vinyl features such as the columns framework.
+              </p>
+            </div>
+            <div class="col-6">
+              <p>That what allow me to do this three parts slide. Two half on the top. And one full-width part on the bottom.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">But also the bibliography on the next slides.</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Bibliography</h2>
+          <ul id="bibliohgraphy">
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- Javascript Libraries -->
+    <script data-main="../../assets/js/main" src="../../assets/js/libs/requirejs/require.js"></script>
+
+  </body>
+</html>
+

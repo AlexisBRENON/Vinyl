@@ -1,0 +1,55 @@
+/**
+ * UGA-light theme for reveal.js in Vinyl.
+ *
+ * Copyright (C) 2015 Alexis Brenon
+ */
+
+// Default mixins and settings -----------------
+@import "reveal/base/theme/template/mixins";
+@import "reveal/base/theme/template/settings";
+// ---------------------------------------------
+
+/* Load variables from Reveal and Vinyl */
+@import "reveal/variables";
+
+// Override theme settings
+$backgroundColor: $body-bg;
+
+$mainColor: $body-color;
+$headingColor: $brand-primary;
+
+$mainFontSize: $font-size-base;
+$mainFont: $font-family-sans-serif;
+$headingFont: $headings-font-family;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: $headings-font-weight;
+$linkColor: $link-color;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: $font-size-h1;
+$heading2Size: $font-size-h2;
+$heading3Size: $font-size-h3;
+$heading4Size: $font-size-h4;
+
+section {
+  &.has-dark-background, &.invert-color {
+    &, h1, h2, h3, h4, h5, h6 {
+      color: $backgroundColor;
+    }
+  }
+}
+
+section.section-slide {
+  @extend section.has-dark-background;
+}
+.slide-background.section-slide {
+  background: $brand-primary;
+}
+
+// Theme template ------------------------------
+@import "reveal/base/theme/template/theme";
+// ---------------------------------------------
+

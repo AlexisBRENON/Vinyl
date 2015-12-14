@@ -4,3 +4,6 @@
 [submodule "assets/js/libs/impress.js"]
 	path = assets/js/libs/impress.js
 	url = https://github.com/impress/impress.js.git
+[submodule "assets/js/libs/revealjs"]
+	path = assets/js/libs/revealjs
+	url = https://github.com/AlexisBRENON/reveal.js.git 
