@@ -66,27 +66,34 @@ require(
     if $('.reveal').length > 0
       require([
         'reveal',
+        'reveal.marked'
         'reveal.highlight',
         'reveal.classList',
         'reveal.zoom',
         'reveal.notes',
-        'reveal.math'
-      ], (Reveal, hljs) ->
-        Reveal.initialize({
-          width: 1280,
-          height: 720,
-          controls: false,
-          progress: true,
-          center: true,
-          history: true,
-          transition: 'slide', # none/fade/slide/convex/concave/zoom
-          slideNumber: true,
+        'reveal.math',
+      ], (Reveal, marked, hljs) ->
+        this.marked = marked
+        require(
+          [
+            'reveal.markdown'
+          ], ->
+            Reveal.initialize({
+              width: 1280,
+              height: 720,
+              controls: false,
+              progress: true,
+              center: true,
+              history: true,
+              transition: 'slide', # none/fade/slide/convex/concave/zoom
+              slideNumber: true,
 
-          math: {
-            mathjax: '/assets/js/libs/MathJax/MathJax.js' 
-          }
-        })
-        hljs.initHighlighting()
+              math: {
+                mathjax: '/assets/js/libs/MathJax/MathJax.js'
+              }
+            })
+            hljs.initHighlighting()
+        )
       )
 )
 
