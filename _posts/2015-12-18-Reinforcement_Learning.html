@@ -1,0 +1,189 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<title>Vinyl - Reinforcement Learning</title>
+		<meta charset="utf-8">
+    <link href="/assets/css/reveal/reveal.css" rel="stylesheet" />
+    <link href="/assets/css/reveal/themes/uga-light.css" rel="stylesheet" />
+
+    <!-- HighlightJS coloration theme -->
+    <link href="/assets/js/libs/revealjs/lib/css/zenburn.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			  <section>
+          <h1>
+            Apprentissage par renforcement<br/>
+            <small>Tour d'horizon</small>
+          </h1>
+					<p class="text-center">
+            Alexis Brenon - <a href="mailto:alexis.brenon@imag.fr">alexis.brenon@imag.fr</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Plan</h2>
+          <ol>
+            <li>Le principe général</li>
+						<li>Les méthodes</li>
+            <li>L'application dans les habitats intelligents</li>
+          </ol>
+        </section>
+
+        <section>
+          <section class="section-slide">
+            <h1>
+              Le principe général<span class="cite invisible" data-bibkey="Sutton2015"></span><br>
+            </h1>
+          </section>
+          <section>
+            <h2>Éléments principaux</h2>
+            <ul>
+              <li>Un agent &amp; son environnement</li>
+              <li>Une stratégie (<em>policy</em>)<br/>
+								\(\pi : S \to A\)</li>
+              <li>Une fonction de récompense (<em>reward function</em>)<br/>
+								\(\rho : S \times A \to \mathbb R\)</li>
+              <li>Une fonction de valeur (<em>value function</em>)<br/>
+								\(\upsilon_\pi : S \to \mathbb R\)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Objectif de l'agent</h2>
+            <p class="text-center"><em>Maximiser la récompense totale sur le long terme / la fonction de retour.</em></p>
+            <p>À chaque étape&nbsp;:</p>
+            <ul>
+              <li>L'agent prend connaissance de son environnement/état</li>
+              <li>L'agent suit la stratégie en fonction de l'état dans lequel il se trouve</li>
+              <li>L'agent reçoit une récompense (postive, négative ou nulle) suite à son action</li>
+            </ul>
+            <p>La fonction de valeur permet une prise en compte des gains futurs possible.</p>
+            <p>Privilégier une action à faible récompense maintenant pour atteindre des états à fortes récompenses plus tard.</p>
+          </section>
+					<section>
+            <h2>Problématique</h2>
+            <p class="text-center">Déterminer la stratégie à suivre<br/>
+							\(\Leftrightarrow\)<br/>
+							Determiner la fonction de valeur optimale</p>
+						<p><strong>L'équation de Bellman :</strong> $$\upsilon^\star (\mathbf{s}_t) = \rho(\mathbf{s}_t) + \gamma \upsilon^\star (\mathbf{s}_{t+1})$$</p>
+						<aside class="notes">
+							<p>Équation représentative du problème de RL.
+								Déterminer la fonction de valeur optimale \(\upsilon^\star\) revient à trouver la fonction qui valide cette équation pour tous les états \(\mathbf{s}\)
+							</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section class="section-slide">
+						<h1>Les méthodes</h1>
+					</section>
+					<section>
+						<h2>Programmation dynamique</h2>
+						<p>Collection d'algorithmes permettant le calcul d'une stratégie optimale :</p>
+						<div class="clearfix">
+							<ul class="pull-left">
+								<li><em>policy iteration</em> ;</li>
+								<li><em>value iteration</em> ;</li>
+								<li>etc.</li>
+							</ul>
+						</div>
+						<p class="text-warning">Nécessite la connaissance complète d'un modèle de l'environnement</p>
+						<p class="text-warning">Très couteux en calculs</p>
+						<p>Sert de bases aux autres algorithmes</p>
+					</section>
+					<section>
+						<h2>Méthodes de Monte Carlo</h2>
+						<p>Peuvent être appliquée à partir d'un corpus simulé et/ou réel</p>
+						<p>Applicables dans le cas de tâches épisodiques : renforcement épisodique et non à la volée</p>
+					</section>
+					<section>
+						<h2>Apprentissage à différence temporelle<br/>
+						<small><em>Temporal-Difference Learning</em> (TD)</small></h2>
+						<p>Similaire aux méthodes de Monte Carlo, mais applicable à la volée</p>
+						<p>Méthodes les plus utilisées aujourd'hui, en particulier le <em>\(Q\)-Learning</em>&nbsp;<span class="cite" data-bibkey="Watkins1989"/></p>
+						<p>Simples à mettre en place, incrémentales, à faible coût de calcul, sans modèle</p>
+					</section>
+        </section>
+
+				<section>
+					<section class="section-slide">
+						<h1>Application dans les habitats intelligents<br/>
+							<small>Étude de cas : ACHE&nbsp;<span class="cite" data-bibkey="Mozer1998"/></small>
+						</h1>
+					</section>
+					<section>
+						<h2>Le projet ACHE</h2>
+						<p class="text-center"><em>Adaptive Control of Home Environment</em></p>
+						<p>Projet de l'université du Colorado initié dans les années 90</p>
+						<div class="row separators">
+							<div class="col-6">
+								<p>Habitat intelligent avec contrôle :</p>
+ 								<ul>
+									<li>des lumières (22)&nbsp;;</li>
+ 									<li>de la ventilation (6)&nbsp;;</li>
+ 									<li>du chauffe-eau&nbsp;;</li>
+									<li>de la chaudière&nbsp;;</li>
+									<li>des radiateurs électriques (2)&nbsp;;</li>
+									<li>des haut-parleurs (12).</li>
+								</ul>
+							</div>
+							<div class="col-6">
+								<p>Deux objectifs :</p>
+								<ul>
+									<li>anticiper les besoins de l'utilisateur&nbsp;;</li>
+									<li>limiter la consommation d'énergie.</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>Anticipation = Prédiction</h2>
+						<p>Brique architecturalle : le prédicateur</p>
+						<p>Infère l'état future à partir des données de l'état présent</p>
+						<p>Utilise un réseau de neuronnes</p>
+						<p>Pas de RL ici...</p>
+					</section>
+					<section>
+						<h2>Prise de décision</h2>
+						<p>Deux approches :</p>
+						<div class="row separators">
+							<div class="col-6">
+								<p><strong>Prog. Dynamique&nbsp;:</strong></p>
+								<p>Contrôle du chauffage</p>
+								<p>Basé sur un modèle thermique RC</p>
+							</div>
+							<div class="col-6">
+								<p><strong>\(Q\)-Learning</strong></p>
+								<p>Contrôle des lumières</p>
+								<p>Une action de l'utilisateur implique une récompense moindre</p>
+							</div>
+						</div>
+					</section>
+				</section>
+
+        <section>
+          <h2>Bibliography</h2>
+          <ul id="bibliography"
+						class="small"
+            data-bibliography-file="/assets/biblio/bibliography.bib"
+            data-bibliography-file-format="bibtex">
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- Javascript Libraries -->
+    <script data-main="/assets/js/main" src="/assets/js/libs/requirejs/require.js"></script>
+
+  </body>
+</html>

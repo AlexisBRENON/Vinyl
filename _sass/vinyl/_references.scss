@@ -10,6 +10,11 @@ ul#bibliography {
 @import "references/plain";
 @import "references/apalike";
 
-.cite a, a.ref {
+span.cite a,
+a.ref {
   color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
 }
