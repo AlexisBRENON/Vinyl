@@ -8,10 +8,18 @@
 		<title>Vinyl - Reinforcement Learning</title>
 		<meta charset="utf-8">
     <link href="/assets/css/reveal/reveal.css" rel="stylesheet" />
-    <link href="/assets/css/reveal/themes/uga-light.css" rel="stylesheet" />
+    <link href="/assets/css/reveal/themes/uga-light.css" rel="stylesheet"/>
 
     <!-- HighlightJS coloration theme -->
     <link href="/assets/js/libs/revealjs/lib/css/zenburn.css" rel="stylesheet" />
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/js/libs/revealjs/css/print/pdf.css' : '/assets/js/libs/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 	</head>
 
 	<body>
