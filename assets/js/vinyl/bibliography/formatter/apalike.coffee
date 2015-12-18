@@ -1,6 +1,12 @@
 ---
 ---
 
+# This is my favorite bibliography style: the APA-like. It display the name and the year of the
+# reference where you cite them. It's more easy to remember for papers, and very convenient for
+# slideshows.
+# You would probably read the vinyl/bibliography/formatter/plain file before this one as many things
+# are similar.
+
 define(
   [
     'jquery',
@@ -14,6 +20,7 @@ define(
 
       constructor: () ->
         super("BibliographyStyleApaLike")
+# I will not explain an other time how schemas works, see the plain.coffee file more informations
         @schemas = {
           default: 'article',
           article: [{
@@ -46,9 +53,9 @@ define(
           }]
         }
 
+# Sort entries alphabetically on first author surname. Entries without date are presented
+# first.
       sort: (entries) ->
-        # Sort entries alphabetically on first author surname. Entries without date are presented
-        # first.
         entries.sort((e1, e2) ->
           if e1.year? and not e2.year?
             return false
@@ -63,6 +70,9 @@ define(
               return e1FirstAuthor > e2FirstAuthor
         )
 
+# The ID of an entry for APA like is the last name of the first author followed by 'et al.' if there
+# is multiple author, followed by the year of the publication.
+# TODO: handle the case where one author published twice in the same year (add a,b,c, etc.)
       getId: (entry) ->
         whole = document.createElement('span')
         $(whole).addClass("citation-item-id")
@@ -85,6 +95,7 @@ define(
         $(whole).append(before, content, after, "&nbsp;")
         return whole
 
+# In APA like, author list is displayed as Surname followed by initial of first names.
       formatAuthor: BibliographyStyleAbstract.formatAuthorSurnameF
 
     console.log("@@ Vinyl::Bibliography::Style::ApaLike @@ Initialization: DONE")
