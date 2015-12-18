@@ -4,11 +4,20 @@
 	<head>
 		<title>Vinyl - RevealJS example</title>
 		<meta charset="utf-8">
-    <link href="/assets/css/reveal/reveal.css" rel="stylesheet" />
-    <link href="/assets/css/reveal/themes/uga-light.css" rel="stylesheet" />
-    
+    <link href="../../assets/css/reveal/reveal.css" rel="stylesheet" />
+    <link href="../../assets/css/reveal/themes/uga-light.css" rel="stylesheet" />
+
     <!-- HighlightJS coloration theme -->
     <link href="../../assets/js/libs/revealjs/lib/css/zenburn.css" rel="stylesheet" />
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../assets/js/libs/revealjs/css/print/pdf.css' : '../../assets/js/libs/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 	</head>
 
 	<body>
@@ -164,9 +173,9 @@
             community, or even better, with RevealJS community.
             </p>
           </section>
-          <section 
+          <section
             class="invert-color"
-            data-background="/assets/img/abstract.jpg">
+            data-background="../../assets/img/abstract.jpg">
             <h3>Slide background</h3>
             <p><strong>An image worth a thousand words.</strong></p>
             <p>Instead of inserting a small image just near your text, you can set it as slide
@@ -246,6 +255,7 @@ Instructions and more info available in the [readme](https://github.com/hakimel/
         <section>
           <h2>Bibliography</h2>
           <ul id="bibliohgraphy">
+						<p>Soon...</p>
           </ul>
         </section>
       </div>
@@ -256,4 +266,3 @@ Instructions and more info available in the [readme](https://github.com/hakimel/
 
   </body>
 </html>
-
