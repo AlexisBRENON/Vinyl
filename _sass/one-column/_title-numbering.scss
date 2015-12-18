@@ -1,20 +1,25 @@
+// Automatic numbering of titles
+// TODO: move it to the general vinyl framework
+// TODO: add autonumbering of tables/algorithm/figures/etc.
 header {
   counter-reset: h2Counter;
 }
 
 main {
+  // Common style for any title
   @for $i from 2 through 6 {
     h#{$i} {
-      counter-reset: h#{$i+1}Counter;
+      counter-reset: h#{$i+1}Counter; // Reset counter of sub-parts
       margin-left: $i - 2em;
       &:before {
         display: inline-block;
         width: 2em;
-        counter-increment: h#{$i}Counter
+        counter-increment: h#{$i}Counter // Increment counter of our own part
       }
     }
   }
 
+  // Title numbering display style
   h2:before {
     content: counter(h2Counter);
   }
@@ -32,6 +37,8 @@ main {
   }
 }
 
+
+// Annexes counter use Upper latin
 footer {
   counter-reset: h2Counter;
 

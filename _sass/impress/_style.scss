@@ -35,9 +35,11 @@ body {
   }
 }
 
+// Don't display overview step
 #overview {
   display: none;
 }
+// Let all step visible when on overview
 .impress-on-overview {
   .step {
     opacity: 1;

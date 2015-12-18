@@ -1,5 +1,6 @@
 /* Some improvements similar to the default RevealJS class */
 
+// Add fragments colored with the color scheme defined
 .reveal .slides section {
 
   @each $color in (primary, success, warning, danger) {

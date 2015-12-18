@@ -10,6 +10,7 @@ ul#bibliography {
 @import "references/plain";
 @import "references/apalike";
 
+// Avoid blue link for references and citation
 .cite a, a.ref {
   color: inherit;
 }

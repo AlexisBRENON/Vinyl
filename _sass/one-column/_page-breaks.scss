@@ -1,3 +1,4 @@
+// Include page breaks
 .pb-a {
   position: relative;
   page-break-after: always;
@@ -22,6 +23,8 @@
   @extend .pb-b;
   page-break-before: left;
 }
+
+// Display page-break visually on screens
 @media screen {
   .pb-a {
     padding-bottom: 100 * $ppm;
@@ -72,11 +75,13 @@
   }
 }
 
+// Add page break at the end of the front page
 header {
   @extend .pb-a-r;
   page-break-inside: avoid;
 }
 
+// Avoid page break inside and after any title
 @for $i from 2 through 6 {
   h#{$i} {
     page-break-inside: avoid;
@@ -84,6 +89,7 @@ header {
   }
 }
 
+// Add page break before Annexes
 main {
   @extend .pb-a-r;
 }

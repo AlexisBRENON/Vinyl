@@ -6,6 +6,7 @@ $font-size-root-pt:          18;
 
 @import "vinyl/variables";
 
+// Add more space between columns
 $grid-gutter-width:         3 * $spacer-x;
 
 // Override to match the Zenburn default code highliting theme

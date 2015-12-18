@@ -1,19 +1,28 @@
+/* Define some property of the page */
+
+
 body {
   position: relative;
 
+  // Set the A0 size, 841*1189 mm
   width: 841 * $ppm;
   height: 1189 * $ppm;
-  margin: 0 auto;
-  padding: $spacer-y $spacer-x;
+  margin: 0 auto; // Center the page for a pretty display
+  padding: $spacer-y $spacer-x; // Set printer margins
 
+  // Most of the content on a page is designed as rows. So a page is a stack of rows. Here we expect
+  // a header, a main part and a footer. Header and footer will stick at the top and the bottom.
+  // Three parts will be stretched on the whole width of the page.
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
 
+  // Pretty display
   @include box-shadow($ppm $ppm 5 * $ppm black);
 }
 
+// Some guides that display dotted line on the page to help you organizing your content.
 .guides {
   position: absolute;
   top: 0; bottom: 0;
@@ -44,12 +53,15 @@ body {
   }
 }
 
+
+// The main part of your document
 main {
-  flex: 1;
+  flex: 1; // It will be expanded vertically to take as place as possible.
   @include make-row();
   margin-left: 0;
   margin-right: 0;
 
+  // Each subsection is separated from the following
   > section {
     margin-bottom: $spacer-y;
 

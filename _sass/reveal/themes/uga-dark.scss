@@ -1,5 +1,5 @@
 /**
- * UGA-light theme for reveal.js in Vinyl.
+ * UGA-dark theme for reveal.js in Vinyl.
  *
  * Copyright (C) 2015 Alexis Brenon
  */
@@ -13,9 +13,9 @@
 @import "reveal/variables";
 
 // Override theme settings
-$backgroundColor: $brand-primary;
+$backgroundColor: $brand-primary; // Dark/colorful background
 
-$mainColor: $body-bg;
+$mainColor: $body-bg; // Light/white foreground
 $headingColor: $body-bg;
 
 $mainFontSize: $font-size-base;

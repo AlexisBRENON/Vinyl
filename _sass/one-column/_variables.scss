@@ -14,6 +14,7 @@ $headings-font-weight:       bolder;
 // Set a serif font
 $font-family-base: $font-family-serif;
 
+// Set 2cm margins around the page (printer margins)
 $article-margin-left: 20 * $ppm;
 $article-margin-right: $article-margin-left;
 $article-margin-top: $article-margin-right;

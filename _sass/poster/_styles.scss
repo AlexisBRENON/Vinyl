@@ -11,6 +11,7 @@ header {
 }
 
 main > section {
+  // Sections are designed as rounded cards
   @include border-radius();
   position: relative;
 
@@ -27,6 +28,7 @@ main > section {
     -webkit-filter:blur(0);
   }
 
+  // Make title catchy with inverted colors
   h2 {
     @include border-top-radius();
     display: flex;
@@ -34,6 +36,7 @@ main > section {
     background-color: $brand-primary;
     color: $body-bg;
 
+    // Add a line from the end of title to the end of the page. We like this style
     &:after {
       content: "";
       display: block;
@@ -44,6 +47,8 @@ main > section {
   }
 }
 
+// Add separator between two columns.
+// TODO: move this to the grid-framework generator to allow it on any row/col class.
 section.separator {
   border-right: $hr-border-width solid $hr-border-color;
 }

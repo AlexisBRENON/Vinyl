@@ -12,22 +12,23 @@ a[href*="#"] {
 
 .step {
   position: relative;
+  // Set a step size to 1280*720 px
   $width: 1280px;
   $height: $width*9/16;
   width: $width;
   height: $height;
 
-  @include m-x-auto();
-  @include p-a-md();
+  @include m-x-auto(); // Center a step
+  @include p-a-md(); // Add some paddings
   @include make-row();
 }
 
 .slide {
   width: 100%; // Take all available space in the step
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+  flex-direction: column; // Slide is composed of a header, a main part, and a footer
+  justify-content: space-between; // header and footer stick to top and bottom
+  align-items: stretch; // Three parts take full width
 
   header, footer {
     @include p-y-sm();
@@ -35,15 +36,15 @@ a[href*="#"] {
   }
 
   header {
-    @include border-top-radius();
+    @include border-top-radius(); // Slide is rounded
     @include p-x-lg();
     @extend .text-center;
-    @extend .bg-primary;
+    @extend .bg-primary; // Invert colors
     * { color: $body-bg; }
   }
 
   main {
-    flex-grow: 1;
+    flex-grow: 1; // Main part take as place as possible
     @include make-row();
     @include make-col();
     @include make-col-span($grid-columns);
@@ -51,7 +52,7 @@ a[href*="#"] {
   }
 
   footer {
-    @include border-bottom-radius();
+    @include border-bottom-radius(); // Slide is rounded
     @include p-x-sm();
   }
 }
