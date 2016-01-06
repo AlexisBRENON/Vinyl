@@ -61,7 +61,10 @@
           <p><big>Come on, let's explore features...</big></p>
         </section>
 
+        <!-- Nesting `section` elements will create vertical/sub slides -->
         <section>
+          <!-- We define the first slide of this group of slide as a `section-slide`. This will
+            invert it's colors -->
           <section class="section-slide">
             <h1>
               Vertical Slides<br/>
@@ -100,6 +103,8 @@
           <p>
           Want to know more ? Continue.
           </p>
+          <!-- An `aside.notes` element allow you to write some notes displayed in the presenter view.
+            Very useful! -->
           <aside  class="notes">
             <h2>Views</h2>
             <p>These are some notes for this slide.</p>
@@ -132,6 +137,7 @@
           <section>
             <h3>Fragment styles</h3>
 						<p>There's different types of fragments, like:</p>
+            <!-- Many fragments example -->
             <p>
               <span class="fragment">default</span>
 						  <span class="fragment fade-out">fade-out</span>
@@ -173,6 +179,7 @@
             community, or even better, with RevealJS community.
             </p>
           </section>
+          <!-- Here we define a background image for the slide. -->
           <section
             class="invert-color"
             data-background="../../assets/img/abstract.jpg">
@@ -183,6 +190,9 @@
             <p>Set the <code>data-background</code> attribute to point to an image. Thats it!</p>
             <p>It even works with, GIFs, videos, etc...</p>
           </section>
+          <!-- A background color/image with some transition.
+            As it's not a plain color, RevealJS script don't detect it as a 'dark-background', so
+            add the invert-color class to fix this. -->
           <section
             class="invert-color"
             data-background="linear-gradient(10deg, #274166, #3b6299)"
@@ -196,13 +206,21 @@
         </section>
 
         <section>
+          <!-- Show usages of plugins -->
           <section class="section-slide">
             <h2>Plugins</h2>
             <p>As said, all plugins are activated in Vinyl.</p>
             <p>You have to use a server (like Jekyll, or NodeJS) to use them</p>
           </section>
+
           <section>
             <h3>Pretty code</h3>
+            <!-- First, syntax highlighting.
+              Just enclose your code in pre and code tags.
+              data-trim remove leading and trailing spaces of your code.
+              contenteditable allow you to edit the code block during your presentation.
+              Finally, there is not enough code to recognize the language so set it as the class.
+            -->
             <pre><code class="python3" data-trim contenteditable>
 #!/usr/bin/env python3
 
@@ -210,6 +228,11 @@ print("What to say? It's so useful.")
 print("You can even edit this code block, if necessary!")
             </code></pre>
           </section>
+
+          <!-- Use the `data-markdown` attribute to tell RevealJS that you will embed some Markdown
+            code. Then, include it in a `script` tag. See the RevealJS documentation for more info
+            (external file embedding, etc.)
+          -->
           <section data-markdown>
             <script type="text/template">
 ## Markdown support
@@ -226,6 +249,9 @@ Instructions and more info available in the [readme](https://github.com/hakimel/
 ```
             </script>
           </section>
+
+          <!-- Nothing difficult here, just copy and paste your equations from LaTeX and you're
+            done. -->
           <section>
             <h3>Maths and scientific notations</h3>
             <p>You can easily paste your LaTeX equation and MathJax do the job.
@@ -235,6 +261,11 @@ Instructions and more info available in the [readme](https://github.com/hakimel/
             <p>An obvious feature for a scientific presentation tool!</p>
           </section>
         </section>
+
+        <!-- Here you will recognize some patterns and classes used in other examples (poster and
+          impressJS). Nothing very difficult. For more examples, you can read the Bootstrap
+          documentation as it is based on its code.
+        -->
         <section>
           <h2>Vinyl features</h2>
           <div class="row">
@@ -252,6 +283,11 @@ Instructions and more info available in the [readme](https://github.com/hakimel/
             </div>
           </div>
         </section>
+
+        <!-- Finally, the bibliography. It's a Vinyl feature, so you will see it in every examples.
+          Just create an unordered list with `bibliography` as it's id, the path to the bib file,
+          it's format (bibtex/bibjson) and the style of the bibliography (plain/abbrv/apalike/etc.).
+        -->
         <section>
           <h2>Bibliography</h2>
           <ul id="bibliohgraphy">
