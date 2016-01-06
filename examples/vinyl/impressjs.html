@@ -1,5 +1,21 @@
 <!doctype html>
 
+<!--
+  ImpressJS is a very VERY powerful presentation framework. But with great powers comes great
+  responsibility. You have to understand well how does it work if you want any chance to do
+  something impressive or that even work. Even us, there is some subtlity that we don't
+  understand, and so the result is not as we expected. We hope to fix this one day.
+
+  The comments in this file explain some computations, choices, or tricks but are far less
+  instructive than the comments in the ImpressJS official demo file. So we strongly recommend you
+  to read this file.
+
+  WE STRONGLY RECOMMEND YOU TO READ COMMENTS IN THE OFFICIAL DEMO FILE.
+
+  Honestly... Read the comments in the demo file! You can find it in this repo
+  (/assets/js/libs/impress.js/index.html) or online.
+-->
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,19 +25,38 @@
 
     <meta name="author" content="Alexis Brenon" />
 
+    <!--
+      This is a default theme file, but you will certainly have to create your own. Maybe
+      one day we will make this a little bit more modular to reduce your need to write CSS.
+    -->
     <link href="../../assets/css/impressjs.css" rel="stylesheet" />
   </head>
 
+  <!-- Start with this class to support any browser with disabled JS -->
   <body class="impress-not-supported">
 
+    <!-- This message will be displayed if browser requirements are not met. -->
     <div class="fallback-message">
       <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
       <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
     </div>
 
+    <!-- Let's start the hard things. -->
     <div id="impress">
 
-      <!-- data-y = 750/2 + 5*750/2 = 2250 -->
+      <!-- Each block element with the `step` will be considered as a presentation step of
+        1280*720px. In our case, we use a `slide` style, so we don't want that two step
+        interleave. So we take some margins (15px on top and bottom) which bring step height to about
+        750px. ImpressJS ask us to define the coordinate of the center of the slide, so there is
+        many division by 2.
+
+        So, the header slide will be put above the other ones, so leave some space for a slide
+        under it (750 px).
+        Our slide will be BIG, 5 times biggers than other ones. So it's middle have to be put 5
+        times higher (5*750).
+        Finally compute the middle of all these things.
+        data-y = (750 + 5*750)/2 = 2250
+      -->
       <header id="title"
               class="step"
               data-x="0" data-y="-2250"
@@ -37,12 +72,23 @@
         </div>
       </header>
 
+      <!--
+        As for the height we take some margins on width, so we compute our positions with step
+        of width 1300 instead of the actual 1280 width.
+      -->
       <div class="step" data-x="-1300" data-y="0">
         <div class="slide">
+          <!-- A classical slide is composed of 3 parts:
+              * a header
+              * a main
+              * a footer
+            So we create three elements for this.
+          -->
           <header>
             <h2>Donec imperdiet posuere erat</h2>
           </header>
           <main>
+            <!-- The section element is used to add some margins. -->
             <section>
               <p>Donec eleifend at dui in vehicula. Maecenas metus ligula, aliquam eu mattis ut, placerat ac nisi. Nullam in pretium arcu, sed lacinia urna</p>
               <ul>
@@ -53,6 +99,7 @@
               </ul>
             </section>
           </main>
+          <!-- The footer will contain an auto-generated step number -->
           <footer>
             <span class="pull-right step-number"/>
           </footer>
@@ -65,6 +112,11 @@
             <h2>In tempor: arcu ac congue dictum</h2>
           </header>
           <main>
+            <!-- A more complicated slide with two parts, side by side.
+              This is a Vinyl feature and based on Bootstrap. See it's documentation for more
+              informations about columns.
+              The separator class create a separator between columns.
+            -->
             <section class="col-6 separator">
               <p>Risus leo malesuada eros, non maximus erat nibh fringilla nunc. Aliquam placerat venenatis mi, ut volutpat ante sagittis ac.</p>
               <ul class="list-pros-cons">
@@ -112,12 +164,28 @@
         </div>
       </div>
 
+      <!--
+        Here is a new big `section-slide`. There is only one row of normal slides above it,
+        centered on y=0 coordinate.
+        So the coordinate for this new big slide is the opposite of the first one.
+      -->
       <div class="step" data-x="0" data-y="2250" data-scale="5">
         <div class="slide section-slide">
           <h1>Aenean leo eros</h1>
         </div>
       </div>
 
+      <!--
+        Look at this interesting feature.
+        Here, we define a normal slide, which is 5 times smaller than the previous one. So we are
+        able to hide it behind our `section-slide`.
+        To do this, we set coordinates in order to be contained in the previous slide. We add a
+        negative Z coordinate to make sure that this step is not visible when the previous step
+        is displayed. Finally, we add a rotation around the Y axis to simulate that the
+        content of this step is written on the back of the previous slide.
+
+        We don't use the slide class as we already use the background of the previous slide.
+      -->
       <div class="step"
            data-x="1300" data-y="1500" data-z="-100"
            data-rotate-y="180">
@@ -139,11 +207,24 @@
         </table>
       </div>
     
+      <!--
+        This is a kind of utility step. We will use its id to make every step opac when this
+        step is active. The coordinates allow us to center the whole presentation on the
+        screen. The scale will do a zoom out to make sure that every steps are visible in the
+        screen. This way, you have a kind of overview of your presentation at the end.
+      -->
       <div id="overview" class="step"
            data-x="9750" data-y="0"
            data-scale="20">
       </div>
 
+      <!--
+        Finally, we add a bibliography slide.
+        This is not very interesting during a presentation, so we put it at the end, even after the
+        overview which is a good place for question time.
+        Nevertheless, this example presentation is made that the bibliography slide is
+        big to be readable even in overview, and is visible when you are on overview step.
+      -->
       <div class="step"
            data-x="9750" data-y="0"
            data-scale="10">
