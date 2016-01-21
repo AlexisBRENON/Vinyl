@@ -1,120 +1,235 @@
----
----
-
 <!DOCTYPE html>
+
+<!-- Hi.
+  This is a example of the use of the Vinyl framework to create an A0 poster.
+
+  You will find some redundant informations if you already read others examples (impressJS or
+  revealjs).
+
+  Let's walk through it.
+-->
 
 <html>
 <head>
+  <!-- First of all, we load our stylesheet. This one is a basic one, you can of course create new
+    ones or only override some of its content. -->
   <link rel="stylesheet" href="../../assets/css/poster.css"/>
 </head>
 
 <body>
+  <!-- This is mainly for design.
+    Guides will draw lines above your poster, to highlight thirds of your page. The third rules is a
+    very basic rule to layout some content, and so this guides allow you to better see where the
+    thirds are. Of course they are not displayed when youo print/export the poster.
+  -->
   <div class="guides">
   </div>
 
+  <!-- A poster is mainly composed as follow.
+    +---------------------+
+    | HEADER              |
+    +---------------------+
+    | MAIN CONTENT        |
+    | Part1 ............  |
+    | .                .  |
+    | ..................  |
+    |                     |
+    | Part2...  Part3...  |
+    | .      .  .      .  |
+    | ........  ........  |
+    +---------------------+
+    | FOOTER / BIBLIO     |
+    +---------------------+
+    Or something similar.
+
+    So let's start with the beginning, the header.
+  -->
+
   <header>
+    <!-- Header is basically composed of the title of the poster and some graphics/logos.
+      Use some small tags to style authors, institutes, etc. correctly.
+      TODO: Fix stylesheet to avoid (multiple) small tags in h1 tags.
+    -->
     <h1>
       <img class="pull-right" src="/assets/img/institute.jpg"/>
-      Lorem ipsum dolor sit amet: consectetur adipiscing elit<br/>
+      Vinyl A0 Poster Template<br/>
       <small>
         <p>
-          Mauris Ipsum Ante<sup>1</sup>, Suscipit A Hendrerit Nec<sup>2</sup><br/>
+          Alexis BRENON<sup>1</sup>, Vinyl Team<sup>2</sup><br/>
           <a>{firstname.surname}@domain.com</a>
         </p>
         <small>
           <p>
-            <sup>1</sup>Commodo et metus<br/>
-            <sup>2</sup>Phasellus aliquet dui et enim venenatis cursus
+            <sup>1</sup>Project initiator<br/>
+            <sup>2</sup>Project team
           </p>
           <p>
-            Sed at blandit urna. Sed at blandit mauris. Praesent lobortis dignissim sem vel tincidunt
+            See the features of Vinyl in action. Here is just an overview.
           </p>
         </small>
       </small>
     </h1>
   </header>
 
+  <!-- The main part is composed of sub-parts. To achieve a good rendering, we will use the section
+    tags. Each first level section will be bordered with some shadows and a heavy title.
+  -->
   <main>
     <section>
-      <h2>Donec imperdiet posuere erat</h2>
-      <p>Donec eleifend at dui in vehicula. Maecenas metus ligula, aliquam eu mattis ut, placerat ac nisi. Nullam in pretium arcu, sed lacinia urna</p>
+      <h2>First level sections</h2>
+      <p>This is a classic first level section of the main part of our poster; it is the main blocks
+      of your poster. As you can see it, the sections:</p>
       <ul>
-        <li>Vivamus vestibulum diam odio<span class="cite" data-bibkey="Sample1 Sample4"></span>,</li>
-        <li>congue dapibus purus lacinia in.</li>
-        <li>Praesent est erat <a class="ref" href="awesome-image"></a>, vehicula ac vehicula at, fringilla aliquam ligula.</li>
-        <li>Nullam blandit vitae metus at commodo. Suspendisse sed mattis tortor.</li>
+        <li>are bordered and shadowed to catch
+        the eyes;</li>
+        <li>have an heavy title;</li>
+        <li>can contain subsections.</li>
       </ul>
     </section>
 
     <section>
-      <h2>In tempor: arcu ac congue dictum</h2>
+      <h2>Section and subsections</h2>
+      <!-- This `content` block ensure that the content of the section is well padded.
+        TODO: Check if it is possible to achieve the same result without this useless div.
+      -->
       <div class="content">
+        <!-- You can easily define subsections. Just add another `section` tag.
+          Define its size compared to its parent. A full width subsection is 12 columns wide. Here,
+          we use only the half: `.col-6`.
+          The `.separator` class draw a line on the right of the subsection to separate it from its
+          neighbours. -->
         <section class="col-6 separator">
-          <p>Risus leo malesuada eros, non maximus erat nibh fringilla nunc. Aliquam placerat venenatis mi, ut volutpat ante sagittis ac.</p>
+          <p>Take a look at this subsection. It is only half the width of the parent section. This
+          is one of the key feature of Vinyl, it's grid framework. Look at the bootstrap
+          documentation to see all what you can do, it is very powerful. Just to cite a few:
+          <!-- It's very common that you have to give some pros and cons. This list is made for you.
+            It replace classical bullets by some representative symbols (a + and a -) colored in
+            green and red respectivelly.
+          -->
           <ul class="list-pros-cons">
-            <li class="pros">Quisque rutrum orci <span class="cite" data-bibkey="Sample2"></span>,
-                vitae nibh consectetur, sit amet <span class="cite" data-bibkey="Sample3"></span> volutpat tellus condimentum.</li>
-            <li class="cons">Aliquam dapibus justo nec augue lobortis semper.</li>
+            <li class="pros">You can nest grids.
+            <li class="cons">You cannot easily make grids...</li>
           </ul>
-          <p>Donec tristique rutrum est, vel iaculis dolor maximus a.</p>
+          <p>Do you like the bullets of this list?</p>
         </section>
+        <!-- Let's see some kind of references that you can easily add. -->
         <section class="col-6">
-          <p>Suspendisse consectetur nunc eget ipsum varius, non suscipit arcu hendrerit.</p>
+          <p>Look how you can easily make references to different kind of things:</p>
           <ol>
-            <li>Pellentesque venenatis <a class="ref" href="vinyl-logo"></a> auctor ipsum</li>
-            <li>et fermentum lacus convallis sed.</li>
+            <li>To a bibliographic reference:
+              in <span class="cite" data-bibkey="Sample1 Sample3 Sample4"></span>
+            or in <span class="cite" data-bibkey="Sample2"></span>
+            or finally in <span class="cite" data-bibkey="Sample4"></span>
+            </li>
+            <!--
+              TODO: Allow section references
+            -->
+            <li>
+              <strike>
+                To a section: see
+                <a class="ref" href="section-and-subsections"></a>
+              </strike>
+            </li>
+            <li>To an image/figure: see <a class="ref" href="vinyl-logo"></a></li>
+            <!--
+              TODO: Allow table references
+            -->
+            <li>
+              <strike>
+                To a table: see 
+                <a class="ref" href="awesome-table"></a>
+              </strike>
+            </li>
           </ol>
-          <p>Etiam commodo nec justo id aliquam. Proin rutrum ullamcorper neque, nec vehicula elit consequat eu.</p>
         </section>
+        <!--
+          Without any informations, subsection are full width. Here we add one, just to add a
+          horizontal rule to separate previous subsections from following ones.
+        -->
         <section>
           <hr/>
         </section>
-        <section class="col-8">
-          <p>Morbi eu egestas leo, a semper augue. Aenean lacinia pretium gravida. Sed posuere <span class="cite" data-bibkey="Sample2 Sample1"></span> elit in ultrices rutrum. Nullam consequat diam in eleifend porta. Praesent vulputate venenatis arcu in sollicitudin.</p>
+        <!-- Three following sections show some useful features of Vinyl -->
+
+        <!-- We start with image insertion, which is very easy.
+          In fact, you just have to add an `<img>` tag as in the header. But adding some feww
+          informations allow autonumbering and caption.
+          Enclose an image in a `<figure>` tag to add some bordering. This also allow you to add a
+          `<figcaption>` element. Any figure containing a `<figcaption>` element will be
+          autonumbered by Vinyl.
+        -->
+        <section class="col-4 separator">
+          <p>You can easily add an figure, which is autonumbered.</p>
           <figure id="vinyl-logo" style="width:75%;">
             <img src="/vinyl.svg"/>
-            <figcaption>Duis pretium tristique dui et ullamcorper</figcaption>
+            <figcaption>Logo of the Vinyl project (coming soon...)</figcaption>
           </figure>
         </section>
+        <!--
+          Scientific/equation notation is a great feature of LaTeX. You can also use it in Vinyl.
+          Use the same syntax than the LaTeX one and you can create great mathematic notations.
+        -->
+        <section class="col-4 separator">
+          <p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+          $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+          </p>
+        </section>
+        <!--
+          Finally, you can add some syntax highlighted code.
+        -->
         <section class="col-4">
-          <pre>#include &lt;stdio.h&gt;&#10;&#10;int main(void)&#10;{&#10;    printf("hello, world\n");&#10;    return 0;&#10;}</pre>
+            <pre><code class="python3" data-trim>
+#!/usr/bin/env python3
+
+print("What to say? It's so useful.")
+print("You can even edit this code block, if necessary!")
+            </code></pre>
         </section>
       </div>
     </section>
 
     <section class="col-6">
-      <h2>Donec eget elementum</h2>
-      <table id="Awesome-table" class="table-striped">
+      <h2>Tables</h2>
+      <table id="awesome-table" class="table-striped">
           <tr>
               <th></th><th>Col 1</th><th>Col 2</th><th>Col 3</th>
           </tr>
           <tr>
-              <th>Row 1</th><td>11</td><td rowspan="2" class="text-muted">2122</td><td class="table-danger">31</td>
+              <th>Row 1</th>
+              <td class="text-muted">Muted</td>
+              <td rowspan="2">2 row spanned</td>
+              <td class="table-danger">Danger</td>
           </tr>
           <tr>
-              <th>Row 2</th><td>12</td><td>32</td>
+              <th>Row 2</th>
+              <td>Normal</td>
+              <td>Normal</td>
           </tr>
           <tr class="table-success">
-              <th>Row 3</th><td colspan="3">333</td>
+              <th>Success</th>
+              <td colspan="3">3 columns spanned</td>
           </tr>
-          <caption>An awesome table</caption>
+          <caption>An awesome (autonumbered) table</caption>
       </table>
     </section>
 
     <section class="col-5 col-offset-1">
-      <h2>Aenean leo eros</h2>
-      <p>Donec tempus laoreet nulla quis pellentesque <a class="ref" href="Awesome-table"></a>. Sed sed ante feugiat, consequat risus vitae, tristique ex. Proin ac fringilla sem, ac maximus purus.</p>
-      <p>Etiam ut dui vel sem venenatis cursus. Suspendisse quis bibendum odio. Proin nec dolor mollis, auctor neque et, dictum sem.</p>
-      <figure id="awesome-image" style="width:70%;">
-        <img src="/assets/img/abstract.jpg">
-        <figcaption>An awesome image</figcaption>
-      </figure>
+      <h2>Bibliography</h2>
+      <p>Finally, look below. The bibliography is automatically generated from a bibliography file
+      (bibtex, bibjson) and from the citations in the poster.</p>
+      <p>It exists different styles for the bibliography rendering. This one is the default one,
+      called&nbsp;<code>plain</code>.</p>
+      <p class="m-t-lg">We hope that this framework will help you to build impressive scientific
+      documents.</p>
+      <p>Don't hesitate to ask for features or to give feedback.</p>
+      <p><strong>Thanks.</strong> The Vinyl team.</p>
     </section>
 
   </main>
 
   <footer>
     <ul id="bibliography"
+        class="small"
         data-bibliography-file="../../assets/biblio/sample.bib"
         data-bibliography-file-format="bibtex">
     </ul>
