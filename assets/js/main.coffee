@@ -29,14 +29,17 @@ require.config({
 # A less customizable (but very easy to use) framework to do some presentations
     reveal: 'libs/revealjs/js/reveal',
 # Reveal comes with many libs and plugins to make your life easier
+# TODO: Use another highlightjs implementation for generic cases
+    'highlightjs': 'libs/revealjs/plugin/highlight/highlight', # Syntax highlight of code blocks (amazing!)
+    'reveal.highlight': 'libs/revealjs/plugin/highlight/highlight', # Syntax highlight of code blocks (amazing!)
     'reveal.head': 'libs/revealjs/lib/js/head.min', # This is a cryptic dependancy
     'reveal.classList': 'libs/revealjs/lib/js/classList', # Cross-browser support of the classlist feature
     'reveal.markdown': 'libs/revealjs/plugin/markdown/markdown', # Markdown support for slides design
     'reveal.marked': 'libs/revealjs/plugin/markdown/marked', # Markdown parser (dependancy of markdown plugin)
-    'reveal.highlight': 'libs/revealjs/plugin/highlight/highlight', # Syntax highlight of code blocks (amazing!)
     'reveal.zoom': 'libs/revealjs/plugin/zoom-js/zoom', # Allow you to zoom-in or out in your slides
     'reveal.notes': 'libs/revealjs/plugin/notes/notes', # Plugin to enable presenter notes
     'reveal.math': 'libs/revealjs/plugin/math/math', # TeX equation rendering
+    mathjax: '../../node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML'
   }
 # Not all libs support the RequireJS loading scheme. For these old ones, you have to say to
 # Require which object is intended to be used by dependant modules
@@ -61,8 +64,14 @@ require.config({
     'reveal.math' : ['reveal'],
     'reveal.markdown': ['reveal', 'reveal.marked'],
     'reveal.highlight': {
-      deps: ['reveal']
+      dependancies: ['reveal'],
       exports: 'hljs'
+    },
+    'highlightjs': {
+      exports: 'hljs'
+    },
+    'mathjax': {
+      exports: 'MathJax'
     }
   }
 })
@@ -81,49 +90,46 @@ require(['vinyl/vinyl'], (vinyl) ->
 # Perhaps, Vinyl can be improved allowing more configuration, and interaction. But it cannot be
 # perfect on the first try.
   vinyl.run()
-)
 
-# When you're here, Vinyl has done it's job.
-# Now, you do some stuff depending on what kind of document you're writing.
+# Now that the Vinyl work is done let's do specific job depending on document type.
 
-# First we just need JQuery
-require(
-  [
-    'jquery',
-  ], ($) ->
-# If there is a HTML element with id `impress`, than you're doing an ImpressJS presentation.
-    if $('#impress').length > 0
-# Load the ImpressJS module and initialize it. That's it
-      require([
+##########################################################################
+# Impress JS
+
+  if $('#impress').length > 0
+    require(
+      [
         'impressjs'
-      ], (impressJs) ->
+      ],
+      (impressJs) ->
         impressJs().init()
-      )
-# If there is a `reveal` object, it's a RevealJS presentation
-    else if $('.reveal').length > 0
-# Load Reveal and it's dependancies
-      require([
+    )
+
+##########################################################################
+# Reveal JS
+
+  else if $('.reveal').length > 0
+    require(
+      [
         'reveal',
-        'reveal.marked'
+        'reveal.marked',
         'reveal.highlight',
         'reveal.classList',
         'reveal.zoom',
         'reveal.notes',
         'reveal.math',
-      ], (Reveal, marked, hljs) ->
+      ],
+      (Reveal, marked, hljs) ->
 # TODO: clean this
 # DIRTY workaround required to let the markdown plugin load
         this.marked = marked
-# So load this irritating plugin
         require(
           [
             'reveal.markdown'
           ], ->
-# That's it, all plugins and dependancies are loaded.
 # Initialize the Reveal presentation giving the configuration (see the project page to
 # see all available options)
             Reveal.initialize({
-# Match the new 'standard' size
               width: 1280,
               height: 720,
               controls: false, # Remove the mouse controls which are not so beautiful
@@ -132,19 +138,37 @@ require(
               history: true, # A press on backspace will go back to previous slides
               transition: 'slide', # none/fade/slide/convex/concave/zoom
               slideNumber: true, # Display slide number in bottom right corner
-# Here is the specific configuration for Math plugin
               math: {
-# There is an offline version of the MathJax script to allow offline presentation.
-# Let's say to Reveal to use it and where to find it
-                mathjax: '/assets/js/libs/MathJax/MathJax.js'
+                mathjax: '/assets/js/libs/MathJax/MathJax.js' # Use an offline version of MathJax
               }
             })
-# RevealJS is fully loaded. Let's give some finalizing touch
-            hljs.initHighlighting() # Init highlighting of code blocks
+            hljs.initHighlighting() # Apply highlighting
         )
-      )
+    )
+
+##########################################################################
+# Generic cases
+
+  else
+# Add syntax highlighting for code blocks
+    require(
+      [
+        'highlightjs',
+      ],
+      (hljs) ->
+        hljs.initHighlighting()
+    )
+
+# Load MathJax to render LaTeX equations
+    require(
+      [
+        'mathjax',
+      ],
+      (MathJax) ->
+    )
 )
 
+##########################################################################
 # That's it. All is done. Your document is SOOOO good !
 # Ask me questions on Twitter (@AlexisBRENON) or by e-mail (brenon.alexis+vinyl@gmail.com)
 # You can also, open issues, fork, and pull request on GitHub.

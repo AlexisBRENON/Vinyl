@@ -14,9 +14,11 @@
   <!-- First of all, we load our stylesheet. This one is a basic one, you can of course create new
     ones or only override some of its content. -->
   <link rel="stylesheet" href="../../assets/css/poster.css"/>
+  <!-- HighlightJS coloration theme -->
+  <link href="../../assets/js/libs/revealjs/lib/css/zenburn.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="vinyl-a0poster">
   <!-- This is mainly for design.
     Guides will draw lines above your poster, to highlight thirds of your page. The third rules is a
     very basic rule to layout some content, and so this guides allow you to better see where the
@@ -170,7 +172,7 @@
           Use the same syntax than the LaTeX one and you can create great mathematic notations.
         -->
         <section class="col-4 separator">
-          <p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+          <p>When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
           $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
           </p>
         </section>
@@ -181,8 +183,8 @@
             <pre><code class="python3" data-trim>
 #!/usr/bin/env python3
 
-print("What to say? It's so useful.")
-print("You can even edit this code block, if necessary!")
+print("What to say? \
+It's so useful.")
             </code></pre>
         </section>
       </div>
