@@ -1,0 +1,32 @@
+{
+  "name": "Vinyl",
+  "homepage": "https://AlexisBRENON.github.io/Vinyl",
+  "authors": [
+    "Alexis BRENON <brenon.alexis@gmail.com>"
+  ],
+  "description": "A Scientific Documents Preparation System",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "LaTeX",
+    "poster",
+    "slideshow"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bibtexParseJs": "ORCID/bibtexParseJs",
+    "highlightjs": "~9.1.0",
+    "MathJax": "~2.6.0",
+    "jquery": "~2.2.0",
+    "impress.js": "~0.5.3",
+    "reveal.js": "~3.2.0"
+  }
+}
