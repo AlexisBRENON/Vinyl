@@ -2,4 +2,4 @@
 .*.swp
 
 _site/
-bower_components/
+assets/libs/

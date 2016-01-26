@@ -5,7 +5,7 @@
 # If you don't know CoffeeScript, don't be affraid, it's as easy (if not easier) than JS. It's a
 # language which is compiled to JS. Learn more on the official website.
 #
-# Let's what you do here.
+# Let's see what you do here.
 #
 # First, did you notice the two lines of three dashes at the top ? They are useless for our final
 # JS. It's used by Jekyll and required to let it compile our file.
@@ -13,36 +13,35 @@
 # Then you have this big comment block. Nothing fancy here, it's just comments.
 
 # Here is the configuration part of RequireJS.
-# You don't know requireJS. It's a JS framework which allow you to don't overload your HTML code
+# You don't know requireJS? It's a JS framework which allow you to don't overload your HTML code
 # with JS inclusion. Moreover, it allows asynchronous loading to reduce loading time and so on. See
 # the doc for more info.
 # Let's detail more the config object.
+
 require.config({
-# Here, we assign an easy to remember name to some JS files.
-  paths: {
-# The good old one, minified
-    jquery: 'libs/jquery/jquery.min',
-# A library to parse BibTex file. It has some drawback but I didn't found a better one
-    bibtexParse: 'libs/bibtexParseJs/bibtexParse',
-# A very customizable (and hard to use) framework to do some presentations
-    impressjs: 'libs/impress.js/js/impress',
-# A less customizable (but very easy to use) framework to do some presentations
-    reveal: 'libs/revealjs/js/reveal',
-# Reveal comes with many libs and plugins to make your life easier
-# TODO: Use another highlightjs implementation for generic cases
-    'highlightjs': 'libs/revealjs/plugin/highlight/highlight', # Syntax highlight of code blocks (amazing!)
-    'reveal.highlight': 'libs/revealjs/plugin/highlight/highlight', # Syntax highlight of code blocks (amazing!)
-    'reveal.head': 'libs/revealjs/lib/js/head.min', # This is a cryptic dependancy
-    'reveal.classList': 'libs/revealjs/lib/js/classList', # Cross-browser support of the classlist feature
-    'reveal.markdown': 'libs/revealjs/plugin/markdown/markdown', # Markdown support for slides design
-    'reveal.marked': 'libs/revealjs/plugin/markdown/marked', # Markdown parser (dependancy of markdown plugin)
-    'reveal.zoom': 'libs/revealjs/plugin/zoom-js/zoom', # Allow you to zoom-in or out in your slides
-    'reveal.notes': 'libs/revealjs/plugin/notes/notes', # Plugin to enable presenter notes
-    'reveal.math': 'libs/revealjs/plugin/math/math', # TeX equation rendering
-    mathjax: '../../node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML'
+  baseUrl: '/assets/',
+  paths: { # Here, we assign an easy to remember name to some JS files.
+    vinyl: 'js/vinyl/', # The Vinyl entry point
+    jquery: 'libs/jquery/dist/jquery.min',
+    bibtexParse: 'libs/bibtexParseJs/bibtexParse', # A library to parse BibTex file. It has some drawback but I didn't found a better one
+    impressjs: 'libs/impress.js/js/impress', # The ImpressJS framework
+    reveal: 'libs/reveal.js/js/reveal', # The RevealJS framework
+    # Reveal comes with many libs and plugins to make your life easier
+    'reveal.highlight': 'libs/reveal.js/plugin/highlight/highlight', # Syntax highlighting of code blocks (amazing!)
+    'reveal.head': 'libs/headjs/dist/1.0.0/head.min', # This is a cryptic dependancy
+    'reveal.classList': 'libs/reveal.js/lib/js/classList', # Cross-browser support of the classlist feature
+    'reveal.markdown': 'libs/reveal.js/plugin/markdown/markdown', # Markdown support for slides design
+    'reveal.marked': 'libs/reveal.js/plugin/markdown/marked', # Markdown parser (dependancy of markdown plugin)
+    'reveal.zoom': 'libs/reveal.js/plugin/zoom-js/zoom', # Allow you to zoom-in or out in your slides
+    'reveal.notes': 'libs/reveal.js/plugin/notes/notes', # Plugin to enable presenter notes
+    'reveal.math': 'libs/reveal.js/plugin/math/math', # TeX equation rendering
+
+    # Come back to generic components
+    hljs: 'libs/highlightjs/highlight.pack', # Syntax highlighting of code blocks (amazing!)
+    mathjax: 'libs/MathJax/MathJax.js?config=TeX-MML-AM_CHTML', # Mathematic equations rendering
   }
 # Not all libs support the RequireJS loading scheme. For these old ones, you have to say to
-# Require which object is intended to be used by dependant modules
+# Require which object is intended to be used by dependent modules
   shim: {
     bibtexParse: {
       exports: 'bibtexParse'
@@ -51,13 +50,12 @@ require.config({
       exports: 'impress'
     },
     reveal: {
+      exports: 'Reveal'
       deps: [
         'reveal.head',
       ]
-      exports: 'Reveal'
     },
-# Most of the Reveal plugins don't export anything
-# But they must to be loaded after the Reveal module
+    # Reveal plugins must be loaded after the main reveal file
     'reveal.classList' : ['reveal'],
     'reveal.zoom' : ['reveal'],
     'reveal.notes' : ['reveal'],
@@ -65,9 +63,6 @@ require.config({
     'reveal.markdown': ['reveal', 'reveal.marked'],
     'reveal.highlight': {
       dependancies: ['reveal'],
-      exports: 'hljs'
-    },
-    'highlightjs': {
       exports: 'hljs'
     },
     'mathjax': {
@@ -84,87 +79,97 @@ require.config({
 #   * title/figure/table auto-numbering
 # See vinyl/vinyl.coffee for more info.
 
-# RequireJS will load the vinyl/vinyl.js file and bind it's returned object to the `vinyl` variable
-require(['vinyl/vinyl'], (vinyl) ->
-# Just call the main vinyl function.
-# Perhaps, Vinyl can be improved allowing more configuration, and interaction. But it cannot be
-# perfect on the first try.
-  vinyl.run()
+require(
+  [
+    'vinyl/vinyl',
+  ],
+  (vinyl) ->
+    # Just call the main vinyl function.
+    # Perhaps, Vinyl can be improved allowing more configuration, and interaction. But it cannot be
+    # perfect on the first try.
+    vinyl.run()
 
-# Now that the Vinyl work is done let's do specific job depending on document type.
+    # Now that the Vinyl work is done let's do specific job depending on document type.
+    require(
+      [
+        'jquery',
+      ],
+      ($) ->
 
 ##########################################################################
 # Impress JS
 
-  if $('#impress').length > 0
-    require(
-      [
-        'impressjs'
-      ],
-      (impressJs) ->
-        impressJs().init()
-    )
+        if $('#impress').length > 0
+          require(
+            [
+              'impressjs'
+            ],
+            (impressJs) ->
+              impressJs().init()
+          )
 
 ##########################################################################
 # Reveal JS
 
-  else if $('.reveal').length > 0
-    require(
-      [
-        'reveal',
-        'reveal.marked',
-        'reveal.highlight',
-        'reveal.classList',
-        'reveal.zoom',
-        'reveal.notes',
-        'reveal.math',
-      ],
-      (Reveal, marked, hljs) ->
-# TODO: clean this
-# DIRTY workaround required to let the markdown plugin load
-        this.marked = marked
-        require(
-          [
-            'reveal.markdown'
-          ], ->
-# Initialize the Reveal presentation giving the configuration (see the project page to
-# see all available options)
-            Reveal.initialize({
-              width: 1280,
-              height: 720,
-              controls: false, # Remove the mouse controls which are not so beautiful
-              progress: true, # Add a progress bar
-              center: true, # Slide content will be vertically and horizontally centered
-              history: true, # A press on backspace will go back to previous slides
-              transition: 'slide', # none/fade/slide/convex/concave/zoom
-              slideNumber: true, # Display slide number in bottom right corner
-              math: {
-                mathjax: '/assets/js/libs/MathJax/MathJax.js' # Use an offline version of MathJax
-              }
-            })
-            hljs.initHighlighting() # Apply highlighting
-        )
-    )
+        else if $('.reveal').length > 0
+          require(
+            [
+              'reveal',
+              'reveal.marked',
+              'reveal.highlight',
+              'reveal.classList',
+              'reveal.zoom',
+              'reveal.notes',
+              'reveal.math',
+            ],
+            (Reveal, marked, hljs) ->
+              # TODO: clean this
+              # DIRTY workaround required to let the markdown plugin load
+              this.marked = marked
+              require(
+                [
+                  'reveal.markdown'
+                ], ->
+                  # Initialize the Reveal presentation giving the configuration (see the project page to
+                  # see all available options)
+                  Reveal.initialize({
+                    width: 1280,
+                    height: 720,
+                    controls: false, # Remove the mouse controls which are not so beautiful
+                    progress: true, # Add a progress bar
+                    center: true, # Slide content will be vertically and horizontally centered
+                    history: true, # A press on backspace will go back to previous slides
+                    transition: 'slide', # none/fade/slide/convex/concave/zoom
+                    slideNumber: true, # Display slide number in bottom right corner
+                    math: {
+                      mathjax: '/assets/libs/MathJax/MathJax.js' # Use an offline version of MathJax
+                    }
+                  })
+                  hljs.initHighlighting() # Apply highlighting
+              )
+            )
 
 ##########################################################################
 # Generic cases
 
-  else
-# Add syntax highlighting for code blocks
-    require(
-      [
-        'highlightjs',
-      ],
-      (hljs) ->
-        hljs.initHighlighting()
-    )
+        else
+          # Add syntax highlighting for code blocks
+          require(
+            [
+              'hljs',
+            ],
+            (hljs) ->
+              hljs.initHighlighting()
+          )
 
-# Load MathJax to render LaTeX equations
-    require(
-      [
-        'mathjax',
-      ],
-      (MathJax) ->
+          # Load MathJax to render TeX equations as pure HTML/CSS
+          require(
+            [
+              'mathjax',
+            ],
+            (MathJax) ->
+              # Nothing to do, just load MathJax
+          )
     )
 )
 

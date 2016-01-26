@@ -8,8 +8,8 @@
 # See specific files for more info. Yes, it's like a treasure hunting!
 define(
   [
-    './bibliography/bibliography',
-    './autoNumbering/autoNumbering',
+    'vinyl/bibliography/bibliography',
+    'vinyl/autoNumbering/autoNumbering',
   ],
   (VinylBibliography, VinylAutoNumbering) ->
     console.log("@@ Vinyl @@ Initialization...") # Add some debug, it's useful

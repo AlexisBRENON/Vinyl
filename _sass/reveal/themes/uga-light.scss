@@ -5,8 +5,8 @@
  */
 
 // Default mixins and settings -----------------
-@import "reveal/base/theme/template/mixins";
-@import "reveal/base/theme/template/settings";
+@import "../../../assets/libs/reveal.js/css/theme/template/mixins";
+@import "../../../assets/libs/reveal.js/css/theme/template/settings";
 // ---------------------------------------------
 
 /* Load variables from Reveal and Vinyl */
@@ -50,6 +50,6 @@ section.section-slide {
 }
 
 // Theme template ------------------------------
-@import "reveal/base/theme/template/theme";
+@import "../../../assets/libs/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
 
