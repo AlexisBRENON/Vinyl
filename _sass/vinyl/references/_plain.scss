@@ -1,27 +1,96 @@
+/* Style of the reference in the text */
 .plain-style-cite {
   font-family: $font-family-serif;
   font-weight: bold;
 
+  /* Remove link color */
   * {
     color: inherit;
   }
 }
 
+/* Style of the bibliography item */
 .plain-style-citation-item {
+  /* Non-type dependent style
+  /* item id, similar to the reference in the text */
   .citation-item-id {
     @extend .plain-style-cite;
     color: inherit;
   }
 
-  .citation-item-journal, .citation-item-series {
-    .content {
+  /* Type dependent styles */
+  /* Article */
+  &.article-citation-item {
+    .citation-item-journal {
       font-style: italic;
     }
   }
 
+  /* Book */
   &.book-citation-item {
     .citation-item-title {
       font-style: italic;
     }
+  }
+
+  /* Booklet */
+  &.booklet-citation-item {
+  }
+
+  /* Conference, InProceedings */
+  &.conference-citation-item,
+  &.inproceedings-citation-item {
+    .citation-item-booktitle {
+      .content {
+        font-style: italic;
+      }
+    }
+  }
+
+  /* InBook */
+  &.inbook-citation-item {
+    .citation-item-title {
+      font-style: italic;
+    }
+  }
+
+  /* InCollection */
+  &.incollection-citation-item {
+    .citation-item-booktitle {
+      font-style: italic;
+    }
+  }
+
+  /* Manual */
+  &.manual-citation-item {
+    .citation-item-title {
+      font-style: italic;
+    }
+  }
+
+  /* Master Thesis */
+  &.masterthesis-citation-item {
+  }
+
+  /* PhD Thesis */
+  &.phdthesis-citation-item {
+    .citation-item-title {
+      font-style: italic;
+    }
+  }
+
+  /* Proceedings */
+  &.proceedings-citation-item {
+    .citation-item-title {
+      font-style: italic;
+    }
+  }
+
+  /* TechReport */
+  &.techreport-citation-item {
+  }
+
+  /* Unpublished */
+  &.unpublished-citation-item {
   }
 }
