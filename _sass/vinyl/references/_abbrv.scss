@@ -1,0 +1,493 @@
+/*******************************************
+ * ApaLike style based on _template.scss
+ ******************************************/
+
+$bibliographyStyle: "abbrv";
+
+
+/* Style of the reference in the text */
+.#{$bibliographyStyle}-style-cite {
+  font-family: $font-family-serif;
+  font-weight: bold;
+
+  /* Remove link color */
+  * {
+    color: inherit;
+  }
+}
+
+/* Style of the bibliography item */
+.#{$bibliographyStyle}-style-citation-item {
+  /* Non-type dependent style
+  /* item id, similar to the reference in the text */
+  .citation-item-id {
+    @extend .#{$bibliographyStyle}-style-cite;
+    color: inherit;
+  }
+
+  /* Type dependent styles */
+  /* Article */
+  &.article-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-journal {
+      .before {
+      }
+      .content {
+        font-style: italic;
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-number {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-pages {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-volume {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-publisher {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Book */
+  &.book-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+        font-style: italic;
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-publisher {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Booklet */
+  &.booklet-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Conference, InProceedings */
+  &.conference-citation-item,
+  &.inproceedings-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-booktitle {
+      .before {
+      }
+      .content {
+        font-style: italic;
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-organization {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-pages {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* InBook */
+  &.inbook-citation-item {
+    .citation-item-title {
+      font-style: italic;
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-chapter {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-editor {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-pages {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-publisher {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* InCollection */
+  &.incollection-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-booktitle {
+      font-style: italic;
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-publisher {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-editor {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-pages {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Manual */
+  &.manual-citation-item {
+    .citation-item-title {
+      font-style: italic;
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Master Thesis */
+  &.masterthesis-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-school {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* PhD Thesis */
+  &.phdthesis-citation-item {
+    .citation-item-title {
+      font-style: italic;
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-school {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Proceedings */
+  &.proceedings-citation-item {
+    .citation-item-title {
+      font-style: italic;
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* TechReport */
+  &.techreport-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-institution {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-year {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+
+  /* Unpublished */
+  &.unpublished-citation-item {
+    .citation-item-title {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-author {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+    .citation-item-note {
+      .before {
+      }
+      .content {
+      }
+      .after {
+      }
+    }
+  }
+}
