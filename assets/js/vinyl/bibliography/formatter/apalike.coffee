@@ -26,7 +26,7 @@ define(
           article: [{
             field: 'author',
             after: '.',
-            afterSpace: '&nbsp;',
+            afterSpace: ' ',
           },{
             before: '(',
             field: 'year',
@@ -50,6 +50,195 @@ define(
             before: ':',
             field: 'pages',
             after: '.'
+          }],
+# Book
+          book: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            afterSpace: ' '
+          },{
+            field: 'publisher',
+            after: '.',
+            afterSpace: ' '
+          }],
+# Booklet
+          booklet: [{
+            field: 'title',
+            after: '.',
+          }],
+# Conference
+          conference: 'inproceedings',
+# InBook
+          inbook: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'chapter&nbsp;',
+            field: 'chapter',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'page&nbsp;',
+            field: 'page',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'publisher',
+            after: '.',
+          }],
+# InCollection
+          incollection: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'In&nbsp;',
+            field: 'editor',
+            after: ', editor,',
+            afterSpace: ' '
+          },{
+            field: 'booktitle',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'pages&nbsp;',
+            field: 'pages',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'publisher',
+            after: '.',
+          }],
+# inProceedings
+          inproceedings: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'In ',
+            field: 'booktitle',
+            after: '.',
+          }],
+# Manual
+          manual: [{
+            field: 'title',
+            after: '.',
+          }],
+# Master Thesis
+          masterthesis: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'Master\'s thesis, ',
+            field: 'school',
+            after: '.',
+          }],
+# PhD Thesis
+          phdthesis: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'PhD thesis, ',
+            field: 'school',
+            after: '.',
+          }],
+# Proceedings
+          proceedings: [{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+          }],
+# TechReport
+          techreport: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            before: '(',
+            field: 'year',
+            after: ').',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'Technical report, ',
+            field: 'institution',
+            after: '.',
+          }],
+# Unpublished
+          unpublished: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' ',
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'note',
+            after: '.',
           }]
         }
 
