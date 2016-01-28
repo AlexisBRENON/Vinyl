@@ -58,45 +58,6 @@ define(
             field: 'year',
             after: '.'
           }],
-# Now, the proceedings references
-          proceedings: [{
-# Same thing
-            field: 'author',
-            after: '.',
-            afterSpace: ' '
-          },{
-# Same thing
-            field: 'title',
-            after: '.',
-            afterSpace: ' '
-          },{
-# The series of the proceedings, prefixed by `In `
-            before: 'In ',
-            field: 'series',
-            after: ',',
-            afterSpace: ' '
-          },{
-            before: 'volume ',
-            field: 'volume',
-            after: ',',
-            afterSpace: ' '
-          },{
-            before: 'pages ',
-            field: 'pages',
-            after: ',',
-            afterSpace: ' ',
-          },{
-            field: 'address',
-            after: ','
-            afterSpace: ' ',
-          },{
-# Month and year are unbreakable, we use a non-breakable space
-            field: 'month',
-            afterSpace: '&nbsp;',
-          },{
-            field: 'year',
-            after: '.'
-          }],
 # A book as some specifities.
 # Sometimes, authors are not set, or editors, if both are the same. So we use a function which
 # return the right field however it's defined.
@@ -116,6 +77,179 @@ define(
           },{
             field: 'year',
             after: '.'
+          }],
+# A booklet
+          booklet: [{
+            field: 'title',
+            after: '.',
+          }],
+# A conference
+# A conference citation use the same scheme than an inproceedings one. Just
+# use the name of the base, link will be done
+          conference: 'inproceedings',
+# InBook
+          inbook: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'Chapter&nbsp;',
+            field: 'chapter',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'page&nbsp;',
+            field: 'pages',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'publisher',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.',
+          }],
+# InCollection
+          incollection: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'In&nbsp;',
+            field: 'editor',
+            after: 'editor,',
+            afterSpace: ' '
+          },{
+            field: 'booktitle',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'pages&nbsp;',
+            field: 'pages',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'publisher',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.',
+          }],
+# InProceedings
+          inproceedings: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'In&nbsp;',
+            field: 'booktitle',
+            after: ',',
+            afterSpace: ' '
+          },{
+            before: 'pages&nbsp;',
+            field: 'pages',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'organization',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.',
+          }],
+# Manual
+          manual: [{
+            field: 'title',
+            after: '.',
+          }],
+# Master Thesis
+          masterthesis: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '. Master\'s Thesis,',
+            afterSpace: ' '
+          },{
+            field: 'school',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.',
+          }],
+# PhD Thesis
+          phdthesis: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '. PhD Thesis,',
+            afterSpace: ' '
+          },{
+            field: 'school',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.',
+          }],
+# Proceedings
+          proceedings: [{
+            field: 'title',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.'
+          }],
+# Tech Report
+          techreport: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            before: 'Technical report, ',
+            field: 'institution',
+            after: ',',
+            afterSpace: ' '
+          },{
+            field: 'year',
+            after: '.',
+          }],
+# Unpublished
+          unpublished: [{
+            field: 'author',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'title',
+            after: '.',
+            afterSpace: ' '
+          },{
+            field: 'note',
+            after: '.',
           }]
         }
 
