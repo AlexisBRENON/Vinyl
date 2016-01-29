@@ -293,7 +293,7 @@ define(
           result = authors[0].name
         else
           result = (author.name for author in authors)[0..-2].join(', ')
-          result += ", and #{authors[-1..][0]}"
+          result += ", and #{authors[-1..][0].name}"
         return result
 )
 
