@@ -10,6 +10,28 @@
 // Columns
 @include make-grid-columns();
 
+// Allow separators between columns
+
+// Add a separator to only one column (on the right or the left. Default: right)
+[class^="col-"] {
+  &.separator, &.separator-right {
+    border-right: $hr-border-width solid $hr-border-color;
+  }
+  &.separator-left {
+    border-left: $hr-border-width solid $hr-border-color;
+  }
+}
+
+// Add a separator to every columns in a row
+.row.separators {
+  & > [class^="col-"] {
+    @extend .separator-right;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
 
 // Flex variation
 //

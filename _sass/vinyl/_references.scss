@@ -13,4 +13,8 @@ ul#bibliography {
 // Avoid blue link for references and citation
 .cite a, a.ref {
   color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
 }
