@@ -1,8 +1,0 @@
-.fallback-message {
-  @include center-block();
-  @extend .bg-warning;
-}
-
-.impress-supported .fallback-message {
-    display: none;
-}
