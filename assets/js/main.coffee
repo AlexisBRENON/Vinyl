@@ -140,6 +140,7 @@ require(
                     center: true, # Slide content will be vertically and horizontally centered
                     history: true, # A press on backspace will go back to previous slides
                     transition: 'slide', # none/fade/slide/convex/concave/zoom
+                    backgroundTransition: 'slide', # none/fade/slide/convex/concave/zoom
                     slideNumber: true, # Display slide number in bottom right corner
                     math: {
                       mathjax: '/assets/libs/MathJax/MathJax.js' # Use an offline version of MathJax

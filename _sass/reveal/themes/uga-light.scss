@@ -23,7 +23,7 @@ $mainFont: $font-family-sans-serif;
 $headingFont: $headings-font-family;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingFontWeight: $headings-font-weight;
 $linkColor: $link-color;
 $linkColorHover: lighten( $linkColor, 15% );
@@ -51,5 +51,6 @@ section.section-slide {
 
 // Theme template ------------------------------
 @import "../../../assets/libs/reveal.js/css/theme/template/theme";
+@import "template/theme";
 // ---------------------------------------------
 
