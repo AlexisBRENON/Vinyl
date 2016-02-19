@@ -22,10 +22,11 @@
 
 <body class="vinyl-a0poster">
 
-  <header style="padding-bottom:1.5rem;">
+  <header style="padding-bottom:0.75rem;">
     <h1>
-      Interaction Vocale En Habitat Intelligent<br/>
+      Interaction Vocale En Contexte<br/>
       <img src="../../../../assets/img/LIGPhDday2A/Logo-GETALP.jpg" class="pull-right" style="width:15rem; margin-right:2rem;"/>
+      En Habitat Intelligent<br/>
       <small>
         <p>
           Alexis BRENON - <a>alexis.brenon@imag.fr</a>
@@ -41,15 +42,11 @@
   <main>
     <section class="col-6">
       <h2>Objectifs</h2>
-      <p>Prise de décision contextualisée&nbsp;:</p>
+      <p class="text-center"><strong>Mise en place d'un système de décision contextualisée qui s'adapte à l'utilisateur tout au long de sa vie.</strong></p>
       <ul>
-        <li>Réaction aux commandes vocales</li>
-        <li>Alarmes pro-actives</li>
-      </ul>
-      <p>Système adaptatif&nbsp;:</p>
-      <ul>
-        <li>Adaptation en continue&nbsp;: apprentissage par renforcement</li>
-        <li>Implication de l'utilisateur&nbsp;: apprentissage actif</li>
+        <li>Réaction aux commandes vocales&nbsp;: <q>Ferme les stores</q></li>
+        <li>Alarmes pro-actives&nbsp;: <q>La porte d'entrée est ouverte</q></li>
+        <li>Adaptation aux changements d'habitudes de l'utilisateur&nbsp;: saisonniers, annuels, etc.</li>
       </ul>
     </section>
 
@@ -57,14 +54,21 @@
       <img class="center-block" src="http://domus.liglab.fr/files/pictures/Domus_6.png" style="width:90%"/>
     </div>
 
-
     <section>
-      <h2>Contraintes</h2>
-      <ul>
-        <li>Définition du contexte&nbsp;<span class="cite" data-bibkey="Coutaz2005"></span></li>
-        <li>Système adaptatif continuel</li>
-        <li>Prise de décision pseudo temps réel</li>
-      </ul>
+      <h2>Verrous scientifiques &amp; contraintes techniques</h2>
+      <div class="row">
+        <div class="col-6 separator">
+          <ul>
+            <li>Définition du contexte&nbsp;<span class="cite" data-bibkey="Coutaz2005"></span></li>
+            <li>Modèles adaptatifs sur le long terme (long-life learning)</li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <ul>
+            <li>Prise de décision pseudo temps réel</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <div class="col-6 col-center">
@@ -79,30 +83,31 @@
         <li>16 sujets au total</li>
         <li>3 sujets correctement annotés pour des tests préliminaires</li>
       </ul>
-      <p class="text-left">Tests préliminaires d'apprentissage par renforcement&nbsp;<span class="cite" data-bibkey="BrenonSubmitted"></span>&nbsp;:</p>
+      <p class="text-left">Tests préliminaires d'apprentissage par renforcement&nbsp;<span class="cite" data-bibkey="BrenonSubmitted"></span> en utilisant un algorithme de \(Q\)-Learning&nbsp;:</p>
       <ul>
         <li>Apprentissage sur un corpus simulé</li>
         <li>Adaptation et évaluation sur des annotations réelles</li>
         <li>Validation croisée</li>
-        <li class="text-success">Résultats encourageant</li>
+        <li class="text-success">Résultats encourageants</li>
       </ul>
     </section>
 
     <section class="col-12" style="background-color:white">
       <h2>Perspectives</h2>
       <ul>
-        <li>Application des techniques préliminaires sur la totalité des 16 sujets du corpus disponible.</li>
-        <li>Récolte d'un corpus dédié à cette expérimentation.</li>
+        <li>Utilisation de données inférées en lieu et place des données issues d'annotations expertes</li>
         <li>Intégration de données issues de smartphone pour la contextualisation&nbsp;<span class="cite" data-bibkey="Blachon2016"></span></li>
+        <li>Récolte d'un corpus dédié à cette expérimentation</li>
       </ul>
     </section>
   </main>
-
+<!--
   <footer class="small" style="margin-right:4rem;">
     <ul id="bibliography"
         data-bibliography-file="/assets/biblio/LIGPhDday2A.bib">
     </ul>
   </footer>
+-->
   <p style="position:absolute;bottom:1.25rem;right:6.25rem;margin:0" class="small">Powered by Vinyl <a>github.com/AlexisBRENON/Vinyl</p>
   
   <!-- Javascript Libraries -->
