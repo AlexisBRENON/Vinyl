@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="{{ page.lang }}">
+
+	<head>
+    <title>{{ page.title }} - Vinyl</title>
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+		<meta charset="utf-8">
+
+    <link rel="stylesheet" href="/assets/css/vinyl.css"/>
+    <link rel="stylesheet" href="/assets/css/reveal.css"/>
+
+    <!-- Themes -->
+    <link rel="stylesheet" href="{{ page.theme }}"/>
+    <link rel="stylesheet" href="{{ page.hljsTheme }}"/>
+
+		<!-- PDF Exports -->
+    <link rel="stylesheet" href="/assets/css/reveal/pdf.css" media="print"/>
+	</head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- End of layout header -->
+
+{{ content }}
+
+        <!-- Start of layout footer -->
+      </div>
+    </div>
+
+    {% include vinyl-js.html %}
+
+  </body>
+</html>
