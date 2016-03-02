@@ -15,6 +15,18 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/libs/reveal.js/css/print/pdf.css' : '/assets/libs/reveal.js/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+    <style>
+.reveal table th,
+.reveal table td {
+  border-bottom: initial;
+}
+
+table tbody + tbody {
+  border-top: 3px double #ACB5B9;
+}
+    </style>
+
 	</head>
 
   <body id="vinyl">
@@ -163,6 +175,7 @@
               <li>Modèle <em>freemium</em> (service gratuit dégradé, possibilité de payer pour un meilleur service)</li>
             </ul>
           </section>
+          <!--
           <section
             data-background="../../../../assets/img/LabelCREA/market-study.jpg">
             <h3>Étude de marché</h3>
@@ -181,6 +194,7 @@
               </li>
             </ul>
           </section>
+          -->
         </section>
 
         <section>
@@ -193,6 +207,22 @@
           <section
             data-background="../../../../assets/img/labelCREA/cost.png">
             <h3>Coût de production</h3>
+            <ul>
+              <li>Charges directes variables&nbsp;:
+                <ul>
+                  <li>Point d'accès/répétiteurs Wifi&nbsp;: \(10 \times 150 = 1.5\,k€ \)</li>
+                  <li>Serveur de base de données&nbsp;: \(1\,k€\)</li>
+                </ul>
+              </li>
+              <li>Charges indirectes fixes&nbsp;:
+                <ul>
+                  <li>Smartphones de développement&nbsp;: \(2\,k€\)</li>
+                  <li>Développement smartphone (2 mois)*&nbsp;: \(36 / 6 = 6\,k€\)</li>
+                  <li>Développement infrastructure (4 mois)*&nbsp;: \(28 / 3 \approx 9.5\,k€\)</li>
+                </ul>
+              </li>
+            </ul>              
+            <p class="small">*<a href="https://www.chooseyourboss.com/barometre-des-salaires-android">chooseyourboss.com/barometre-des-salaires-{android,infrastructure}</a></p>
           </section>
 
           <section
@@ -209,46 +239,53 @@
               <tbody>
                 <tr>
                   <th>Installation</th>
-                  <td>0</td>
-                  <td></td>
-                  <td></td>
+                  <td>+ 2.5 k€ (1)</td>
+                  <td>+ 25 k€ (5)</td>
+                  <td>+ 50 k€ (10)</td>
                 </tr>
 
                 <tr>
                   <th>Licence</th>
-                  <td>+30.000</td>
-                  <td></td>
-                  <td></td>
+                  <td>+  5 k€ (1)</td>
+                  <td>+ 25 k€ (5)</td>
+                  <td>+ 50 k€ (10)</td>
                 </tr>
 
                 <tr>
                   <th>Maintenance</th>
+                  <td>Offert</td>
+                  <td>+ 25 k€ (5)</td>
+                  <td>+ 50 k€ (10)</td>
+                </tr>
+
+                <tr>
+                  <th>Application</th>
                   <td>0</td>
-                  <td></td>
-                  <td></td>
+                  <td>+ 2 k€</td>
+                  <td>+ 5 k€</td>
                 </tr>
 
                 <tr>
                   <th>Subventions/Concours</th>
                   <td>0</td>
-                  <td></td>
-                  <td></td>
+                  <td>0</td>
+                  <td>0</td>
                 </tr>
               </tbody>
 
               <tbody>
                 <tr>
                   <th>Personnel Technique</th>
-                  <td>-30.000</td>
-                  <td></td>
-                  <td></td>
+                  <td>- 35 k€</td>
+                  <td>- 35 k€</td>
+                  <td>- 35 k€</td>
                 </tr>
 
                 <tr>
                   <th>Personnel Commercial</th>
                   <td>0</td>
-                  <td></td>
-                  <td></td>
+                  <td>0</td>
+                  <td>- 35 k€</td>
                 </tr>
               </tbody>
 
@@ -256,34 +293,34 @@
                 <tr>
                   <th>Loyer &amp; charges</th>
                   <td>0</td>
-                  <td></td>
-                  <td></td>
+                  <td>0</td>
+                  <td>1 k€</td>
                 </tr>
                 <tr>
                   <th>Matériel technique</th>
-                  <td>-2.000</td>
-                  <td></td>
-                  <td></td>
+                  <td>- 4.5 k€</td>
+                  <td>- 12.5 k€</td>
+                  <td>- 27.0 k€</td>
                 </tr>
                 <tr>
                   <th>Déplacements</th>
-                  <td>-3.000</td>
-                  <td></td>
-                  <td></td>
+                  <td>- 3 k€</td>
+                  <td>- 3 k€</td>
+                  <td>- 20 k€</td>
                 </tr>
                 <tr>
                   <th>Impôts/Taxes</th>
                   <td>0</td>
-                  <td></td>
-                  <td></td>
+                  <td>- 1 k€</td>
+                  <td>- 2 k€</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th>Total</th>
-                  <td class="bg-danger">-5.000</td>
-                  <td class="bg-warning"></td>
-                  <td class="bg-success"></td>
+                  <td class="bg-danger">- 35 k€</td>
+                  <td class="bg-success">+ 25 k€</td>
+                  <td class="bg-success">+ 35 k€</td>
                 </tr>
               </tbody>
             </table>
