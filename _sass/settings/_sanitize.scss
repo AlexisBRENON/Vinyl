@@ -1,0 +1,16 @@
+/* ************************************************
+ * 
+ * Sanitize CSS variables
+ * 
+ */
+
+$background-repeat: null;
+$root-box-sizing: null;
+$root-cursor: null;
+$anchor-text-decoration: null;
+$media-element-vertical-align: null;
+$table-border-collapse: null;
+$table-border-spacing: null;
+
+$small-font-size:         $font-size-small;
+$monospace-font-family:   $font-family-monospace;

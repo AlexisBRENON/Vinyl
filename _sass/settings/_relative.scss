@@ -1,0 +1,101 @@
+/* **********************************************
+ *
+ * Relative variables
+ *
+ * *********************************************/
+
+/* **********************************************
+ * Colors
+ */
+
+$brand-primary: $brand-blue;        
+$brand-success: $brand-green;
+$brand-warning: $brand-yellow;
+$brand-danger: $brand-red;
+
+$brand-colors: (
+  'primary': $brand-primary,
+  'success': $brand-success,
+  'warning': $brand-warning,
+  'danger': $brand-danger
+  );
+
+/* **********************************************
+ * Generic style
+ */
+
+$root-background-color: $white !default;
+$root-color:            $gray-dark !default;
+$inverted-root-bg:      $brand-primary !default;
+$inverted-root-color:   $root-background-color !default;
+$link-color:            lighten($brand-blue, 20%) !default;
+$headings-color:        $root-color !default;
+
+/* **********************************************
+ * Typography
+ */
+
+$root-font-size:          $font-size-root-pt * $pppt; // convert pt size to pixel size
+$root-font-family:        $font-family-sans-serif !default;
+$muted-text-color:        $gray-light !default;
+
+/* **********************************************
+ * Spacing
+ */
+
+$spacer-x:                   $spacer !default;
+$spacer-y:                   $spacer !default;
+
+$root-line-height:       $line-height !default;
+$line-height-lg:         (4/3) * $line-height !default;
+$line-height-sm:         1 * $line-height !default;
+$line-height-headings:   $line-height-lg !default;
+
+/* **********************************************
+ * Border
+ */
+
+$border-width:            ($spacer / 10) !default;
+$border-color:            rgba($root-color, 0.2) !default;
+
+$border-radius:           ($spacer / 3) !default;
+$border-radius-lg:        ($border-radius * 1.2) !default;
+$border-radius-sm:        ($border-radius * 0.8) !default;
+
+$hr-border-color:         $border-color;
+$hr-border-width:         $border-width;
+
+/* **********************************************
+ * Table
+ */
+
+$table-cell-padding:            $spacer !default;
+$table-sm-cell-padding:         0.4 * $table-cell-padding !default;
+
+$table-bg:                      transparent !default;
+$table-bg-active:               $gray-light !default;
+
+$table-border-color:            $border-color !default;
+
+/* **********************************************
+ * Image thumbnails
+ */
+
+$thumbnail-padding:           ($spacer / 3) !default;
+$thumbnail-bg:                $root-background-color !default;
+$thumbnail-border:            $border-color !default;
+$thumbnail-border-radius:     $border-radius !default;
+
+/* **********************************************
+ * Code
+ */
+
+$pre-bg:                      $gray-lightest !default;
+$pre-color:                   $gray-dark !default;
+$pre-border-color:            $border-color !default;
+
+$kbd-color:                   $inverted-root-color !default;
+$kbd-bg:                      $inverted-root-bg !default;
+
+// Code blocks are managed by HLJS stylesheets.
+

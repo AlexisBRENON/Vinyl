@@ -1,0 +1,47 @@
+// Base settings for all themes that can optionally be
+// overridden by the super-theme
+// Heavily based on the RevealJS one
+
+// Background of the presentation
+$backgroundColor: $root-background-color;
+$progressColor: $brand-primary;
+
+// Primary/body text
+$mainFont: $root-font-family;
+// TODO: change this absolute value
+$mainFontSize: $root-font-size * 3;
+$mainColor: $root-color;
+
+// Vertical spacing between blocks of text
+$blockMargin: $spacer-y;
+
+// Headings
+$headingMargin: 0 0 $blockMargin 0;
+$headingFont: $font-family-headings;
+$headingColor: $root-color;
+$headingLineHeight: $line-height;
+$headingLetterSpacing: normal;
+$headingTextTransform: capitalize;
+$headingTextShadow: none;
+$headingFontWeight: bold;
+$heading1TextShadow: $headingTextShadow;
+$heading1FontVariant: small-caps;
+
+$heading1Size: $font-size-h1;
+$heading2Size: $font-size-h2;
+$heading3Size: $font-size-h3;
+$heading4Size: $font-size-h4;
+
+// Links and actions
+$linkColor: $link-color;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: #FF5E99;
+$selectionColor: #fff;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}
