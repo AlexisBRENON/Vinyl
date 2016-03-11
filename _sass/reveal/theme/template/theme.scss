@@ -27,7 +27,7 @@ body {
 	font-weight: inherit;
 
   &.has-dark-background, &.inverted {
-    &, * {
+    &, h1, h2, h3, h4, h5, h6 {
       color: $inverted-root-color;
     }
   }
