@@ -1,0 +1,24 @@
+/* ***************************************
+ * 
+ * Some CSS rules to improve RevealJS, matching Vinyl semantic.
+ * 
+ */
+
+/* ***************************************
+ * FRAGMENTS
+ */
+
+// Allow a span element to react to grow/shrink fragments
+.reveal .slides section span.fragment {
+  display: inline-block;
+}
+
+// Match Vinyl semantic with primary, success, warning, danger
+@each $brand-id, $brand-color in $brand-colors {
+  .reveal .slides section .fragment.highlight-#{$brand-id}.visible {
+    color: $brand-color;
+  }
+  .reveal .slides section .fragment.highlight-current-#{$brand-id}.current-fragment {
+    color: $brand-color;
+  }
+}
