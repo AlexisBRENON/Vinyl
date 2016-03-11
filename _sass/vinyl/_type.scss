@@ -1,12 +1,24 @@
 //
+// Base
+//
+
+body {
+  // Make the `body` use the `font-size-root`
+  font-family: $font-family-root;
+  font-size: $font-size-root;
+  color: $root-color;
+  background-color: $root-background-color;
+}
+
+//
 // Headings
 //
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+  line-height: $line-height-headings;
   color: $headings-color;
 
   small, .small {
@@ -17,12 +29,12 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-bottom: $headings-margin-bottom;
+  margin-bottom: $margin-bottom-headings;
 }
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-bottom: $headings-margin-bottom;
+  margin-bottom: $margin-bottom-headings;
 }
 
 h1, .h1 { font-size: $font-size-h1; }
@@ -37,8 +49,8 @@ h6, .h6 { font-size: $font-size-h6; }
 //
 
 hr {
-  margin-top: $hr-margin;
-  margin-bottom: $hr-margin;
+  margin-top: $margin-hr;
+  margin-bottom: $margin-hr;
   border: 0;
   border-top: $hr-border-width solid $hr-border-color;
 }
@@ -58,6 +70,22 @@ small,
 //
 // Lists
 //
+
+ol {
+	list-style-type: decimal;
+}
+
+ul {
+	list-style-type: disc;
+  
+  ul {
+  	list-style-type: square;
+  
+    ul {
+    	list-style-type: circle;
+    }
+  }
+}
 
 // Unstyled keeps list items block level, just removes default browser padding and list-style
 .list-unstyled {
@@ -100,9 +128,9 @@ small,
 
 // Horizontal description lists w/ grid classes
 .dl-horizontal {
-  margin-right: -$grid-gutter-width;
-  margin-left: -$grid-gutter-width;
-  @include clearfix;
+  margin-right: -2 * $spacer-x;
+  margin-left: -2 * $spacer-x;
+//  @include clearfix;
 }
 
 
@@ -125,8 +153,8 @@ a {
 //
 
 figure {
-  @extend .center-block;
-  @extend .text-center;
+  //@extend .center-block;
+  //@extend .text-center;
   // Ensures the caption's text aligns with the image.
   display: inline-block;
   padding: $border-radius;
@@ -134,8 +162,8 @@ figure {
   border: $border-width solid $hr-border-color;
 
   > img {
-    @extend .img-responsive;
-    @extend .center-block;
+    //@extend .img-responsive;
+    //@extend .center-block;
     line-height: 1;
     margin-bottom: ($spacer-y / 2);
   }

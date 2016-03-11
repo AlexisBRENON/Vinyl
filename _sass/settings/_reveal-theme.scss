@@ -7,9 +7,9 @@ $backgroundColor: $root-background-color;
 $progressColor: $brand-primary;
 
 // Primary/body text
-$mainFont: $root-font-family;
+$mainFont: $font-family-root;
 // TODO: change this absolute value
-$mainFontSize: $root-font-size * 3;
+$mainFontSize: $font-size-root;
 $mainColor: $root-color;
 
 // Vertical spacing between blocks of text

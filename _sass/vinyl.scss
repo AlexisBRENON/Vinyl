@@ -12,5 +12,7 @@
 @import '../assets/libs/sanitize-css/sanitize.scss';
 @import '../assets/libs/flex-grid-framework/flex-grid-framework';
 
-//@import "vinyl/type";
+@import 'mixins';
+
+@import "vinyl/type";
 @import "vinyl/grid";

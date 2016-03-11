@@ -35,8 +35,8 @@ $headings-color:        $root-color !default;
  * Typography
  */
 
-$root-font-size:          $font-size-root-pt * $pppt; // convert pt size to pixel size
-$root-font-family:        $font-family-sans-serif !default;
+$font-size-root:          $font-size-root-pt * $pppt; // convert pt size to pixel size
+$font-family-root:        $font-family-sans-serif !default;
 $muted-text-color:        $gray-light !default;
 
 /* **********************************************
@@ -50,6 +50,9 @@ $root-line-height:       $line-height !default;
 $line-height-lg:         (4/3) * $line-height !default;
 $line-height-sm:         1 * $line-height !default;
 $line-height-headings:   $line-height-lg !default;
+
+$margin-bottom-headings:  $spacer-y;
+$margin-hr:               $spacer-y;
 
 /* **********************************************
  * Border
