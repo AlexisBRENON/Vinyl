@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6,
   color: $headings-color;
 
   small, .small {
-    color: $gray-light;
+    color: $gray;
   }
 }
 
@@ -54,18 +54,6 @@ hr {
   border: 0;
   border-top: $hr-border-width solid $hr-border-color;
 }
-
-
-//
-// Emphasis
-//
-
-small,
-.small {
-  font-size: $font-size-small;
-  font-weight: 300;
-}
-
 
 //
 // Lists
