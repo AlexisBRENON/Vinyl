@@ -14,7 +14,7 @@
 }
 
 // Match Vinyl semantic with primary, success, warning, danger
-@each $brand-id, $brand-color in $brand-colors {
+@each $brand-id, $brand-color in $vnl-brand-colors {
   .reveal .slides section .fragment.highlight-#{$brand-id}.visible {
     color: $brand-color;
   }

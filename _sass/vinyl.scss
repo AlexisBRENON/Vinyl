@@ -3,7 +3,7 @@
 @font-face {
   font-family: "Nunito";
   font-weight: bold;
-  src: url("{{ site.url }}/assets/font/Nunito-Bold.ttf") format("truetype");
+  src: url("../font/Nunito-Bold.ttf") format("truetype");
 }
 
 @import 'settings';

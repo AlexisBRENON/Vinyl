@@ -2,46 +2,38 @@
 // overridden by the super-theme
 // Heavily based on the RevealJS one
 
-// Background of the presentation
-$backgroundColor: $root-background-color;
-$progressColor: $brand-primary;
+// Root
+$rvl-color-root-bg:           $vnl-color-root-bg;
+$rvl-color-root:              $vnl-color-root;
 
-// Primary/body text
-$mainFont: $font-family-root;
-// TODO: change this absolute value
-$mainFontSize: $font-size-root;
-$mainColor: $root-color;
+$rvl-font-family-root:        $vnl-font-family-root;
+$rvl-font-size-root:          $vnl-font-size-root;
+$rvl-line-height-root:        $vnl-line-height-root;
 
-// Vertical spacing between blocks of text
-$blockMargin: $spacer-y;
+$rvl-color-inverted-root-bg:  $vnl-color-inverted-root-bg;
+$rvl-color-inverted-root:     $vnl-color-inverted-root;
 
 // Headings
-$headingMargin: 0 0 $blockMargin 0;
-$headingFont: $font-family-headings;
-$headingColor: $root-color;
-$headingLineHeight: $line-height;
-$headingLetterSpacing: normal;
-$headingTextTransform: capitalize;
-$headingTextShadow: none;
-$headingFontWeight: bold;
-$heading1TextShadow: $headingTextShadow;
-$heading1FontVariant: small-caps;
+$rvl-color-heading:           $vnl-color-heading;
 
-$heading1Size: $font-size-h1;
-$heading2Size: $font-size-h2;
-$heading3Size: $font-size-h3;
-$heading4Size: $font-size-h4;
+$rvl-font-family-heading:     $vnl-font-family-heading;
+$rvl-font-weight-heading:     $vnl-font-weight-heading;
+$rvl-line-height-heading:     $vnl-line-height-heading;
+$rvl-letter-spacing-heading:  normal;
+$rvl-text-transform-heading:  capitalize;
+$rvl-text-shadow-heading:     none;
+
+$rvl-margin-heading:          0 0 2*$vnl-spacer-y 0;
 
 // Links and actions
-$linkColor: $link-color;
-$linkColorHover: lighten( $linkColor, 20% );
+$rvl-color-link: $vnl-color-link;
+$rvl-color-link-hover: lighten( $rvl-color-link, 20% );
 
-// Text selection
-$selectionBackgroundColor: #FF5E99;
-$selectionColor: #fff;
+// Progress bar
+$rvl-color-progress:        $vnl-brand-primary;
 
 // Generates the presentation background, can be overridden
 // to return a background image or gradient
-@mixin bodyBackground() {
-	background: $backgroundColor;
+@mixin BackgroundRoot() {
+	background: $rvl-color-root-bg;
 }

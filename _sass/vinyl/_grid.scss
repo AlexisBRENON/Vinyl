@@ -28,10 +28,10 @@
 // Add a separator to only one column (on the right or the left. Default: right)
 [class *= "col-"].separator,
 [class *= "col-"].separator-right {
-  border-right: $hr-border-width solid $hr-border-color;
+  border-right: $vnl-width-hr solid $vnl-color-hr;
 }
 [class *= "col-"].separator-left {
-  border-left: $hr-border-width solid $hr-border-color;
+  border-left: $vnl-width-hr solid $vnl-color-hr;
 }
 
 // Add a separator to every columns in a row

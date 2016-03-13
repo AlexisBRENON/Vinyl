@@ -1,40 +1,39 @@
-//
-// Base
-//
+/* **********************************************
+ *
+ * vinyl/type
+ *
+ * *********************************************/
 
-body {
-  // Make the `body` use the `font-size-root`
-  font-family: $font-family-root;
-  font-size: $font-size-root;
-  color: $root-color;
-  background-color: $root-background-color;
+/* **********************************************
+ * Base
+ */
+
+// Add margin around <p> elements
+p {
+  margin: $vnl-margin-block;
 }
 
-//
-// Headings
-//
+// Justify text in rows
+.row p {
+  text-align: justify;
+}
+
+/* **********************************************
+ * Headings
+ */
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $font-family-headings;
-  font-weight: $font-weight-headings;
-  line-height: $line-height-headings;
-  color: $headings-color;
+  font-family: $vnl-font-family-heading;
+  font-weight: $vnl-font-weight-heading;
+  line-height: $vnl-line-height-heading;
+  color: $vnl-color-heading;
+  margin: $vnl-margin-block;
 
   small, .small {
+    line-height: $vnl-line-height-sm;
     color: $gray;
   }
-}
-
-h1, .h1,
-h2, .h2,
-h3, .h3 {
-  margin-bottom: $margin-bottom-headings;
-}
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-bottom: $margin-bottom-headings;
 }
 
 h1, .h1 { font-size: $font-size-h1; }
@@ -44,20 +43,19 @@ h4, .h4 { font-size: $font-size-h4; }
 h5, .h5 { font-size: $font-size-h5; }
 h6, .h6 { font-size: $font-size-h6; }
 
-//
-// Horizontal rules
-//
+/* **********************************************
+ * Horizontal rules
+ */
 
 hr {
-  margin-top: $margin-hr;
-  margin-bottom: $margin-hr;
+  margin: $vnl-margin-hr;
   border: 0;
-  border-top: $hr-border-width solid $hr-border-color;
+  border-top: $vnl-width-hr solid $vnl-color-hr;
 }
 
-//
-// Lists
-//
+/* **********************************************
+ * Lists
+ */
 
 ol {
 	list-style-type: decimal;
@@ -92,11 +90,11 @@ ul {
     }
     &.pros:before {
       content: "\f055";
-      color: $brand-success;
+      color: $vnl-brand-success;
     }
     &.cons:before {
       content: "\f056";
-      color: $brand-danger;
+      color: $vnl-brand-danger;
     }
   }
 }
@@ -116,15 +114,14 @@ ul {
 
 // Horizontal description lists w/ grid classes
 .dl-horizontal {
-  margin-right: -2 * $spacer-x;
-  margin-left: -2 * $spacer-x;
-//  @include clearfix;
+  margin-right: -2 * $vnl-spacer-x;
+  margin-left: -2 * $vnl-spacer-x;
 }
 
 
-//
-// Misc
-//
+/* **********************************************
+ * Misc
+ */
 
 // Builds on `abbr`
 .initialism {
@@ -136,24 +133,24 @@ a {
   font-family: $font-family-monospace;
 }
 
-//
-// Figures
-//
+/* **********************************************
+ * Figures
+ */
 
 figure {
   //@extend .center-block;
   //@extend .text-center;
   // Ensures the caption's text aligns with the image.
   display: inline-block;
-  padding: $border-radius;
+  padding: $vnl-padding-td;
   @include border-radius();
-  border: $border-width solid $hr-border-color;
+  border: $vnl-width-border solid $vnl-color-border;
 
   > img {
     //@extend .img-responsive;
     //@extend .center-block;
     line-height: 1;
-    margin-bottom: ($spacer-y / 2);
+    margin-bottom: ($vnl-spacer-y / 2);
   }
 }
 

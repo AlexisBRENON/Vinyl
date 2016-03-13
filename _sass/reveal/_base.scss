@@ -1,65 +1,11 @@
-/*!
+/*
  * Based on RevealJS CSS file
  */
 
-
-/*********************************************
- * RESET STYLES
- *********************************************/
-/*
-html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe,
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
-.reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
-.reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
-.reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
-.reveal b, .reveal u, .reveal center,
-.reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li,
-.reveal fieldset, .reveal form, .reveal label, .reveal legend,
-.reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td,
-.reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed,
-.reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup,
-.reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary,
-.reveal time, .reveal mark, .reveal audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-.reveal article, .reveal aside, .reveal details, .reveal figcaption, .reveal figure,
-.reveal footer, .reveal header, .reveal hgroup, .reveal menu, .reveal nav, .reveal section {
-	display: block;
-}
-*/
-
-/*********************************************
- * GLOBAL STYLES
- *********************************************/
-
-html,
-body {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-
-body {
-	position: relative;
-	line-height: 1;
-
-	background-color: #fff;
-	color: #000;
-}
-
-// Ensures that the main background color matches the
-// theme in fullscreen mode
-html:-webkit-full-screen-ancestor {
-	background-color: inherit;
-}
-html:-moz-full-screen-ancestor {
-	background-color: inherit;
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 /*********************************************
@@ -297,7 +243,7 @@ html:-moz-full-screen-ancestor {
 	left: 0;
 	z-index: 10;
 
-	background-color: rgba($brand-primary, 0.2 );
+	background-color: rgba($vnl-brand-primary, 0.2 );
 }
 	.reveal .progress:after {
 		content: '';
@@ -329,8 +275,8 @@ html:-moz-full-screen-ancestor {
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
 	line-height: 1;
-	color: $root-background-color;
-	background-color: rgba( $root-color, 0.4 );
+	color: $vnl-color-root-bg;
+	background-color: rgba( $vnl-color-root, 0.4 );
 	padding: 5px;
 }
 
@@ -984,7 +930,7 @@ html:-moz-full-screen-ancestor {
 	perspective: 700px;
 
 	.slides section {
-		height: 700px;
+		height: 100%;
 		opacity: 1 !important;
 		overflow: hidden;
 		visibility: visible !important;
@@ -1320,8 +1266,8 @@ html:-moz-full-screen-ancestor {
 	z-index: 1;
 	font-size: 18px;
 	line-height: 1.4;
-	color: $root-background-color;
-	background-color: rgba($root-color,0.5);
+	color: $vnl-color-root-bg;
+	background-color: rgba($vnl-color-root,0.5);
 	overflow: auto;
 	box-sizing: border-box;
 	text-align: left;

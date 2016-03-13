@@ -4,15 +4,35 @@
  * 
  */
 
-$background-repeat: null;
-$root-box-sizing: null;
-$root-cursor: null;
-$anchor-text-decoration: null;
-$media-element-vertical-align: null;
-$table-border-collapse: null;
-$table-border-spacing: null;
+$small-font-size:               $font-size-small;
 
-$root-font-size:          $font-size-root;
-$small-font-size:         $font-size-small;
-$root-font-family:        $font-family-root;
-$monospace-font-family:   $font-family-monospace;
+$background-repeat:             null;
+
+$root-background-color:         $gray-lightest;
+$root-box-sizing:               null;
+$root-color:                    $gray-darkest;
+$root-cursor:                   null;
+$root-font-size:                $vnl-font-size-root;
+$root-line-height:              $vnl-line-height-root;
+$root-font-family:              $vnl-font-family-root;
+
+$anchor-text-decoration:        null;
+
+$media-element-vertical-align:  null;
+
+$form-element-background-color: null;
+$form-element-min-height:       null;
+
+$monospace-font-family:         $font-family-monospace;
+
+$nav-list-style:                null;
+
+$table-border-collapse:         null;
+$table-border-spacing:          null;
+
+$textarea-resize:               null;
+
+$selection-background-color:    null;
+$selection-color:               null;
+$selection-text-shadow:         null;
+

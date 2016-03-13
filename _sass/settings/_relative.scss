@@ -8,99 +8,105 @@
  * Colors
  */
 
-$brand-primary: $brand-blue;        
-$brand-success: $brand-green;
-$brand-warning: $brand-yellow;
-$brand-danger: $brand-red;
+$vnl-brand-primary: $blue;
+$vnl-brand-success: $green;
+$vnl-brand-warning: $yellow;
+$vnl-brand-danger:  $red;
 
-$brand-colors: (
-  'primary': $brand-primary,
-  'success': $brand-success,
-  'warning': $brand-warning,
-  'danger': $brand-danger
+$vnl-brand-colors: (
+  'primary':  $vnl-brand-primary,
+  'success':  $vnl-brand-success,
+  'warning':  $vnl-brand-warning,
+  'danger':   $vnl-brand-danger
   );
 
 /* **********************************************
  * Generic style
  */
 
-$root-background-color: $white !default;
-$root-color:            $gray-dark !default;
-$inverted-root-bg:      $brand-primary !default;
-$inverted-root-color:   $root-background-color !default;
-$link-color:            lighten($brand-blue, 20%) !default;
-$headings-color:        $root-color !default;
+$vnl-color-root-bg:           $white !default;
+$vnl-color-root:              $gray-dark !default;
+$vnl-color-inverted-root-bg:  $vnl-brand-primary !default;
+$vnl-color-inverted-root:     $vnl-color-root-bg !default;
+$vnl-color-link:              lighten($blue, 20%) !default;
+$vnl-color-heading:           $vnl-color-root !default;
 
 /* **********************************************
  * Typography
  */
 
-$font-size-root:          $font-size-root-pt * $pppt; // convert pt size to pixel size
-$font-family-root:        $font-family-sans-serif !default;
-$muted-text-color:        $gray-light !default;
+$vnl-font-size-root:          $font-size-root-pt * $pppt; // convert pt size to pixel size
+$vnl-font-family-root:        $font-family-sans-serif !default;
+
+$vnl-font-family-heading:     $font-family-heading !default;
+$vnl-font-weight-heading:     $font-weight-heading !default;
+
+$vnl-color-muted:             $gray-light !default;
 
 /* **********************************************
  * Spacing
  */
 
-$spacer-x:                   $spacer !default;
-$spacer-y:                   $spacer !default;
+$vnl-spacer-x:               $spacer !default;
+$vnl-spacer-y:               $spacer !default;
 
-$root-line-height:       $line-height !default;
-$line-height-lg:         (4/3) * $line-height !default;
-$line-height-sm:         1 * $line-height !default;
-$line-height-headings:   $line-height-lg !default;
+$vnl-line-height-root:       $line-height !default;
+$vnl-line-height-lg:         $line-height * 1.2 !default;
+$vnl-line-height-sm:         $line-height * 1 !default;
+$vnl-line-height-heading:    $line-height !default;
 
-$margin-bottom-headings:  $spacer-y;
-$margin-hr:               $spacer-y;
+$vnl-margin-block:           0 0 $vnl-spacer-y 0;
 
 /* **********************************************
  * Border
  */
 
-$border-width:            ($spacer / 10) !default;
-$border-color:            rgba($root-color, 0.2) !default;
+$vnl-width-border:            ($spacer / 10) !default;
+$vnl-color-border:            rgba($vnl-color-root, 0.2) !default;
 
-$border-radius:           ($spacer / 3) !default;
-$border-radius-lg:        ($border-radius * 1.2) !default;
-$border-radius-sm:        ($border-radius * 0.8) !default;
-
-$hr-border-color:         $border-color;
-$hr-border-width:         $border-width;
+$vnl-border-radius:           ($spacer / 3) !default;
+$vnl-border-radius-lg:        ($vnl-border-radius * 1.2) !default;
+$vnl-border-radius-sm:        ($vnl-border-radius * 0.8) !default;
 
 /* **********************************************
  * Table
  */
 
-$table-cell-padding:            $spacer !default;
-$table-sm-cell-padding:         0.4 * $table-cell-padding !default;
+$vnl-color-hr:                $vnl-color-border;
+$vnl-width-hr:                $vnl-width-border;
+$vnl-margin-hr:               $vnl-spacer-y 0 $vnl-spacer-y 0;
 
-$table-bg:                      transparent !default;
-$table-bg-active:               $gray-light !default;
+/* **********************************************
+ * Table
+ */
 
-$table-border-color:            $border-color !default;
+$vnl-padding-td:            $spacer !default;
+$vnl-padding-td-sm:         0.4 * $vnl-padding-td !default;
+
+$vnl-color-table-bg:        transparent !default;
+$vnl-color-table-bg-active: $gray-light !default;
 
 /* **********************************************
  * Image thumbnails
  */
 
-$thumbnail-padding:           ($spacer / 3) !default;
-$thumbnail-bg:                $root-background-color !default;
-$thumbnail-border:            $border-color !default;
-$thumbnail-border-radius:     $border-radius !default;
+$vnl-padding-thumbnail:           ($spacer / 3) !default;
+$vnl-color-thumbnail-bg:          $vnl-color-root-bg !default;
+$vnl-color-thumbnail-border:      $vnl-color-border !default;
+$vnl-border-radius-thumbnail:     $vnl-border-radius !default;
 
 /* **********************************************
  * Code
  */
 
-$pre-bg:                      $gray-lightest !default;
-$pre-color:                   $gray-dark !default;
-$pre-border-color:            $border-color !default;
+$vnl-color-pre-bg:            $gray-lightest !default;
+$vnl-color-pre:               $gray-dark !default;
+$vnl-color-pre-border:        $vnl-color-border !default;
 
-$kbd-color:                   $inverted-root-color !default;
-$kbd-bg:                      $inverted-root-bg !default;
+$vnl-color-kbd-bg:            $vnl-color-inverted-root-bg !default;
+$vnl-color-kbd:               $vnl-color-inverted-root !default;
 
-$code-color:                  $gray-darkest !default;
-$code-bg:                     $gray-light !default;
+$vnl-color-code-bg:           $gray-light !default;
+$vnl-color-code:              $gray-darkest !default;
 // Code blocks are managed by HLJS stylesheets.
 

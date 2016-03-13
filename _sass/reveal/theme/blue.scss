@@ -6,6 +6,7 @@
 @import "settings/reveal-theme";
 
 // Override the settings
+$rvl-color-heading: $vnl-brand-primary;
 
 // Apply settings
 @import "reveal/theme/template/theme";
