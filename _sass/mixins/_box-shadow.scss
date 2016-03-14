@@ -1,0 +1,15 @@
+/* **********************************************
+ * Box shadows
+ */
+
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+@mixin drop-shadow($x-offset: 0px, $y-offset:0px, $size:1rem, $distance:0px, $color:$gray-dark) {
+  @include box-shadow($x-offset $y-offset $size $distance $color);
+}
+
+@mixin inset-shadow($x-offset: 0px, $y-offset:0px, $size:1rem, $distance:0px, $color:$gray-dark) {
+  @include box-shadow(inset $x-offset $y-offset $size $distance $color);
+}
