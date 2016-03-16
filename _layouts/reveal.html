@@ -2,21 +2,25 @@
 
 <html lang="{{ page.lang }}">
 
-	<head>
+  <head>
     <title>{{ page.title }} - Vinyl</title>
-    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
-		<meta charset="utf-8">
+    <link rel="icon" href="{{site.url}}/assets/img/favicon.svg" type="image/svg+xml" />
+    <meta charset="utf-8">
 
-    <link rel="stylesheet" href="/assets/css/vinyl.css"/>
-    <link rel="stylesheet" href="/assets/css/reveal.css"/>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{site.url}}/assets/libs/animate.css/animate.min.css"/>
+
+    <!-- Vinyl CSS -->
+    <link rel="stylesheet" href="{{site.url}}/assets/css/vinyl.css"/>
+    <link rel="stylesheet" href="{{site.url}}/assets/css/reveal.css"/>
 
     <!-- Themes -->
     <link rel="stylesheet" href="{{ page.theme }}"/>
     <link rel="stylesheet" href="{{ page.hljsTheme }}"/>
 
-		<!-- PDF Exports -->
-    <link rel="stylesheet" href="/assets/css/reveal/pdf.css" media="print"/>
-	</head>
+    <!-- PDF Exports -->
+    <link rel="stylesheet" href="{{site.url}}/assets/css/reveal/pdf.css" media="print"/>
+  </head>
 
   <body>
     <div class="reveal">

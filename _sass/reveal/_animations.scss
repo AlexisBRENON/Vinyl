@@ -1,0 +1,30 @@
+/* **********************************************
+ * 
+ * reveal/animations
+ * 
+ * *********************************************/
+
+@import 'settings/animate';
+
+.reveal .slides section .fragment.animated {
+
+  // Override default values
+  animation-duration: $animatecss-duration-root;
+  @each $animation, $duration in $animatecss-durations {
+    &.#{$animation} {
+      animation-duration: $duration;
+    }
+  }
+
+  // Wait for the fragment to be activated before playing the animation
+  animation-play-state: paused;
+}
+
+.reveal .slides section .fragment.animated.visible {
+  animation-play-state: running;
+
+  &.out {
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -100,7 +100,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 <section>
   <section class="inverted">
     <h2>
-      Fragments<br/>
+      Fragments &amp; animations<br/>
       <small>The missing feature of ImpressJS</small>
     </h2>
   </section>
@@ -108,9 +108,9 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <h3>What is fragment?</h3>
     <p>
     Fragments
-    <span class="fragment">are</span>
-    <span class="fragment">pieces of slide</span>
-    <span class="fragment">which appear one at a time.</fragment>
+    <span class="fragment in">are</span>
+    <span class="fragment in">pieces of slide</span>
+    <span class="fragment in">which appear one at a time.</fragment>
     </p>
   </section>
   <section>
@@ -118,11 +118,17 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <p>There's different types of fragments, like:</p>
     <!-- Many fragments example -->
     <p>
-    <span class="fragment">default</span>
+    <span class="fragment in">in</span>
+    <span class="fragment fade-in">fade-in</span>
     <span class="fragment fade-out">fade-out</span>
+    <span class="fragment out">out</span>
     </p>
     <p>
-    <span class="fragment grow">grow</span><span style="margin:auto 2em;">/</span><span class="fragment shrink">shrink</span>
+    <span class="fragment grow">grow</span>
+    <span style="margin:auto 1ex;">/</span>
+    <span class="fragment shrink">shrink</span>
+    <span style="margin: auto 1ex;">/</span>
+    <span class="fragment strike">strike</span>
     </p>
     <p>
     <span class="fragment highlight-primary">highlight-primary</span>
@@ -137,6 +143,13 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <span class="fragment highlight-current-warning">highlight-current-warning</span>
     <span class="fragment highlight-current-danger">highlight-current-danger</span>
     </p>
+  </section>
+  <section>
+    <h3>Animations</h3>
+    <p>Based on animate.css framework.</p>
+    <span class="fragment animated in bounceIn">Input</span>
+    <span class="fragment animated attention-seeker shake">Attention seeker</span>
+    <span class="fragment animated out hinge">Output</span>
   </section>
 </section>
 

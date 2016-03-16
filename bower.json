@@ -30,6 +30,7 @@
     "reveal.js": "~3.2.0",
     "requirejs": "~2.1.22",
     "sanitize-css": "^3.2.0",
-    "flex-grid-framework": "^1.1.1"
+    "flex-grid-framework": "^1.1.1",
+    "animate.css": "animate-css#^3.5.1"
   }
 }

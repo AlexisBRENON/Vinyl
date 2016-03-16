@@ -1,0 +1,15 @@
+/* **********************************************
+ *
+ * Animate CSS variables
+ *
+ */
+
+// Allow to override default duration set in the assets/libs/animate.css/animate.css file
+$animatecss-duration-root:  1s;
+$animatecss-durations: (
+  'hinge': 2s,
+  'flipOutX': 0.75s,
+  'flipOutY': 0.75s,
+  'bounceIn': 0.75s,
+  'bounceOut': 0.75s
+  );
