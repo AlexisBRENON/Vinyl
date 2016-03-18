@@ -1,30 +1,8 @@
-//
-// Floats
-//
-
-.clearfix {
-  @include clearfix();
-}
-
-.center-block {
-  @include center-block();
-}
-
-.pull-right {
-  @include pull-right();
-}
-
-.pull-left {
-  @include pull-left();
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-//
-// Text
-//
+/* **********************************************
+ *
+ * Vinyl/text-utilities
+ *
+ * *********************************************/
 
 // Alignment
 
@@ -43,31 +21,19 @@
 // Contextual colors
 
 .text-muted {
-  color: $text-muted;
+  color: $vnl-color-muted;
 }
-
-@include text-emphasis-variant('.text-primary', $brand-primary);
-@include text-emphasis-variant('.text-success', $brand-success);
-@include text-emphasis-variant('.text-warning', $brand-warning);
-@include text-emphasis-variant('.text-danger', $brand-danger);
-
-
-// Contextual backgrounds
-// For now we'll leave these alongside the text classes until v4 when we can
-// safely shift things around (per SemVer rules).
-
-// Inverse
-// Todo: redo this as a proper class
-.bg-inverse {
-  color: $gray-lighter;
-  background-color: $gray-dark;
-}
-
 .bg-faded {
-  background-color: $gray-lightest;
+  background-color: $vnl-color-muted;
 }
 
-@include bg-variant('.bg-primary', $brand-primary);
-@include bg-variant('.bg-success', $brand-success);
-@include bg-variant('.bg-warning', $brand-warning);
-@include bg-variant('.bg-danger', $brand-danger);
+@each $brand-id, $brand-color in $vnl-brand-colors {
+  .text-#{$brand-id} {
+    color: $brand-color;
+  }
+
+  .bg-#{$brand-id} {
+    color: $gray-lightest;
+    background-color: $brand-color;
+  }
+}
