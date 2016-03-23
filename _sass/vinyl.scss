@@ -1,10 +1,14 @@
 
-/* Vinyl comes with a font */
+/* Vinyl comes with fonts */
 @font-face {
   font-family: "Nunito";
   font-weight: bold;
   src: url("../font/Nunito-Bold.ttf") format("truetype");
-}
+} 
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../font/Inconsolata-Regular.ttf") format("truetype");
+} 
 
 @import 'settings';
 
@@ -18,3 +22,4 @@
 @import "vinyl/type";
 @import "vinyl/code";
 @import "vinyl/utilities";
+@import "vinyl/utilities-spacing";

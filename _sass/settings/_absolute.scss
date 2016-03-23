@@ -11,8 +11,9 @@
  * 12 px per millimeter (~300ppi)
  */
 
-$ppm: 4px !default; // Pixels per millimeters
-$pppt: ceil(0.35278 * $ppm) !default; // Pixels per point
+$ppm: 3px !default; // Pixels per millimeters
+//$pppt: ceil(0.35278 * $ppm) !default; // Pixels per point
+$pppt: 1.333333px !default;
 
 /* **********************************************
  * Colors
@@ -39,7 +40,7 @@ $font-family-sans-serif:  "Liberation Sans", sans-serif !default;
 $font-family-serif:       "Liberation Serif", serif !default;
 $font-family-monospace:   "Inconsolata", monospace !default;
 $font-family-icon:        "Font Awesome" !default;
-$font-family-heading:    "Nunito", $font-family-sans-serif !default;
+$font-family-heading:     "Nunito", $font-family-sans-serif !default;
 
 $font-weight-heading:    bold !default;
 

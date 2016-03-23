@@ -57,6 +57,11 @@ hr {
  * Lists
  */
 
+ol, ul {
+  margin: $vnl-margin-block;
+  list-style-position: inside;
+}
+
 ol {
 	list-style-type: decimal;
 }
