@@ -1,30 +1,43 @@
-// Row
-//
-// Rows contain and clear the floats of your columns.
+/* **********************************************
+ *
+ * vinyl/grid
+ *
+ * *********************************************/
 
+// Define classes using flex-grid-framework placeholder selectors
 .row {
-  @include make-row();
+  @extend %row;
 }
 
+@for $i from 1 through $flx-column_number {
+  .col-#{$i} {
+    @extend %col-#{$i};
+    position: relative;
+  }
+}
 
-// Columns
-@include make-grid-columns();
+@for $i from 1 through ($flx-column_number - 1) {
+  .col-offset-#{$i} {
+    @extend %offset-#{$i};
+  }
+}
 
-// Allow separators between columns
+/* ************************************************
+ * Allow separators between columns
+ */
 
 // Add a separator to only one column (on the right or the left. Default: right)
-[class^="col-"] {
-  &.separator, &.separator-right {
-    border-right: $hr-border-width solid $hr-border-color;
-  }
-  &.separator-left {
-    border-left: $hr-border-width solid $hr-border-color;
-  }
+[class *= "col-"].separator,
+[class *= "col-"].separator-right {
+  border-right: $vnl-width-hr solid $vnl-color-hr;
+}
+[class *= "col-"].separator-left {
+  border-left: $vnl-width-hr solid $vnl-color-hr;
 }
 
 // Add a separator to every columns in a row
 .row.separators {
-  & > [class^="col-"] {
+  & > [class *= "col-"] {
     @extend .separator-right;
 
     &:last-child {
@@ -33,25 +46,3 @@
   }
 }
 
-// Flex variation
-//
-// Custom styles for additional flex alignment options.
-
-// Flex column reordering
-
-.col-first { order: -1; }
-.col-last { order: 1; }
-
-// Alignment for every column in row
-
-.row-top      { align-items: flex-start; }
-.row-center   { align-items: center; }
-.row-bottom   { align-items: flex-end; }
-.row-stretch  { align-items: stretch; }
-
-// Alignment per column
-
-.col-top      { align-self: flex-start; }
-.col-center   { align-self: center; }
-.col-bottom   { align-self: flex-end; }
-.col-stretch  { align-self: stretch; }

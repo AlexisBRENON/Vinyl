@@ -1,0 +1,77 @@
+
+// Load global settings
+@import "settings";
+@import "mixins";
+
+// Load Reveal settings
+@import "settings/poster";
+
+// Apply settings
+@import "poster/theme/template/theme";
+
+.poster {
+  ul.authors-list {
+    list-style-type: none;
+    margin-bottom: 0;
+
+    > li {
+      display: inline-block;
+
+      &:after {
+        content: ', ';
+      }
+
+      &:last-child:after {
+        content: none;
+      }
+    }
+  }
+
+  .aknowledgments {
+    font-size: $font-size-small;
+  }
+
+  main > .row {
+    justify-content: space-between;
+    @include m-x-0();
+  }
+
+  main > section,
+  main > .row > section {
+    background-color: $pstr-color-root-bg;
+    position: relative;
+    @include border-radius();
+    @include p-x-sm();
+
+    // Dirty trick for PDF rendering of drop shadows 
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; right: 0; left: 0;
+      @include border-radius();
+      @include drop-shadow();
+      -webkit-print-color-adjust:exact;
+      -webkit-filter:blur(0);
+    }
+
+    h2 {
+      background-color: $vnl-color-inverted-root-bg;
+      color: $vnl-color-inverted-root;
+      line-height: 1;
+      @include p-l-sm(); @include p-b-sm();
+      @include m-b-sm();
+      @include m-x(-1 * $vnl-spacer-x);
+      @include border-top-radius();
+
+      display: flex;
+      align-items: baseline;
+      &:after {
+        content: '';
+        display: block;
+        @include m-x($vnl-spacer-x/2);
+        border-bottom: $vnl-width-border solid $vnl-color-inverted-root;
+        flex: 1 1 auto;
+      }
+    }
+  }
+}

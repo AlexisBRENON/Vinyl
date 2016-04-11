@@ -1,0 +1,62 @@
+/* **********************************************
+ *
+ * Absolute variables
+ *
+ * *********************************************/
+
+/* Redefine sizes in pixels
+ * 3px per millimeter (~72ppi)
+ * 4px per millimeter (~96ppi)
+ * 6px per millimeter (~150ppi)
+ * 12 px per millimeter (~300ppi)
+ */
+
+$ppm: 3px !default; // Pixels per millimeters
+//$pppt: ceil(0.35278 * $ppm) !default; // Pixels per point
+$pppt: 1.333333px !default;
+
+/* **********************************************
+ * Colors
+ */
+
+$black:                     #000000 !default;
+$gray-darkest:              #373a3c !default;
+$gray-dark:                 #55595c !default;
+$gray:                      #818a91 !default;
+$gray-light:                #eceeef !default;
+$gray-lightest:             #f7f7f9 !default;
+$white:                     #ffffff !default;
+
+$blue:                      #274166 !default;
+$green:                     #5cb85c !default;
+$yellow:                    #f0ad4e !default;
+$red:                       #d9534f !default;
+
+/* **********************************************
+ * Typography
+ */
+
+$font-family-sans-serif:  "Liberation Sans", sans-serif !default;
+$font-family-serif:       "Liberation Serif", serif !default;
+$font-family-monospace:   "Inconsolata", monospace !default;
+$font-family-icon:        "Font Awesome" !default;
+$font-family-heading:     "Nunito", $font-family-sans-serif !default;
+
+$font-weight-heading:    bold !default;
+
+$font-size-root-pt:       12 !default; // Font size in pt. It's used as the rem unit
+$font-size-base:          1rem !default;
+$font-size-large:         125% !default;
+$font-size-small:         66% !default;
+
+$font-size-h1:            2.5rem !default;
+$font-size-h2:            2rem !default;
+$font-size-h3:            1.75rem !default;
+$font-size-h4:            1.5rem !default;
+$font-size-h5:            1.25rem !default;
+$font-size-h6:            1rem !default;
+
+$spacer:                 0.75rem !default;
+$line-height:            1.25 !default;
+
+

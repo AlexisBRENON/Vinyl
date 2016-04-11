@@ -132,9 +132,11 @@ require(
                 ], ->
                   # Initialize the Reveal presentation giving the configuration (see the project page to
                   # see all available options)
+                  height = parseFloat($(':root').css('line-height'))*20.0
+                  width = height*16/9
                   Reveal.initialize({
-                    width: 1280,
-                    height: 720,
+                    width: width,
+                    height: height,
                     controls: false, # Remove the mouse controls which are not so beautiful
                     progress: true, # Add a progress bar
                     center: true, # Slide content will be vertically and horizontally centered

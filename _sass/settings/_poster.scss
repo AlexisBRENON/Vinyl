@@ -1,0 +1,34 @@
+// Base settings for Poster template
+
+// Root
+$pstr-width-root-cm:    21.0;
+$pstr-height-root-cm:   29.7;
+$pstr-width-root:       $pstr-width-root-cm * 1cm;
+$pstr-height-root:      $pstr-height-root-cm * 1cm;
+
+$pstr-color-root-bg:  $vnl-color-root-bg;
+$pstr-color-root:     $vnl-color-root;
+// Generates the page background, can be overridden
+// to return a background image or gradient
+@mixin page-background() {
+  background: $pstr-color-root-bg;
+}
+
+$pstr-font-family-root:        $vnl-font-family-root;
+$pstr-font-size-root:          $vnl-font-size-root;
+$pstr-line-height-root:        1.2;
+
+$pstr-color-inverted-root-bg:  $vnl-color-inverted-root-bg;
+$pstr-color-inverted-root:     $vnl-color-inverted-root;
+
+// Headings
+$pstr-color-heading:           $vnl-brand-primary;
+
+$pstr-font-family-heading:     $vnl-font-family-heading;
+$pstr-font-weight-heading:     $vnl-font-weight-heading;
+$pstr-line-height-heading:     $vnl-line-height-heading;
+$pstr-letter-spacing-heading:  normal;
+$pstr-text-transform-heading:  capitalize;
+$pstr-text-shadow-heading:     none;
+
+$pstr-margin-heading:          0 0 2*$vnl-spacer-y 0;

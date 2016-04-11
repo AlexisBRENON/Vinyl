@@ -1,0 +1,112 @@
+/* **********************************************
+ *
+ * Relative variables
+ *
+ * *********************************************/
+
+/* **********************************************
+ * Colors
+ */
+
+$vnl-brand-primary: $blue;
+$vnl-brand-success: $green;
+$vnl-brand-warning: $yellow;
+$vnl-brand-danger:  $red;
+
+$vnl-brand-colors: (
+  'primary':  $vnl-brand-primary,
+  'success':  $vnl-brand-success,
+  'warning':  $vnl-brand-warning,
+  'danger':   $vnl-brand-danger
+  );
+
+/* **********************************************
+ * Generic style
+ */
+
+$vnl-color-root-bg:           $white !default;
+$vnl-color-root:              $gray-dark !default;
+$vnl-color-inverted-root-bg:  $vnl-brand-primary !default;
+$vnl-color-inverted-root:     $vnl-color-root-bg !default;
+$vnl-color-link:              lighten($blue, 20%) !default;
+$vnl-color-heading:           $vnl-color-root !default;
+
+/* **********************************************
+ * Typography
+ */
+
+$vnl-font-size-root:          $font-size-root-pt * $pppt; // convert pt size to pixel size
+$vnl-font-family-root:        $font-family-sans-serif !default;
+
+$vnl-font-family-heading:     $font-family-heading !default;
+$vnl-font-weight-heading:     $font-weight-heading !default;
+
+$vnl-color-muted:             $gray !default;
+
+/* **********************************************
+ * Spacing
+ */
+
+$vnl-spacer-x:               $spacer !default;
+$vnl-spacer-y:               $spacer !default;
+
+$vnl-line-height-root:       $line-height !default;
+$vnl-line-height-lg:         $line-height * 1.2 !default;
+$vnl-line-height-sm:         $line-height * 1 !default;
+$vnl-line-height-heading:    $line-height !default;
+
+$vnl-margin-block:           0 0 $vnl-spacer-y 0;
+
+/* **********************************************
+ * Border
+ */
+
+$vnl-width-border:            ($spacer / 10) !default;
+$vnl-color-border:            rgba($vnl-color-root, 0.2) !default;
+
+$vnl-border-radius:           ($spacer / 3) !default;
+$vnl-border-radius-lg:        ($vnl-border-radius * 1.2) !default;
+$vnl-border-radius-sm:        ($vnl-border-radius * 0.8) !default;
+
+/* **********************************************
+ * Table
+ */
+
+$vnl-color-hr:                $vnl-color-border;
+$vnl-width-hr:                $vnl-width-border;
+$vnl-margin-hr:               $vnl-spacer-y 0 $vnl-spacer-y 0;
+
+/* **********************************************
+ * Table
+ */
+
+$vnl-padding-td:            $spacer !default;
+$vnl-padding-td-sm:         0.4 * $vnl-padding-td !default;
+
+$vnl-color-table-bg:        transparent !default;
+$vnl-color-table-bg-active: $gray-light !default;
+
+/* **********************************************
+ * Image thumbnails
+ */
+
+$vnl-padding-thumbnail:           ($spacer / 3) !default;
+$vnl-color-thumbnail-bg:          $vnl-color-root-bg !default;
+$vnl-color-thumbnail-border:      $vnl-color-border !default;
+$vnl-border-radius-thumbnail:     $vnl-border-radius !default;
+
+/* **********************************************
+ * Code
+ */
+
+$vnl-color-pre-bg:            $gray-lightest !default;
+$vnl-color-pre:               $gray-dark !default;
+$vnl-color-pre-border:        $vnl-color-border !default;
+
+$vnl-color-kbd-bg:            $vnl-color-inverted-root-bg !default;
+$vnl-color-kbd:               $vnl-color-inverted-root !default;
+
+$vnl-color-code-bg:           $gray-light !default;
+$vnl-color-code:              $gray-darkest !default;
+// Code blocks are managed by HLJS stylesheets.
+

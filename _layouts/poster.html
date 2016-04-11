@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="{{ page.lang }}">
+
+  <head>
+    <title>{{ page.title }} - Vinyl</title>
+    <link rel="icon" href="{{site.url}}/assets/img/favicon.svg" type="image/svg+xml" />
+    <meta charset="utf-8">
+
+    <!-- Vinyl CSS -->
+    <link rel="stylesheet" href="{{site.url}}/assets/css/vinyl.css"/>
+    <link rel="stylesheet" href="{{site.url}}/assets/css/poster.css"/>
+
+    <!-- Themes -->
+    <link rel="stylesheet" href="{{ page.theme }}"/>
+    <link rel="stylesheet" href="{{ page.hljsTheme }}"/>
+  </head>
+
+  <body class="poster a0">
+    {% if page.display-guides == 'true' %}
+    <div class="guides"></div>
+    {% endif %}
+
+    <!-- End of layout header -->
+
+{{ content }}
+
+    <!-- Start of layout footer -->
+
+    {% include vinyl-js.html %}
+
+  </body>
+</html>
+

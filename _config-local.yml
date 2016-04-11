@@ -1,13 +1,13 @@
 title: Vinyl
-url: http://AlexisBRENON.github.io/Vinyl/
+url: http://localhost:4000/
 author: Alexis BRENON
 linkedin: https://www.linkedin.com/profile/public-profile-settings?trk=prof-edit-edit-public_profile
 twitter: AlexisBRENON
 github: AlexisBRENON
 
-exclude: [_config-local.yml, README.md, bower.json, examples/latex]
-keep_files: [assets/biblio, assets/img/, assets/libs]
+exclude: [_config.yml ,README.md, bower.json, examples/latex]
+keep_files: [assets/biblio, assets/img/, assets/font, assets/libs]
 
 sass:
     sass_dir: _sass
-    style: compressed
+    style: nested
