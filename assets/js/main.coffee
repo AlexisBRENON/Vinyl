@@ -19,7 +19,7 @@
 # Let's detail more the config object.
 
 require.config({
-  baseUrl: '/assets/',
+  baseUrl: '{{ site.url }}/assets/',
   paths: { # Here, we assign an easy to remember name to some JS files.
     vinyl: 'js/vinyl/', # The Vinyl entry point
     jquery: 'libs/jquery/dist/jquery.min',
@@ -144,7 +144,7 @@ require(
                     transition: 'slide', # none/fade/slide/convex/concave/zoom
                     slideNumber: true, # Display slide number in bottom right corner
                     math: {
-                      mathjax: '/assets/libs/MathJax/MathJax.js' # Use an offline version of MathJax
+                      mathjax: '{{ site.url }}/assets/libs/MathJax/MathJax.js' # Use an offline version of MathJax
                     }
                   })
                   hljs.initHighlighting() # Apply highlighting
