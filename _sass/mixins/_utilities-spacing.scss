@@ -50,22 +50,22 @@
   @include m-a($spacer);
 }
 @mixin m-t-sm() {
-  @include m-t($spacer-y);
+  @include m-t($vnl-spacer-y);
 }
 @mixin m-r-sm() {
-  @include m-r($spacer-x);
+  @include m-r($vnl-spacer-x);
 }
 @mixin m-b-sm() {
-  @include m-b($spacer-y);
+  @include m-b($vnl-spacer-y);
 }
 @mixin m-l-sm() {
-  @include m-l($spacer-x);
+  @include m-l($vnl-spacer-x);
 }
 @mixin m-x-sm() {
-  @include m-x($spacer-x);
+  @include m-x($vnl-spacer-x);
 }
 @mixin m-y-sm() {
-  @include m-y($spacer-y);
+  @include m-y($vnl-spacer-y);
 }
 @mixin m-x-auto() {
   @include m-x(auto)
@@ -75,44 +75,44 @@
   @include m-a($spacer * 1.5);
 }
 @mixin m-t-md() {
-  @include m-t($spacer-y * 1.5);
+  @include m-t($vnl-spacer-y * 1.5);
 }
 @mixin m-r-md() {
-  @include m-r($spacer-y * 1.5);
+  @include m-r($vnl-spacer-y * 1.5);
 }
 @mixin m-b-md() {
-  @include m-b($spacer-y * 1.5);
+  @include m-b($vnl-spacer-y * 1.5);
 }
 @mixin m-l-md() {
-  @include m-l($spacer-y * 1.5);
+  @include m-l($vnl-spacer-y * 1.5);
 }
 @mixin m-x-md() {
-  @include m-x($spacer-x * 1.5);
+  @include m-x($vnl-spacer-x * 1.5);
 }
 @mixin m-y-md() {
-  @include m-y($spacer-y * 1.5);
+  @include m-y($vnl-spacer-y * 1.5);
 }
 
 @mixin m-a-lg() {
   @include m-a($spacer * 3);
 }
 @mixin m-t-lg() {
-  @include m-t($spacer-y * 3);
+  @include m-t($vnl-spacer-y * 3);
 }
 @mixin m-r-lg() {
-  @include m-r($spacer-y * 3);
+  @include m-r($vnl-spacer-y * 3);
 }
 @mixin m-b-lg() {
-  @include m-b($spacer-y * 3);
+  @include m-b($vnl-spacer-y * 3);
 }
 @mixin m-l-lg() {
-  @include m-l($spacer-y * 3);
+  @include m-l($vnl-spacer-y * 3);
 }
 @mixin m-x-lg() {
-  @include m-x($spacer-x * 3);
+  @include m-x($vnl-spacer-x * 3);
 }
 @mixin m-y-lg() {
-  @include m-y($spacer-y * 3);
+  @include m-y($vnl-spacer-y * 3);
 }
 
 // Padding
@@ -167,64 +167,64 @@
   @include p-a($spacer);
 }
 @mixin p-t-sm() {
-  @include p-t($spacer-y);
+  @include p-t($vnl-spacer-y);
 }
 @mixin p-r-sm() {
-  @include p-r($spacer-x);
+  @include p-r($vnl-spacer-x);
 }
 @mixin p-b-sm() {
-  @include p-b($spacer-y);
+  @include p-b($vnl-spacer-y);
 }
 @mixin p-l-sm() {
-  @include p-l($spacer-x);
+  @include p-l($vnl-spacer-x);
 }
 @mixin p-x-sm() {
-  @include p-x($spacer-x);
+  @include p-x($vnl-spacer-x);
 }
 @mixin p-y-sm() {
-  @include p-y($spacer-y);
+  @include p-y($vnl-spacer-y);
 }
 
 @mixin p-a-md() {
   @include p-a($spacer * 1.5);
 }
 @mixin p-t-md() {
-  @include p-t($spacer-y * 1.5);
+  @include p-t($vnl-spacer-y * 1.5);
 }
 @mixin p-r-md() {
-  @include p-r($spacer-y * 1.5);
+  @include p-r($vnl-spacer-y * 1.5);
 }
 @mixin p-b-md() {
-  @include p-b($spacer-y * 1.5);
+  @include p-b($vnl-spacer-y * 1.5);
 }
 @mixin p-l-md() {
-  @include p-l($spacer-y * 1.5);
+  @include p-l($vnl-spacer-y * 1.5);
 }
 @mixin p-x-md() {
-  @include p-x($spacer-x * 1.5);
+  @include p-x($vnl-spacer-x * 1.5);
 }
 @mixin p-y-md() {
-  @include p-y($spacer-y * 1.5);
+  @include p-y($vnl-spacer-y * 1.5);
 }
 
 @mixin p-a-lg() {
   @include p-a($spacer * 3);
 }
 @mixin p-t-lg() {
-  @include p-t($spacer-y * 3);
+  @include p-t($vnl-spacer-y * 3);
 }
 @mixin p-r-lg() {
-  @include p-r($spacer-y * 3);
+  @include p-r($vnl-spacer-y * 3);
 }
 @mixin p-b-lg() {
-  @include p-b($spacer-y * 3);
+  @include p-b($vnl-spacer-y * 3);
 }
 @mixin p-l-lg() {
-  @include p-l($spacer-y * 3);
+  @include p-l($vnl-spacer-y * 3);
 }
 @mixin p-x-lg() {
-  @include p-x($spacer-x * 3);
+  @include p-x($vnl-spacer-x * 3);
 }
 @mixin p-y-lg() {
-  @include m-y($spacer-y * 3);
+  @include m-y($vnl-spacer-y * 3);
 }

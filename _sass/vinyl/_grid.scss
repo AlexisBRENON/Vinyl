@@ -9,13 +9,14 @@
   @extend %row;
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $flx-column_number {
   .col-#{$i} {
     @extend %col-#{$i};
+    position: relative;
   }
 }
 
-@for $i from 1 through 11 {
+@for $i from 1 through ($flx-column_number - 1) {
   .col-offset-#{$i} {
     @extend %offset-#{$i};
   }

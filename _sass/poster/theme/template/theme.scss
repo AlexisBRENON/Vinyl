@@ -1,0 +1,26 @@
+// Base theme template for poster
+
+body.poster {
+  @include page-background();
+  background-color: $pstr-color-root-bg;
+  color: $pstr-color-root;
+  font-family: $pstr-font-family-root;
+  font-size: $pstr-font-size-root;
+  line-height: $pstr-line-height-root;
+}
+
+.poster {
+  h1, h2, h3, h4, h5, h6 {
+    color: $pstr-color-heading;
+    font-family: $pstr-font-family-heading;
+    font-weight: $pstr-font-weight-heading;
+    line-height: $pstr-line-height-heading;
+    letter-spacing: $pstr-letter-spacing-heading;
+
+    text-transform: $pstr-text-transform-heading;
+    text-shadow: $pstr-text-shadow-heading;
+
+    word-wrap: break-word;
+    margin: $pstr-margin-heading;
+  }
+}

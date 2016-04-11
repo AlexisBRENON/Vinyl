@@ -143,23 +143,20 @@ a {
  */
 
 figure {
-  //@extend .center-block;
-  //@extend .text-center;
-  // Ensures the caption's text aligns with the image.
-  display: inline-block;
-  padding: $vnl-padding-td;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: $vnl-padding-td/2;
   @include border-radius();
   border: $vnl-width-border solid $vnl-color-border;
 
   > img {
-    //@extend .img-responsive;
-    //@extend .center-block;
-    line-height: 1;
-    margin-bottom: ($vnl-spacer-y / 2);
+    margin-bottom: $vnl-spacer-y;
+    max-width: 100%
   }
 }
 
 figcaption,
 caption {
-  color: $gray-light;
+  color: $gray-dark;
 }

@@ -4,6 +4,11 @@
  *
  * *********************************************/
 
+// Pulls
+
+.pull-left           { @include pull-left(); }
+.pull-right           { @include pull-right(); }
+
 // Alignment
 
 .text-left           { text-align: left; }

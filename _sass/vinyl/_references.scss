@@ -2,17 +2,19 @@
 // Bibliography and references
 //
 
-ul#bibliography {
+ul.bibliography {
   @extend .list-unstyled;
   margin: 0;
 }
 
 @import "references/plain";
 @import "references/apalike";
+@import "references/abbrv";
 
 // Avoid blue link for references and citation
 .cite a, a.ref {
   color: inherit;
+  text-decoration: none;
 
   &:hover {
     color: inherit;
