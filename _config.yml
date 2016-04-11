@@ -5,7 +5,7 @@ linkedin: https://www.linkedin.com/profile/public-profile-settings?trk=prof-edit
 twitter: AlexisBRENON
 github: AlexisBRENON
 
-exclude: [_config-local.yml, README.md, examples/latex]
+exclude: [_config-local.yml, README.md, bower.json, examples/latex]
 keep_files: [assets/biblio, assets/img/, assets/libs]
 
 sass:
