@@ -12,8 +12,17 @@
     <link rel="stylesheet" href="{{site.url}}/assets/css/poster.css"/>
 
     <!-- Themes -->
+    {% if page.theme | truncate: 1 == '/' %}
+    <link rel="stylesheet" href="{{ site.url }}{{ page.theme }}"/>
+    {% else %}
     <link rel="stylesheet" href="{{ page.theme }}"/>
+    {% endif %}
+    
+    {% if page.hljsTheme | truncate: 1 == '/' %}
+    <link rel="stylesheet" href="{{ site.url }}{{ page.hljsTheme }}"/>
+    {% else %}
     <link rel="stylesheet" href="{{ page.hljsTheme }}"/>
+    {% endif %}
   </head>
 
   <body class="poster a0">
