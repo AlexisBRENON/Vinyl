@@ -20,7 +20,7 @@ define(
 # function exported as `run` but defined as `createBibliography`
     createBibliography = () ->
 # First of all, check if any bibliography is requested. If not, you're done.
-      bibList = $(".bibliography") # TODO : check class instead of ID to allow multiple bibliographies
+      bibList = $(".bibliography")
       if not bibList?
         return
 
@@ -34,7 +34,8 @@ define(
 # Let's ask to the Parser factory the right parser depending on the file format defined
         parser = ParserFactory.getInstance().buildParser(fileFormat)
 # Then, parse the bibliography file. This will return a big JS object containing each entries.
-# I'm trying to return it following the same scheme that bibjson, so look at the website (TODO) for
+# I'm trying to return it following the same scheme that bibjson, so look at the website
+# (http://okfnlabs.org/bibjson/) for
 # more info. You can also read the vinyl/bibliography/parser files to learn more.
         parsedBibliography = parser.parse(file)
         if parsedBibliography?
