@@ -1,0 +1,42 @@
+// Base settings for RevealJS
+
+// Root
+$rvl-color-root-bg:           $vnl-color-root-bg;
+$rvl-color-root:              $vnl-color-root;
+
+$rvl-font-family-root:        $vnl-font-family-root;
+$rvl-font-size-root:          $vnl-font-size-root;
+$rvl-line-height-root:        $vnl-line-height-root;
+
+$rvl-color-inverted-root-bg:  $vnl-color-inverted-root-bg;
+$rvl-color-inverted-root:     $vnl-color-inverted-root;
+
+// Headings
+$rvl-color-heading:           $vnl-color-heading;
+
+$rvl-font-family-heading:     $vnl-font-family-heading;
+$rvl-font-weight-heading:     $vnl-font-weight-heading;
+$rvl-line-height-heading:     $vnl-line-height-heading;
+$rvl-letter-spacing-heading:  normal;
+$rvl-text-transform-heading:  capitalize;
+$rvl-text-shadow-heading:     none;
+
+$rvl-margin-heading:          0 0 2*$vnl-spacer-y 0;
+
+// Links and actions
+$rvl-color-link: $vnl-color-link;
+$rvl-color-link-hover: lighten( $rvl-color-link, 20% );
+
+// Progress bar
+$rvl-color-progress:        $vnl-brand-primary;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin BackgroundRoot() {
+  background: $rvl-color-root-bg;
+}
+
+// Fragments
+
+$rvl-fragment-duration: 0.2s;
+$rvl-fragment-timing-function: ease;

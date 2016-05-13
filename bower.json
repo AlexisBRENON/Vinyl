@@ -23,11 +23,13 @@
   ],
   "dependencies": {
     "bibtexParseJs": "ORCID/bibtexParseJs",
-    "highlightjs": "~9.1.0",
-    "MathJax": "~2.6.0",
-    "jquery": "~2.2.0",
-    "impress.js": "~0.5.3",
-    "reveal.js": "~3.2.0",
-    "requirejs": "~2.1.22"
+    "highlightjs": "~9",
+    "MathJax": "~2",
+    "jquery": "~2",
+    "impress.js": "^0.5.3",
+    "reveal.js": "~3",
+    "requirejs": "~2",
+    "sanitize-css": "~3",
+    "animate.css": "animate-css#~3"
   }
 }

@@ -1,28 +1,39 @@
-//
-// Headings
-//
+/* **********************************************
+ *
+ * vinyl/type
+ *
+ * *********************************************/
+
+/* **********************************************
+ * Base
+ */
+
+// Add margin around <p> elements
+p {
+  margin: $vnl-margin-block;
+}
+
+// Justify text in rows
+.row {
+  text-align: justify;
+}
+
+/* **********************************************
+ * Headings
+ */
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
-  color: $headings-color;
+  font-family: $vnl-font-family-heading;
+  font-weight: $vnl-font-weight-heading;
+  line-height: $vnl-line-height-heading;
+  color: $vnl-color-heading;
+  margin: $vnl-margin-block;
 
   small, .small {
-    color: $gray-light;
+    line-height: $vnl-line-height-sm;
+    color: $gray;
   }
-}
-
-h1, .h1,
-h2, .h2,
-h3, .h3 {
-  margin-bottom: $headings-margin-bottom;
-}
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-bottom: $headings-margin-bottom;
 }
 
 h1, .h1 { font-size: $font-size-h1; }
@@ -32,32 +43,40 @@ h4, .h4 { font-size: $font-size-h4; }
 h5, .h5 { font-size: $font-size-h5; }
 h6, .h6 { font-size: $font-size-h6; }
 
-//
-// Horizontal rules
-//
+/* **********************************************
+ * Horizontal rules
+ */
 
 hr {
-  margin-top: $hr-margin;
-  margin-bottom: $hr-margin;
+  margin: $vnl-margin-hr;
   border: 0;
-  border-top: $hr-border-width solid $hr-border-color;
+  border-top: $vnl-width-hr solid $vnl-color-hr;
 }
 
+/* **********************************************
+ * Lists
+ */
 
-//
-// Emphasis
-//
-
-small,
-.small {
-  font-size: $font-size-small;
-  font-weight: 300;
+ol, ul {
+  margin: $vnl-margin-block;
+  list-style-position: inside;
 }
 
+ol {
+	list-style-type: decimal;
+}
 
-//
-// Lists
-//
+ul {
+	list-style-type: disc;
+  
+  ul {
+  	list-style-type: square;
+  
+    ul {
+    	list-style-type: circle;
+    }
+  }
+}
 
 // Unstyled keeps list items block level, just removes default browser padding and list-style
 .list-unstyled {
@@ -76,11 +95,11 @@ small,
     }
     &.pros:before {
       content: "\f055";
-      color: $brand-success;
+      color: $vnl-brand-success;
     }
     &.cons:before {
       content: "\f056";
-      color: $brand-danger;
+      color: $vnl-brand-danger;
     }
   }
 }
@@ -100,15 +119,14 @@ small,
 
 // Horizontal description lists w/ grid classes
 .dl-horizontal {
-  margin-right: -$grid-gutter-width;
-  margin-left: -$grid-gutter-width;
-  @include clearfix;
+  margin-right: -2 * $vnl-spacer-x;
+  margin-left: -2 * $vnl-spacer-x;
 }
 
 
-//
-// Misc
-//
+/* **********************************************
+ * Misc
+ */
 
 // Builds on `abbr`
 .initialism {
@@ -120,28 +138,25 @@ a {
   font-family: $font-family-monospace;
 }
 
-//
-// Figures
-//
+/* **********************************************
+ * Figures
+ */
 
 figure {
-  @extend .center-block;
-  @extend .text-center;
-  // Ensures the caption's text aligns with the image.
-  display: inline-block;
-  padding: $border-radius;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: $vnl-padding-td/2;
   @include border-radius();
-  border: $border-width solid $hr-border-color;
+  border: $vnl-width-border solid $vnl-color-border;
 
   > img {
-    @extend .img-responsive;
-    @extend .center-block;
-    line-height: 1;
-    margin-bottom: ($spacer-y / 2);
+    margin-bottom: $vnl-spacer-y;
+    max-width: 100%
   }
 }
 
 figcaption,
 caption {
-  color: $gray-light;
+  color: $gray-dark;
 }

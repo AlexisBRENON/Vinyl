@@ -1,0 +1,12 @@
+
+// Load global settings
+@import "settings";
+
+// Load Reveal settings
+@import "settings/reveal";
+
+// Override the settings
+$rvl-color-heading: $vnl-brand-primary;
+
+// Apply settings
+@import "reveal/theme/template/theme";

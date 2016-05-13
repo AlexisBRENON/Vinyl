@@ -1,0 +1,201 @@
+---
+layout: poster 
+categories: ['demo']
+lang: en
+title: "Poster"
+excerpt: 'a poster for conferences'
+theme: /assets/css/poster/theme/default.css
+hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
+display-guides: true
+---
+
+<!-- A poster is mainly composed as follow.
+  +---------------------+
+  | HEADER              |
+  +---------------------+
+  | MAIN CONTENT        |
+  | Part1 ............  |
+  | .                .  |
+  | ..................  |
+  |                     |
+  | Part2...  Part3...  |
+  | .      .  .      .  |
+  | ........  ........  |
+  +---------------------+
+  | FOOTER / BIBLIO     |
+  +---------------------+
+  Or something similar.
+
+  So let's start with the beginning, the header.
+-->
+
+<header>
+
+  <div class="row">
+    <div class="col-90">
+      <h1>An impressive Vinyl template for posters</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-80 authors-information">
+      <ul class="authors-list">
+        <li>Alexis BRENON<sup>1</sup></li>
+        <li>The Vinyl Team<sup>2</sup></li>
+      </ul>
+      <p><a href="#">{firstname.surname}@domain.com</a></p>
+    </div>
+    <div class="col-40">
+      <div style="
+      position:absolute;
+      left:0; right:0;
+      top: -4rem;
+      display: flex;
+      justify-content:center;">
+        <img style="height: 8rem;" src="{{site.url}}/assets/img/favicon.svg" />
+      </div>
+    </div>
+  </div>
+
+  <div class="aknowledgments">
+    <p>This work is part of the Vinyl project, a 2015 not-funded project. :-)</p>
+  </div>
+
+</header>
+
+<main>
+
+<section>
+  <h2>First level sections</h2>
+  <p>This is a classic first level section of the main part of our poster; it is the main blocks
+  of your poster. As you can see it, the sections:</p>
+  <ul>
+    <li>are bordered and shadowed to catch
+      the eyes;</li>
+    <li>have an heavy title;</li>
+    <li>can contain subsections.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Section and subsections</h2>
+  <div class="row separators">
+    <section class="col-60">
+      <p>Take a look at this subsection. It is only half the width of the parent section. This
+      is one of the key feature of Vinyl, it's grid framework.
+      <!-- It's very common that you have to give some pros and cons. This list is made for you.
+        It replace classical bullets by some representative symbols (a + and a -) colored in
+        green and red respectivelly.
+      -->
+      <ul class="list-pros-cons">
+        <li class="pros">Vinyl is so powerful;
+          <li class="cons">Look at Beamer or Impress if they have this feature.</li>
+      </ul>
+    </section>
+
+    <!-- Let's see some kind of references that you can easily add. -->
+    <section class="col-60">
+      <p>Look how you can easily make references to different kind of things:</p>
+      <ol>
+        <li>To a bibliographic reference:
+          in <span class="cite" data-bibkey="Angluin1988 Blachon2016"></span>
+          or in <span class="cite" data-bibkey="Das2006"></span>
+          or finally in <span class="cite" data-bibkey="Angluin1988"></span>
+        </li>
+        <!--
+          TODO: Allow section references
+        -->
+        <li>
+          <strike>
+          To a section: see
+          <a class="ref" href="section-and-subsections"></a>
+          </strike>
+        </li>
+        <li>To an image/figure: see <a class="ref" href="vinyl-logo"></a></li>
+        <li>
+          To a table: see 
+          <a class="ref" href="awesome-table"></a>
+        </li>
+      </ol>
+    </section>
+    <!--
+      Without any informations, subsection are full width. Here we add one, just to add a
+      horizontal rule to separate previous subsections from following ones.
+    -->
+  </div>
+</section>
+
+<div class="row">
+  <!-- Following sections show some useful features of Vinyl -->
+  <section class="col-64">
+    <h2>Generic objects</h2>
+    <!-- We start with image insertion, which is very easy.
+      In fact, you just have to add an `<img>` tag as in the header. But adding some few
+      informations allow autonumbering and caption.
+      Enclose an image in a `<figure>` tag to add some bordering. This also allow you to add a
+      `<figcaption>` element. Any figure containing a `<figcaption>` element will be
+      autonumbered by Vinyl.
+    -->
+    <p>You can easily add figures or tables, which are auto numbered.</p>
+    <figure id="vinyl-logo">
+      <img src="{{ site.url }}/assets/img/vinyl-name.svg" style="height:5rem"/>
+      <figcaption>Logo of the Vinyl project</figcaption>
+    </figure>
+    <hr/>
+    <!-- Now a table -->
+    <table id="awesome-table" class="small table-striped">
+      <tr>
+        <th></th><th>Col 1</th><th>Col 2</th><th>Col 3</th>
+      </tr>
+      <tr>
+        <th>Row 1</th>
+        <td class="text-muted">Muted</td>
+        <td rowspan="2">2 row spanned</td>
+        <td class="bg-danger">Danger</td>
+      </tr>
+      <tr>
+        <th>Row 2</th>
+        <td>Normal</td>
+        <td>Normal</td>
+      </tr>
+      <caption>An awesome (autonumbered) table</caption>
+    </table>
+  </section>
+
+  <section class="col-54 col-offset-2">
+    <h2>Scientific objects</h2>
+    <p>You can also add some scientific objects like equation or source code.</p>
+    <!--
+      Scientific/equation notation is a great feature of LaTeX. You can also use it in Vinyl.
+      Use the same syntax than the LaTeX one and you can create great mathematic notations.
+    -->
+    <p>When \(a \ne 0\),<br/>
+    there are two solutions to<br/>
+    \(ax^2 + bx + c = 0\) and they are
+    $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+    </p>
+    <hr/>
+    <!--
+      Finally, you can add some syntax highlighted code.
+    -->
+    <pre><code class="python3" data-trim>#!/usr/bin/env python3
+
+print("What to say? \
+It's so useful.")</code></pre>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <small>
+    <ul class="bibliography"
+        data-bibliography-file="{{ site.url }}/assets/biblio/test.bib"
+        data-bibliography-file-format="bibtex">
+    </ul>
+
+    <div style="position:absolute; right:0; bottom:0;">
+      Powered by Vinyl - <a href="AlexisBRENON.github.io/Vinyl">AlexisBRENON.github.io</a>
+    </div>
+  </small>
+</footer>

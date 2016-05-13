@@ -5,23 +5,23 @@
 table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: $spacer;
-  background-color: $body-bg;
+  margin-bottom: $vnl-spacer-y;
+  background-color: $vnl-color-table-bg;
 
   th,
   td {
-    padding: $table-cell-padding;
+    padding: $vnl-padding-td;
     vertical-align: middle;
-    border-top: 1px solid $table-border-color;
+    border-top: $vnl-width-border solid $vnl-color-border;
   }
 
   thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid $table-border-color;
+    border-bottom: 2*$vnl-width-border solid $vnl-color-border;
   }
 
   tbody + tbody {
-    border-top: 2px solid $table-border-color;
+    border-top: 2*$vnl-width-border solid $vnl-color-border;
   }
 }
 
@@ -33,7 +33,7 @@ table {
 table.small {
   th,
   td {
-    padding: $table-sm-cell-padding;
+    padding: $vnl-padding-td-sm;
   }
 }
 
@@ -43,17 +43,17 @@ table.small {
 // Add borders all around the table and between all the columns.
 
 .table-bordered {
-  border: 1px solid $table-border-color;
+  border: $vnl-width-border solid $vnl-color-border;
 
   th,
   td {
-    border: 1px solid $table-border-color;
+    border: $vnl-width-border solid $vnl-color-border;
   }
 
   thead {
     th,
     td {
-      border-bottom-width: 2px;
+      border-bottom-width: 2*$vnl-width-border;
     }
   }
 }
@@ -65,7 +65,7 @@ table.small {
 
 .table-striped {
   tbody tr:nth-of-type(odd) {
-    background-color: $table-bg-active;
+    background-color: $vnl-color-table-bg-active;
   }
 }
 
@@ -74,28 +74,22 @@ table.small {
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-// Generate the contextual variants
-@include table-row-variant(active, $table-bg-active);
-@include table-row-variant(success, $state-success-bg);
-@include table-row-variant(warning, $state-warning-bg);
-@include table-row-variant(danger, $state-danger-bg);
-
-.thead-inverse {
+table.thead-inverse {
   th {
-    color: $body-bg;
-    background-color: $gray-dark;
+    color: $vnl-color-inverted-root;
+    background-color: $vnl-color-inverted-root-bg;
   }
 }
-.thead-default {
+table.thead-default {
   th {
-    color: $gray;
-    background-color: $gray-lighter;
+    color: $vnl-color-root;
+    background-color: $vnl-color-table-bg;
   }
 }
 
 .table-inverse {
-  color: $gray-lighter;
-  background-color: $gray-dark;
+  color: $vnl-color-table-bg;
+  background-color: $vnl-color-root;
 
   &.table-bordered {
     border: 0;
@@ -104,6 +98,6 @@ table.small {
   th,
   td,
   thead th {
-    border-color: $gray;
+    border-color: $vnl-color-table-bg;
   }
 }

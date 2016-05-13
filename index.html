@@ -1,57 +1,88 @@
+---
+---
+
 <!DOCTYPE html>
+
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Vinyl by AlexisBRENON</title>
+    <title>Vinyl - The HTML/CSS framework for scientifics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/gh-pages/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="assets/css/gh-pages/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/css/gh-pages/github-light.css" media="screen">
+    <link rel="stylesheet" href="{{site.url}}/assets/css/vinyl.css" type="text/css" />
+    <link rel="icon" href="{{site.url}}/assets/img/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="{{site.url}}/assets/css/index.css" type="text/css" />
   </head>
+
   <body>
     <header class="page-header">
-      <h1 class="project-name">Vinyl</h1>
-      <h2 class="project-tagline">LaTeX is allergen; Use Vinyl!</h2>
-      <a href="https://github.com/AlexisBRENON/Vinyl" class="btn">View on GitHub</a>
-      <a href="https://github.com/AlexisBRENON/Vinyl/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/AlexisBRENON/Vinyl/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="http://github.com/AlexisBRENON/Vinyl/">
+        <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000"
+             src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+             alt="Fork me on GitHub"/>
+      </a>
+      <div class="project-titles">
+        <h1 class="project-name">Vinyl</h1>
+        <h2 class="project-tagline">LaTeX is allergen; Use&nbsp;Vinyl!</h2>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/AlexisBRENON/Vinyl/tarball/master" class="btn">Download<br/>source code</a>
+        <a href="https://github.com/AlexisBRENON/Vinyl/tarball/master" class="btn">Download<br/>bare files</a>
+      </div>
     </header>
 
     <main class="main-content">
 
-      <p>Vinyl is a HTML5/CSS3 framework based on <a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4</a> which allow you to create and write articles, thesis, poster, slides with an up-to-date, widely used and spread, technology.</p>
+      <h3>What is Vinyl?</h3>
+      <p>Vinyl is a HTML5/CSS3 framework which allow you to create and write poster or slides for scientific communication, with an up-to-date, widely used and spread, technology.</p>
 
-      <p>Let's look some examples:</p>
-      <table>
-        <tr>
-          <th>Layout</th><th>Notes</th>
-        </tr>
-        <tr>
-          <th><a href="examples/vinyl/poster.html">A0 Poster</a></th><td></td>
-        </tr>
-        <tr>
-          <th><a href="examples/vinyl/one_column.html">One column article</a></th><td>Not fully functionnal due to
-            lack of implementation of the web engine. Take a look at this article: <a
-                 href="https://books.spec.whatwg.org/">CSS Book</a></td>
-        </tr>
-        <tr>
-          <th><a href="./examples/vinyl/impressjs.html">ImpressJS slides</a></th>
-          <td>This is a simple example. ImpressJS is a very powerful framework, which require you to know
-            CSS to customize your presentation. See the <a href="http://impress.github.io/impress.js">ImpressJS demo</a> to see all the
-            possibilities.</td>
-        </tr>
-        <tr>
-          <th><a href="./examples/vinyl/revealjs.html">RevealJS slides</a></th>
-          <td>See the <a href="TODO">RevealJS demo</a> for more info.</td>
-        </tr>
-      </table>
+      <h3>What can I do with Vinyl?</h3>
+      <p>Take a look at these examples:</p>
+      <ul class="m-b-lg">
+        {% for post in site.posts %}
+        {% if post.categories[0] == 'demo' %}
+        <li>
+          <a href="{{ site.url }}/{{ post.url }}">{{ post.title }}</a> - {{ post.excerpt }}
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+
+      <p>You can also look for the real documents done with Vinyl:</p>
+      <ul>
+        {% for post in site.posts %}
+        {% if post.categories[0] != 'demo' %}
+        <li><a href="{{ site.url }}/{{ post.url }}">{{ post.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+
+      <hr/>
+
+      <h3>What else?</h3>
+
+      <h4>Why cannot I write articles with Vinyl?</h4>
+      
+      <p>Vinyl was aimed to beat LaTeX in all ways, but since the beginning, time has passed and some document types are very difficult to realize with HTML/CSS.</p>
+      <p>It is particularly the case for double-column article. HTML was not designed to handle page break and co. Until now, you have to give a point to LaTeX for this.</p>
+      <p>But nothing is lost. The <a href="https://books.spec.whatwg.org/">CSS Book</a> group is working on implementing all required features to write a book with HTML/CSS and to write an article also.</p>
+      <p>When this will be mature, no doubt that Vinyl will use this specification to allow you to write any kind of document! Just be patient. :-)</p>
+
+      <h4>I use another slideshow framework, can I use it with Vinyl?</h4>
+
+      <p>We already tried to integrate <a href="http://impress.github.io/impress.js">ImpressJS</a> with Vinyl. But it is not a very easy to use framework, so we stopped to support it.</p>
+      <p>If you want a particular framework to be integrated, feel free to contribute, or at least to open an <a href="https://github.com/AlexisBRENON/Vinyl/issues">issue</a>.</p>
 
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/AlexisBRENON/Vinyl">Vinyl</a> is maintained by <a href="https://github.com/AlexisBRENON">AlexisBRENON</a>.</span>
+      <footer>
+        <hr style="margin: 0 -1rem;" />
+        <div class="site-footer">
+          <div class="site-footer-owner"><a href="https://github.com/AlexisBRENON/Vinyl">Vinyl</a> is maintained by <a href="https://github.com/AlexisBRENON">AlexisBRENON</a>.</div>
 
-        <span class="site-footer-credits">This page was made with <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+          <a href="https://www.dropbox.com/s/bxt04ewgkgk7fj5/Vinyl_Logo.tar.bz2"><img style="max-height: 2.5rem;" src="{{ site.url }}/assets/img/vinyl-name.svg" alt="Vinyl" title="Vinyl logo" /></a>
+
+          <div class="text-right site-footer-credits">This page was made with <a href="https://pages.github.com">GitHub Pages</a>.</div>
+        </div>
       </footer>
     </main>
 

@@ -1,0 +1,58 @@
+/*
+ * A0 poster base css file
+ */
+
+html, :root {
+  @media screen {
+    background-color: $gray;
+  }
+  font-size: $pstr-font-size-root;
+  line-height: $pstr-line-height-root;
+  font-family: $pstr-font-family-root;
+}
+
+body.poster {
+  height: $pstr-height-root;
+  width: $pstr-width-root;
+  position: relative;
+  overflow: hidden;
+  @include p-a-sm(); // Some paddings for printers
+  @media screen {
+    @include m-x-auto(); // Center the page
+    @include drop-shadow(); // Eye-candy
+  }
+
+  // Most of the content on a page is designed as rows.
+  // So a page is a stack of rows.
+  // Here we expect :
+  //   * a header;
+  //   * a main part;
+  //   * a footer.
+  // Header and footer will stick at the top and the bottom.
+  // Three parts will be stretched on the whole width of the page.
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.poster {
+  header, main, footer {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: space-around;
+  }
+
+  header {
+    flex-grow: 1;
+  }
+  main {
+    flex-grow: 2;
+  }
+  footer {
+    flex-grow: 1
+  }
+}
+
