@@ -293,7 +293,7 @@ html, body {
   right: 8px;
   bottom: 8px;
   z-index: 31;
-  font-family: Helvetica, sans-serif;
+  font-family: $font-family-sans-serif;
   font-size: 12px;
   line-height: 1;
   color: $vnl-color-root-bg;
@@ -326,8 +326,6 @@ html, body {
   bottom: 0;
   left: 0;
   margin: auto;
-
-  overflow: visible;
   z-index: 1;
   text-align: center;
   perspective: 600px;

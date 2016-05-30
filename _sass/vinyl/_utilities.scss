@@ -38,7 +38,7 @@
   }
 
   .bg-#{$brand-id} {
-    color: $gray-lightest;
-    background-color: $brand-color;
+    color: $gray-lightest !important;
+    background-color: $brand-color !important;
   }
 }

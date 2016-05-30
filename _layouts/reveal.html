@@ -7,6 +7,11 @@
     <link rel="icon" href="{{site.url}}/assets/img/favicon.svg" type="image/svg+xml" />
     <meta charset="utf-8">
 
+    <!-- RequireJS -->
+    <script type="text/javascript" src="{{ site.url }}/assets/libs/requirejs/require.js"></script>
+    <script type="text/javascript" src="{{site.url}}/assets/js/config.js"></script>
+    <script type="text/javascript" async src="{{ site.url }}/assets/js/main.js"></script>
+
     <!-- External CSS -->
     <link rel="stylesheet" href="{{site.url}}/assets/libs/animate.css/animate.min.css"/>
 
@@ -42,7 +47,6 @@
       </div>
     </div>
 
-    {% include vinyl-js.html %}
 
   </body>
 </html>
