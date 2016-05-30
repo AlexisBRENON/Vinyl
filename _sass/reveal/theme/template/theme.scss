@@ -139,31 +139,16 @@
  *********************************************/
 // TODO: is it necessary ?
 
-.reveal section img {
-	margin: 15px 0px;
-	background: rgba(255,255,255,0.12);
-	border: 4px solid $vnl-color-border;
-
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+.reveal a img {
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear;
 }
 
-	.reveal section img.plain {
-		border: 0;
-		box-shadow: none;
-	}
-
-	.reveal a img {
-		-webkit-transition: all .15s linear;
-		   -moz-transition: all .15s linear;
-		        transition: all .15s linear;
-	}
-
-	.reveal a:hover img {
-		background: rgba(255,255,255,0.2);
-		border-color: $rvl-color-link;
-
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
-	}
+.reveal a:hover img {
+  border-color: $rvl-color-link;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
 
 
 /*********************************************

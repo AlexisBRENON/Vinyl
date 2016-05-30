@@ -6,7 +6,7 @@ $rvl-color-root:              $vnl-color-root;
 
 $rvl-font-family-root:        $vnl-font-family-root;
 $rvl-font-size-root:          $vnl-font-size-root;
-$rvl-line-height-root:        $vnl-line-height-root;
+$rvl-line-height-root:        $vnl-line-height-root * 1.25;
 
 $rvl-color-inverted-root-bg:  $vnl-color-inverted-root-bg;
 $rvl-color-inverted-root:     $vnl-color-inverted-root;
@@ -21,7 +21,7 @@ $rvl-letter-spacing-heading:  normal;
 $rvl-text-transform-heading:  capitalize;
 $rvl-text-shadow-heading:     none;
 
-$rvl-margin-heading:          0 0 2*$vnl-spacer-y 0;
+$rvl-margin-heading:          0 0 3*$vnl-spacer-y 0;
 
 // Links and actions
 $rvl-color-link: $vnl-color-link;

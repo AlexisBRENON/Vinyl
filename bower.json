@@ -30,6 +30,8 @@
     "reveal.js": "~3",
     "requirejs": "~2",
     "sanitize-css": "~3",
-    "animate.css": "animate-css#~3"
+    "animate.css": "animate-css#~3",
+    "svg-morpheus": "^0.3.2",
+    "mdi": "^1.6.50"
   }
 }
