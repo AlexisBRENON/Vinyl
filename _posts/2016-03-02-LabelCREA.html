@@ -1,357 +1,427 @@
-<!doctype html>
-<html lang="fr">
+---
+layout: reveal
+categories: ['RevealJS']
+lang: fr
+title: "SmartZap: la scannette multi-enseignes"
+excerpt: 'A slideshow for my CREA label defense'
+theme: /assets/css/reveal/theme/smartzap.css
+hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
+---
 
-  <head>
-    <title>SmartZap - Vinyl</title>
-    <meta charset="utf-8">
-    <link href="../../../../assets/css/reveal/reveal.css" rel="stylesheet"/>
-    <link href="../../../../assets/css/reveal/themes/uga-light.css" rel="stylesheet"/>
+<section class="inverted"
+         id="title"
+         data-state="title">
+  <h1>
+    {% include labelCREA/svg.svg %} SmartZap<br/>
+    <small>Faites vos courses avec votre smartphone</small>
+  </h1>
+  <p class="text-center">
+  Alexis BRENON - <a href="mailto:alexis.brenon@imag.fr" style="color:white;">alexis.brenon@imag.fr</a>
+  </p>
+  <p class="text-center">Mercredi 8 juin 2016</p>
+</section>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/libs/reveal.js/css/print/pdf.css' : '/assets/libs/reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+<section>
+  <section
+     class="inverted"
+     data-background="{{site.url}}/assets/img/LabelCREA/identity.jpg"
+     id="who-am-i">
+    <h2>Qui Suis-Je&nbsp;?</h2>
+  </section>
+  <section
+     data-background="{{site.url}}/assets/img/LabelCREA/scholarship.jpg">
+    <h3>Mon parcours</h3>
+    <ul>
+      <li>Baccalauréat&nbsp;: Sciences de l'Ingénieur</li>
+      <li>Master en alternance&nbsp;: Génie Logiciel</li>
+      <li>Doctorant d'informatique&nbsp;: Reconnaissance de contexte à partir d'un smartphone et/ou d'un habitat intelligent</li>
+    </ul>
 
-    <style>
-.reveal table th,
-.reveal table td {
-  border-bottom: initial;
-}
+    <aside class="notes">
+      <p>Prénom âge</p>
 
-table tbody + tbody {
-  border-top: 3px double #ACB5B9;
-}
-    </style>
+      <p>Inventeur --&gt; SI = projets, techniques de créations, etc...</p>
+      <p>Licence Master = stages, découverte de l'entreprise, atout par rapport aux autres docteurs</p>
+      <p>Doctorat : Approfondissement, experience dev smartphone, contextualisation intégrée à l'application</p>
+    </aside>
+  </section>
+</section>
 
-	</head>
-
-  <body id="vinyl">
-    <div class="reveal">
-      <div class="slides">
-
-        <section class="section-slide">
-          <h1>
-            SmartZap<br/>
-            <small>Faites vos courses avec votre smartphone</small>
-          </h1>
-          <p class="text-center">
-          Alexis BRENON - <a href="mailto:alexis.brenon@imag.fr" style="color:white;">alexis.brenon@imag.fr</a>
-          </p>
-          <p class="text-center">Mercredi 02 mars 2016</p>
-        </section>
-
-        <section>
-          <section
-            class="invert-color"
-            data-background="../../../../assets/img/LabelCREA/identity.jpg">
-            <h2>Qui Suis-Je&nbsp;?</h2>
-          </section>
-          <section
-            data-background="../../../../assets/img/LabelCREA/scholarship.jpg">
-            <h3>Mon parcours</h3>
-            <ul>
-              <li>Baccalauréat&nbsp;: Sciences de l'Ingénieur&nbsp;;</li>
-              <li>Master en alternance&nbsp;: Génie Logiciel&nbsp;;</li>
-              <li>Doctorant d'informatique&nbsp;: Reconnaissance de contexte à partir d'un smartphone et/ou d'un habitat intelligent.
-            </ul>
-
-            <aside class="notes">
-              <p>Prénom âge</p>
-
-              <p>Inventeur --&gt; SI = projets, techniques de créations, etc...</p>
-              <p>Licence Master = stages, découverte de l'entreprise, atout par rapport aux autres docteurs</p>
-              <p>Doctorat : Approfondissement, experience dev smartphone, contextualisation intégrée à l'application</p>
-            </aside>
-          </section>
-        </section>
-
-        <section>
-          <section
-            class="invert-color"
-            data-background="../../../../assets/img/LabelCREA/project.jpg">
-            <h2>Le Projet</h2>
-          </section>
-          <section
-            data-background="../../../../assets/img/labelCREA/context.jpg">
-            <h3>Contexte</h3>
-            <ul>
-              <li>
-                Fluidifier le passage en caisse:
-                <ul>
-                  <li>Caisses "rapides" : le client est l'hôte de caisse</li>
-                  <li><strong>Scannettes</strong> : le client scanne ses articles tout au long de ses achats</li>
-                </ul></li>
-                <li>Démocratisé ces dernières années</li>
-            </ul>
-          </section>
-          <section
-            data-background="../../../../assets/img/LabelCREA/problem_layered.jpg">
-            <h3>Problématiques</h3>
-            <div class="row">
-              <div class="col-6 separator">
-                <h4>Côté consommateur</h4>
-                <ul>
-                  <li>De nombreux magasins ne proposent pas de scannettes&nbsp;;</li>
-                  <li>Indisponibilité/manque des scannettes&nbsp;;</li>
-                  <li>Problèmes techniques&nbsp;: batterie, etc.</li>
-                  <li>Ergonomie perfectible</li>
-                </ul>
-              </div>
-              <div class="col-6">
-                <h4>Côté super-marché</h4>
-                <ul>
-                  <li>Coût d'installation et de maintenance du système&nbsp;;</li>
-                  <li>Gestion des scannettes (retour à l'entrée).</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section
-            data-background="../../../../assets/img/LabelCREA/solution_layered.jpg">
-            <h3>Mon produit</h3>
-            <div class="row">
-              <div class="col-6 separator">
-                <h4>Côté consommateur&nbsp;</h4>
-                <ul>
-                  <li>Une application smartphone&nbsp;;</li>
-                  <li>Disponibilité et batterie à la charge de l'utilisateur&nbsp;;</li>
-                  <li>Possibilités techniques élargies&nbsp;:
-                    <ul>
-                      <li>Interface utilisateur, UX&nbsp;;</li>
-                      <li>Quantification de soi (statistiques sur ses habitudes de consommation)&nbsp;;</li>
-                      <li>Partage et échanges sociaux.</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-6">
-                <h4>Côté super-marché</h4>
-                <ul>
-                  <li>Infrastructure informatique&nbsp;;</li>
-                  <li>Couverture réseau sans fil&nbsp;;</li>
-                  <li>Base de données des produits&nbsp;;</li>
-                  <li>Protocole de communication à la caisse.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <section
-            class="invert-color"
-            data-background="../../../../assets/img/LabelCREA/revenue.jpg">
-            <h2>Le Modèle Économique</h2>
-          </section>
-          <section
-            data-background="../../../../assets/img/LabelCREA/client.jpg">
-            <h3>Les clients</h3>
-            <ul>
-              <li>
-                Principalement les super/hyper-marché (Auchan, Carrefour, Leclerc, Casino)
-                <ul>
-                  <li>Quid de la différence entre grande surface et commerces de proximité</li>
-                </ul>
-              </li>
-              <li>Les grandes surfaces spécialisées (Castorama, Ikea, etc.).</li>
-            </ul>
-          </section>
-          <section
-            data-background="../../../../assets/img/LabelCREA/cash.png">
-            <h3>Les revenus</h3>
-            <p>Les 3 tiers des éditeurs logiciels&nbsp;:</p>
-            <ul style="display:block;">
-              <li>Mise en place du service (installation)&nbsp;;</li>
-              <li>Licence et mises à jour&nbsp;;</li>
-              <li>Maintenance et service après-vente.</li>
-            </ul>
-            <p>Possibilité de monétiser (dans une moindre mesure) l'application smartphone&nbsp;:</p>
-            <ul style="display:block">
-              <li>Publicité</li>
-              <li>Modèle <em>freemium</em> (service gratuit dégradé, possibilité de payer pour un meilleur service)</li>
-            </ul>
-          </section>
-          <!--
-          <section
-            data-background="../../../../assets/img/LabelCREA/market-study.jpg">
-            <h3>Étude de marché</h3>
-            <ul>
-              <li>
-                Concurrents directs&nbsp;:
-                <ul>
-                  <li>Aucun de connu pour l'instant</li>
-                </ul>
-              </li>
-              <li>
-                Concurrents indirects&nbsp;:
-                <ul>
-                  <li>La scannette&nbsp;: produit de substitution</li>
-                </ul>
-              </li>
-            </ul>
-          </section>
-          -->
-        </section>
-
-        <section>
-          <section
-            class="invert-color"
-            data-background="../../../../assets/img/LabelCREA/plan.png">
-            <h2>Le Business Plan</h2>
-          </section>
-
-          <section
-            data-background="../../../../assets/img/labelCREA/cost.png">
-            <h3>Coût de production</h3>
-            <ul>
-              <li>Charges directes variables&nbsp;:
-                <ul>
-                  <li>Point d'accès/répétiteurs Wifi&nbsp;: \(10 \times 150 = 1.5\,k€ \)</li>
-                  <li>Serveur de base de données&nbsp;: \(1\,k€\)</li>
-                </ul>
-              </li>
-              <li>Charges indirectes fixes&nbsp;:
-                <ul>
-                  <li>Smartphones de développement&nbsp;: \(2\,k€\)</li>
-                  <li>Développement smartphone (2 mois)*&nbsp;: \(36 / 6 = 6\,k€\)</li>
-                  <li>Développement infrastructure (4 mois)*&nbsp;: \(28 / 3 \approx 9.5\,k€\)</li>
-                </ul>
-              </li>
-            </ul>              
-            <p class="small">*<a href="https://www.chooseyourboss.com/barometre-des-salaires-android">chooseyourboss.com/barometre-des-salaires-{android,infrastructure}</a></p>
-          </section>
-
-          <section
-            data-background="../../../../assets/img/labelCREA/prevision.jpg">
-            <h3>Plan prévisionnel</h3>
-            <table class="small table-striped">
-              <thead>
-                <th></th>
-                <th>Année N</th>
-                <th>Année N+1</th>
-                <th>Année N+2</th>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <th>Installation</th>
-                  <td>+ 2.5 k€ (1)</td>
-                  <td>+ 25 k€ (5)</td>
-                  <td>+ 50 k€ (10)</td>
-                </tr>
-
-                <tr>
-                  <th>Licence</th>
-                  <td>+  5 k€ (1)</td>
-                  <td>+ 25 k€ (5)</td>
-                  <td>+ 50 k€ (10)</td>
-                </tr>
-
-                <tr>
-                  <th>Maintenance</th>
-                  <td>Offert</td>
-                  <td>+ 25 k€ (5)</td>
-                  <td>+ 50 k€ (10)</td>
-                </tr>
-
-                <tr>
-                  <th>Application</th>
-                  <td>0</td>
-                  <td>+ 2 k€</td>
-                  <td>+ 5 k€</td>
-                </tr>
-
-                <tr>
-                  <th>Subventions/Concours</th>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                </tr>
-              </tbody>
-
-              <tbody>
-                <tr>
-                  <th>Personnel Technique</th>
-                  <td>- 35 k€</td>
-                  <td>- 35 k€</td>
-                  <td>- 35 k€</td>
-                </tr>
-
-                <tr>
-                  <th>Personnel Commercial</th>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>- 35 k€</td>
-                </tr>
-              </tbody>
-
-              <tbody>
-                <tr>
-                  <th>Loyer &amp; charges</th>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>1 k€</td>
-                </tr>
-                <tr>
-                  <th>Matériel technique</th>
-                  <td>- 4.5 k€</td>
-                  <td>- 12.5 k€</td>
-                  <td>- 27.0 k€</td>
-                </tr>
-                <tr>
-                  <th>Déplacements</th>
-                  <td>- 3 k€</td>
-                  <td>- 3 k€</td>
-                  <td>- 20 k€</td>
-                </tr>
-                <tr>
-                  <th>Impôts/Taxes</th>
-                  <td>0</td>
-                  <td>- 1 k€</td>
-                  <td>- 2 k€</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <th>Total</th>
-                  <td class="bg-danger">- 35 k€</td>
-                  <td class="bg-success">+ 25 k€</td>
-                  <td class="bg-success">+ 35 k€</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-        </section>
-
-        <section
-            class="invert-color"
-            data-background="../../../../assets/img/LabelCREA/questions.jpg">
-          <h2>Merci</h2>
-          <h3>Avez vous des questions ?</h3>
-          <div class="row">
-            <div class="col-12">
-              <p class="small">Crédits photos&nbsp;:</p>
-              <ul class="list-style-none small" style="list-style-type:none; display: block;">
-                <li>scolarship.jpg&nbsp;: <a href="https://dribbble.com/shots/980174-One-College-Avenue-Icons">One College Avenue Icons - <u>Amy Hood</u></a></li>
-                <li>project.jpg&nbsp;: <a href="http://wallpapers.brothersoft.com/modern-times-59227-1024x768.html">Modern Times</a></li>
-                <li>problem.jpg&nbsp;: <a href="http://isostock.deviantart.com/art/Rubik-s-cube-004-163908987">Rubik's Cube 004 - <u>ISOStock</u></a></li>
-                <li>solution.jpg&nbsp;: <a href="http://isostock.deviantart.com/art/Rubik-s-cube-005-163933803">Rubik's Cube 005 - <u>ISOStock</u></a></li>
-                <li>revenue.jpg&nbsp;: <a href="http://galleryhip.com/piles-of-money-breaking-bad.html">Breaking Bad</a></li>
-                <li>client.jpg&nbsp;: <a href="https://dribbble.com/shots/2019879-Answers">Answers - <u>Gustavo Zambelli</u></a></li>
-                <li>cash.png&nbsp;: <a href="https://dribbble.com/shots/2162687-Cash-Register">Cash register - <u>Tatiana Gulyaeva</u></a></li>
-                <li>questions.jpg&nbsp;: <a href="https://www.flickr.com/photos/betsyweber/5061615728/in/photolist-8Hh71G-8MGEsC-89ppBp-oL8eK6-8moLgh-5L8uBi-81JzLb-aqdAj4-5zLfaY-7KuLyP-gwmN7H-7Hhs8o-6AM1pN-empXmy-sqfopG-5tBEK-qDVPTn-8MCUGP-5YZsy4-cUCxNw-a9Btej-8wPkbS-4UbNo1-cUF85S-e9XTKU-dLaiLJ-dgebji-8azAQQ-s7tt27-86LsMW-6G8ioP-2tkwWA-e9SdfF-6krqPB-85tWqs-iVrJGe-hpnBNt-9f3rUV-nAGFgR-4z9Nv5-nDnpNu-kzwq5P-5zYqyR-bJRNCr-3dkpS-5Tnnw2-6JfP7-pKUGh-644Ln2-nAFUJL">Business of Software - Raise your hands! - <u>Betsy Weber</u></a></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
+<section>
+  <section
+           class="inverted"
+           data-background="{{site.url}}/assets/img/LabelCREA/project.jpg"
+           id="project">
+    <h2>Le Projet</h2>
+  </section>
+  <section
+           data-background="{{site.url}}/assets/img/labelCREA/context.jpg">
+    <h3>Contexte</h3>
+    <ul>
+      <li>
+        Fluidifier le passage en caisse:
+        <ul>
+          <li>Caisses "rapides" : le client est l'hôte de caisse</li>
+          <li><strong>Scannettes</strong> : le client scanne ses articles tout au long de ses achats</li>
+        </ul></li>
+        <li>Démocratisé ces dernières années</li>
+    </ul>
+  </section>
+  <section
+           data-background="../../../../assets/img/LabelCREA/problem_layered.jpg">
+    <h3>Problématiques</h3>
+    <div class="row separators">
+      <div class="col-60">
+        <h4>Côté consommateur</h4>
+        <ul>
+          <li>De nombreux magasins ne proposent pas de scannettes</li>
+          <li>Indisponibilité/manque des scannettes</li>
+          <li>Problèmes techniques&nbsp;: batterie, etc.</li>
+          <li>Ergonomie perfectible</li>
+        </ul>
+      </div>
+      <div class="col-60">
+        <h4>Côté supermarché</h4>
+        <ul>
+          <li>Coût d'installation et de maintenance du système</li>
+          <li>Gestion des scannettes (retour à l'entrée)</li>
+        </ul>
       </div>
     </div>
-    <!-- Javascript Libraries -->
-    <script data-main="/assets/js/main" src="/assets/libs/requirejs/require.js"></script>
-  </body>
-</html>
+  </section>
+  <section
+           data-background="{{site.url}}/assets/img/LabelCREA/solution_layered.jpg">
+    <h3>Mon produit</h3>
+    <div class="row separators">
+      <div class="col-60">
+        <h4>Côté consommateur</h4>
+        <div style="height: 310px">
+          <ul class="fragment fade-out" data-fragment-index=0 style="position:absolute; transition-duration:0.75s;">
+            <li>Une application smartphone</li>
+            <li>Disponibilité et batterie à la charge de l'utilisateur</li>
+            <li>Possibilités techniques élargies
+              <ul>
+                <li>Interface utilisateur, UX</li>
+                <li>Quantification de soi (statistiques sur ses habitudes de consommation)</li>
+                <li>Partage et échanges sociaux</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="fragment fade-in row" data-fragment-index=0 style="position:absolute; transition-duration:0.75s;">
+            <div class="col-60">
+              <img src="{{site.url}}/assets/img/LabelCREA/shoplist.png"/>
+            </div>
+            <div class="col-60">
+              <img src="{{site.url}}/assets/img/LabelCREA/AppCart.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-60">
+        <h4>Côté supermarché</h4>
+        <ul>
+          <li>Infrastructure informatique</li>
+          <li>Couverture réseau sans fil</li>
+          <li>Base de données des produits</li>
+          <li>Protocole de communication à la caisse</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section
+           class="inverted"
+           data-background="{{site.url}}/assets/img/LabelCREA/revenue.jpg"
+           id="economic-model">
+    <h2>Le Modèle Économique</h2>
+  </section>
+  <section
+           data-background="{{site.url}}/assets/img/LabelCREA/client.jpg">
+    <h3>Les clients</h3>
+    <ul>
+      <li>
+        Principalement les super/hypermarchés (Auchan, Carrefour, Leclerc, Casino)
+        <ul>
+          <li>Quid de la différence entre grande surface et commerces de proximité</li>
+        </ul>
+      </li>
+      <li>Les grandes surfaces spécialisées (Castorama, Ikea, etc.).</li>
+    </ul>
+  </section>
+  <section
+           data-background="{{site.url}}/assets/img/LabelCREA/cash.png">
+    <h3>Les revenus</h3>
+    <p>Les 3 tiers des éditeurs logiciels&nbsp;:</p>
+    <ul style="display:block;">
+      <li>Mise en place du service (installation)&nbsp;;</li>
+      <li>Licence et mises à jour&nbsp;;</li>
+      <li>Maintenance et service après-vente.</li>
+    </ul>
+    <p><br/>Possibilité de monétiser (dans une moindre mesure) l'application smartphone&nbsp;:</p>
+    <ul style="display:block">
+      <li>Publicité</li>
+      <li>Modèle <em>freemium</em> (service gratuit dégradé, possibilité de payer pour un meilleur service)</li>
+    </ul>
+  </section>
+  <section
+    data-background="../../../../assets/img/LabelCREA/prospect.png">
+    <h3>Étude de marché</h3>
+    <ul>
+      <li>Démarchage&nbsp;:
+        <ul>
+          <li>Acteurs de la grande distribution&nbsp;: Auchan, Carrefour, Leclerc, Système&nbsp;U, Casino, Les&nbsp;Mousquetaires, LIDL</li>
+          <li>Journaliste spécialisé&nbsp;: Libre Service Actualités (LSA)</li>
+          <li>Personnel technique du groupe Casino</li>
+        </ul>
+      </li>
+      <li>Service proposé par certaines enseignes</li>
+      <li>Faible retour sur investissement</li>
+      <li>Marché français pas encore prêt</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section
+    class="inverted"
+    data-background="{{site.url}}/assets/img/LabelCREA/plan.png"
+    id="business-plan">
+    <h2>Le Business Plan</h2>
+  </section>
+
+  <section
+    data-background="{{site.url}}/assets/img/labelCREA/cost.png">
+    <h3>Coût de production du système</h3>
+    <ul>
+      <li>Charges directes variables&nbsp;:
+        <ul>
+          <li>Point d'accès/répétiteurs Wifi&nbsp;: \(10 \times 150 = 1.5\,k€ \)</li>
+          <li>Serveur de base de données&nbsp;: \(1\,k€\)</li>
+        </ul>
+      </li>
+      <li>Charges indirectes fixes&nbsp;:
+        <ul>
+          <li>Smartphones de développement&nbsp;: \(2\,k€\)</li>
+          <li>Développement smartphone (2 mois)*&nbsp;: \(31 / 6 \approx 5.2\,k€\)</li>
+          <li>Développement infrastructure (4 mois)*&nbsp;: \(31 / 3 \approx 10.3\,k€\)</li>
+        </ul>
+      </li>
+    </ul>              
+    <p class="small">*<a href="https://www.chooseyourboss.com/barometre-des-salaires-android">chooseyourboss.com/barometre-des-salaires-{android,infrastructure}</a></p>
+  </section>
+
+  <section
+                         data-background="{{site.url}}/assets/img/labelCREA/prevision.jpg"
+                         id="business-plan-tables">
+    <h3>Plan prévisionnel</h3>
+    <table class="small">
+      <thead>
+        <tr>
+        <th></th>
+        <th>Année N</th>
+        <th>Année N+1</th>
+        <th>Année N+2</th>
+        </tr>
+      </thead>
+    </table>
+
+    <table id="income" class="small">
+      <tbody>
+        <tr>
+          <th class="bg-success">REVENUS</th>
+          <th>+ 7.5k€</th>
+          <th>+ 77 k€</th>
+          <th>+155 k€</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="income-details" class="fragment small" data-fragment-index="0" >
+      <tbody>
+        <tr>
+          <td>Installation (#clients)</td>
+          <td>+ 2.5 k€ (1)</td>
+          <td>+ 25 k€ (5)</td>
+          <td>+ 50 k€ (10)</td>
+        </tr>
+
+        <tr>
+          <td>Licence (#clients)</td>
+          <td>+  5 k€ (1)</td>
+          <td>+ 25 k€ (5)</td>
+          <td>+ 50 k€ (10)</td>
+        </tr>
+
+        <tr>
+          <td>Maintenance (#clients)</td>
+          <td>Offert</td>
+          <td>+ 25 k€ (5)</td>
+          <td>+ 50 k€ (10)</td>
+        </tr>
+
+        <tr>
+          <td>Application</td>
+          <td>0</td>
+          <td>+ 2 k€</td>
+          <td>+ 5 k€</td>
+        </tr>
+
+        <tr>
+          <td>Subventions/Concours</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="outcome" class="small">
+      <tbody>
+        <tr>
+          <th class="bg-danger">DÉPENSES</th>
+          <th>- 42.5k€</th>
+          <th>- 51.5k€</th>
+          <th>- 120 k€</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="outcome-details" class="fragment small" data-fragment-index=1>
+      <tr>
+        <td>Personnel Technique</td>
+        <td>- 35 k€</td>
+        <td>- 35 k€</td>
+        <td>- 35 k€</td>
+      </tr>
+
+      <tr>
+        <td>Personnel Commercial</td>
+        <td>0</td>
+        <td>0</td>
+        <td>- 35 k€</td>
+      </tr>
+      <tr>
+        <td>Loyer &amp; charges</td>
+        <td>0</td>
+        <td>0</td>
+        <td>-  1 k€</td>
+      </tr>
+      <tr>
+        <td>Matériel technique</td>
+        <td>- 4.5 k€</td>
+        <td>- 12.5 k€</td>
+        <td>- 27.0 k€</td>
+      </tr>
+      <tr>
+        <td>Déplacements</td>
+        <td>- 3 k€</td>
+        <td>- 3 k€</td>
+        <td>- 20 k€</td>
+      </tr>
+      <tr>
+        <td>Impôts/Taxes</td>
+        <td>0</td>
+        <td>- 1 k€</td>
+        <td>- 2 k€</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table id="result" class="fragment small">
+      <tfoot>
+        <tr>
+          <th>RÉSULTAT</th>
+          <th>- 35 k€ <span class="text-danger mdi mdi-trending-down"/></th>
+          <th>+ 25.5 k€ <span class="text-success mdi mdi-trending-up"/></th>
+          <th>+ 35 k€ <span class="text-success mdi mdi-trending-up"/></th>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+</section>
+
+<section
+              class="inverted"
+              data-background="{{site.url}}/assets/img/LabelCREA/questions.jpg"
+              id="thanks"
+              data-state="thanks">
+  <h2>Merci</h2>
+  <h3>Avez vous des questions ?</h3>
+  <div class="row">
+    <div class="col-120">
+      <small>
+      <p class="small">Crédits photos&nbsp;:</p>
+      <ul class="list-style-none small" style="list-style-type:none; display: block;">
+        <li>scolarship.jpg&nbsp;: <a href="https://dribbble.com/shots/980174-One-College-Avenue-Icons">One College Avenue Icons - <u>Amy Hood</u></a></li>
+        <li>project.jpg&nbsp;: <a href="http://wallpapers.brothersoft.com/modern-times-59227-1024x768.html">Modern Times</a></li>
+        <li>problem.jpg&nbsp;: <a href="http://isostock.deviantart.com/art/Rubik-s-cube-004-163908987">Rubik's Cube 004 - <u>ISOStock</u></a></li>
+        <li>solution.jpg&nbsp;: <a href="http://isostock.deviantart.com/art/Rubik-s-cube-005-163933803">Rubik's Cube 005 - <u>ISOStock</u></a></li>
+        <li>revenue.jpg&nbsp;: <a href="http://galleryhip.com/piles-of-money-breaking-bad.html">Breaking Bad</a></li>
+        <li>client.jpg&nbsp;: <a href="https://dribbble.com/shots/2019879-Answers">Answers - <u>Gustavo Zambelli</u></a></li>
+        <li>cash.png&nbsp;: <a href="https://dribbble.com/shots/2162687-Cash-Register">Cash register - <u>Tatiana Gulyaeva</u></a></li>
+        <li>prospect.png&nbsp;: <a href="http://www.freepik.com/free-vector/laptop-with-emails_758734.htm">Laptop with emails - <u>freepik</u></a></li>
+        <li>questions.jpg&nbsp;: <a href="https://www.flickr.com/photos/betsyweber/5061615728/in/photolist-8Hh71G-8MGEsC-89ppBp-oL8eK6-8moLgh-5L8uBi-81JzLb-aqdAj4-5zLfaY-7KuLyP-gwmN7H-7Hhs8o-6AM1pN-empXmy-sqfopG-5tBEK-qDVPTn-8MCUGP-5YZsy4-cUCxNw-a9Btej-8wPkbS-4UbNo1-cUF85S-e9XTKU-dLaiLJ-dgebji-8azAQQ-s7tt27-86LsMW-6G8ioP-2tkwWA-e9SdfF-6krqPB-85tWqs-iVrJGe-hpnBNt-9f3rUV-nAGFgR-4z9Nv5-nDnpNu-kzwq5P-5zYqyR-bJRNCr-3dkpS-5Tnnw2-6JfP7-pKUGh-644Ln2-nAFUJL">Business of Software - Raise your hands! - <u>Betsy Weber</u></a></li>
+      </ul>
+
+      <p></p>
+
+      <p class="small">
+      Propulsed with <a href="{{ site.url }}"><img src="{{ site.url }}/assets/img/logos/256/namebw-bgdark.png" alt="Vinyl" title="The Vinyl Logo" style="height: 1em;"/></a>.
+      </p>
+      </small>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  require(['jquery', 'reveal'],
+      function($, Reveal) {
+        Reveal.addEventListener( 'fragmentshown', function( event ) {
+          $('section#business-plan-tables *[id]').each(function( idx, elem) {
+            elem.style.transform = null;
+            elem.style.transformOrigin = null;
+          });
+          var fragmentId = event.fragment.id;
+          switch (fragmentId) {
+            case "income-details":
+              event.fragment.style.transform = 'scaleY(1)';
+              $('#outcome')[0].style.transform = 'translateY(0)';
+              $('#result')[0].style.transform = 'translateY(-600%)';
+              break;
+            case "outcome-details":
+              event.fragment.style.transform = 'translateY(-83.333333%) scaleY(1)';
+              $('#outcome')[0].style.transform = 'translateY(-500%)';
+              $('#result')[0].style.transform = 'translateY(-500%)';
+              break;
+            case "result":
+              $('#outcome-details')[0].style.transformOrigin = 'top';
+              $('#outcome-details')[0].style.transform = null;
+              $('#outcome')[0].style.transform = null;
+              $('#result')[0].style.transform = null;
+              break;
+          }
+        });
+        Reveal.addEventListener( 'fragmenthidden', function( event ) {
+          $('section#business-plan-tables *[id]').each(function( idx, elem) {
+            elem.style.transform = null;
+            elem.style.transformOrigin = null;
+          });
+          var fragmentId = event.fragment.id;
+          switch (fragmentId) {
+            case "outcome-details":
+              $('#income-details')[0].style.transform = 'scaleY(1)';
+              $('#outcome')[0].style.transform = 'translateY(0)';
+              $('#result')[0].style.transform = 'translateY(-600%)';
+              break;
+            case "result":
+              $('#outcome-details')[0].style.transformOrigin = 'top';
+              $('#outcome-details')[0].style.transform = 'translateY(-83.333333%) scaleY(1)';
+              $('#outcome')[0].style.transform = 'translateY(-500%)';
+              $('#result')[0].style.transform = 'translateY(-500%)';
+              break;
+          }
+        });
+      });
+</script>

@@ -1,0 +1,54 @@
+
+// Load global settings
+@import "settings";
+@import "mixins";
+
+// Load Reveal settings
+@import "settings/reveal";
+
+// Override the settings
+$rvl-color-heading: $vnl-brand-primary;
+
+// Apply settings
+@import "reveal/theme/template/theme";
+
+
+svg#svg-icons {
+  transform-origin: right;
+  transform: scale(3);
+  margin-bottom: 1rem;
+}
+
+section#business-plan-tables {
+  table {
+    @include m-y-0();
+
+    tr > * {
+      width: 153px;
+    }
+    tr > *:first-child {
+      width: 250px;
+    }
+  }
+
+  * {
+    transition: transform 0.8s;
+  }
+
+  #income-details {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+  #outcome-details {
+    transform-origin: center 80%;
+    transform: translateY(-83.333333%) scaleY(0);
+  }
+  #outcome {
+    transform: translateY(-500%);
+  }
+  #result {
+    transform: translateY(-1100%);
+  }
+
+}
+
