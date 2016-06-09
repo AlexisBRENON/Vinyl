@@ -1,0 +1,205 @@
+---
+layout: reveal
+categories: ['conference']
+lang: fr
+title: "RJCIA 2016"
+excerpt: 'Diapos présentée à la conférence RJCIA 2016'
+theme: /assets/css/reveal/theme/blue.css
+hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
+---
+
+<section class="inverted">
+  <h2>
+    Étude préliminaire d’une méthode de prise de décision adaptative pour la commande vocale dans un habitat intelligent<br/>
+    <small>RJCIA 2016</small>
+  </h2>
+  <p class="small">
+    Alexis BRENON, François PORTET, Michel VACHER
+  </p>
+</section>
+
+<section>
+  <section class="inverted">
+    <h2>Habitat intelligent et contextualisation </h2>
+  </section>
+
+  <section>
+    <h2>Life. Augmented</h2>
+
+    <ul>
+      <li>Perception de l'environnement et actions</li>
+      <li>Réactivité vs. proactivité</li>
+      <li>Perception = contextualisation
+        <ul>
+          <li>Détection d'évènements</li>
+          <li>Adaptation des interactions</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sésame, Ouvre-toi</h2>
+    <p>Intéret particulier pour les maisons intelligentes controllées par la voix</p>
+    <ul>
+      <li>Communication 'naturelle'</li>
+      <li>Adapté
+        <ul>
+          <li>personnes à mobilité réduite</li>
+          <li>situations d'urgences</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Problème d'ambiguïté des commandes</p>
+    <p class="fragment fade-in">Utilisation du contexte</p>
+
+    <footer>
+      <span class="cite" data-bibkey="TODO"></span>
+    </footer>
+  </section>
+
+  <section>
+    <h2>État de l'art</h2>
+
+    <ul>
+      <li>
+        Utilisation de règles&nbsp;: <ul>
+          <li>Logique floue <span class="cite" data-bibkey="TODO"></span></li>
+          <li>Logique de description <span class="cite" data-bibkey="TODO"></span></li>
+          <li>Évènement&ndash;Condition&ndash;Action <span class="cite" data-bibkey="TODO"></span></li>
+        </ul>
+      </li>
+      <li>Approches statistique</li>
+    </ul>
+
+    <p class="text-danger">Système figé qui demande une lourde configuration</p>
+
+    <div class="fragment fade-in">
+      <p>Le projet ACHE&nbsp;:</p>
+      <ul>
+        <li>Apprentissage à partir d'observations</li>
+        <li>Mise à jour continue grâce aux mécanisme de l'apprentissage par renforcement</li>
+        <li>Pas de notion claire du contexte</li>
+      </ul>
+    </div>
+  </section>
+
+</section>
+
+<section>
+
+  <section class="inverted">
+    <h1>Méthode et contexte</h1>
+  </section>
+
+  <section>
+    <h2>Apprentissage par renforcement</h2>
+    <p>Technique d'apprentissage automatique <span class="cite" data-bibkey="SuttonTODO"></span></p>
+    <ul>
+      <li>Interactions entre un agent et son environnement</li>
+      <li>L'agent est récompensé à chaque étape</li>
+      <li>L'agent doit maximiser sa récompense</li>
+    </ul>
+
+    <p>Extension des approches classiques en 1989: le <em>\(Q\)&ndash;Learning</em> <span class="cite" data-bibkey="Watkins1989"></span></p>
+    <ul>
+      <li>Réduction du coût de calcul</li>
+      <li>Représentation discrète matricielle</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Domus</h2>
+
+    <ul>
+      <li>Habitat intelligent conçu par le Laboratoire d'Informatique de Grenoble</li>
+      <li>30 m² comprenant une cuisine, une chambre, une salle de bain et un bureau</li>
+      <li>Plus de 150 capteurs pour gérer l'éclairage, les volets, les médias, etc.</li>
+    </ul>
+
+    <footer>
+      <span class="cite" data-bibkey="TODO"></span>
+    </footer>
+  </section>
+
+  <section>
+    <h2>Le corpus Sweet-Home</h2>
+
+    <ul>
+      <li>Récolté dans Domus</li>
+      <li>11 heures de données</li>
+      <li>16 participants (7 <span class="mdi mdi-gender-female"></span>, 9 <span class="mdi mdi-gender-male"></span>)</li>
+      <li>Scénario prédéfini à réaliser</li>
+    </ul>
+
+    <footer>
+      <span class="cite" data-bibkey="TODO"></span>
+    </footer>
+  </section>
+
+</section>
+
+<section>
+
+  <section class="inverted">
+    <h1>Expérimentation</h1>
+  </section>
+
+  <section>
+    <h2>Mise en forme des données</h2>
+  </section>
+
+  <section>
+    <h2>Apprentissage</h2>
+  </section>
+
+  <section>
+    <h2>Évaluation</h2>
+  </section>
+
+  <section>
+    <h2>Évaluation (suite)</h2>
+  </section>
+
+</section>
+
+<section>
+  <section class="inverted">
+    <h1>Conclusion</h1>
+  </section>
+
+  <section>
+    <h2>POMDP et DNN</h2>
+  </section>
+</section>
+
+<section>
+  <section class="inverted begin-autoslide">
+    <h1>Je vous écoute</h1>
+  </section>
+
+  <section>
+    <h2>Bibliography</h2>
+  </section>
+</section>
+
+<section id="end"></section>
+
+<script>
+require(
+  ['reveal'],
+  function (Reveal) {
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+      if (event.currentSlide.classList.contains("begin-autoslide")) {
+        window.slideshowEnd = Reveal.getState();
+        Reveal.configure({autoSlide: 2000});
+        Reveal.toggleAutoSlide(true);
+      }
+      if (event.currentSlide.id === "end" && Reveal.isAutoSliding()) {
+        console.log("Going back to end");
+        Reveal.setState(window.slideshowEnd);
+      }
+    });
+  })
+</script>
