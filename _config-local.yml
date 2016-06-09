@@ -8,6 +8,8 @@ github: AlexisBRENON
 exclude: [_config.yml ,README.md, bower.json, examples/latex]
 keep_files: [assets/biblio, assets/img/, assets/font, assets/libs]
 
+gems: [jekyll-coffeescript]
+
 sass:
     sass_dir: _sass
     style: nested
