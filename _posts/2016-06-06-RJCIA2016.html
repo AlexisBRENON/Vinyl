@@ -9,12 +9,13 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 ---
 
 <section class="inverted">
-  <h2>
-    Étude préliminaire d’une méthode de prise de décision adaptative pour la commande vocale dans un habitat intelligent<br/>
+  <h1>
+    Prise de décision adaptative<br/>dans un habitat intelligent<br/>
     <small>RJCIA 2016</small>
-  </h2>
+  </h1>
   <p class="small">
     Alexis BRENON, François PORTET, Michel VACHER
+    <span class="cite" data-bibkey="Brenon2016a"></span>
   </p>
 </section>
 
@@ -55,34 +56,54 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <p class="fragment fade-in">Utilisation du contexte</p>
 
     <footer>
-      <span class="cite" data-bibkey="TODO"></span>
+      <span class="cite" data-bibkey="vacher:hal-01138090"></span>
     </footer>
   </section>
 
   <section>
     <h2>État de l'art</h2>
 
-    <ul>
-      <li>
-        Utilisation de règles&nbsp;: <ul>
-          <li>Logique floue <span class="cite" data-bibkey="TODO"></span></li>
-          <li>Logique de description <span class="cite" data-bibkey="TODO"></span></li>
-          <li>Évènement&ndash;Condition&ndash;Action <span class="cite" data-bibkey="TODO"></span></li>
+    <div class="row">
+      <div class="col-59">
+        <ul>
+          <li>
+            Utilisation de règles&nbsp;: <ul>
+              <li>Logique floue <span class="cite" data-bibkey="Moore2011"></span></li>
+              <li>Logique de description <span class="cite" data-bibkey="Kofler2012"></span></li>
+              <li>Évènement&ndash;Condition&ndash;Action <span class="cite" data-bibkey="leong2009"></span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-59">
+        <ul>
+          <li>Approches statistique
+            <ul>
+              <li>Réseaux bayésiens</li>
+              <li>Prise en compte de l'incertitude</li>
+              <li>
+                <span class="cite" data-bibkey="chahuara:hal-00953262 Lee2012 Mitra2011"></span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-danger"><strong>Système figé qui demande une lourde configuration</strong></p>
+  </section>
+
+  <section>
+    <h2>État de l'art (cont.)</h2>
+      <ul>
+        <li>Le projet ACHE <span class="cite" data-bibkey="Mozer1998"></span>&nbsp;:
+          <ul>
+          <li>Apprentissage à partir d'observations</li>
+          <li>Mise à jour continue grâce aux mécanisme de l'apprentissage par renforcement</li>
+          <li>Pas de notion claire du contexte</li>
         </ul>
       </li>
-      <li>Approches statistique</li>
     </ul>
-
-    <p class="text-danger">Système figé qui demande une lourde configuration</p>
-
-    <div class="fragment fade-in">
-      <p>Le projet ACHE&nbsp;:</p>
-      <ul>
-        <li>Apprentissage à partir d'observations</li>
-        <li>Mise à jour continue grâce aux mécanisme de l'apprentissage par renforcement</li>
-        <li>Pas de notion claire du contexte</li>
-      </ul>
-    </div>
   </section>
 
 </section>
@@ -95,18 +116,34 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
   <section>
     <h2>Apprentissage par renforcement</h2>
-    <p>Technique d'apprentissage automatique <span class="cite" data-bibkey="SuttonTODO"></span></p>
-    <ul>
-      <li>Interactions entre un agent et son environnement</li>
-      <li>L'agent est récompensé à chaque étape</li>
-      <li>L'agent doit maximiser sa récompense</li>
-    </ul>
-
-    <p>Extension des approches classiques en 1989: le <em>\(Q\)&ndash;Learning</em> <span class="cite" data-bibkey="Watkins1989"></span></p>
-    <ul>
-      <li>Réduction du coût de calcul</li>
-      <li>Représentation discrète matricielle</li>
-    </ul>
+    <div class="row">
+      <div class="col-80">
+        <ul>
+          <li>Technique d'apprentissage automatique <span class="cite" data-bibkey="Sutton2015"></span>
+            <ul class="m-b-lg">
+              <li>Interactions entre un agent et son environnement</li>
+              <li>L'agent est récompensé à chaque étape</li>
+              <li>L'agent doit maximiser sa récompense</li>
+            </ul>
+          </li>
+          <li>Extension des approches classiques en 1989: le <em>\(Q\)-Learning</em> <span class="cite" data-bibkey="Watkins1989"></span>
+            <ul>
+              <li>Réduction du coût de calcul</li>
+              <li>Représentation discrète matricielle</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-38">
+        <figure>
+          <img src="{{ site.url }}/assets/img/rjcia2016/RL.png"/>
+          <caption>
+            Interaction entre l'agent et son environnement<br/>
+            <small>Extrait de <span class="cite" data-bibkeys="Sutton2015"></span></small>
+          </caption>
+        </figure>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -118,23 +155,49 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <li>Plus de 150 capteurs pour gérer l'éclairage, les volets, les médias, etc.</li>
     </ul>
 
+    <div class="row">
+      <div class="col-60 col-offset-30">
+        <figure>
+          <img
+            src="{{ site.url }}/assets/img/rjcia2016/domus.png"/>
+          <caption>Plan de l’appartement&nbsp;<span style="font-variant: small-caps;">Domus</span> et disposition des capteurs</caption>
+        </figure>
+      </div>
+    </div>
+
     <footer>
-      <span class="cite" data-bibkey="TODO"></span>
+      <span class="cite" data-bibkey="Gallissot2013"></span>
     </footer>
   </section>
 
   <section>
     <h2>Le corpus Sweet-Home</h2>
 
-    <ul>
-      <li>Récolté dans Domus</li>
-      <li>11 heures de données</li>
-      <li>16 participants (7 <span class="mdi mdi-gender-female"></span>, 9 <span class="mdi mdi-gender-male"></span>)</li>
-      <li>Scénario prédéfini à réaliser</li>
-    </ul>
+    <div class="row">
+      <div class="col-48">
+        <ul>
+          <li>Récolté dans Domus</li>
+          <li>11 heures de données</li>
+          <li>16 participants (7 <span class="mdi mdi-gender-female"></span>, 9 <span class="mdi mdi-gender-male"></span>)</li>
+          <li>Scénario prédéfini à réaliser via des commandes vocales
+            <ul>
+              <li>Demander la température</li>
+              <li>Ouvrir les stores</li>
+              <li>etc.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-70">
+        <figure>
+          <img
+            src="{{ site.url }}/assets/img/rjcia2016/mosaic.png"/>
+          <caption>Vidéo pour annotations</caption>
+        </figure>
+      </div>
 
     <footer>
-      <span class="cite" data-bibkey="TODO"></span>
+      <span class="cite" data-bibkey="chahuara:hal-00953262"></span>
     </footer>
   </section>
 
@@ -148,20 +211,118 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
   <section>
     <h2>Mise en forme des données</h2>
+    <div class="row">
+      <div class="col-65">
+        <ul>
+          <li>Un corpus d'apprentissage simulé</li>
+          <li>380 samples</li>
+          <li>Exhaustif mais non déterministe</li>
+        </ul>
+
+        <ul>
+          <li>Corpus d'évaluation extrait du corpus Sweet-Home</li>
+          <li>Découpé en 16 plis pour de la valisation croisée</li>
+          <li>Non exhaustif (11% des états possibles)</li>
+        </ul>
+      </div>
+      <div class="col-50">
+        <pre><code class="prolog" data-trim>
+blind - open  kitchen none
+  ->  blind - open  kitchen
+light - on    kitchen cook
+  ->  light - on    kitchen - sink
+        </code></pre>
+      </div>
+    </div>
   </section>
 
   <section>
     <h2>Apprentissage</h2>
+
+    <div class="row">
+      <div class="col-69">
+        <ul>
+          <li>100 000 interactions issues du corpus simulé
+            <ul>
+              <li>Modèle de base utilisé pour la validation croisée</li>
+            </ul>
+          </li>
+          <li>1125 interactions (en moyenne) issues de 15 sujets
+            <ul>
+              <li>Modèle adapté évalué sur les données du dernier sujet</li>
+            </ul>
+          </li>
+          <li>Chaque phase est décomposée en 10 étapes d'apprentissage (<em>training epoch</em>)</li>
+        </ul>
+      </div>
+      <div class="col-50">
+        <figure>
+          <img
+            src="{{ site.url }}/assets/img/rjcia2016/state-action_values.png"
+            title="Fonction de Q-valeur sous forme matricielle"/>
+          <caption>
+            Fonction de Q&ndash;valeur sous forme matricielle après l'apprentissage sur corpus simulé.
+          </caption>
+        </figure>
+      </div>
   </section>
 
   <section>
     <h2>Évaluation</h2>
+    <div class="row">
+      <div class="col-55">
+        <p>Mesure du reward moyen obtenu lors de la suite d'intéractions</p>
+        <ul>
+          <li>Différence expliquée par deux principaux facteurs
+            <ul>
+              <li>Phase d'apprentissage très exploratoire</li>
+              <li>Différence de taille de corpus</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-60">
+        <figure>
+          <img
+            src="{{ site.url }}/assets/img/rjcia2016/mean_rewards.png"
+            title="Évolution de la moyenne des récompenses lors de l'apprentissage"
+            alt="Lors de l'adaptation, le reward moyen oscille entre 0.3 et -0.1 alors que le reward moyen lors de l'apprentissage est de -1."/>
+          <caption>
+            Comparaison de la récompense moyenne lors des 10 séquences d’apprentissage
+          </caption>
+        </figure>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h2>Évaluation (suite)</h2>
+    <h2>Évaluation (cont.)</h2>
+    <div class="row">
+      <div class="col-55">
+        <p>Problème apparenté à de la classification de contexte</p>
+        <ul>
+          <li>Bon niveau de classification
+            <ul>
+              <li>Précision \(\approx 70\,\%\)</li>
+              <li>Rappel \(\approx 35\,\%\)</li>
+              <li>Score F1 \(\approx 45\,\%\)</li>
+            </ul>
+          </li>
+          <li>Confusion entre actions similaires</li>
+        </ul>
+      </div>
+      <div class="col-60">
+        <figure>
+          <img
+          src="{{ site.url }}/assets/img/rjcia2016/confusion_matrix.png"
+          title="Matrice de confusion de la classification de contextes"/>
+          <caption>
+            Matrice de confusion pour la tâche de classification de contexte
+          </caption>
+        </figure>
+      </div>
+    </div>
   </section>
-
 </section>
 
 <section>
@@ -171,20 +332,43 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
   <section>
     <h2>POMDP et DNN</h2>
+    <ul>
+      <li>Apprentissage par renforcement basé sur la théorie des Processus de Décision Markovien (MDP)
+        <ul>
+          <li>Possible adaptation pour utiliser des MDP partiellement observable (POMDP)</li>
+          <li><span class="cite" data-bibkey="zaidenberg:hal-00753245"></span></li>
+        </ul>
+      </li>
+      <li>Utilisation de réseaux de neuronnes
+        <ul>
+          <li><span class="cite" data-bibkey="Mnih2015"></span></li>
+        </ul>
+      </li>
+    </ul>
   </section>
 </section>
 
 <section>
-  <section class="inverted begin-autoslide">
-    <h1>Je vous écoute</h1>
+  <section class="inverted begin-autoslide"
+    data-transition="fade-out"
+    data-background-transition="fade"
+    data-transition-speed="slow">
+    <h1>Merci de votre attention</h1>
+    <h2>Avez-vous des questions&nbsp;?</h2>
   </section>
 
-  <section>
+  <section
+    data-transition="fade"
+    data-transition-speed="slow">
     <h2>Bibliography</h2>
+    <ul id="bibliography"
+      class="small bibliography"
+      data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
+      data-bibliography-style="apalike"
+      data-bibliography-file-format="bibtex">
+    </ul>
   </section>
 </section>
-
-<section id="end"></section>
 
 <script>
 require(
@@ -193,12 +377,11 @@ require(
     Reveal.addEventListener( 'slidechanged', function( event ) {
       if (event.currentSlide.classList.contains("begin-autoslide")) {
         window.slideshowEnd = Reveal.getState();
-        Reveal.configure({autoSlide: 2000});
+        Reveal.configure({autoSlide: 10000});
         Reveal.toggleAutoSlide(true);
       }
-      if (event.currentSlide.id === "end" && Reveal.isAutoSliding()) {
-        console.log("Going back to end");
-        Reveal.setState(window.slideshowEnd);
+      if (event.currentSlide.id === "end") {
+        Reveal.toggleAutoSlide(false);
       }
     });
   })
