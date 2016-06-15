@@ -84,7 +84,6 @@
 	margin-left: 40px;
 }
 
-.reveal q,
 .reveal blockquote {
 	quotes: none;
 }
@@ -103,10 +102,6 @@
 	.reveal blockquote p:last-child {
 		display: inline-block;
 	}
-
-.reveal q {
-	font-style: italic;
-}
 
 /*********************************************
  * LINKS
