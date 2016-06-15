@@ -34,7 +34,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </ul>
 
   <aside class="notes">
-    ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au coeur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en soulevant de nouvelles questions. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir les mécanismes et résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
+    ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au cœur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en soulevant de nouvelles questions. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir les mécanismes et résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
   </aside>
 </section>
 
@@ -54,7 +54,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </ul>
 
     <aside class="notes">
-      On entend par là un habitat augmenté, c'est-à-dire avec davantages de fonctionnalité. Les smart-homes, sont agrémentées de capteurs et actionneurs qui permettent de percevoir l'environnement et d'agir sur celui-ci. On distingue principalement deux types d'actions, les actions réactives, qui suivent un évènement explicite, et les action proactives qui surviennent sans demande explicite. Dans les deux cas, la perception de l'environnement est importante, que ce soit pour détecter un évènement et y réagir, ou simplement pour adapter l'action à réaliser aux conditions actuelles. On appelle cela la contextualisation de l'interaction et c'est cette problématique particulière qui nous intéresse. Toutefois, dans notre cas, nous nous plaçons dans un contexte bien particulier car...
+      On entend par là un habitat augmenté, c'est-à-dire avec davantage de fonctionnalité. Les smart-homes, sont agrémentées de capteurs et actionneurs qui permettent de percevoir l'environnement et d'agir sur celui-ci. On distingue principalement deux types d'actions, les actions réactives, qui suivent un évènement explicite, et les action proactives qui surviennent sans demande explicite. Dans les deux cas, la perception de l'environnement est importante, que ce soit pour détecter un évènement et y réagir, ou simplement pour adapter l'action à réaliser aux conditions actuelles. On appelle cela la contextualisation de l'interaction et c'est cette problématique particulière qui nous intéresse. Toutefois, dans notre cas, nous nous plaçons dans un contexte bien particulier car...
     </aside>
   </section>
 
@@ -78,12 +78,8 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <p>Problème d'ambiguïté des commandes</p>
     <p class="fragment fade-in">Utilisation du contexte</p>
 
-    <footer>
-      <span class="cite" data-bibkey="vacher:hal-01138090"></span>
-    </footer>
-
     <aside class="notes">
-      ... l'habitat que visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Éteind la lumière', de quelle lumière parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors primordiale.<br/>
+      ... l'habitat que nous visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Éteind la lumière', de quelle lumière parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors primordiale.<br/>
       Cette problématique a déjà été largement abordée...
     </aside>
   </section>
@@ -92,46 +88,38 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <h2>État de l'art</h2>
 
     <div class="row">
-      <div class="col-59">
+      <div class="col-59 fragment semi-fade-out" data-fragment-index="0">
         <ul>
           <li>
             Utilisation de règles&nbsp;: <ul>
-              <li>Logique floue <span class="cite" data-bibkey="Moore2011"></span></li>
-              <li>Logique de description <span class="cite" data-bibkey="Kofler2012"></span></li>
-              <li>Évènement&ndash;Condition&ndash;Action <span class="cite" data-bibkey="leong2009"></span></li>
+              <li>Logiques floues ou de description</li>
+              <li>Modélisation simple</li>
             </ul>
           </li>
         </ul>
       </div>
-      <div class="col-59">
-        <ul>
-          <li>Approches statistique
-            <ul>
-              <li>Réseaux bayésiens</li>
-              <li>Prise en compte de l'incertitude</li>
-              <li>
-                <span class="cite" data-bibkey="chahuara:hal-00953262 Lee2012 Mitra2011"></span>
-              </li>
-            </ul>
-          </li>
-        </ul>
+      <div class="col-59 fragment fade-in" data-fragment-index="0">
+        <div class="fragment semi-fade-out" data-fragment-index="1">
+          <ul>
+            <li>Approches statistiques
+              <ul>
+                <li>Réseaux bayésiens</li>
+                <li>Prise en compte de l'incertitude</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <p class="text-danger"><strong>Système figé qui demande une lourde configuration</strong></p>
-  </section>
-
-  <section>
-    <h2>État de l'art (cont.)</h2>
-      <ul>
-        <li>Le projet ACHE <span class="cite" data-bibkey="Mozer1998"></span>&nbsp;:
-          <ul>
-          <li>Apprentissage à partir d'observations</li>
-          <li>Mise à jour continue grâce aux mécanisme de l'apprentissage par renforcement</li>
-          <li>Pas de notion claire du contexte</li>
-        </ul>
-      </li>
-      </ul>
+    <div class="row">
+      <div class="col-120">
+        <p class="m-t-md text-center text-danger fragment fade-in"
+        data-fragment-index="1"><strong>
+          Systèmes figés dans le temps<br/>
+          Ne s'adapte pas aux changements d'habitudes ou de comportements
+        </strong></p>
+      </div>
     </div>
 
     <aside class="notes">
@@ -139,6 +127,27 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </aside>
   </section>
 
+  <section>
+    <h2>Un précurseur</h2>
+    <div class="row">
+      <div class="col-70 col-center">
+        <ul>
+          <li>Le projet <em>Adaptive House/<span style="font-variant: small-caps">Ache</span></em> <span class="cite" data-bibkey="Mozer1998"></span>&nbsp;:
+            <ul>
+              <li>Apprentissage à partir d'observations</li>
+              <li>Mise à jour continue grâce aux mécanisme de l'apprentissage par renforcement</li>
+              <li>Pas de notion claire du contexte</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-48">
+        <figure>
+          <img src="{{ site.url }}/assets/img/rjcia2016/ACHE.png"/>
+        </figure>
+      </div>
+    </div>
+  </section>
 </section>
 
 <section>
@@ -150,7 +159,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   <section>
     <h2>Apprentissage par renforcement</h2>
     <div class="row">
-      <div class="col-80">
+      <div class="col-80 col-center">
         <ul>
           <li>Technique d'apprentissage automatique <span class="cite" data-bibkey="Sutton2015"></span>
             <ul class="m-b-lg">
@@ -159,7 +168,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
               <li>L'agent doit maximiser sa récompense</li>
             </ul>
           </li>
-          <li>Extension des approches classiques en 1989: le <em>\(Q\)-Learning</em> <span class="cite" data-bibkey="Watkins1989"></span>
+          <li>Extension des approches classiques&nbsp;: le <em>\(Q\)-Learning</em>
             <ul>
               <li>Réduction du coût de calcul</li>
               <li>Représentation discrète matricielle</li>
@@ -172,7 +181,6 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           <img src="{{ site.url }}/assets/img/rjcia2016/RL.png"/>
           <caption>
             Interaction entre l'agent et son environnement<br/>
-            <small>Extrait de <span class="cite" data-bibkeys="Sutton2015"></span></small>
           </caption>
         </figure>
       </div>
@@ -192,15 +200,11 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <div class="col-60 col-offset-30">
         <figure>
           <img
-            src="{{ site.url }}/assets/img/rjcia2016/domus.png"/>
+          src="{{ site.url }}/assets/img/rjcia2016/domus.png"/>
           <caption>Plan de l’appartement&nbsp;<span style="font-variant: small-caps;">Domus</span> et disposition des capteurs</caption>
         </figure>
       </div>
     </div>
-
-    <footer>
-      <span class="cite" data-bibkey="Gallissot2013"></span>
-    </footer>
   </section>
 
   <section>
@@ -224,199 +228,215 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <div class="col-70">
         <figure>
           <img
-            src="{{ site.url }}/assets/img/rjcia2016/mosaic.png"/>
+          src="{{ site.url }}/assets/img/rjcia2016/mosaic.png"/>
           <caption>Vidéo pour annotations</caption>
         </figure>
       </div>
+    </section>
 
-    <footer>
-      <span class="cite" data-bibkey="chahuara:hal-00953262"></span>
-    </footer>
-  </section>
-
-</section>
-
-<section>
-
-  <section class="inverted">
-    <h1>Expérimentation</h1>
   </section>
 
   <section>
-    <h2>Déroulement</h2>
-    
-    <ol>
-      <li>TODO états, 31 actions, poids initialisés uniformément</li>
-      <li class="fragment fade-in">Un état est fourni au système</li>
-      <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
-        <ul><li>Action ayant le plus fort poids étant donné l'état</li></ul></li>
-      <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
-      <li class="fragment fade-in">Le système est récompensé
-        <ul><li>Différentes fonctions de récompenses peuvent être utilisées</li></ul></li>
-      <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
-    </ol>
-  </section>
 
-  <section>
-    <h2>Mise en forme des données</h2>
-    <div class="row">
-      <div class="col-65">
-        <ul>
-          <li>Un corpus d'apprentissage simulé</li>
-          <li>380 samples</li>
-          <li>Exhaustif mais non déterministe</li>
-        </ul>
+    <section class="inverted">
+      <h1>Expérimentation</h1>
+    </section>
 
-        <ul>
-          <li>Corpus d'évaluation extrait du corpus Sweet-Home</li>
-          <li>Découpé en 16 plis pour de la valisation croisée</li>
-          <li>Non exhaustif (11% des états possibles)</li>
-        </ul>
+    <section>
+      <h2>Déroulement</h2>
+
+      <ol>
+        <li>324 états, 32 actions, poids initialisés uniformément</li>
+        <li class="fragment fade-in">Un état est fourni au système</li>
+        <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
+          <ul>
+            <li>
+              Action ayant le plus fort poids étant donné l'état
+            </li>
+          </ul>
+        </li>
+        <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
+        <li class="fragment fade-in">Le système est récompensé
+          <ul>
+            <li>Différentes fonctions de récompenses peuvent être utilisées</li>
+          </ul>
+        </li>
+        <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Mise en forme des données</h2>
+      <div class="row">
+        <div class="col-52">
+          <ul>
+            <li>Corpus simulé&nbsp;:
+              <ul>
+                <li>380 samples</li>
+                <li>Exhaustif mais non déterministe</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-68">
+          <ul>
+            <li>Corpus Sweet-Home&nbsp;:
+              <ul>
+                <li>407 samples (\(\approx\) 25 par sujets)</li>
+                <li>Non exhaustif (11% des états possibles)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-80 col-offset-20 m-t-lg">
+          <pre><code class="prolog" data-trim>
+            blind - open  kitchen none  ->  blind - open  kitchen
+            light - on    kitchen cook  ->  light - on    kitchen - sink
+          </code></pre>
+        </div>
       </div>
-      <div class="col-50">
-        <pre><code class="prolog" data-trim>
-blind - open  kitchen none
-  ->  blind - open  kitchen
-light - on    kitchen cook
-  ->  light - on    kitchen - sink
-        </code></pre>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>Apprentissage</h2>
+    <section>
+      <h2>Apprentissage</h2>
 
-    <div class="row">
-      <div class="col-69">
-        <ul>
-          <li>100 000 interactions issues du corpus simulé
-            <ul>
-              <li>Modèle de base utilisé pour la validation croisée</li>
-            </ul>
-          </li>
-          <li>1125 interactions (en moyenne) issues de 15 sujets
-            <ul>
-              <li>Modèle adapté évalué sur les données du dernier sujet</li>
-            </ul>
-          </li>
-          <li>Chaque phase est décomposée en 10 étapes d'apprentissage (<em>training epoch</em>)</li>
-        </ul>
-      </div>
-      <div class="col-50">
-        <figure>
-          <img
+      <div class="row">
+        <div class="col-69 col-center">
+          <ul>
+            <li>Création d'un modèle de base
+              <ul>
+                <li>100 000 interactions issues du corpus simulé</li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul>
+            <li><em>Leave-One-Subject-Out Cross-Validation (LOSOCV)</em>
+              <ul>
+                <li>Adaptation du modèle</li>
+                <li>Évaluation</li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li>Chaque phase est décomposée en 10 étapes d'apprentissage (<em>training epoch</em>)</li>
+          </ul>
+        </div>
+        <div class="col-50">
+          <figure>
+            <img
             src="{{ site.url }}/assets/img/rjcia2016/state-action_values.png"
             title="Fonction de Q-valeur sous forme matricielle"/>
-          <caption>
-            Fonction de Q&ndash;valeur sous forme matricielle après l'apprentissage sur corpus simulé.
-          </caption>
-        </figure>
-      </div>
-  </section>
+            <caption>
+              Fonction de Q&ndash;valeur sous forme matricielle après l'apprentissage sur corpus simulé.
+            </caption>
+          </figure>
+        </div>
+      </section>
 
-  <section>
-    <h2>Évaluation</h2>
-    <div class="row">
-      <div class="col-55">
-        <p>Mesure du reward moyen obtenu lors de la suite d'intéractions</p>
-        <ul>
-          <li>Différence expliquée par deux principaux facteurs
+      <section>
+        <h2>Évaluation</h2>
+        <div class="row">
+          <div class="col-55">
+            <p>Mesure de la récompense moyenne obtenu lors de la suite d'intéractions</p>
             <ul>
-              <li>Phase d'apprentissage très exploratoire</li>
-              <li>Différence de taille de corpus</li>
+              <li>Différence expliquée par deux principaux facteurs
+                <ul>
+                  <li>Phase d'apprentissage très exploratoire</li>
+                  <li>Différence de taille de corpus</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="col-60">
+            <figure>
+              <img
+              src="{{ site.url }}/assets/img/rjcia2016/mean_rewards.png"
+              title="Évolution de la moyenne des récompenses lors de l'apprentissage"
+              alt="Lors de l'adaptation, le reward moyen oscille entre 0.3 et -0.1 alors que le reward moyen lors de l'apprentissage est de -1."/>
+              <caption>
+                Comparaison de la récompense moyenne lors des 10 séquences d’apprentissage
+              </caption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Évaluation (cont.)</h2>
+        <div class="row">
+          <div class="col-55">
+            <p>Problème apparenté à de la classification de contexte</p>
+            <ul>
+              <li>Bon niveau de classification
+                <ul>
+                  <li>Précision \(\approx 70\,\%\)</li>
+                  <li>Rappel \(\approx 35\,\%\)</li>
+                  <li>Score F1 \(\approx 45\,\%\)</li>
+                </ul>
+              </li>
+              <li>Confusion entre actions similaires</li>
+            </ul>
+          </div>
+          <div class="col-60">
+            <figure>
+              <img
+              src="{{ site.url }}/assets/img/rjcia2016/confusion_matrix.png"
+              title="Matrice de confusion de la classification de contextes"/>
+              <caption>
+                Matrice de confusion pour la tâche de classification de contexte
+              </caption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <section class="inverted">
+        <h1>Conclusion</h1>
+      </section>
+
+      <section>
+        <h2>Intérêts et limitations</h2>
+
+        <div class="row">
+          <div class="col-69">
+            <ul class="list-pros-cons">
+              <li class="pros">Lien entre les approches logiques et statistiques</li>
+              <li class="pros">Adapté à des données discrètes ou événementielles</li>
+            </ul>
+          </div>
+          <div class="col-49">
+            <ul class="list-pros-cons">
+              <li class="cons">Temps de convergence long</li>
+              <li class="cons">Prise en compte de l'incertitude</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>POMDP et DNN</h2>
+        <ul>
+          <li>Utilisation des processus de Markov partiellement observable (POMDP) <span class="cite" data-bibkey="zaidenberg:hal-00753245"></span>
+            <ul>
+              <li>Gestion de l'incertitude</li>
             </ul>
           </li>
         </ul>
-      </div>
-      <div class="col-60">
-        <figure>
-          <img
-            src="{{ site.url }}/assets/img/rjcia2016/mean_rewards.png"
-            title="Évolution de la moyenne des récompenses lors de l'apprentissage"
-            alt="Lors de l'adaptation, le reward moyen oscille entre 0.3 et -0.1 alors que le reward moyen lors de l'apprentissage est de -1."/>
-          <caption>
-            Comparaison de la récompense moyenne lors des 10 séquences d’apprentissage
-          </caption>
-        </figure>
-      </div>
-    </div>
-  </section>
 
-  <section>
-    <h2>Évaluation (cont.)</h2>
-    <div class="row">
-      <div class="col-55">
-        <p>Problème apparenté à de la classification de contexte</p>
         <ul>
-          <li>Bon niveau de classification
+          <li>Utilisation de réseaux de neurones <span class="cite" data-bibkey="Mnih2015"></span>
             <ul>
-              <li>Précision \(\approx 70\,\%\)</li>
-              <li>Rappel \(\approx 35\,\%\)</li>
-              <li>Score F1 \(\approx 45\,\%\)</li>
+              <li>Forte dynamique de recherche</li>
             </ul>
           </li>
-          <li>Confusion entre actions similaires</li>
         </ul>
-      </div>
-      <div class="col-60">
-        <figure>
-          <img
-          src="{{ site.url }}/assets/img/rjcia2016/confusion_matrix.png"
-          title="Matrice de confusion de la classification de contextes"/>
-          <caption>
-            Matrice de confusion pour la tâche de classification de contexte
-          </caption>
-        </figure>
-      </div>
-    </div>
-  </section>
-</section>
+      </section>
+    </section>
 
-<section>
-  <section class="inverted">
-    <h1>Conclusion</h1>
-  </section>
-  
-  <section>
-    <h2>Intérêts et limitations</h2>
-
-    <div class="row">
-      <div class="col-58">
-        <ul class="list-pros-cons">
-          <li class="pros">Lien entre les approches logiques et statistiques</li>
-          <li class="pros">Adapté à des données discrètes ou événementielles</li>
-        </ul>
-      </div>
-      <div class="col-58">
-        <ul class="list-pros-cons">
-          <li class="cons">Temps de convergence long</li>
-          <li class="cons">Prise en compte de l'incertitude</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>POMDP et DNN</h2>
-    <ul>
-      <li>Apprentissage par renforcement basé sur la théorie des Processus de Décision Markovien (MDP)
-        <ul>
-          <li>Possible adaptation pour utiliser des MDP partiellement observable (POMDP)</li>
-          <li><span class="cite" data-bibkey="zaidenberg:hal-00753245"></span></li>
-        </ul>
-      </li>
-      <li>Utilisation de réseaux de neuronnes
-        <ul>
-          <li><span class="cite" data-bibkey="Mnih2015"></span></li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-</section>
-
-<section>
-  <section class="inverted begin-autoslide"
+    <section class="inverted begin-autoslide"
     data-transition="fade-out"
     data-background-transition="fade"
     data-transition-speed="slow">
@@ -428,12 +448,12 @@ light - on    kitchen cook
     data-transition="fade"
     data-transition-speed="slow">
     <h2>Bibliography</h2>
-    <ul id="bibliography"
-      class="small bibliography"
-      data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
-      data-bibliography-style="apalike"
-      data-bibliography-file-format="bibtex">
-    </ul>
+    <!-- <ul id="bibliography"
+    class="small bibliography"
+    data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
+    data-bibliography-style="apalike"
+    data-bibliography-file-format="bibtex">
+  </ul> -->
   </section>
 </section>
 
@@ -452,4 +472,4 @@ require(
       }
     });
   })
-</script>
+  </script>
