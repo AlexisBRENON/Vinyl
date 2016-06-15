@@ -89,7 +89,8 @@ html, body {
     @extend .fade-out;
 
     &.visible {
-      @include transparent(0.5)
+      @include visible();
+      @include transparent(0.5);
     }
   }
 
@@ -1334,5 +1335,3 @@ html, body {
 .zoomed .reveal .roll span:after {
   visibility: hidden;
 }
-
-
