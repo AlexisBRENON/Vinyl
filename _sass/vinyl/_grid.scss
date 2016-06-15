@@ -24,6 +24,27 @@
 }
 
 /* ************************************************
+ * Allow columns to specify their alignment
+ */
+[class *= "col-"] {
+  &.col-start {
+    align-self: flex-start;
+  }
+  &.col-end {
+    align-self: flex-end;
+  }
+  &.col-center {
+    align-self: center;
+  }
+  &.col-stretch {
+    align-self: stretch;
+  }
+  &.col-base {
+    align-self: baseline;
+  }
+}
+
+/* ************************************************
  * Allow separators between columns
  */
 
