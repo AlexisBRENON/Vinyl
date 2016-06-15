@@ -17,13 +17,28 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     Alexis BRENON, François PORTET, Michel VACHER
     <span class="cite" data-bibkey="Brenon2016a"></span>
   </p>
+
+  <aside class="notes">
+    Bonjour à tous. Je vous remercie d'être là pour assister à cette présentation des travaux que nous avons mené au Laboratoire d'Informatique de Grenoble pour développer une méthode de prise de décision adaptative dans un habitat intelligent. Et pour commencer cette présentation...
+  </aside>
 </section>
 
 <section>
-  <section class="inverted">
-    <h2>Habitat intelligent et contextualisation </h2>
-  </section>
+  <h2>Plan</h2>
 
+  <ul>
+    <li><h3>Habitat intelligent et contextualisation</h3></li>
+    <li><h3>Méthode et contexte</h3></li>
+    <li><h3>Expérimentation</h3></li>
+    <li><h3>Conclusion</h3></li>
+  </ul>
+
+  <aside class="notes">
+    ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au coeur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en soulevant de nouvelles questions. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir les mécanismes et résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
+  </aside>
+</section>
+
+<section>
   <section>
     <h2>Life. Augmented</h2>
 
@@ -37,17 +52,25 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         </ul>
       </li>
     </ul>
+
+    <aside class="notes">
+      On entend par là un habitat augmenté, c'est-à-dire avec davantages de fonctionnalité. Les smart-homes, sont agrémentées de capteurs et actionneurs qui permettent de percevoir l'environnement et d'agir sur celui-ci. On distingue principalement deux types d'actions, les actions réactives, qui suivent un évènement explicite, et les action proactives qui surviennent sans demande explicite. Dans les deux cas, la perception de l'environnement est importante, que ce soit pour détecter un évènement et y réagir, ou simplement pour adapter l'action à réaliser aux conditions actuelles. On appelle cela la contextualisation de l'interaction et c'est cette problématique particulière qui nous intéresse. Toutefois, dans notre cas, nous nous plaçons dans un contexte bien particulier car...
+    </aside>
   </section>
 
   <section>
     <h2>Sésame, Ouvre-toi</h2>
-    <p>Intéret particulier pour les maisons intelligentes controllées par la voix</p>
     <ul>
-      <li>Communication 'naturelle'</li>
-      <li>Adapté
-        <ul>
-          <li>personnes à mobilité réduite</li>
-          <li>situations d'urgences</li>
+      <li>
+        Intéret particulier pour les maisons intelligentes controllées par la voix
+        <ul class="pros-cons-list">
+          <li class="pros">Communication 'naturelle'</li>
+          <li class="pros">Adapté
+            <ul>
+              <li>personnes à mobilité réduite</li>
+              <li>situations d'urgences</li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -58,6 +81,11 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <footer>
       <span class="cite" data-bibkey="vacher:hal-01138090"></span>
     </footer>
+
+    <aside class="notes">
+      ... l'habitat que visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Éteind la lumière', de quelle lumière parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors primordiale.<br/>
+      Cette problématique a déjà été largement abordée...
+    </aside>
   </section>
 
   <section>
@@ -103,7 +131,12 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           <li>Pas de notion claire du contexte</li>
         </ul>
       </li>
-    </ul>
+      </ul>
+    </div>
+
+    <aside class="notes">
+      ... en suivant principalement deux approches. Une première basée sur la logique, en utilisant un ensemble de règles expertes qui permettent au système de réagir à tel état ou évènement avec telle ou telle action. Des approches statistiques ont également été utilisées pour apprendre un comportement à partir d'exemples. Toutefois
+    </aside>
   </section>
 
 </section>
@@ -171,7 +204,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </section>
 
   <section>
-    <h2>Le corpus Sweet-Home</h2>
+    <h2>Le corpus d'interactions Sweet-Home</h2>
 
     <div class="row">
       <div class="col-48">
@@ -207,6 +240,21 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
   <section class="inverted">
     <h1>Expérimentation</h1>
+  </section>
+
+  <section>
+    <h2>Déroulement</h2>
+    
+    <ol>
+      <li>TODO états, 31 actions, poids initialisés uniformément</li>
+      <li class="fragment fade-in">Un état est fourni au système</li>
+      <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
+        <ul><li>Action ayant le plus fort poids étant donné l'état</li></ul></li>
+      <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
+      <li class="fragment fade-in">Le système est récompensé
+        <ul><li>Différentes fonctions de récompenses peuvent être utilisées</li></ul></li>
+      <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
+    </ol>
   </section>
 
   <section>
@@ -328,6 +376,25 @@ light - on    kitchen cook
 <section>
   <section class="inverted">
     <h1>Conclusion</h1>
+  </section>
+  
+  <section>
+    <h2>Intérêts et limitations</h2>
+
+    <div class="row">
+      <div class="col-58">
+        <ul class="list-pros-cons">
+          <li class="pros">Lien entre les approches logiques et statistiques</li>
+          <li class="pros">Adapté à des données discrètes ou événementielles</li>
+        </ul>
+      </div>
+      <div class="col-58">
+        <ul class="list-pros-cons">
+          <li class="cons">Temps de convergence long</li>
+          <li class="cons">Prise en compte de l'incertitude</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section>
