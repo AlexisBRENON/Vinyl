@@ -63,10 +63,8 @@
 .reveal ol,
 .reveal dl,
 .reveal ul {
-	display: inline-block;
-
 	text-align: left;
-	margin: 0 0 0 1em;
+	margin: 0 0 1em 1em;
 }
 
 .reveal ul ul,
@@ -75,6 +73,7 @@
 .reveal ol ul {
 	display: block;
 	margin-left: 40px;
+  margin-bottom: 0px;
 }
 
 .reveal dt {
@@ -206,5 +205,3 @@
 		   -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 	}
-
-
