@@ -89,17 +89,21 @@ ul {
 
   & > li {
     &:before {
-      font-family: $font-family-icon;
-      margin-right: 1ex;
-      font-size: 85%;
+      @include m-r-sm();
     }
-    &.pros:before {
-      content: "\f055";
-      color: $vnl-brand-success;
+    &.pros {
+      @extend .mdi;
+      @extend .mdi-plus-circle;
+      &:before {
+        color: $vnl-brand-success;
+      }
     }
-    &.cons:before {
-      content: "\f056";
-      color: $vnl-brand-danger;
+    &.cons {
+      @extend .mdi;
+      @extend .mdi-minus-circle;
+      &:before {
+        color: $vnl-brand-danger;
+      }
     }
   }
 }
