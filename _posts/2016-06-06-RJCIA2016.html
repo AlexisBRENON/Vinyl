@@ -4,7 +4,7 @@ categories: ['conference']
 lang: fr
 title: "RJCIA 2016"
 excerpt: 'Diapos présentée à la conférence RJCIA 2016'
-theme: /assets/css/reveal/theme/blue.css
+theme: /assets/css/reveal/theme/rjcia2016.css
 hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 ---
 
@@ -44,7 +44,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
     <ul>
       <li>Perception de l'environnement et actions</li>
-      <li>Réactivité vs. proactivité</li>
+      <li>Réactivité <em>vs.</em> proactivité</li>
       <li>Perception = contextualisation
         <ul>
           <li>Détection d'évènements</li>
@@ -59,13 +59,13 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </section>
 
   <section>
-    <h2>Sésame, Ouvre-toi</h2>
+    <h2>Sésame, Ouvre toi</h2>
     <ul>
-      <li>
-        Intéret particulier pour les maisons intelligentes controllées par la voix
-        <ul class="pros-cons-list">
-          <li class="pros">Communication 'naturelle'</li>
-          <li class="pros">Adapté
+      <li class="m-b-lg">
+        Intérêt particulier pour les maisons intelligentes contrôlées par la voix
+        <ul>
+          <li>Communication <q>naturelle</q></li>
+          <li>Adapté aux&nbsp;:
             <ul>
               <li>personnes à mobilité réduite</li>
               <li>situations d'urgences</li>
@@ -73,13 +73,17 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           </li>
         </ul>
       </li>
+
+      <li>
+        Problème d'ambiguïté des commandes
+        <ul>
+          <li>Utilisation du <strong>contexte</strong></li>
+        </ul>
+      </li>
     </ul>
 
-    <p>Problème d'ambiguïté des commandes</p>
-    <p class="fragment fade-in">Utilisation du contexte</p>
-
     <aside class="notes">
-      ... l'habitat que nous visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Éteind la lumière', de quelle lumière parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors primordiale.<br/>
+      ... l'habitat que nous visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Éteint la lumière', de quelle lumière parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors primordiale.<br/>
       Cette problématique a déjà été largement abordée...
     </aside>
   </section>
@@ -91,7 +95,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <div class="col-59 fragment semi-fade-out" data-fragment-index="0">
         <ul>
           <li>
-            Utilisation de règles&nbsp;: <ul>
+            Systèmes a base de règles&nbsp;: <ul>
               <li>Logiques floues ou de description</li>
               <li>Modélisation simple</li>
             </ul>
@@ -101,7 +105,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <div class="col-59 fragment fade-in" data-fragment-index="0">
         <div class="fragment semi-fade-out" data-fragment-index="1">
           <ul>
-            <li>Approches statistiques
+            <li>Systèmes statistiques
               <ul>
                 <li>Réseaux bayésiens</li>
                 <li>Prise en compte de l'incertitude</li>
@@ -131,7 +135,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <h2>Un précurseur</h2>
     <div class="row">
       <div class="col-70 col-center">
-        <ul>
+        <ul style="line-height: 2">
           <li>Le projet <em>Adaptive House/<span style="font-variant: small-caps">Ache</span></em> <span class="cite" data-bibkey="Mozer1998"></span>&nbsp;:
             <ul>
               <li>Apprentissage à partir d'observations</li>
@@ -175,6 +179,10 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
             </ul>
           </li>
         </ul>
+
+        <p class="text-center">
+        \( Q^{t+1}_{s_{t},a_{t}} = Q^{t}_{s_{t},a_{t}} + \alpha \left( r(s_t, a_t) + \gamma \max_{a_{t+1}} Q^{t}_{s_{t+1}, a_{t+1}} \right) \)
+        </p>
       </div>
       <div class="col-38">
         <figure>
@@ -201,7 +209,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         <figure>
           <img
           src="{{ site.url }}/assets/img/rjcia2016/domus.png"/>
-          <caption>Plan de l’appartement&nbsp;<span style="font-variant: small-caps;">Domus</span> et disposition des capteurs</caption>
+          <caption>Plan de l'appartement&nbsp;<span style="font-variant: small-caps;">Domus</span> et disposition des capteurs</caption>
         </figure>
       </div>
     </div>
@@ -214,7 +222,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <div class="col-48">
         <ul>
           <li>Récolté dans Domus</li>
-          <li>11 heures de données</li>
+          <li>11 heures d'enregistrement</li>
           <li>16 participants (7 <span class="mdi mdi-gender-female"></span>, 9 <span class="mdi mdi-gender-male"></span>)</li>
           <li>Scénario prédéfini à réaliser via des commandes vocales
             <ul>
@@ -243,6 +251,38 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </section>
 
     <section>
+      <h2>Mise en forme des données</h2>
+      <div class="row">
+        <div class="col-52">
+          <ul>
+            <li>Corpus simulé&nbsp;:
+              <ul>
+                <li>380 instances</li>
+                <li>Exhaustif mais non déterministe</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-68">
+          <ul>
+            <li>Corpus Sweet-Home&nbsp;:
+              <ul>
+                <li>407 instances (\(\approx\) 25 par sujets)</li>
+                <li>Non exhaustif (11% des états possibles)</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-80 col-offset-20 m-t-lg">
+          <pre><code class="prolog" data-trim>
+blind - open  kitchen none  ->  blind - open  kitchen
+light - on    kitchen cook  ->  light - on    kitchen - sink
+          </code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>Déroulement</h2>
 
       <ol>
@@ -263,38 +303,6 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         </li>
         <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
       </ol>
-    </section>
-
-    <section>
-      <h2>Mise en forme des données</h2>
-      <div class="row">
-        <div class="col-52">
-          <ul>
-            <li>Corpus simulé&nbsp;:
-              <ul>
-                <li>380 samples</li>
-                <li>Exhaustif mais non déterministe</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="col-68">
-          <ul>
-            <li>Corpus Sweet-Home&nbsp;:
-              <ul>
-                <li>407 samples (\(\approx\) 25 par sujets)</li>
-                <li>Non exhaustif (11% des états possibles)</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="col-80 col-offset-20 m-t-lg">
-          <pre><code class="prolog" data-trim>
-            blind - open  kitchen none  ->  blind - open  kitchen
-            light - on    kitchen cook  ->  light - on    kitchen - sink
-          </code></pre>
-        </div>
-      </div>
     </section>
 
     <section>
@@ -337,8 +345,8 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <section>
         <h2>Évaluation</h2>
         <div class="row">
-          <div class="col-55">
-            <p>Mesure de la récompense moyenne obtenu lors de la suite d'intéractions</p>
+          <div class="col-55 col-center">
+            <p>Mesure de la récompense moyenne obtenu lors de la suite d'interactions</p>
             <ul>
               <li>Différence expliquée par deux principaux facteurs
                 <ul>
@@ -365,7 +373,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       <section>
         <h2>Évaluation (cont.)</h2>
         <div class="row">
-          <div class="col-55">
+          <div class="col-55 col-center">
             <p>Problème apparenté à de la classification de contexte</p>
             <ul>
               <li>Bon niveau de classification
@@ -437,17 +445,14 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </section>
 
     <section class="inverted begin-autoslide"
-    data-transition="fade-out"
-    data-background-transition="fade"
     data-transition-speed="slow">
     <h1>Merci de votre attention</h1>
     <h2>Avez-vous des questions&nbsp;?</h2>
   </section>
 
   <section
-    data-transition="fade"
     data-transition-speed="slow">
-    <h2>Bibliography</h2>
+    <h2>Bibliographie</h2>
     <!-- <ul id="bibliography"
     class="small bibliography"
     data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
