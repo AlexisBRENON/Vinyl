@@ -91,19 +91,15 @@ ul {
     &:before {
       @include m-r-sm();
     }
-    &.pros {
+    &.pros:before {
       @extend .mdi;
       @extend .mdi-plus-circle;
-      &:before {
-        color: $vnl-brand-success;
-      }
+      color: $vnl-brand-success;
     }
-    &.cons {
+    &.cons:before {
       @extend .mdi;
       @extend .mdi-minus-circle;
-      &:before {
-        color: $vnl-brand-danger;
-      }
+      color: $vnl-brand-danger;
     }
   }
 }
