@@ -34,7 +34,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </ul>
 
   <aside class="notes">
-    ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au cœur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en soulevant de nouvelles questions. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir les mécanismes et résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
+    ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au cœur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en présentant de nouveaux défis. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir son déroulement et ses résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
   </aside>
 </section>
 
@@ -54,12 +54,12 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </ul>
 
     <aside class="notes">
-      On entend par là un habitat augmenté, c'est-à-dire avec davantage de fonctionnalité. Les smart-homes, sont agrémentées de capteurs et actionneurs qui permettent de percevoir l'environnement et d'agir sur celui-ci. On distingue principalement deux types d'actions, les actions réactives, qui suivent un évènement explicite, et les action proactives qui surviennent sans demande explicite. Dans les deux cas, la perception de l'environnement est importante, que ce soit pour détecter un évènement et y réagir, ou simplement pour adapter l'action à réaliser aux conditions actuelles. On appelle cela la contextualisation de l'interaction et c'est cette problématique particulière qui nous intéresse. Toutefois, dans notre cas, nous nous plaçons dans un contexte bien particulier car...
+      On entend par là un habitat augmenté, c'est-à-dire avec davantage de fonctionnalités. Les smart-homes, sont agrémentées de capteurs et actionneurs qui permettent de percevoir l'environnement et d'agir sur celui-ci. On distingue principalement deux types d'actions, les actions réactives, qui suivent un évènement explicite, et les action proactives qui surviennent sans demande explicite. Dans les deux cas, la perception de l'environnement est primordiale, que ce soit pour détecter un évènement et y réagir, ou simplement pour adapter l'action à réaliser aux conditions actuelles. On appelle cela la contextualisation de l'interaction et c'est cette problématique particulière qui nous intéresse. Toutefois, dans notre cas, nous nous plaçons dans un contexte bien particulier car...
     </aside>
   </section>
 
   <section>
-    <h2>Sésame, Ouvre toi</h2>
+    <h2>Jarvis, déploi les volets</h2>
     <ul>
       <li class="m-b-lg">
         Intérêt particulier pour les maisons intelligentes contrôlées par la voix
@@ -83,7 +83,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </ul>
 
     <aside class="notes">
-      ... l'habitat que nous visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Éteint la lumière', de quelle lumière parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors primordiale.<br/>
+      ... l'habitat que nous visons est commandé par la voix. Cette spécificité apporte certains avantages puisqu'elle rend la communication avec le système plus naturelle pour l'utilisateur. Toutefois elle pose également un nouveau problème concernant l'ambiguïté des commandes prononcées. Pour prendre un exemple simple, si je prononce 'Ouvre les volets', de quels volets parle-t-on ? Pour lever cette ambiguïté, la prise en compte du contexte est alors indispensable.<br/>
       Cette problématique a déjà été largement abordée...
     </aside>
   </section>
@@ -96,7 +96,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         <ul>
           <li>
             Systèmes a base de règles&nbsp;: <ul>
-              <li>Logiques floues ou de description</li>
+              <li>Logiques floue ou de description</li>
               <li>Modélisation simple</li>
             </ul>
           </li>
@@ -121,13 +121,13 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         <p class="m-t-md text-center text-danger fragment fade-in"
         data-fragment-index="1"><strong>
           Systèmes figés dans le temps<br/>
-          Ne s'adapte pas aux changements d'habitudes ou de comportements
+          Ne s'adaptent pas aux changements d'habitudes ou de comportements
         </strong></p>
       </div>
     </div>
 
     <aside class="notes">
-      ... en suivant principalement deux approches. Une première basée sur la logique, en utilisant un ensemble de règles expertes qui permettent au système de réagir à tel état ou évènement avec telle ou telle action. Des approches statistiques ont également été utilisées pour apprendre un comportement à partir d'exemples. Toutefois
+      ... en suivant principalement deux approches. Une première basée sur la logique, en utilisant un ensemble de règles expertes qui permettent au système de réagir à tel état ou évènement avec telle ou telle action. Ces méthodes on l'avantage d'être simples à modéliser. Des approches statistiques ont également été utilisées pour apprendre un comportement à partir d'exemples sans avoir à recourir à un expert. Toutefois ces deux approches génèrent des modèles figés, qui ne sont pas fait pour évoluer par la suite en fonction des préférences de l'utilisateur mais surtout de ses changements d'habitudes. Pourtant, il y a bientôt 30 ans, ...
     </aside>
   </section>
 
@@ -139,7 +139,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           <li>Le projet <em>Adaptive House/<span style="font-variant: small-caps">Ache</span></em> <span class="cite" data-bibkey="Mozer1998"></span>&nbsp;:
             <ul>
               <li>Apprentissage à partir d'observations</li>
-              <li>Mise à jour continue grâce aux mécanisme de l'apprentissage par renforcement</li>
+              <li>Mise à jour continue grâce aux mécanismes de l'apprentissage par renforcement</li>
               <li>Pas de notion claire du contexte</li>
             </ul>
           </li>
@@ -151,6 +151,10 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         </figure>
       </div>
     </div>
+
+    <aside class="notes">
+      ... Michael Mozer et son équipe avait monté le projet Adaptive House, dans lequel ils avaient mis en place un contrôleur intelligent, ACHE. Leur système utilisait un réseau de neurones et les mécanismes de l'apprentissage par renforcement pour s'adapter aux habitudes et préférences de l'utilisateur. Ainsi, à chaque instant, le système recevait l'état de l'habitat, la consommation énergétique et les actions de l'utilisateur. À partir de ces informations, le système pouvait contrôler certains équipements de la maison. La consommation et les actions utilisateurs étaient utilisées dans une fonction de coût qui permettait de juger les choix du système. Toutefois ce projet n'avait pas de notion claire de ce qu'est un contexte et n'était pas capable de fournir cette information à l'utilisateur ou à une autre application. De plus, le projet semble être arrêté puisque nous n'avons pas trouvé de publications plus récentes à ce sujet. Mais comme l'idée semblait peu utilisée mais intéressante, nous avons souhaiter poursuivre dans cette voie...
+    </aside>
   </section>
 </section>
 
@@ -158,6 +162,10 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
   <section class="inverted">
     <h1>Méthode et contexte</h1>
+
+    <aside class="notes">
+      ... en mettant au point un système de prise de décision basé sur l'apprentissage par renforcement.
+    </aside>
   </section>
 
   <section>
@@ -193,6 +201,10 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         </figure>
       </div>
     </div>
+
+    <aside class="notes">
+      L'apprentissage par renforcement est une technique d'apprentissage automatique qui permet à un système d'apprendre de son expérience. À chaque itération le système intéragit avec son environnement qui lui retourne son nouvel état et une récompense, positive, négative ou nulle. L'objectif de l'agent est alors d'apprendre une stratégie qui lui permet de maximiser la récompense qu'il obtient. Pour résoudre ce problème, les première approches utilisaient les équation de la programmation dynamique qui ont un coût de calcul théorique considérable. En 89, Watkins a mis au point le Q-Learning, une extension des techniques classiques qui permet de réduire drastiquement le coût de calcul. En effet, dans le cas d'action et d'états discrets, le modèle de Q-valeur peut être représenté dans un tableau à 2 dimensions. La mise à jour de ce modèle est alors relativement aisé puisqu'il s'agit d'une simple recherche de la valeur maximale dans une ligne du tableau. C'est ce que décrit plus précisément l'équation que nous vous présentons ici. Pour pouvoir réaliser cette expérience il nous fallait également des données.
+    </aside>
   </section>
 
   <section>
@@ -213,6 +225,10 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         </figure>
       </div>
     </div>
+
+    <aside class="notes">
+      Ces données, nous les avons récoltées dans notre appartement connecté. Situé à proximité du laboratoire l'appartement Domus est un appartement de 30m² entièrement équipé qui permet de réaliser des campagnes de récolte de données. La plupart des éléments de l'appartement peuvent être commandés à distance via un magicien d'Oz, que ce soit les différents éclairages, les volets et rideaux, le système multimédia, etc. À l'inverse il est également possible de connaître l'état de la majorité des variables comme la température, la consommation d'eau, etc. Cet appartement a notamment été utilisé...
+    </aside>
   </section>
 
   <section>
@@ -221,7 +237,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <div class="row">
       <div class="col-48">
         <ul>
-          <li>Récolté dans Domus</li>
+          <li>Récolté dans <span style="font-variant: small-caps;">Domus</span></li>
           <li>11 heures d'enregistrement</li>
           <li>16 participants (7 <span class="mdi mdi-gender-female"></span>, 9 <span class="mdi mdi-gender-male"></span>)</li>
           <li>Scénario prédéfini à réaliser via des commandes vocales
@@ -240,226 +256,262 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           <caption>Vidéo pour annotations</caption>
         </figure>
       </div>
-    </section>
+    </div>
 
+    <aside class="notes">
+      ... lors du projet SweetHome pour la récolte d'un corpus dit d'intéractions. Ce corpus est l'enregistrement de 16 sujets qui devaient réaliser un scénario similaire dans l'appartement. Ils avaient pour consigne de donner des ordres vocaux à l'habitat pour réaliser leurs tâches. Les scénario durant environ 40 minutes, nous avons donc récolté près de 11 heures d'enregistrement. Ces 11 heures de vidéo ont ensuite été annotées pour être utilisées pour l'expérimentation...
+    </aside>
+
+  </section>
+
+</section>
+
+<section>
+
+  <section class="inverted">
+    <h1>Expérimentation</h1>
   </section>
 
   <section>
-
-    <section class="inverted">
-      <h1>Expérimentation</h1>
-    </section>
-
-    <section>
-      <h2>Mise en forme des données</h2>
-      <div class="row">
-        <div class="col-52">
-          <ul>
-            <li>Corpus simulé&nbsp;:
-              <ul>
-                <li>380 instances</li>
-                <li>Exhaustif mais non déterministe</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="col-68">
-          <ul>
-            <li>Corpus Sweet-Home&nbsp;:
-              <ul>
-                <li>407 instances (\(\approx\) 25 par sujets)</li>
-                <li>Non exhaustif (11% des états possibles)</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div class="col-80 col-offset-20 m-t-lg">
-          <pre><code class="prolog" data-trim>
+    <h2>Mise en forme des données</h2>
+    <div class="row">
+      <div class="col-52">
+        <ul>
+          <li>Corpus simulé&nbsp;:
+            <ul>
+              <li>380 instances</li>
+              <li>Exhaustif mais non déterministe</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-68">
+        <ul>
+          <li>Corpus Sweet-Home&nbsp;:
+            <ul>
+              <li>407 instances (\(\approx\) 25 par sujets)</li>
+              <li>Non exhaustif (11% des états possibles)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-80 col-offset-20 m-t-lg">
+        <pre><code class="prolog" data-trim>
 blind - open  kitchen none  ->  blind - open  kitchen
 light - on    kitchen cook  ->  light - on    kitchen - sink
-          </code></pre>
-        </div>
+        </code></pre>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2>Déroulement</h2>
+    <aside class="notes">
+      Dans notre cas, les annotations consistaient principalement à définir 3 variables. La commande pronnoncée par l'utilisateur, l'endroit où il se trouvait et l'activité qu'il était en train de réaliser. À partir du corpus Sweet-home, nous avons pu extraire un total de 407 instances avec en moyenne 25 instances par sujet. Le problème de l'apprentissage par renforcement, c'est qu'il est assez long pour obtenir un modèle exploitable. Nous avons donc également généré des instances de manière complètement automatique. Nous en avons généré 380 couvrant la totalité des états possibles du système. En effet, nous avons au total...
+    </aside>
+  </section>
 
-      <ol>
-        <li>324 états, 32 actions, poids initialisés uniformément</li>
-        <li class="fragment fade-in">Un état est fourni au système</li>
-        <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
-          <ul>
-            <li>
-              Action ayant le plus fort poids étant donné l'état
-            </li>
-          </ul>
-        </li>
-        <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
-        <li class="fragment fade-in">Le système est récompensé
-          <ul>
-            <li>Différentes fonctions de récompenses peuvent être utilisées</li>
-          </ul>
-        </li>
-        <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
-      </ol>
-    </section>
+  <section>
+    <h2>Déroulement</h2>
 
-    <section>
-      <h2>Apprentissage</h2>
-
-      <div class="row">
-        <div class="col-69 col-center">
-          <ul>
-            <li>Création d'un modèle de base
-              <ul>
-                <li>100 000 interactions issues du corpus simulé</li>
-              </ul>
-            </li>
-          </ul>
-
-          <ul>
-            <li><em>Leave-One-Subject-Out Cross-Validation (LOSOCV)</em>
-              <ul>
-                <li>Adaptation du modèle</li>
-                <li>Évaluation</li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li>Chaque phase est décomposée en 10 étapes d'apprentissage (<em>training epoch</em>)</li>
-          </ul>
-        </div>
-        <div class="col-50">
-          <figure>
-            <img
-            src="{{ site.url }}/assets/img/rjcia2016/state-action_values.png"
-            title="Fonction de Q-valeur sous forme matricielle"/>
-            <caption>
-              Fonction de Q&ndash;valeur sous forme matricielle après l'apprentissage sur corpus simulé.
-            </caption>
-          </figure>
-        </div>
-      </section>
-
-      <section>
-        <h2>Évaluation</h2>
-        <div class="row">
-          <div class="col-55 col-center">
-            <p>Mesure de la récompense moyenne obtenu lors de la suite d'interactions</p>
-            <ul>
-              <li>Différence expliquée par deux principaux facteurs
-                <ul>
-                  <li>Phase d'apprentissage très exploratoire</li>
-                  <li>Différence de taille de corpus</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="col-60">
-            <figure>
-              <img
-              src="{{ site.url }}/assets/img/rjcia2016/mean_rewards.png"
-              title="Évolution de la moyenne des récompenses lors de l'apprentissage"
-              alt="Lors de l'adaptation, le reward moyen oscille entre 0.3 et -0.1 alors que le reward moyen lors de l'apprentissage est de -1."/>
-              <caption>
-                Comparaison de la récompense moyenne lors des 10 séquences d’apprentissage
-              </caption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Évaluation (cont.)</h2>
-        <div class="row">
-          <div class="col-55 col-center">
-            <p>Problème apparenté à de la classification de contexte</p>
-            <ul>
-              <li>Bon niveau de classification
-                <ul>
-                  <li>Précision \(\approx 70\,\%\)</li>
-                  <li>Rappel \(\approx 35\,\%\)</li>
-                  <li>Score F1 \(\approx 45\,\%\)</li>
-                </ul>
-              </li>
-              <li>Confusion entre actions similaires</li>
-            </ul>
-          </div>
-          <div class="col-60">
-            <figure>
-              <img
-              src="{{ site.url }}/assets/img/rjcia2016/confusion_matrix.png"
-              title="Matrice de confusion de la classification de contextes"/>
-              <caption>
-                Matrice de confusion pour la tâche de classification de contexte
-              </caption>
-            </figure>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <section>
-      <section class="inverted">
-        <h1>Conclusion</h1>
-      </section>
-
-      <section>
-        <h2>Intérêts et limitations</h2>
-
-        <div class="row">
-          <div class="col-69">
-            <ul class="list-pros-cons">
-              <li class="pros">Lien entre les approches logiques et statistiques</li>
-              <li class="pros">Adapté à des données discrètes ou événementielles</li>
-            </ul>
-          </div>
-          <div class="col-49">
-            <ul class="list-pros-cons">
-              <li class="cons">Temps de convergence long</li>
-              <li class="cons">Prise en compte de l'incertitude</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>POMDP et DNN</h2>
+    <ol>
+      <li>324 états, 32 actions, poids initialisés uniformément</li>
+      <li class="fragment fade-in">Un état est fourni au système</li>
+      <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
         <ul>
-          <li>Utilisation des processus de Markov partiellement observable (POMDP) <span class="cite" data-bibkey="zaidenberg:hal-00753245"></span>
+          <li>
+            Action ayant le plus fort poids étant donné l'état
+          </li>
+        </ul>
+      </li>
+      <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
+      <li class="fragment fade-in">Le système est récompensé
+        <ul>
+          <li>Différentes fonctions de récompenses peuvent être utilisées</li>
+        </ul>
+      </li>
+      <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
+    </ol>
+
+    <aside class="notes">
+      ... 324 états possible de notre environnement et le système peut réaliser 32 actions différentes. Initialement, pour le système, toutes les actions sont aussi intéressantes quelque soit l'état. Notre algorithme fourni alors un état au système. Celui-ci nous retourne l'action qu'il juge la plus pertinente en faisant une recherche de valeur maximale dans sa table de Q-valeur. De manière aléatoire, dépendante d'un coefficient d'exploration, le système va renvoyer une action aléatoire. On compare ensuite l'action exécutée à l'action attendue et on récompense le système en conséquence. Dans notre cas, nous avons utilisé une fonction de récompense simple, appellée 'temps minimal à l'objectif' qui pénalise de -1 toute action erronnée et de +1 les actions justifiées, mais il est très facile de modifier cette fonction pour correspondre davantage à notre cas d'utilisation. La valeur de récompense pourra être utilisée par le système pour mettre à jour sa table de Q-valeurs. On fourni ensuite un nouvel état au système, et on recommence. Nous avons donc exécuté cette boucle un grand...
+    </aside>
+  </section>
+
+  <section>
+    <h2>Apprentissage</h2>
+
+    <div class="row">
+      <div class="col-69 col-center">
+        <ul>
+          <li>Création d'un modèle de base
             <ul>
-              <li>Gestion de l'incertitude</li>
+              <li>100 000 interactions issues du corpus simulé</li>
             </ul>
           </li>
         </ul>
 
         <ul>
-          <li>Utilisation de réseaux de neurones <span class="cite" data-bibkey="Mnih2015"></span>
+          <li><em>Leave-One-Subject-Out Cross-Validation (LOSOCV)</em>
             <ul>
-              <li>Forte dynamique de recherche</li>
+              <li>Adaptation du modèle</li>
+              <li>Évaluation</li>
             </ul>
           </li>
         </ul>
-      </section>
-    </section>
+        <ul>
+          <li>Chaque phase est décomposée en 10 étapes d'apprentissage (<em>training epoch</em>)</li>
+        </ul>
+      </div>
+      <div class="col-50">
+        <figure>
+          <img
+          src="{{ site.url }}/assets/img/rjcia2016/state-action_values.png"
+          title="Fonction de Q-valeur sous forme matricielle"/>
+          <caption>
+            Fonction de Q&ndash;valeur sous forme matricielle après l'apprentissage sur corpus simulé.
+          </caption>
+        </figure>
+      </div>
+    </div>
 
-    <section class="inverted begin-autoslide"
-    data-transition-speed="slow">
-    <h1>Merci de votre attention</h1>
-    <h2>Avez-vous des questions&nbsp;?</h2>
+    <aside class="notes">
+      nombre de fois pour sur le corpus généré pour apprendre un premier modèle pour notre système. Ce modèle, que vous pouvez voir sur la droite est donc la matrice de Q-valeur du système. Nous pouvons laisser de côté le fait que l'on identifie une diagonale, qui n'est qu'une coïncidence ; ce qu'il faut noter c'est que le système identifie généralement très fortement une action pour chaque état. Comme dit plus tôt le corpus n'est pas déterministe ce qui explique le bruit que l'on voit, mais avec un corpus parfaitement déterministe, le bruit disparaît totalement, ne laissant apparaître que la diagonale. A partir de ce modèle, on appplique une méthode de validation croisée nommée LOSOCV, on va donc adaptée ce modèle avec les données issues de 15 de nos sujets et évaluer sur le dernier et répeter cette démarche 16 fois. Lors de l'évaluation, nous mesurons ...
+    </aside>
   </section>
 
-  <section
-    data-transition-speed="slow">
-    <h2>Bibliographie</h2>
-    <!-- <ul id="bibliography"
-    class="small bibliography"
-    data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
-    data-bibliography-style="apalike"
-    data-bibliography-file-format="bibtex">
-  </ul> -->
+  <section>
+    <h2>Évaluation</h2>
+    <div class="row">
+      <div class="col-55 col-center">
+        <p>Mesure de la récompense moyenne obtenu lors de la suite d'interactions</p>
+        <ul>
+          <li>Différence expliquée par deux principaux facteurs
+            <ul>
+              <li>Phase d'apprentissage très exploratoire</li>
+              <li>Différence de taille de corpus</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-60">
+        <figure>
+          <img
+          src="{{ site.url }}/assets/img/rjcia2016/mean_rewards.png"
+          title="Évolution de la moyenne des récompenses lors de l'apprentissage"
+          alt="Lors de l'adaptation, le reward moyen oscille entre 0.3 et -0.1 alors que le reward moyen lors de l'apprentissage est de -1."/>
+          <caption>
+            Comparaison de la récompense moyenne lors des 10 séquences d’apprentissage
+          </caption>
+        </figure>
+      </div>
+    </div>
+
+    <aside class="notes">
+      ... la récompense moyenne obtenue par le système, qui vous est présentée ici. On constate que lors de la phase d'apprentissage, la récompense moyenne est très faible, de l'ordre de 1, ce qui s'explique par le coté exploratoire de cette phase. En effet, le coefficient d'exploration est très élevé durant la première phase d'apprentissage et donc le système renvoi souvent une action aléatoire. Lors des tests en revanche, le coefficient d'exploration est défini à 0, pour seulement exploiter les connaissances et on constate que la récompense moyenne est alors bien meilleure mais pas optimale. Un autre critère d'évaluation est ...
+    </aside>
   </section>
+
+  <section>
+    <h2>Évaluation (cont.)</h2>
+    <div class="row">
+      <div class="col-55 col-center">
+        <p>Problème apparenté à de la classification de contexte</p>
+        <ul>
+          <li>Bon niveau de classification
+            <ul>
+              <li>Précision \(\approx 70\,\%\)</li>
+              <li>Rappel \(\approx 35\,\%\)</li>
+              <li>Score F1 \(\approx 45\,\%\)</li>
+            </ul>
+          </li>
+          <li>Confusion entre actions similaires</li>
+        </ul>
+      </div>
+      <div class="col-60">
+        <figure>
+          <img
+          src="{{ site.url }}/assets/img/rjcia2016/confusion_matrix.png"
+          title="Matrice de confusion de la classification de contextes"/>
+          <caption>
+            Matrice de confusion pour la tâche de classification de contexte
+          </caption>
+        </figure>
+      </div>
+    </div>
+
+    <aside class="notes">
+    </aside>
+  </section>
+
+</section>
+
+<section>
+  <section class="inverted">
+    <h1>Conclusion</h1>
+  </section>
+
+  <section>
+    <h2>Intérêts et limitations</h2>
+
+    <div class="row m-t-lg" style="line-height: 2;">
+      <div class="col-69">
+        <ul class="list-pros-cons">
+          <li class="pros">Lien entre les approches logiques et statistiques</li>
+          <li class="pros">Adapté à des données discrètes ou événementielles</li>
+        </ul>
+      </div>
+      <div class="col-49">
+        <ul class="list-pros-cons">
+          <li class="cons">Temps de convergence long</li>
+          <li class="cons">Prise en compte de l'incertitude</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>POMDP et DNN</h2>
+    <ul>
+      <li>Utilisation des processus de Markov partiellement observable (POMDP) <span class="cite" data-bibkey="zaidenberg:hal-00753245"></span>
+        <ul>
+          <li>Gestion de l'incertitude</li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul>
+      <li>Utilisation de réseaux de neurones <span class="cite" data-bibkey="Mnih2015"></span>
+        <ul>
+          <li>Forte dynamique de recherche</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+</section>
+
+<section class="inverted begin-autoslide"
+  data-transition-speed="slow">
+  <h1>Merci de votre attention</h1>
+  <h2>Avez-vous des questions&nbsp;?</h2>
+
+  <footer style="position: fixed; width: 100%; bottom: -70%;">
+    <p class="text-right">
+      <small>
+        Édité avec <a href="{{ site.url }}"><img src="{{ site.url }}/assets/img/brand/svg/Vinyl-typo-bw-white.svg" alt="Vinyl" title="The Vinyl Logo" style="height: 1em; vertical-align:-6%"/></a>.
+      </small>
+    </p>
+  </footer>
+</section>
+
+<section
+data-transition-speed="slow">
+<h2>Bibliographie</h2>
+<!-- <ul id="bibliography"
+class="small bibliography"
+data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
+data-bibliography-style="apalike"
+data-bibliography-file-format="bibtex">
+</ul> -->
+</section>
 </section>
 
 <script>
