@@ -438,6 +438,7 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
     </div>
 
     <aside class="notes">
+      ... la précision de la classification. En effet, notre tâche peut être vue comme une tâche de classification de contexte. On obtient alors la matrice de confusion présentée ici où cette fois-ci la diagonale a un sens, elle montre que la majorité des instances sont bien classées. On remarque seulement une confusion entre deuxx actions, qui s'avère être très proches: allumer le plafonnier de la cuisine, et allumer la lampe de l'évier de la cuisine. L'autre prinispale erreur que l'on peut voir en haut à droite est pour le moment innexpliquée.
     </aside>
   </section>
 
@@ -446,6 +447,9 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
 <section>
   <section class="inverted">
     <h1>Conclusion</h1>
+    <aside class="notes">
+      Que peut-on alors tirer de cette expérience ?
+    </aside>
   </section>
 
   <section>
@@ -465,6 +469,10 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
         </ul>
       </div>
     </div>
+
+    <aside class="notes">
+      Dans un premier temps, on constate qu'une solution de reconnaissance de contexte via du renforcement semble être possible puisqu'avec un système aussi simple que celui que nous avons mis en place nous obtenons des résultats qui semblent prometteur. Cette approche à l'avantage de créer un lien entre les deux précédemment citées en se basant sur un modèle relativement simple, mais ne nécessitant pas d'experts. Elle est également particulièrement adaptée dans le cas de données discrètes, ce qui est notre cas. En revanche, le temps de convergence long d'une telle approche est un frein, mais nous avons vu qu'il est possible de réduire ce temps en faisant un pré-entrainement sur des données simulées. Enfin, cette approche se base sur la théorie des processus de décision markovien qui impliquent que l'état de l'environnement soit entièrement connu. Ce n'est pas le cas ici, et il n'y a aucune gestion de l'incertitude liée au monde réelle. Afin de corriger ce défaut, ...
+    </aside>
   </section>
 
   <section>
@@ -484,6 +492,10 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
         </ul>
       </li>
     </ul>
+
+    <aside class="notes">
+      ... une approche basée sur les processus de décision de Markov partiellement observables (POMDP) peut être envisagée, bien qu'elle complique les algorithmes sous-jacents. Enfin, avec une dynamique de recherche de plus en plus forte, les réseaux de neurones semblent également être une voix à explorée, comme le laissait déjà entrevoir Mozer il y a 30 ans. Je vous remercie pour votre attention.
+    </aside>
   </section>
 
 </section>
