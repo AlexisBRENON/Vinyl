@@ -18,22 +18,22 @@ define(
       parse: (file) ->
         throw "Not Implemented In Abstract Class."
 
-# Return a JSON object representing a name with fields: name, firstname, middlename, lastname.
+# Return a JSON object representing a name with fields: name, firstname, middlename, lastname, suffix.
 # This function can parse different name format :
-#   John F. Kennedy
-#   John Fitzerald Kennedy
-#   Kennedy, John F.
+#   Jean de La Fontaine
+#   de La Fontaine, Jean
+#   de La Fontaine, Jr., Jean
 # Feel free to add more !
       parseName: (name) ->
         splitted_name = name.split(', ')
         switch splitted_name.length
-          when 1 then return @parseFvLName(splitted_name)
-          # when 2 then return @parsevLFName(splitted_name)
-          # when 3 then return @parsevLJFName(splitted_name)
-          else @parseFvLName(splitted_name)
+          when 1 then return @parseFMLName(splitted_name)
+          when 2 then return @parseMLFName(splitted_name)
+          when 3 then return @parseMLSFName(splitted_name)
+          else @parseFMLName(splitted_name)
 
       # Parse Jean de la Fontaine
-      parseFvLName: (splitted_name) ->
+      parseFMLName: (splitted_name) ->
         splitted_name = splitted_name[0].split(' ')
         # Lastname cannot be empty
         lastname = []
@@ -67,12 +67,61 @@ define(
             upperGoto = "von"
 
         lastname.push(splitted_name[-1..][0])
+
+        firstname = if firstname.length > 0 then firstname.join(' ') else null
+        lastname = if lastname.length > 0 then lastname.join(' ') else null
+        middlename = if middlename.length > 0 then middlename.join(' ') else null
+        name = if middlename? then middlename + " " else ""
+        name += if lastname? then lastname else ""
+        name += if firstname? then ", " + firstname else ""
         return {
-          firstname: firstname.join(' '),
-          middlename: middlename.join(' '),
-          lastname: lastname.join(' '),
+          name: name
+          firstname: firstname,
+          middlename: middlename,
+          lastname: lastname,
           suffix: null
         }
+  
+      # parse 'de La Fontaine, Jean'
+      parseMLFName: (splitted_name) ->
+        firstname = splitted_name[1].split(' ')
+        lastname = []
+        middlename = []
+
+        splitted_name = splitted_name[0].split(' ')
+        lastname.push(splitted_name[-1..][0])
+
+        for name in splitted_name.reverse()[1..]
+          first_char = name.charAt(0)
+          if first_char == first_char.toUpperCase()
+            if middlename.length > 0
+              middlename.splice(0, 0, name)
+            else
+              lastname.splice(0, 0, name)
+          else
+            middlename.splice(0, 0, name)
+
+        firstname = if firstname.length > 0 then firstname.join(' ') else null
+        lastname = if lastname.length > 0 then lastname.join(' ') else null
+        middlename = if middlename.length > 0 then middlename.join(' ') else null
+        name = if middlename? then middlename + " " else ""
+        name += if lastname? then lastname else ""
+        name += if firstname? then ", " + firstname else ""
+        return {
+          name: name
+          firstname: firstname,
+          middlename: middlename,
+          lastname: lastname,
+          suffix: null
+        }
+
+      parseMLSFName: (splitted_name) ->
+        result = @parseMLFName([splitted_name[0], splitted_name[2]])
+        result.suffix = splitted_name[1]
+        result.name = splitted_name.join(', ')
+        return result
+
+
 
     console.log("@@ Vinyl::Bibliography::Parser::Abstract @@ Initialisation...")
     return BibliographyParserAbstract
