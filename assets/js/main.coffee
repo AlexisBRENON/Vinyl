@@ -113,4 +113,3 @@ require(
 # That's it. All is done. Your document is SOOOO good !
 # Ask me questions on Twitter (@AlexisBRENON) or by e-mail (brenon.alexis+vinyl@gmail.com)
 # You can also, open issues, fork, and pull request on GitHub.
-

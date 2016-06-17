@@ -211,12 +211,12 @@ define(
       formatAnnote:       (annote) -> annote
 # An exception is the author field. Here, for a list of authors, the format function will return the
 # firstname and the surname of the authors (in this order, separated by a space)
-      formatAuthor:       (author) -> @formatAuthorFirstnameSurname(author)
+      formatAuthor:       (author) -> BibliographyStyleAbstract.formatAuthorFirstnameSurname(author)
       formatBookTitle:    (bookTitle) -> bookTitle
       formatChapter:      (chapter) -> chapter
       formatCrossRef:     (crossRef) -> crossRef
       formatEdition:      (edition) -> edition
-      formatEditor:       (editor) -> editor
+      formatEditor:       (editor) -> BibliographyStyleAbstract.formatAuthorFirstnameSurname(editor)
       formatHowPublished: (hP) -> hP
       formatInstitution:  (institution) -> institution
       formatJournal:      (journal) -> journal.name
@@ -261,7 +261,7 @@ define(
           result = abbrvAuthors[0..-2].join(', ') # Join first ones with a comma
           result += ", and #{abbrvAuthors[-1..][0]}" # Add the last one after an 'and'
         return result
-      
+
 # This format function does quiet the same than the previous one but returns Surname before
 # firstname initials.
       @formatAuthorSurnameF: (authors) ->
@@ -282,7 +282,7 @@ define(
         else if abbrvAuthors.length == 2
           result = abbrvAuthors.join(" and ")
         else
-          result = abbrvAuthors[0..-1].join(', ')
+          result = abbrvAuthors[0..-2].join(', ')
           result += ", and #{abbrvAuthors[-1..][0]}"
         return result
 
