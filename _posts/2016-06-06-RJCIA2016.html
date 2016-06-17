@@ -42,24 +42,31 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   <section>
     <h2>Life. Augmented</h2>
 
-    <ul>
-      <li>Perception de l'environnement et actions</li>
-      <li>Réactivité <em>vs.</em> proactivité</li>
-      <li>Perception = contextualisation
+    <div class="row">
+      <div class="col-70 col-center">
         <ul>
-          <li>Détection d'évènements</li>
-          <li>Adaptation des interactions</li>
+          <li>Perception de l'environnement et actions</li>
+          <li>Réactivité <em>vs.</em> proactivité</li>
+          <li>Perception = contextualisation
+            <ul>
+              <li>Détection d'évènements</li>
+              <li>Adaptation des interactions</li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
+      </div>
+      <div class="col-50">
+        <img src="{{site.url}}/assets/img/rjcia2016/smarthome.png">
+      </div>
+    </div>
 
     <aside class="notes">
       On entend par là un habitat augmenté, c'est-à-dire avec davantage de fonctionnalités. Les smart-homes, sont agrémentées de capteurs et actionneurs qui permettent de percevoir l'environnement et d'agir sur celui-ci. On distingue principalement deux types d'actions, les actions réactives, qui suivent un évènement explicite, et les action proactives qui surviennent sans demande explicite. Dans les deux cas, la perception de l'environnement est primordiale, que ce soit pour détecter un évènement et y réagir, ou simplement pour adapter l'action à réaliser aux conditions actuelles. On appelle cela la contextualisation de l'interaction et c'est cette problématique particulière qui nous intéresse. Toutefois, dans notre cas, nous nous plaçons dans un contexte bien particulier car...
     </aside>
   </section>
 
-  <section>
-    <h2>Jarvis, déploi les volets</h2>
+  <section data-background="{{site.url}}/assets/img/rjcia2016/ironman.png">
+    <h2>Jarvis, ouvre les volets</h2>
     <ul>
       <li class="m-b-lg">
         Intérêt particulier pour les maisons intelligentes contrôlées par la voix
@@ -311,24 +318,32 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
   <section>
     <h2>Déroulement</h2>
 
-    <ol>
-      <li>324 états, 32 actions, poids initialisés uniformément</li>
-      <li class="fragment fade-in">Un état est fourni au système</li>
-      <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
-        <ul>
-          <li>
-            Action ayant le plus fort poids étant donné l'état
+    <div class="row">
+      <div class="col-80 col-center">
+        <ol>
+          <li>324 états, 32 actions, poids initialisés uniformément</li>
+          <li class="fragment fade-in">Un état est fourni au système</li>
+          <li class="fragment fade-in">Le système sélectionne l'action la plus pertinente
+            <ul>
+              <li>
+                Action ayant le plus fort poids étant donné l'état
+              </li>
+            </ul>
           </li>
-        </ul>
-      </li>
-      <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
-      <li class="fragment fade-in">Le système est récompensé
-        <ul>
-          <li>Différentes fonctions de récompenses peuvent être utilisées</li>
-        </ul>
-      </li>
-      <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
-    </ol>
+          <li class="fragment fade-in">L'action exécutée est comparée à l'action attendue</li>
+          <li class="fragment fade-in">Le système est récompensé
+            <ul>
+              <li>Différentes fonctions de récompenses peuvent être utilisées</li>
+            </ul>
+          </li>
+          <li class="fragment fade-in">Un nouvel état est fourni au système s'il a fait le bon choix</li>
+        </ol>
+      </div>
+
+      <div class="col-30 col-center">
+        <span class="fragment fade-in mdi mdi-refresh" style="font-size: 500%"></span>
+      </div>
+    </div>
 
     <aside class="notes">
       ... 324 états possible de notre environnement et le système peut réaliser 32 actions différentes. Initialement, pour le système, toutes les actions sont aussi intéressantes quelque soit l'état. Notre algorithme fourni alors un état au système. Celui-ci nous retourne l'action qu'il juge la plus pertinente en faisant une recherche de valeur maximale dans sa table de Q-valeur. De manière aléatoire, dépendante d'un coefficient d'exploration, le système va renvoyer une action aléatoire. On compare ensuite l'action exécutée à l'action attendue et on récompense le système en conséquence. Dans notre cas, nous avons utilisé une fonction de récompense simple, appellée 'temps minimal à l'objectif' qui pénalise de -1 toute action erronnée et de +1 les actions justifiées, mais il est très facile de modifier cette fonction pour correspondre davantage à notre cas d'utilisation. La valeur de récompense pourra être utilisée par le système pour mettre à jour sa table de Q-valeurs. On fourni ensuite un nouvel état au système, et on recommence. Nous avons donc exécuté cette boucle un grand...
