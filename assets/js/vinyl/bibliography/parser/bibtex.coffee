@@ -51,7 +51,7 @@ define(
             if key isnt key.toLowerCase()
               entry.entryTags[key.toLowerCase()] = value
               delete entry.entryTags[key]
-      
+
       toBibJson: () ->
 # Convert the returned JSON from bibtexParse to JSON agreeing the bibjson schema.
         jsonBib = {}
@@ -60,7 +60,7 @@ define(
 # Get the mandatory tags
           jsonEntry.id = entry.citationKey
           jsonEntry.type = entry.entryType
-          
+
 # bibtexParse returns the author field as is, without splitting multiple authors or whatever. Here
 # we try to do the job for it.
           if entry.entryTags.author?
@@ -68,25 +68,14 @@ define(
 # Separate each author
 # TODO: handle case were the separator is not 'and'
             for author in entry.entryTags.author.split(" and ")
-# And for each author, split first, middle, last names
-# TODO: handle more case
-              authorEntry = {}
-              authorEntry.name = author
-# Find first and last names
-              [authorEntry.lastname,
-               authorEntry.firstname] = author.split(", ")
-              jsonEntry.author.push(authorEntry)
+              jsonEntry.author.push(this.parseName(author))
             delete entry.entryTags.author
 
 # Do the same for the editor field
           if entry.entryTags.editor?
             jsonEntry.editor = []
             for editor in entry.entryTags.editor.split(" and ")
-              editorEntry = {}
-              editorEntry.name = editor
-              [editorEntry.lastname,
-               editorEntry.firstname] = editor.split(", ")
-              jsonEntry.editor.push(editorEntry)
+              jsonEntry.editor.push(this.parseName(editor))
             delete entry.entryTags.editor
 
 # If journal is present, then add volume and pages to it
@@ -99,12 +88,16 @@ define(
 
 # Finally, add the other fields
           for key, value of entry.entryTags
-            jsonEntry[key] = value
+            jsonEntry[key] = @fixSpecialChars(value)
 
 # Add it in an object
           jsonBib[jsonEntry.id] = jsonEntry
 # Save the dictionary
         @parsedBibliography = jsonBib
+
+      fixSpecialChars: (text) ->
+        text = text.replace(/--/g, "&ndash;")
+        text = text.replace(/---/g, "&mdash;")
 
     console.log("@@ Vinyl::Bibliography::Parser::BibTex @@ Initialisation: DONE")
     return BibliographyParserBibtex

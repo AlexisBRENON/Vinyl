@@ -89,7 +89,8 @@ html, body {
     @extend .fade-out;
 
     &.visible {
-      @include transparent(0.5)
+      @include visible();
+      @include transparent(0.5);
     }
   }
 
@@ -258,7 +259,7 @@ html, body {
 .reveal .progress {
   position: fixed;
   display: none;
-  height: 3px;
+  height: $vnl-spacer-y / 3;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -293,7 +294,7 @@ html, body {
   right: 8px;
   bottom: 8px;
   z-index: 31;
-  font-family: Helvetica, sans-serif;
+  font-family: $font-family-sans-serif;
   font-size: 12px;
   line-height: 1;
   color: $vnl-color-root-bg;
@@ -326,8 +327,6 @@ html, body {
   bottom: 0;
   left: 0;
   margin: auto;
-
-  overflow: visible;
   z-index: 1;
   text-align: center;
   perspective: 600px;
@@ -1336,5 +1335,3 @@ html, body {
 .zoomed .reveal .roll span:after {
   visibility: hidden;
 }
-
-

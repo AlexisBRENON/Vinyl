@@ -7,6 +7,7 @@
 // Define classes using flex-grid-framework placeholder selectors
 .row {
   @extend %row;
+  justify-content: space-between;
 }
 
 @for $i from 1 through $flx-column_number {
@@ -19,6 +20,27 @@
 @for $i from 1 through ($flx-column_number - 1) {
   .col-offset-#{$i} {
     @extend %offset-#{$i};
+  }
+}
+
+/* ************************************************
+ * Allow columns to specify their alignment
+ */
+[class *= "col-"] {
+  &.col-start {
+    align-self: flex-start;
+  }
+  &.col-end {
+    align-self: flex-end;
+  }
+  &.col-center {
+    align-self: center;
+  }
+  &.col-stretch {
+    align-self: stretch;
+  }
+  &.col-base {
+    align-self: baseline;
   }
 }
 
@@ -45,4 +67,3 @@
     }
   }
 }
-
