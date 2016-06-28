@@ -16,6 +16,14 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   <p class="small">
     Alexis BRENON, François PORTET, Michel VACHER
   </p>
+  <div class="row m-t-lg" style="justify-content: space-around;">
+    <div class="col-20 col-center">
+      <img src="{{ site.url }}/assets/img/rjcia2016/LIG.png"/>
+    </div>
+    <div class="col-25 col-center">
+      <img src="{{ site.url }}/assets/img/rjcia2016/getalp.png"/>
+    </div>
+  </div>
 
   <aside class="notes">
     Bonjour à tous. Je vous remercie d'être là pour assister à cette présentation des travaux que nous avons mené au Laboratoire d'Informatique de Grenoble pour développer une méthode de prise de décision adaptative dans un habitat intelligent. Et pour commencer cette présentation...
@@ -25,12 +33,15 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 <section>
   <h2>Plan</h2>
 
-  <ul>
-    <li><h3>Habitat intelligent et contextualisation</h3></li>
-    <li><h3>Méthode et contexte</h3></li>
-    <li><h3>Expérimentation</h3></li>
-    <li><h3>Conclusion</h3></li>
-  </ul>
+  <h4>
+    <ol style="list-style-type: upper-roman; line-height: 1.8;">
+      <li>Ma thèse et son contexte</li>
+      <li>Prise de décision dans les habitats intelligents</li>
+      <li>Méthode et corpus</li>
+      <li>Expérimentation</li>
+      <li>Conclusion</li>
+    </ol>
+  </h4>
 
   <aside class="notes">
     ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au cœur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en présentant de nouveaux défis. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir son déroulement et ses résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
@@ -38,14 +49,61 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 </section>
 
 <section>
+  <h2>Ma thèse et son contexte</h2>
+
+  <div class="row m-b-lg">
+    <div class="col-40 col-offset-40">
+      <img src="{{ site.url }}/assets/img/rjcia2016/cassie.png"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-68">
+      <ul>
+        <li>Projet Investissement d'Avenir
+          <ul>
+            <li>Partenariat avec des industriels</li>
+            <li>Développement d'un système intéractif vocal dans un habitat intelligent</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-48">
+      <ul>
+        <li>1 an et demi de thèse
+          <ul>
+            <li>Reconnaissance d'activité</li>
+            <li>Interactions contextualisées</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-120 text-center">
+      <strong>Adaptation à l'utilisateur lors d'interactions vocales<br/>dans un habitat intelligent</strong>
+    </div>
+  </div>
+</section>
+
+<section>
+  <section class="inverted">
+    <h1>Prise de décision dans les habitats intelligents</h1>
+  </section>
+
   <section>
-    <h2>Life. Augmented</h2>
+    <h2>Home. Augmented</h2>
 
     <div class="row">
       <div class="col-70 col-center">
         <ul>
           <li>Perception de l'environnement et actions</li>
-          <li>Réactivité <em>vs.</em> proactivité</li>
+          <li>
+            Informatique ubiquitaire et intelligence ambiante
+            <ul>
+              <li><span class="cite apalike-style-cite" data-bibkey="Weiser1991">[<a href="#Weiser1991">Weiser, 1991</a>]</span></li>
+            </ul>
+          </li>
           <li>Perception = contextualisation
             <ul>
               <li>Détection d'évènements</li>
@@ -65,7 +123,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </section>
 
   <section data-background="{{site.url}}/assets/img/rjcia2016/ironman.png">
-    <h2>Jarvis, ouvre les volets</h2>
+    <h2><q>Jarvis, ouvre les volets&nbsp;!</q></h2>
     <ul>
       <li class="m-b-lg">
         Intérêt particulier pour les maisons intelligentes contrôlées par la voix
@@ -95,15 +153,16 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </section>
 
   <section>
-    <h2>État de l'art</h2>
+    <h2 class="m-b-lg">État de l'art des systèmes de prise de décisions dans les habitats intelligents</h2>
 
     <div class="row">
       <div class="col-59 fragment semi-fade-out" data-fragment-index="0">
         <ul>
           <li>
-            Systèmes a base de règles&nbsp;: <ul>
+            Systèmes à base de règles&nbsp;: <ul>
               <li>Logiques floue ou de description</li>
               <li>Modélisation simple</li>
+              <li><span class="cite apalike-style-cite" data-bibkey="Kofler2012">[<a href="#Kofler2012">Kofler <em>et al.</em>, 2012</a>]</span></li>
             </ul>
           </li>
         </ul>
@@ -115,6 +174,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
               <ul>
                 <li>Réseaux bayésiens</li>
                 <li>Prise en compte de l'incertitude</li>
+                <li><span class="cite apalike-style-cite" data-bibkey="Lee2012">[<a href="#Lee2012">Lee <em>et al.</em>, 2012</a>]</span></li>
               </ul>
             </li>
           </ul>
@@ -123,11 +183,11 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </div>
 
     <div class="row">
-      <div class="col-120">
+      <div class="col-100">
         <p class="m-t-md text-center text-danger fragment fade-in"
         data-fragment-index="1"><strong>
           Systèmes figés dans le temps<br/>
-          Ne s'adaptent pas aux changements d'habitudes ou de comportements
+          Peu de travaux sur l'adaptation aux changements d'habitudes<br/>ou de comportements
         </strong></p>
       </div>
     </div>
@@ -142,7 +202,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <div class="row">
       <div class="col-70 col-center">
         <ul style="line-height: 2">
-          <li>Le projet <em>Adaptive House/<span style="font-variant: small-caps">Ache</span></em> <span class="cite" data-bibkey="Mozer1998"></span>&nbsp;:
+          <li>Le projet <em>Adaptive House/<span style="font-variant: small-caps">Ache</span></em> <span class="cite apalike-style-cite" data-bibkey="Mozer1998">[<a href="#Mozer1998">Mozer, 1998</a>]</span>&nbsp;:
             <ul>
               <li>Apprentissage à partir d'observations</li>
               <li>Mise à jour continue grâce aux mécanismes de l'apprentissage par renforcement</li>
@@ -167,7 +227,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 <section>
 
   <section class="inverted">
-    <h1>Méthode et contexte</h1>
+    <h1>Méthode et corpus</h1>
 
     <aside class="notes">
       ... en mettant au point un système de prise de décision basé sur l'apprentissage par renforcement.
@@ -179,7 +239,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <div class="row">
       <div class="col-80 col-center">
         <ul>
-          <li>Technique d'apprentissage automatique <span class="cite" data-bibkey="Sutton2015"></span>
+          <li>Technique d'apprentissage automatique <span class="cite apalike-style-cite" data-bibkey="Sutton2015">[<a href="#Sutton2015">Sutton <em>et al.</em>, 2015</a>]</span>
             <ul class="m-b-lg">
               <li>Interactions entre un agent et son environnement</li>
               <li>L'agent est récompensé à chaque étape</li>
@@ -188,6 +248,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           </li>
           <li>Extension des approches classiques&nbsp;: le <em>\(Q\)-Learning</em>
             <ul>
+              <li><span class="cite apalike-style-cite" data-bibkey="Watkins1989">[<a href="#Watkins1989">Watkins, 1989</a>]</span></li>
               <li>Réduction du coût de calcul</li>
               <li>Représentation matricielle de la fontion de \(Q\)-Valeur</li>
             </ul>
@@ -214,12 +275,156 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   </section>
 
   <section>
+    <h2>Exemple d'application</h2>
+
+    <div class="row">
+      <div class="col-100">
+        <table class="small text-center">
+          <tbody>
+            <tr>
+              <td style="width: 25%"></td>
+              <td style="width: 25%">\( a_0 \)<br/>
+                <small>Ouv. Volets Chambre</small>
+              </td>
+              <td style="width: 25%">
+                \(a_1\)<br/>
+                <small>Ouv. Volets Armure</small>
+              </td>
+              <td style="width: 25%">
+                \(a_2\)<br/>
+                <small>No-Op</small>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                \(s_0\)<br/>
+                <small>Chute libre</small>
+              </td>
+              <td>0</td>
+              <td>
+                <div style="display: inline-block;position: relative;">
+                  <span style="display: inline-block;position: absolute;width: 100%;" class="fragment fade-out" data-fragment-index="2">0</span>
+                  <span style="display: inline-block;" class="fragment fade-in" data-fragment-index="2"><strong>1</strong></span>
+                </div>
+              </td>
+              <td>-100</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_1\)<br/>
+                <small>Tony est sain et sauf</small>
+              </td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_2\)<br/>
+                <small>Tony est décédé</small>
+              </td>
+              <td>-100</td>
+              <td>-100</td>
+              <td>-100</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="fragment fade-in" data-fragment-index="2">
+          \( Q^{t+1}_{s_0,a_1} = Q^{t}_{s_0,a_1} + \alpha \left( r(s_0, a_1) + \gamma \max_{a_{t+1}} Q^{t}_{s_1, a_{t+1}} \right) \) <br/>
+          <span style="margin-left: 52px">
+            \( = 0 + 1 \times \left( 1 + 0.25 \times 0 \right) = 1 \)
+          </span>
+        </div>
+      </div>
+
+      <div class="col-20">
+        <img id="ironman-standup" class="fragment animated custom-fall" data-fragment-index="1"
+             src="{{ site.url }}/assets/img/rjcia2016/ironman_standup.png"/>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Exemple d'application (cont.)</h2>
+
+    <div class="row">
+      <div class="col-90">
+
+        <table class="small text-center">
+          <tbody>
+            <tr>
+              <td style="width: 25%"></td>
+              <td style="width: 25%">\( a_0 \)<br/>
+                <small>Ouv. Volets Chambre</small>
+              </td>
+              <td style="width: 25%">
+                \(a_1\)<br/>
+                <small>Ouv. Volets Armure</small>
+              </td>
+              <td style="width: 25%">
+                \(a_2\)<br/>
+                <small>No-Op</small>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                \(s_0\)<br/>
+                <small>Chute libre</small>
+              </td>
+              <td>
+                <div style="display: inline-block;position: relative;">
+                  <span style="display: inline-block;position: absolute;width: 100%;" class="fragment fade-out" data-fragment-index="2">0</span>
+                  <span style="display: inline-block;" class="fragment fade-in" data-fragment-index="2"><strong>-26</strong></span>
+                </div>
+              </td>
+              <td>0</td>
+              <td>-100</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_1\)<br/>
+                <small>Tony est sain et sauf</small>
+              </td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_2\)<br/>
+                <small>Tony est décédé</small>
+              </td>
+              <td>-100</td>
+              <td>-100</td>
+              <td>-100</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="fragment fade-in" data-fragment-index="2">
+          \( Q^{t+1}_{s_0,a_0} = Q^{t}_{s_0,a_0} + \alpha \left( r(s_0, a_0) + \gamma \max_{a_{t+1}} Q^{t}_{s_2, a_{t+1}} \right) \) <br/>
+          <span style="margin-left: 52px">
+            \( = 0 + 1 \times \left( -1 + 0.25 \times -100 \right) = -26 \)
+          </span>
+        </div>
+      </div>
+
+      <div class="col-28">
+        <img id="ironman-dead" class="fragment animated" data-fragment-index="1"
+             src="{{ site.url }}/assets/img/rjcia2016/ironman_standup.png"/>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
     <h2>Domus</h2>
 
     <ul>
       <li>Habitat intelligent conçu par le Laboratoire d'Informatique de Grenoble</li>
       <li>30 m² comprenant une cuisine, une chambre, une salle de bain et un bureau</li>
-      <li>Plus de 150 capteurs pour gérer l'éclairage, les volets, les médias, etc.</li>
+      <li>Plus de 150 capteurs et actionneurs pour gérer l'éclairage, les volets, les médias, etc.</li>
     </ul>
 
     <div class="row">
@@ -241,9 +446,11 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <h2>Le corpus d'interactions Sweet-Home</h2>
 
     <div class="row">
-      <div class="col-48">
+      <div class="col-58">
         <ul>
           <li>Récolté dans <span style="font-variant: small-caps;">Domus</span></li>
+          <li>Disponible en ligne<br/>
+            <span class="cite apalike-style-cite" data-bibkey="chahuara:hal-00953262">[<a href="#chahuara:hal-00953262">Chahuara <em>et al.</em>, 2013</a>]</span></li>
           <li>11 heures d'enregistrement</li>
           <li>16 participants (7 <span class="mdi mdi-gender-female"></span>, 9 <span class="mdi mdi-gender-male"></span>)</li>
           <li>Scénario prédéfini à réaliser via des commandes vocales
@@ -255,7 +462,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           </li>
         </ul>
       </div>
-      <div class="col-70">
+      <div class="col-60">
         <figure>
           <img
           src="{{ site.url }}/assets/img/rjcia2016/mosaic.png"/>
@@ -281,22 +488,22 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   <section>
     <h2>Mise en forme des données</h2>
     <div class="row">
-      <div class="col-52">
-        <ul>
-          <li>Corpus simulé&nbsp;:
-            <ul>
-              <li>380 instances</li>
-              <li>Exhaustif mais non déterministe</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
       <div class="col-68">
         <ul>
           <li>Corpus Sweet-Home&nbsp;:
             <ul>
               <li>407 instances (\(\approx\) 25 par sujets)</li>
               <li>Non exhaustif (11% des états possibles)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-52">
+        <ul>
+          <li>Corpus simulé&nbsp;:
+            <ul>
+              <li>380 instances</li>
+              <li>Exhaustif mais non déterministe</li>
             </ul>
           </li>
         </ul>
@@ -315,10 +522,10 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
   </section>
 
   <section>
-    <h2>Déroulement</h2>
+    <h2>Méthode d'apprentissage</h2>
 
     <div class="row">
-      <div class="col-80 col-center">
+      <div class="col-85 col-center">
         <ol>
           <li>324 états, 32 actions, poids initialisés uniformément</li>
           <li class="fragment fade-in">Un état est fourni au système</li>
@@ -350,7 +557,7 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
   </section>
 
   <section>
-    <h2>Apprentissage</h2>
+    <h2>Résultat de l'apprentissage</h2>
 
     <div class="row">
       <div class="col-69 col-center">
@@ -479,7 +686,7 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
       <div class="col-49">
         <ul class="list-pros-cons">
           <li class="cons">Temps de convergence long</li>
-          <li class="cons">Prise en compte de l'incertitude</li>
+          <li class="cons">Absense de prise en compte de l'incertitude</li>
         </ul>
       </div>
     </div>
@@ -490,19 +697,21 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
   </section>
 
   <section>
-    <h2>POMDP et DNN</h2>
+    <h2>Et après ?</h2>
     <ul>
-      <li>Utilisation des processus de Markov partiellement observable (POMDP) <span class="cite" data-bibkey="zaidenberg:hal-00753245"></span>
+      <li>Utilisation des processus de Markov partiellement observable (POMDP)
         <ul>
           <li>Gestion de l'incertitude</li>
+          <li><span class="cite apalike-style-cite" data-bibkey="zaidenberg:hal-00753245">[<a href="#zaidenberg:hal-00753245">Zaidenberg <em>et al.</em>, 2011</a>]</span></li>
         </ul>
       </li>
     </ul>
 
     <ul>
-      <li>Utilisation de réseaux de neurones <span class="cite" data-bibkey="Mnih2015"></span>
+      <li>Utilisation de réseaux de neurones
         <ul>
           <li>Forte dynamique de recherche</li>
+          <li><span class="cite apalike-style-cite" data-bibkey="Mnih2015">[<a href="#Mnih2015">Mnih <em>et al.</em>, 2015</a>]</span></li>
         </ul>
       </li>
     </ul>
@@ -514,30 +723,50 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
 
 </section>
 
-<section class="inverted begin-autoslide"
-  data-transition-speed="slow">
-  <h1>Merci de votre attention</h1>
-  <h2>Avez-vous des questions&nbsp;?</h2>
+<section>
+  <section class="inverted begin-autoslide"
+    data-transition-speed="slow">
+    <h1>Merci de votre attention</h1>
+    <h2>Avez-vous des questions&nbsp;?</h2>
 
-  <footer style="position: fixed; width: 100%; bottom: -70%;">
-    <p class="text-right">
-      <small>
-        Édité avec <a href="{{ site.url }}"><img src="{{ site.url }}/assets/img/brand/svg/Vinyl-typo-bw-white.svg" alt="Vinyl" title="The Vinyl Logo" style="height: 1em; vertical-align:-6%"/></a>.
-      </small>
-    </p>
-  </footer>
-</section>
+    <footer style="position: fixed; width: 100%; bottom: -70%;">
+      <p class="text-right">
+        <small>
+          Édité avec <a href="{{ site.url }}"><img src="{{ site.url }}/assets/img/brand/svg/Vinyl-typo-bw-white.svg" alt="Vinyl" title="The Vinyl Logo" style="height: 1em; vertical-align:-6%"/></a>.
+        </small>
+      </p>
+    </footer>
+  </section>
 
-<section
-data-transition-speed="slow">
-<h2>Bibliographie</h2>
-<ul id="bibliography"
-  class="small bibliography"
-  data-bibliography-file="{{ site.url }}/assets/biblio/rjcia2016.bib"
-  data-bibliography-style="apalike"
-  data-bibliography-file-format="bibtex"
-</ul>
-</section>
+  <section
+    data-transition-speed="slow">
+    <h2>Bibliographie</h2>
+    <ul class="small list-unstyled m-a-0">
+      <li id="chahuara:hal-00953262" class="apalike-style-citation-item inproceedings-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Chahuara <em>et al.</em>, 2013</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Chahuara,&nbsp;P., Portet,&nbsp;F., and Vacher,&nbsp;M.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">2013</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">Making Context Aware Decision from Uncertain Information in a Smart Home: A Markov Logic Network Approach</span><span class="after">.</span> </span><span class="citation-item-booktitle"><span class="before">In </span><span class="content">Ambient Intelligence</span><span class="after">.</span></span></li>
+      <li id="Kofler2012" class="apalike-style-citation-item article-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Kofler <em>et al.</em>, 2012</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Kofler,&nbsp;M.&nbsp;J., Reinisch,&nbsp;C., and Kastner,&nbsp;W.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">2012</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">A semantic representation of energy-related information in future smart homes</span><span class="after">.</span> </span><span class="citation-item-journal"><span class="content">Energy and Buildings</span><span class="after">,</span> </span><span class="citation-item-volume"><span class="content">47</span></span><span class="citation-item-pages"><span class="before">:</span><span class="content">169–179</span><span class="after">.</span></span></li>
+      <li id="Lee2012" class="apalike-style-citation-item incollection-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Lee <em>et al.</em>, 2012</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Lee,&nbsp;S.&nbsp;H. and Cho,&nbsp;S.&nbsp;B.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">2012</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">Fusion of Modular Bayesian Networks for Context-Aware Decision Making</span><span class="after">.</span> </span><span class="citation-item-editor"><span class="before">In&nbsp;</span><span class="content">Corchado, Emilio, Snášel, Václav, Abraham, Ajith, Wozniak, Michal, Graña, Manuel, and Cho, Sung-Bae</span><span class="after">, editor,</span> </span><span class="citation-item-booktitle"><span class="content">Hybrid Artificial Intelligent Systems</span><span class="after">,</span> </span><span class="citation-item-pages"><span class="before">pages&nbsp;</span><span class="content">375–384</span><span class="after">.</span> </span><span class="citation-item-publisher"><span class="content">Springer Berlin / Heidelberg</span><span class="after">.</span></span></li>
+    </ul>
+  </section>
+
+  <section
+    data-transition-speed="slow">
+    <h2>Bibliographie (cont.)</h2>
+    <ul class="small list-unstyled m-a-0">
+      <li id="Mnih2015" class="apalike-style-citation-item article-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Mnih <em>et al.</em>, 2015</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Mnih,&nbsp;V., Kavukcuoglu,&nbsp;K., Silver,&nbsp;D., Rusu,&nbsp;A.&nbsp;A., Veness,&nbsp;J., Bellemare,&nbsp;M.&nbsp;G., Graves,&nbsp;A., Riedmiller,&nbsp;M., Fidjeland,&nbsp;A.&nbsp;K., and Ostrovski,&nbsp;G.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">2015</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">Human-level control through deep reinforcement learning</span><span class="after">.</span> </span><span class="citation-item-journal"><span class="content">Nature</span><span class="after">,</span> </span><span class="citation-item-volume"><span class="content">518</span></span><span class="citation-item-number"><span class="before">(</span><span class="content">7540</span><span class="after">)</span></span><span class="citation-item-pages"><span class="before">:</span><span class="content">529–533</span><span class="after">.</span></span></li>
+      <li id="Mozer1998" class="apalike-style-citation-item inproceedings-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Mozer, 1998</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Mozer,&nbsp;M.&nbsp;C.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">1998</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">The Neural Network House: An Environment hat Adapts to its Inhabitants</span><span class="after">.</span> </span><span class="citation-item-booktitle"><span class="before">In </span><span class="content">Proc. AAAI Spring Symp. Intelligent Environments</span><span class="after">.</span></span></li>
+      <li id="Sutton2015" class="apalike-style-citation-item misc-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Sutton <em>et al.</em>, 2015</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Sutton,&nbsp;R.&nbsp;S. and Barto,&nbsp;A.&nbsp;G.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">2015</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">Reinforcement Learning: An Introduction</span><span class="after">.</span> </span></li>
+    </ul>
+  </section>
+
+  <section
+    data-transition-speed="slow">
+    <h2>Bibliographie (cont.)</h2>
+    <ul class="small list-unstyled m-a-0">
+      <li id="Watkins1989" class="apalike-style-citation-item phdthesis-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Watkins, 1989</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Watkins,&nbsp;C.&nbsp;J.&nbsp;C.&nbsp;H.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">1989</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">Learning from Delayed Rewards</span><span class="after">.</span> </span><span class="citation-item-school"><span class="before">PhD thesis, </span><span class="content">King's College</span><span class="after">.</span></span></li>
+      <li id="Weiser1991" class="apalike-style-citation-item article-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Weiser, 1991</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Weiser,&nbsp;M.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">1991</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">The computer for the 21st century</span><span class="after">.</span> </span><span class="citation-item-journal"><span class="content">Scientific American</span><span class="after">,</span> </span><span class="citation-item-volume"><span class="content">265</span></span><span class="citation-item-number"><span class="before">(</span><span class="content">3</span><span class="after">)</span></span><span class="citation-item-pages"><span class="before">:</span><span class="content">66&ndash;75</span><span class="after">.</span></span></li>
+      <li id="zaidenberg:hal-00753245" class="apalike-style-citation-item incollection-citation-item"><span class="citation-item-id"><span class="before">[</span><span class="content">Zaidenberg <em>et al.</em>, 2011</span><span class="after">]</span>&nbsp;</span><span class="citation-item-author"><span class="content">Zaidenberg,&nbsp;S. and Reignier,&nbsp;P.</span> </span><span class="citation-item-year"><span class="before">(</span><span class="content">2011</span><span class="after">).</span> </span><span class="citation-item-title"><span class="content">Reinforcement Learning of User Preferences for a Ubiquitous Personal Assistant</span><span class="after">.</span> </span><span class="citation-item-editor"><span class="before">In&nbsp;</span><span class="content">Mellouk, Abdelhamid</span><span class="after">, editor,</span> </span><span class="citation-item-booktitle"><span class="content">Advances in Reinforcement Learning</span><span class="after">,</span> </span><span class="citation-item-pages"><span class="before">pages&nbsp;</span><span class="content">59-80</span><span class="after">.</span> </span><span class="citation-item-publisher"><span class="content">Intech</span><span class="after">.</span></span></li>
+    </ul>
+  </section>
 </section>
 
 <script>
@@ -545,13 +774,11 @@ require(
   ['reveal'],
   function (Reveal) {
     Reveal.addEventListener( 'slidechanged', function( event ) {
+      Reveal.toggleAutoSlide(false);
       if (event.currentSlide.classList.contains("begin-autoslide")) {
         window.slideshowEnd = Reveal.getState();
         Reveal.configure({autoSlide: 10000});
         Reveal.toggleAutoSlide(true);
-      }
-      if (event.currentSlide.id === "end") {
-        Reveal.toggleAutoSlide(false);
       }
     });
   })
