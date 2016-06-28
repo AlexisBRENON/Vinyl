@@ -183,7 +183,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     </div>
 
     <div class="row">
-      <div class="col-100">
+      <div class="col-120">
         <p class="m-t-md text-center text-danger fragment fade-in"
         data-fragment-index="1"><strong>
           Systèmes figés dans le temps<br/>
@@ -239,14 +239,14 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <div class="row">
       <div class="col-80 col-center">
         <ul>
-          <li>Technique d'apprentissage automatique <span class="cite apalike-style-cite" data-bibkey="Sutton2015">[<a href="#Sutton2015">Sutton <em>et al.</em>, 2015</a>]</span>
+          <li class="fragment semi-fade-out" data-fragment-index="1">Technique d'apprentissage automatique <span class="cite apalike-style-cite" data-bibkey="Sutton2015">[<a href="#Sutton2015">Sutton <em>et al.</em>, 2015</a>]</span>
             <ul class="m-b-lg">
               <li>Interactions entre un agent et son environnement</li>
               <li>L'agent est récompensé à chaque étape</li>
               <li>L'agent doit maximiser sa récompense</li>
             </ul>
           </li>
-          <li>Extension des approches classiques&nbsp;: le <em>\(Q\)-Learning</em>
+          <li class="fragment fade-in" data-fragment-index="1">Extension des approches classiques&nbsp;: le <em>\(Q\)-Learning</em>
             <ul>
               <li><span class="cite apalike-style-cite" data-bibkey="Watkins1989">[<a href="#Watkins1989">Watkins, 1989</a>]</span></li>
               <li>Réduction du coût de calcul</li>
@@ -255,7 +255,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           </li>
         </ul>
 
-        <p class="text-center">
+        <p class="text-center fragment fade-in" data-fragment-index="1">
         \( Q^{t+1}_{s_{t},a_{t}} = Q^{t}_{s_{t},a_{t}} + \alpha \left( r(s_t, a_t) + \gamma \max_{a_{t+1}} Q^{t}_{s_{t+1}, a_{t+1}} \right) \)
         </p>
       </div>
@@ -279,7 +279,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 
     <div class="row">
       <div class="col-100">
-        <table class="small text-center">
+        <table class="small text-center" style="line-height: 1.2;">
           <tbody>
             <tr>
               <td style="width: 25%"></td>
@@ -330,7 +330,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
           </tbody>
         </table>
 
-        <div class="fragment fade-in" data-fragment-index="2">
+        <div class="fragment fade-in m-t-lg" data-fragment-index="2">
           \( Q^{t+1}_{s_0,a_1} = Q^{t}_{s_0,a_1} + \alpha \left( r(s_0, a_1) + \gamma \max_{a_{t+1}} Q^{t}_{s_1, a_{t+1}} \right) \) <br/>
           <span style="margin-left: 52px">
             \( = 0 + 1 \times \left( 1 + 0.25 \times 0 \right) = 1 \)
@@ -339,7 +339,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
       </div>
 
       <div class="col-20">
-        <img id="ironman-standup" class="fragment animated custom-fall" data-fragment-index="1"
+        <img id="ironman-standup" class="fragment animated" data-fragment-index="1"
              src="{{ site.url }}/assets/img/rjcia2016/ironman_standup.png"/>
       </div>
     </div>
@@ -352,7 +352,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <div class="row">
       <div class="col-90">
 
-        <table class="small text-center">
+        <table class="small text-center" style="line-height: 1.2;">
           <tbody>
             <tr>
               <td style="width: 25%"></td>
@@ -402,7 +402,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
             </tr>
           </tbody>
         </table>
-        <div class="fragment fade-in" data-fragment-index="2">
+        <div class="fragment fade-in m-t-lg" data-fragment-index="2">
           \( Q^{t+1}_{s_0,a_0} = Q^{t}_{s_0,a_0} + \alpha \left( r(s_0, a_0) + \gamma \max_{a_{t+1}} Q^{t}_{s_2, a_{t+1}} \right) \) <br/>
           <span style="margin-left: 52px">
             \( = 0 + 1 \times \left( -1 + 0.25 \times -100 \right) = -26 \)
@@ -738,7 +738,7 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
     </footer>
   </section>
 
-  <section
+  <section class="begin-autoslide"
     data-transition-speed="slow">
     <h2>Bibliographie</h2>
     <ul class="small list-unstyled m-a-0">
@@ -748,7 +748,7 @@ light - on    kitchen cook  ->  light - on    kitchen - sink
     </ul>
   </section>
 
-  <section
+  <section class="begin-autoslide"
     data-transition-speed="slow">
     <h2>Bibliographie (cont.)</h2>
     <ul class="small list-unstyled m-a-0">
@@ -776,7 +776,6 @@ require(
     Reveal.addEventListener( 'slidechanged', function( event ) {
       Reveal.toggleAutoSlide(false);
       if (event.currentSlide.classList.contains("begin-autoslide")) {
-        window.slideshowEnd = Reveal.getState();
         Reveal.configure({autoSlide: 10000});
         Reveal.toggleAutoSlide(true);
       }
