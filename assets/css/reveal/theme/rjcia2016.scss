@@ -13,3 +13,31 @@ $rvl-text-transform-heading:  none;
 
 // Apply settings
 @import "reveal/theme/template/theme";
+
+@keyframes ironmanSafe {
+  from {
+    transform: translateY(-50%) rotateZ(0deg) scale(0.33);
+  }
+  to {
+    transform: translateY(50%) rotateZ(360deg) scale(0.33);
+  }
+}
+@keyframes ironmanDead {
+  from {
+    transform: translateY(-50%) rotateZ(0deg) scale(0.33);
+  }
+  to {
+    transform: translateY(75%) rotateZ(450deg) scale(0.33);
+  }
+}
+
+#ironman-standup {
+  height: 250px;
+  animation-timing-function: ease-in;
+  animation-name: ironmanSafe;
+}
+#ironman-dead{
+  height: 250px;
+  animation-timing-function: ease-in;
+  animation-name: ironmanDead;
+}
