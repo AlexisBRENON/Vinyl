@@ -41,3 +41,15 @@ $rvl-text-transform-heading:  none;
   animation-timing-function: ease-in;
   animation-name: ironmanDead;
 }
+
+.fragment {
+  &.bg-success, &.bg-danger {
+    transition-property: background-color, color;
+    transition-duration: $rvl-fragment-duration;
+
+    &:not(.visible) {
+      background-color: $rvl-color-root-bg !important;
+      color: $rvl-color-root !important;
+    }
+  }
+}
