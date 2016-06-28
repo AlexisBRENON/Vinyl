@@ -34,7 +34,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   <h2>Plan</h2>
 
   <h4>
-    <ol style="list-style-type: upper-roman;">
+    <ol style="list-style-type: upper-roman; line-height: 1.8;">
       <li>Ma thèse et son contexte</li>
       <li>Prise de décision dans les habitats intelligents</li>
       <li>Méthode et corpus</li>
@@ -46,6 +46,38 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
   <aside class="notes">
     ... J'aimerais commencer par rappeler ce qu'on appelle un habitat intelligent et pourquoi ils sont ces dernière années au cœur de nombreux sujets de recherche. Nous en profiterons pour passer en revue quelques projets qui ont déjà tentés de résoudre le problème de prise de décision dans de tels habitats tout en présentant de nouveaux défis. Alors seulement, je présenterai la méthode que nous avons utilisé dans notre cas ainsi que le contexte dans lequel se déroule l'expérimentation avant d'approfondir son déroulement et ses résultats. Finalement, j'espère amener quelques questions et ouvrir le débat en résumant les avantages et inconvénients de notre approche, et en donnant des pistes d'approfondissement. Mais commençons par le début en présentant ce que nous appelons un habitat intelligent.
   </aside>
+</section>
+
+<section>
+  <h2>Ma thèse et son contexte</h2>
+
+  <div class="row">
+    <div class="col-68">
+      <ul>
+        <li>Projet Investissement d'Avenir
+          <ul>
+            <li>Partenariat avec des industriels</li>
+            <li>Développement d'un système intéractif vocal dans un habitat intelligent</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-48">
+      <ul>
+        <li>1 an et demi de thèse
+          <ul>
+            <li>Reconnaissance d'activité</li>
+            <li>Interactions contextualisées</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-120 text-center">
+      <strong>Adaptation à l'utilisateur lors d'interactions vocales<br/>dans un habitat intelligent</strong>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -144,7 +176,7 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
         <p class="m-t-md text-center text-danger fragment fade-in"
         data-fragment-index="1"><strong>
           Systèmes figés dans le temps<br/>
-          Peu de travaux sur l'adaptation aux changements d'habitudes ou de comportements
+          Peu de travaux sur l'adaptation aux changements d'habitudes<br/>ou de comportements
         </strong></p>
       </div>
     </div>
@@ -229,6 +261,150 @@ hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
     <aside class="notes">
       L'apprentissage par renforcement est une technique d'apprentissage automatique qui permet à un système d'apprendre de son expérience. À chaque itération le système intéragit avec son environnement qui lui retourne son nouvel état et une récompense, positive, négative ou nulle. L'objectif de l'agent est alors d'apprendre une stratégie qui lui permet de maximiser la récompense qu'il obtient. Pour résoudre ce problème, les première approches utilisaient les équation de la programmation dynamique qui ont un coût de calcul théorique considérable. En 89, Watkins a mis au point le Q-Learning, une extension des techniques classiques qui permet de réduire drastiquement le coût de calcul. En effet, dans le cas d'action et d'états discrets, le modèle de Q-valeur peut être représenté dans un tableau à 2 dimensions. La mise à jour de ce modèle est alors relativement aisé puisqu'il s'agit d'une simple recherche de la valeur maximale dans une ligne du tableau. C'est ce que décrit plus précisément l'équation que nous vous présentons ici. Pour pouvoir réaliser cette expérience il nous fallait également des données.
     </aside>
+  </section>
+
+  <section>
+    <h2>Exemple d'application</h2>
+
+    <div class="row">
+      <div class="col-90">
+        <table class="small text-center">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>\( a_0 \)<br/>
+                <small>Ouv. Volets Chambre</small>
+              </td>
+              <td>
+                \(a_1\)<br/>
+                <small>Ouv. Volets Armure</small>
+              </td>
+              <td>
+                \(a_2\)<br/>
+                <small>No-Op</small>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                \(s_0\)<br/>
+                <small>Chute libre</small>
+              </td>
+              <td>0</td>
+              <td>
+                <div style="display: inline-block;position: relative;">
+                  <span style="display: inline-block;position: absolute;width: 100%;" class="fragment fade-out" data-fragment-index="2">0</span>
+                  <span style="display: inline-block;" class="fragment fade-in" data-fragment-index="2"><strong>1</strong></span>
+                </div>
+              </td>
+              <td>-100</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_1\)<br/>
+                <small>Tony est sain et sauf</small>
+              </td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_2\)<br/>
+                <small>Tony est décédé</small>
+              </td>
+              <td>-100</td>
+              <td>-100</td>
+              <td>-100</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="fragment fade-in" data-fragment-index="2">
+          \( Q^{t+1}_{s_0,a_1} = Q^{t}_{s_0,a_1} + \alpha \left( r(s_0, a_1) + \gamma \max_{a_{t+1}} Q^{t}_{s_1, a_{t+1}} \right) \) <br/>
+          <span style="margin-left: 52px">
+            \( = 0 + 1 \times \left( 1 + 0.25 \times 0 \right) = 1 \)
+          </span>
+        </div>
+      </div>
+
+      <div class="col-28">
+        <img id="ironman-standup" class="fragment animated custom-fall" data-fragment-index="1"
+             src="{{ site.url }}/assets/img/rjcia2016/ironman_standup.png"/>
+      </div>
+    </div>
+  
+  </section>
+
+  <section>
+    <h2>Exemple d'application (cont.)</h2>
+
+    <div class="row">
+      <div class="col-90">
+
+        <table class="small text-center">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>\( a_0 \)<br/>
+                <small>Ouv. Volets Chambre</small>
+              </td>
+              <td>
+                \(a_1\)<br/>
+                <small>Ouv. Volets Armure</small>
+              </td>
+              <td>
+                \(a_2\)<br/>
+                <small>No-Op</small>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                \(s_0\)<br/>
+                <small>Chute libre</small>
+              </td>
+              <td>
+                <div style="display: inline-block;position: relative;">
+                  <span style="display: inline-block;position: absolute;width: 100%;" class="fragment fade-out" data-fragment-index="2">0</span>
+                  <span style="display: inline-block;" class="fragment fade-in" data-fragment-index="2"><strong>-26</strong></span>
+                </div>
+              </td>
+              <td>1</td>
+              <td>-100</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_1\)<br/>
+                <small>Tony est sain et sauf</small>
+              </td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>
+                \(s_2\)<br/>
+                <small>Tony est décédé</small>
+              </td>
+              <td>-100</td>
+              <td>-100</td>
+              <td>-100</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="fragment fade-in" data-fragment-index="2">
+          \( Q^{t+1}_{s_0,a_0} = Q^{t}_{s_0,a_0} + \alpha \left( r(s_0, a_0) + \gamma \max_{a_{t+1}} Q^{t}_{s_2, a_{t+1}} \right) \) <br/>
+          <span style="margin-left: 52px">
+            \( = 0 + 1 \times \left( -1 + 0.25 \times -100 \right) = -26 \)
+          </span>
+        </div>
+      </div>
+
+      <div class="col-28">
+        <img id="ironman-dead" class="fragment animated" data-fragment-index="1"
+             src="{{ site.url }}/assets/img/rjcia2016/ironman_standup.png"/>
+      </div>
+    </div>
+  
   </section>
 
   <section>
