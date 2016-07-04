@@ -256,8 +256,8 @@ define(
 # Sort entries alphabetically on first author surname
       sort: (entries) ->
         return entries.sort((e1, e2) ->
-          e1FirstAuthor = e1.author[0].name
-          e2FirstAuthor = e2.author[0].name
+          e1FirstAuthor = e1.author?[0].name
+          e2FirstAuthor = e2.author?[0].name
           if e1FirstAuthor == e2FirstAuthor
             return e1.title > e2.title
           else

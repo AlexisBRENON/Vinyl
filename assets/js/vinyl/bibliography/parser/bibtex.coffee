@@ -16,6 +16,58 @@ define(
     console.log("@@ Vinyl::Bibliography::Parser::BibTex @@ Initialisation...")
 # Let's start extending the abstract base class
     class BibliographyParserBibtex extends BibliographyParserAbstract
+      @specialChars = [
+        #[/(?<!\)({|})/, ''],
+        [/\\%/g, '%'],
+        [/\\\$/g, '$'],
+        [/\\{/g, '{'],
+        [/\\_/g, '_'],
+        [/\\P/g, ''], # TODO
+        [/\\ddag/g, ''], #TODO
+        [/\\textbar/g, '|'],
+        [/\\textgreater/g, '&gt;'],
+        [/\\textendash/g, '&ndash;'],
+        [/--/g, '&ndash;'],
+        [/\\texttrademark/g, ''], #TODO
+        [/\\textexclamdown/g, '¡'],
+        [/\\textsuperscript{(\w*)}/g, '<sup>$1</sup>'],
+        [/\\pounds/g, '£'],
+        [/\\#/g, '#'],
+        [/\\&/g, '&amp;'],
+        [/\\}/g, '}'],
+        [/\\S/g, '§'],
+        [/\\dag/g, ''], #TODO
+        [/\\textbackslash/g, '\\'],
+        [/\\textless/g, '&lt;'],
+        [/\\textemdash/g, '&mdash;'],
+        [/---/g, '&mdash'],
+        [/\\textregistered/g, ''], # TODO
+        [/\\textquestiondown/g, '¿'],
+        [/\\textcircled{(\w*)}/g, '$1'], #TODO
+        [/\\textcopyright/g, ''], #TODO
+        [/\\textasciitilde{}/g, '~'],
+        # Diacritics
+        [/\\`{(.?)}/g, '$1&#x0300;'],
+        [/\\'{(.?)}/g, '$1&#x0301;'],
+        [/\\^{(.?)}/g, '$1&#x0302;'],
+        [/\\"{(.?)}/g, '$1&#x0308;'],
+        [/\\H{(.?)}/g, '$1&#x030B;'],
+        [/\\~{(.?)}/g, '$1&#x0303;'],
+        [/\\c{(.?)}/g, '$1&#x0327;'],
+        [/\\k{(.?)}/g, '$1&#x0328;'],
+        [/\\l{(.?)}/g, '$1&#x0335;'],
+        [/\\={(.?)}/g, '$1&#x0304;'],
+        [/\\b{(.?)}/g, '$1&#x0331;'],
+        [/\\\.{(.?)}/g, '$1&#x0307;'],
+        [/\\d{(.?)}/g, '$1&#x0323;'],
+        [/\\r{(.?)}/g, '$1&#x030A;'],
+        [/\\u{(.?)}/g, '$1&#x0306;'],
+        [/\\v{(.?)}/g, '$1&#x030C;'],
+        [/\\t{(..)}/g, '$1&#x0361;'],
+        [/\\aa/g, 'a&#x030A;'],
+        [/\\o/g, 'o&#x337;']
+      ]
+
       constructor: () ->
         super("BibliographyParserBibtex")
 
@@ -68,21 +120,21 @@ define(
 # Separate each author
 # TODO: handle case were the separator is not 'and'
             for author in entry.entryTags.author.split(" and ")
-              jsonEntry.author.push(this.parseName(author))
+              jsonEntry.author.push(this.parseName(@fixSpecialChars(author)))
             delete entry.entryTags.author
 
 # Do the same for the editor field
           if entry.entryTags.editor?
             jsonEntry.editor = []
             for editor in entry.entryTags.editor.split(" and ")
-              jsonEntry.editor.push(this.parseName(editor))
+              jsonEntry.editor.push(this.parseName(@fixSpecialChars(editor)))
             delete entry.entryTags.editor
 
 # If journal is present, then add volume and pages to it
 # TODO: do what is written in comments ;-)
           if entry.entryTags.journal?
             jsonEntry.journal = {
-              name: entry.entryTags.journal,
+              name: @fixSpecialChars(entry.entryTags.journal),
             }
             delete entry.entryTags.journal
 
@@ -96,8 +148,9 @@ define(
         @parsedBibliography = jsonBib
 
       fixSpecialChars: (text) ->
-        text = text.replace(/--/g, "&ndash;")
-        text = text.replace(/---/g, "&mdash;")
+        for specialChar in BibliographyParserBibtex.specialChars
+          text = text.replace(specialChar[0], specialChar[1])
+        return text
 
     console.log("@@ Vinyl::Bibliography::Parser::BibTex @@ Initialisation: DONE")
     return BibliographyParserBibtex

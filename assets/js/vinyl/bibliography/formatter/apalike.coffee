@@ -251,12 +251,17 @@ define(
           else if e2.year? and not e1.year?
             return true
           else
-            e1FirstAuthor = e1.author[0].name
-            e2FirstAuthor = e2.author[0].name
-            if e1FirstAuthor == e2FirstAuthor
-              return e1.title > e2.title
+            if e1.author? and not e2.author?
+              return false
+            else if e2.author? and not e1.author?
+              return true
             else
-              return e1FirstAuthor > e2FirstAuthor
+              e1FirstAuthor = e1.author[0].name
+              e2FirstAuthor = e2.author[0].name
+              if e1FirstAuthor == e2FirstAuthor
+                return e1.title > e2.title
+              else
+                return e1FirstAuthor > e2FirstAuthor
         )
 
 # The ID of an entry for APA like is the last name of the first author followed by 'et al.' if there
