@@ -18,33 +18,31 @@ define(
     class BibliographyParserBibtex extends BibliographyParserAbstract
       @specialChars = [
         #[/(?<!\)({|})/, ''],
-        [/\\%/g, '%'],
-        [/\\\$/g, '$'],
-        [/\\{/g, '{'],
-        [/\\_/g, '_'],
-        [/\\P/g, ''], # TODO
-        [/\\ddag/g, ''], #TODO
-        [/\\textbar/g, '|'],
-        [/\\textgreater/g, '&gt;'],
-        [/\\textendash/g, '&ndash;'],
-        [/\\texttrademark/g, ''], #TODO
-        [/\\textexclamdown/g, '¡'],
+        [/\\%({})?/g, '%'],
+        [/\\\$({})?/g, '$'],
+        [/\\_({})?/g, '_'],
+        [/\\P({})?/g, ''], # TODO
+        [/\\ddag({})?/g, ''], #TODO
+        [/\\textbar({})?/g, '|'],
+        [/\\textgreater({})?/g, '&gt;'],
+        [/\\textendash({})?/g, '&ndash;'],
+        [/\\texttrademark({})?/g, ''], #TODO
+        [/\\textexclamdown({})?/g, '¡'],
         [/\\textsuperscript{(\w*)}/g, '<sup>$1</sup>'],
-        [/\\pounds/g, '£'],
-        [/\\#/g, '#'],
-        [/\\&/g, '&amp;'],
-        [/\\}/g, '}'],
-        [/\\S/g, '§'],
-        [/\\dag/g, ''], #TODO
-        [/\\textbackslash/g, '\\'],
-        [/\\textless/g, '&lt;'],
-        [/\\textemdash/g, '&mdash;'],
-        [/\\textregistered/g, ''], # TODO
-        [/\\textquestiondown/g, '¿'],
+        [/\\pounds({})?/g, '£'],
+        [/\\#({})?/g, '#'],
+        [/\\&({})?/g, '&amp;'],
+        [/\\S({})?/g, '§'],
+        [/\\dag({})?/g, ''], #TODO
+        [/\\textbackslash({})?/g, '\\'],
+        [/\\textless({})?/g, '&lt;'],
+        [/\\textemdash({})?/g, '&mdash;'],
+        [/\\textregistered({})?/g, ''], # TODO
+        [/\\textquestiondown({})?/g, '¿'],
         [/\\textcircled{(\w*)}/g, '$1'], #TODO
-        [/\\textcopyright/g, ''], #TODO
+        [/\\textcopyright({})?/g, ''], #TODO
         [/\\textasciitilde{}/g, '~'],
-        [/---/g, '&mdash'],
+        [/---/g, '&mdash;'],
         [/--/g, '&ndash;'],
         [/`(.*?)'/g, '<q>$1</q>'],
         # Diacritics
@@ -59,7 +57,7 @@ define(
         [/\\u{(.?)}/g, '$1&#x0306;'],
         [/\\v{(.?)}/g, '$1&#x030C;'],
         [/\\H{(.?)}/g, '$1&#x030B;'],
-        [/\\t{(..)}/g, '$1&#x0361;'],
+        [/\\t{(.)(.)}/g, '$1&#x0361;$2'],
         [/\\c{(.?)}/g, '$1&#x0327;'],
         [/\\d{(.?)}/g, '$1&#x0323;'],
         [/\\b{(.?)}/g, '$1&#x0331;'],
@@ -75,7 +73,17 @@ define(
         [/\\O({})?/g, 'O&#x337;'],
         [/\\l({})?/g, 'l&#x0335;'],
         [/\\L({})?/g, 'L&#x0335;'],
-        [/\\ss({})?/g, '&#x00DF;'],
+        [/\\ss({})?/g, '&#x00DF;']
+      ]
+      @allBraces = [
+        [/([^\\])({|})/g, '$1'],
+        [/^{/g, ''],
+        [/\\{/g, '{'],
+        [/\\}/g, '}']
+      ]
+      @literalBraces = [
+        [/\\{/g, '{'],
+        [/\\}/g, '}']
       ]
 
       constructor: () ->
@@ -132,36 +140,38 @@ define(
 # Separate each author
 # TODO: handle case were the separator is not 'and'
             for author in entry.entryTags.author.split(" and ")
-              jsonEntry.author.push(this.parseName(@fixSpecialChars(author)))
+              jsonEntry.author.push(this.parseName(@fixSpecialChars(author, false)))
             delete entry.entryTags.author
 
 # Do the same for the editor field
           if entry.entryTags.editor?
             jsonEntry.editor = []
             for editor in entry.entryTags.editor.split(" and ")
-              jsonEntry.editor.push(this.parseName(@fixSpecialChars(editor)))
+              jsonEntry.editor.push(this.parseName(@fixSpecialChars(editor, false)))
             delete entry.entryTags.editor
 
 # If journal is present, then add volume and pages to it
 # TODO: do what is written in comments ;-)
           if entry.entryTags.journal?
             jsonEntry.journal = {
-              name: @fixSpecialChars(entry.entryTags.journal),
+              name: @fixSpecialChars(entry.entryTags.journal, true),
             }
             delete entry.entryTags.journal
 
 # Finally, add the other fields
           for key, value of entry.entryTags
-            jsonEntry[key] = @fixSpecialChars(value)
+            jsonEntry[key] = @fixSpecialChars(value, true)
 
 # Add it in an object
           jsonBib[jsonEntry.id] = jsonEntry
 # Save the dictionary
         @parsedBibliography = jsonBib
 
-      fixSpecialChars: (text) ->
+      fixSpecialChars: (text, removeBraces) ->
         for specialChar in BibliographyParserBibtex.specialChars
           text = text.replace(specialChar[0], specialChar[1])
+        for brace in (if removeBraces then BibliographyParserBibtex.allBraces else BibliographyParserBibtex.literalBraces)
+          text = text.replace(brace[0], brace[1])
         return text
 
     console.log("@@ Vinyl::Bibliography::Parser::BibTex @@ Initialisation: DONE")
