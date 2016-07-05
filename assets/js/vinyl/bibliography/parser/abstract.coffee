@@ -39,16 +39,22 @@ define(
         lastname = []
         firstname = []
         middlename = []
-        braceGoto = 'last'
+        braceGoto = 'first'
         lowerGoto = 'von'
         upperGoto = 'first'
+        forceGoto = false
         for name, i in splitted_name[0..-2]
           first_char = name.charAt(0)
-          if first_char == "{"
+          last_char = name[-1..][0]
+          if first_char == "{" or forceGoto
             if braceGoto == 'last'
               lastname.push(name.replace(/^{|}$/gm, ''))
             else if braceGoto == 'first'
               firstname.push(name.replace(/^{|}$/gm, ''))
+            if last_char != '}'
+              forceGoto = true
+            else if last_char == '}'
+              forceGoto = false
           else if first_char == first_char.toUpperCase()
             if upperGoto == 'first'
               braceGoto = "first"
@@ -65,6 +71,7 @@ define(
           else if first_char == first_char.toLowerCase()
             middlename.push(name)
             upperGoto = "von"
+            braceGoto = "last"
 
         lastname.push(splitted_name[-1..][0])
 
@@ -81,7 +88,7 @@ define(
           lastname: lastname,
           suffix: null
         }
-  
+
       # parse 'de La Fontaine, Jean'
       parseMLFName: (splitted_name) ->
         firstname = splitted_name[1].split(' ')
