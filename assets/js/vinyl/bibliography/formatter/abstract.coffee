@@ -296,10 +296,10 @@ define(
       @formatAuthorFirstnameSurname: (authors) ->
         fullname = (author) ->
           (
-            (if authors[0].firstname? then authors[0].firstname + " " else "") +
-            (if authors[0].middlename? then authors[0].middlename + " " else "") +
-            (if authors[0].lastname? then authors[0].lastname else "") +
-            (if authors[0].suffix? then ",&nbsp;" + authors[0].suffix else "")
+            (if author.firstname? then author.firstname + " " else "") +
+            (if author.middlename? then author.middlename + " " else "") +
+            (if author.lastname? then author.lastname else "") +
+            (if author.suffix? then ",&nbsp;" + author.suffix else "")
           )
         if authors.length == 1
           result = fullname(authors[0])

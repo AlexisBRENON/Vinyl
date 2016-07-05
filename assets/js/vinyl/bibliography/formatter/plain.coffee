@@ -256,12 +256,29 @@ define(
 # Sort entries alphabetically on first author surname
       sort: (entries) ->
         return entries.sort((e1, e2) ->
-          e1FirstAuthor = e1.author?[0].name
-          e2FirstAuthor = e2.author?[0].name
-          if e1FirstAuthor == e2FirstAuthor
-            return e1.title > e2.title
+          e1item = if e1.author?[0].lastname? then e1.author?[0].lastname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
+          e2item = if e2.author?[0].lastname? then e2.author?[0].lastname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
+          if e1item == e2item
+            e1item = if e1.author?[0].firstname? then e1.author?[0].firstname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
+            e2item = if e2.author?[0].firstname? then e2.author?[0].firstname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
+            if e1item == e2item
+              e1item = e1.title.toLowerCase()
+              e2item = e2.title.toLowerCase()
+              return if e1item > e2item then 1 else -1
+            else
+              if not e1item?
+                return -1 # undefined is always smaller than anything else
+              else if not e2item?
+                return 1
+              else
+                return if e1item > e2item then 1 else -1
           else
-            return e1FirstAuthor > e2FirstAuthor
+            if not e1item?
+              return -1 # undefined is always smaller than anything else
+            else if not e2item?
+              return 1
+            else
+              return if e1item > e2item then 1 else -1
         )
 
 # Here the id is just an integer. We enclose it in brackets and set some classes to style it.
