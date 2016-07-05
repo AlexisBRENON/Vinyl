@@ -53,7 +53,7 @@ define(
 # Start by sorting entries. Some formatters list references by apparition order, others
 # by authors name, etc. The sort function will be overriden by formatter to meet their
 # needs.
-        for entry in @sort(entries)
+        for entry in @sort(entries.slice())
 # Here we avoid duplicated reference if two citation refer to the same reference.
           if entry.id not in alreadySeenKeys
             alreadySeenKeys.push(entry.id)
@@ -61,6 +61,7 @@ define(
 # Create the content of the item. The construction is a little bit complicated, so the
 # definition is in a separate function
             item = @createItem(entry)
+            entry.item = item
 
 # Actually create the list item element and add ID and classes
             element = document.createElement('li')
@@ -76,17 +77,20 @@ define(
 # entry field.
             $(element).append(item.elements[field]) for field in item.fields
 
-# This call will add indexes in the document where there are citations of this entry
-            @updateReferences(entry, item.elements.id)
-
             items.push(element)
+
+        for entry in entries
+          # This call will add indexes in the document where there are citations of this entry
+          @updateReferences(entry, entry.item.elements.id)
+          delete entry.item
+
         return items
 
 # This function, as the prevous one hasn't to be overriden. It walks through every citation
 # refering to the `entry` and create an anchor element containing reference id (refered
 # as itemId) which link to the reference.
       updateReferences: (entry, itemId) ->
-          for inTextRef in $("span.cite[data-bibkey~='#{entry.id}']")
+          for inTextRef in $("span.cite[data-bibkey*='#{entry.id}']")
             $(inTextRef).addClass("#{this.constructor.formatterName}-style-cite") # Style it according to the formatter
 # Get the id elements
             beforeText = $(itemId).children('.before').html()

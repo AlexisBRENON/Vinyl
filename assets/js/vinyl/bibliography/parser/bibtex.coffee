@@ -108,6 +108,8 @@ define(
 # Convert the returned JSON from bibtexParse to JSON agreeing the bibjson schema.
         jsonBib = {}
         for entry in @parsedBibliography
+          if entry.entryType == "comment"
+            continue
           jsonEntry = {}
 # Get the mandatory tags
           jsonEntry.id = entry.citationKey

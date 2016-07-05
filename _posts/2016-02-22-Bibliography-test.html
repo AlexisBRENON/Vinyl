@@ -1,5 +1,4 @@
 ---
-layout: poster 
 categories: ['demo']
 lang: en
 title: "Bibliography demo"
@@ -8,32 +7,43 @@ theme: /assets/css/poster/theme/default.css
 hljsTheme: /assets/libs/reveal.js/lib/css/zenburn.css
 ---
 
-<main>
+<!DOCTYPE html>
 
-<section>
-  <p>
-  <span class="cite" data-bibkey="Rao04"></span>
-  <span class="cite" data-bibkey="Das2006"></span>
-  <span class="cite" data-bibkey="Bruckner2012"></span>
-  <span class="cite" data-bibkey="Ducatel2001"></span>
-  <span class="cite" data-bibkey="Blachon2016"></span>
-  <span class="cite" data-bibkey="Atlas1990"></span>
-  <span class="cite" data-bibkey="Cheng2013a"></span>
-  <span class="cite" data-bibkey="Angluin1988"></span>
-  <span class="cite" data-bibkey="bellman1978"></span>
-  <span class="cite" data-bibkey="Cook2003"></span>
-  <span class="cite" data-bibkey="Chuahuara2015"></span>
-  <span class="cite" data-bibkey="ChahuaraQuispe2013"></span>
-  <span class="cite" data-bibkey="Bouneffouf2014"></span>
-  </p>
-</section>
+<html lang="{{ page.lang }}">
 
-<footer>
-  <ul id="bibliography"
-      class="bibliography"
-      data-bibliography-file="{{site.url}}/assets/biblio/test.bib">
-  </ul>
-</footer>
+  <head>
+    <title>{{ page.title }} - Vinyl</title>
+    <link rel="icon" href="{{site.url}}/assets/img/brand/png/32/Vinyl-logo-color-black-32.png" type="image/png" />
+    <meta charset="utf-8">
 
-</main>
+    <!-- RequireJS -->
+    <script type="text/javascript" src="{{ site.url }}/assets/libs/requirejs/require.js"></script>
+    <script type="text/javascript" src="{{site.url}}/assets/js/config.js"></script>
+    <script type="text/javascript" async src="{{ site.url }}/assets/js/main.js"></script>
 
+    <!-- Vinyl CSS -->
+    <link rel="stylesheet" href="{{site.url}}/assets/css/vinyl.css"/>
+  </head>
+
+  <body class="poster a0">
+
+    <main>
+
+    <section>
+      <p>
+      <span class="cite" data-bibkey="diacritics,bs-1629,bs-5605,bs-6371,butcher-81,chicago-82,howells-51,howells-66-pop,howells-66-var,johnson-74,johnson-howells,johnson-etc,anon-67,aslin-49,fletcher-hopkins,hanson-67,wright-63,feigl-58,hoel-71-whole,hoel-71-portion,singer-whole,singer-portion-chapter,singer-portion-volume,bs-2570-manual,bs-2570-techreport,bs-2570-inbook,ellis-walton,godfrey-59,ramsbottom-31,hanlon-72,winget-67,bry-afflerbach,ranganathan-51,mccolvin-nodate,exchequer-34-39,traquair-38,pym-24,croft-78,darcy-20-amaz,darcy-20-again,jones-n-h-r,jones-s-r,jones-65,jones-69,jones-abrams,jones-smith,jones-a-s,bloggs-60,bloggs-61,bloggs-jones,bloggs-s-j,brown-f-s,eckstein-zuckerman,heller-lederis,wood-61,pratt-75,light-72,light-wong,kingston-76,kelley-96-spring,kelley-96-autumn,kelley-07,strong-01,strong-02,shotwell-01,brunswick-85,kendeigh-52,chapman-75,hershkovitz-62,wright-78-book,wright-78-incollection,ogilvy-65,mcneill-63,thomson-71,gordon-75,milton-24,chomsky-73,chave-64,smart-76,jackson-79,prufer-64,mann-68,maguire-76,downes-74,hunt-76"></span>
+      </p>
+    </section>
+
+    <footer>
+      <ul id="bibliography"
+          class="bibliography"
+          data-bibliography-file="{{site.url}}/assets/biblio/test.bib"
+          data-bibliography-style="plain">
+      </ul>
+    </footer>
+
+    </main>
+
+  </body>
+</html>

@@ -47,7 +47,7 @@ define(
             for ref, refIndex in inTextRefs
 # For every citation, we get bibkeys (it may have multiple bibkeys for one citation
 # element)
-              bibKeys = $(ref).attr("data-bibkey").split(' ')
+              bibKeys = $(ref).attr("data-bibkey").split(/[, ]/)
               for bibKey in bibKeys
                 if parsedBibliography[bibKey]?
 # If the bibkey exist in the parsed file, save the corresponding bibliography entry
@@ -82,4 +82,3 @@ define(
       run: createBibliography
     }
 )
-
