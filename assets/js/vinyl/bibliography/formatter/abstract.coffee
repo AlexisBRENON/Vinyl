@@ -294,11 +294,19 @@ define(
 # As for both functions above, this function formats authors list returning Firstname and
 # Surname.
       @formatAuthorFirstnameSurname: (authors) ->
+        fullname = (author) ->
+          (
+            (if authors[0].firstname? then authors[0].firstname + " " else "") +
+            (if authors[0].middlename? then authors[0].middlename + " " else "") +
+            (if authors[0].lastname? then authors[0].lastname else "") +
+            (if authors[0].suffix? then ",&nbsp;" + authors[0].suffix else "")
+          )
         if authors.length == 1
-          result = authors[0].name
+          result = fullname(authors[0])
         else
-          result = (author.name for author in authors)[0..-2].join(', ')
-          result += ", and #{authors[-1..][0].name}"
+          result = (fullname(author) for author in authors)[0..-2].join(', ')
+          lastauthor = authors[-1..][0]
+          result += ", and " + fullname(lastauthor)
         return result
 )
 
