@@ -256,14 +256,14 @@ define(
 # Sort entries alphabetically on first author surname
       sort: (entries) ->
         return entries.sort((e1, e2) ->
-          e1item = if e1.author?[0].lastname? then e1.author?[0].lastname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
-          e2item = if e2.author?[0].lastname? then e2.author?[0].lastname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
+          e1item = if e1.author?[0].lastname? then e1.author?[0].lastname.toLowerCase().replace(/^[ `'"]|[ `'"]$|<\/?[-A-Za-z0-9 ]*>/gm, '')
+          e2item = if e2.author?[0].lastname? then e2.author?[0].lastname.toLowerCase().replace(/^[ `'"]|[ `'"]$|<\/?[-A-Za-z0-9 ]*>/gm, '')
           if e1item == e2item
-            e1item = if e1.author?[0].firstname? then e1.author?[0].firstname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
-            e2item = if e2.author?[0].firstname? then e2.author?[0].firstname.toLowerCase().replace(/^[ `'"]|[ `'"]$/, '')
+            e1item = if e1.author?[0].firstname? then e1.author?[0].firstname.toLowerCase().replace(/^[ `'"]|[ `'"]$|<\/?[-A-Za-z0-9 ]*>/gm, '')
+            e2item = if e2.author?[0].firstname? then e2.author?[0].firstname.toLowerCase().replace(/^[ `'"]|[ `'"]$|<\/?[-A-Za-z0-9 ]*>/gm, '')
             if e1item == e2item
-              e1item = e1.title.toLowerCase()
-              e2item = e2.title.toLowerCase()
+              e1item = e1.title.toLowerCase().replace(/^[ `'"]|[ `'"]$|<\/?[-A-Za-z0-9 ]*>/gm, '')
+              e2item = e2.title.toLowerCase().replace(/^[ `'"]|[ `'"]$|<\/?[-A-Za-z0-9 ]*>/gm, '')
               return if e1item > e2item then 1 else -1
             else
               if not e1item?

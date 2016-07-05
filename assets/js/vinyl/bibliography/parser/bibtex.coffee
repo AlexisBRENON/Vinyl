@@ -27,7 +27,6 @@ define(
         [/\\textbar/g, '|'],
         [/\\textgreater/g, '&gt;'],
         [/\\textendash/g, '&ndash;'],
-        [/--/g, '&ndash;'],
         [/\\texttrademark/g, ''], #TODO
         [/\\textexclamdown/g, '¡'],
         [/\\textsuperscript{(\w*)}/g, '<sup>$1</sup>'],
@@ -40,18 +39,21 @@ define(
         [/\\textbackslash/g, '\\'],
         [/\\textless/g, '&lt;'],
         [/\\textemdash/g, '&mdash;'],
-        [/---/g, '&mdash'],
         [/\\textregistered/g, ''], # TODO
         [/\\textquestiondown/g, '¿'],
         [/\\textcircled{(\w*)}/g, '$1'], #TODO
         [/\\textcopyright/g, ''], #TODO
         [/\\textasciitilde{}/g, '~'],
+        [/---/g, '&mdash'],
+        [/--/g, '&ndash;'],
+        [/`(.*?)'/g, '<q>$1</q>'],
         # Diacritics
         [/\\`{(.?)}/g, '$1&#x0300;'],
         [/\\'{(.?)}/g, '$1&#x0301;'],
         [/\\\^{(.?)}/g, '$1&#x0302;'],
         [/\\"{(.?)}/g, '$1&#x0308;'],
         [/\\~{(.?)}/g, '$1&#x0303;'],
+        [/~/g, '&nbsp;'],
         [/\\={(.?)}/g, '$1&#x0304;'],
         [/\\\.{(.?)}/g, '$1&#x0307;'],
         [/\\u{(.?)}/g, '$1&#x0306;'],
