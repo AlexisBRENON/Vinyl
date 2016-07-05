@@ -168,7 +168,8 @@ define(
 # The field is transformed by the `format`
               contentText = @format(
                 field.field,
-                if field.function? then field.function(entry) else entry[field.field] # TODO: What is the difference between field.function and format function
+                #if field.function? then field.function(entry) else entry[field.field] # TODO: What is the difference between field.function and format function
+                entry[field.field]
               )
               $(content).addClass("content")
               $(content).html(contentText)
